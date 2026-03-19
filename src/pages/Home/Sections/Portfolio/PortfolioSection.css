@@ -153,6 +153,11 @@
   gap: 16px;
 }
 
+.portfolio-grid .venture-card:nth-child(1),
+.portfolio-grid .venture-card:nth-child(2) {
+
+}
+
 /* ── Footer ── */
 .portfolio-footer {
   margin-top: 52px;

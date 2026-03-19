@@ -176,36 +176,51 @@ All routes use `RootLayout` (Navbar + Footer) as parent via `<Outlet />`.
 **Purpose**: Full-viewport landing section with animated floating glass cards and stats.
 
 **Key data**:
-- `BARS`: [38, 62, 44, 80, 52, 94, 68] — bar chart heights
-- `SPARKDATA`: [22, 35, 28, 45, 38, 55, 48, 62, 58, 72] — sparkline points
+- `BARS`: [38, 62, 44, 80, 52, 94, 68] — bar chart heights (used in mobile notification card)
+- `SPARKDATA`: [22, 35, 28, 45, 38, 55, 48, 62, 58, 72] — sparkline points (used in mobile countries card)
 - `CATEGORIES`: 3 items with color dots (blue, green, amber)
 - `TAGS`: ["E-Commerce", "Logistics", "IT & Digital", "B2B Trade", "Comms", "Trading"]
 - `AVATARS`: 4 items with initials + gradient backgrounds
 - `STATS`: 40K+ users, 2300+ signups, $4.6B volume
 
 **Layout**:
-- Desktop: Globe center + 4 absolute-positioned floating glass cards
-- Mobile: 4×2 grid of glass cards (no globe)
+- Desktop: 2-column flex — `.hero-left` (text/CTAs, 520px) + `.hero-right` (relative 530px container with 4 absolute-positioned cards)
+- Globe (`/videos/globe.mp4`) lives inside the Countries card (not centered standalone)
+- Mobile (≤768px): `.hero-right` hidden, `.hero-mobile-grid` shown — 2×2 grid of 4 compact cards
 
-**4 floating cards**:
-1. Countries of Operation — Counter(8), sparkline, country tags
-2. Portfolio Growth — Counter(7), bar chart, category rows
-3. New Venture Notification — rocket emoji, venture name, growing bar
-4. Sectors — 6 tag pills, live pulsing dot
+**CTA buttons** (in `.hero-ctas`):
+- "Explore Portfolio →" → `/portfolio` (dark pill)
+- "Our Story" → `/about` (ghost pill)
+
+**4 desktop floating cards** (all absolutely positioned within `.hero-right`):
+1. **Countries of Operation** — Globe video, Counter(7), label "Countries of operation"
+2. **Portfolio Growth** — Counter(8), "Ventures across 7 countries", 10-bar chart `[30,45,35,55,42,65,50,80,60,100]`, 3 CATEGORIES rows
+3. **New Venture Notification** — rocket emoji, "Tezz Logistics · India"
+4. **Sectors (dark)** — 6 TAGS pills, no live dot on desktop
+
+**Mobile grid cards** (use Tailwind utility classes directly in JSX — exception to convention):
+1. Countries — Counter(4), Sparkline, UAE/India/KSA/UK tags
+2. Portfolio — Counter(8), 10-bar chart
+3. Notification — rocket icon, Tezz Logistics, BARS chart, "↑ 12.4% this month"
+4. Sectors (dark) — TAGS pills + live-dot
 
 **Animations (CSS keyframes in Hero.css)**:
 - `floatA` — 5.5s vertical bounce (−10px at 50%)
 - `floatB` — 7s vertical bounce (−7px at 50%)
-- `pulseRing` — scale 1→1.55 with fade (3.6s, repeating)
 - `growBar` — scaleY 0→1 for bar charts
 - `pulseDot` — opacity pulse for live indicators (1.8s)
 - `shimmer` — gradient text animation on h1 spans
+- `shimmer-blue` / `shimmer-amber` — CSS classes for heading `<em>` elements
 
 **Sub-components**:
 - `Counter` — Framer Motion animated number, supports prefix/suffix/delay
 - `Sparkline` — SVG line+fill chart with linearGradient
 
 **Background**: `.fin-bg` fixed radial gradients (blue/cyan/white) + `.fin-grain` noise overlay (opacity 0.25)
+
+**Known issues in Hero.jsx**:
+- Unused import: `BiBorderRadius` from `react-icons/bi` (line 6)
+- Mobile grid cards use Tailwind utility classes inline (inconsistent with project convention)
 
 ---
 
@@ -326,14 +341,25 @@ All routes use `RootLayout` (Navbar + Footer) as parent via `<Outlet />`.
 - Full codebase scan and deep analysis of every file
 - Updated `CLAUDE.md` with comprehensive record of everything built
 
+### Session 3 — 2026-03-19
+
+- Hero.jsx reworked to 2-column layout (`.hero-left` text + `.hero-right` absolute cards)
+- Globe moved into Countries card instead of standalone center element
+- Mobile responsive grid added (2×2, 4 compact cards, hidden on desktop)
+- CTA buttons now link to `/portfolio` and `/about` (was `/pitch` and `/contact`)
+- Counters swapped: Countries = 7, Portfolio = 8
+- Portfolio bars updated to 10-item array
+- Updated `CLAUDE.md` to reflect all current state
+
 ---
 
 ## Pending / Next Steps
 
 - [ ] Build out `/about` page (currently stub)
-- [ ] Build `/pitch` and `/contact` pages (referenced in Hero CTAs, routes missing)
-- [ ] Add responsive / mobile styles across Hero, Portfolio sections
-- [ ] Polish Hero section (any remaining visual tweaks)
+- [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →", not created yet)
+- [ ] Build `/contact` page (referenced in Navbar)
+- [ ] Clean up Hero.jsx: remove unused `BiBorderRadius` import
+- [ ] Migrate Hero mobile grid inline Tailwind → CSS classes (for consistency)
 - [ ] Portfolio card hover state & animation review
 - [ ] Fix: `index.html` references `/logo-dark.png` for dark mode favicon — file does not exist in `public/`
 - [ ] Fix: `App.jsx` is unused but imports a missing `App.css` — clean up or remove
