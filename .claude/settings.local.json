@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:thescooda.com)",
+      "WebFetch(domain:tezzlogistics.in)",
+      "WebFetch(domain:hooqx.com)",
+      "WebFetch(domain:www.tradeflink.com)",
+      "WebFetch(domain:calltawk.com)",
+      "WebFetch(domain:gobongo.shop)",
+      "WebFetch(domain:www.gmitrading.me)"
+    ]
+  }
+}
