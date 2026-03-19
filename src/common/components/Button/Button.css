@@ -56,6 +56,32 @@
   transform: translateY(-1px);
 }
 
+/* ── Blue (brand gradient, for dark backgrounds) ── */
+.btn-blue {
+  color: white;
+  padding: 11px 28px;
+  background: linear-gradient(135deg, #1A56E8 0%, #3B6FF0 100%);
+  box-shadow: 0 4px 20px rgba(26,86,232,0.35);
+}
+.btn-blue:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+.btn-blue:active { transform: scale(0.97); }
+
+/* ── Outline-dark (white border, for dark backgrounds) ── */
+.btn-outline-dark {
+  color: white;
+  padding: 11px 24px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 400;
+}
+.btn-outline-dark:hover {
+  background: rgba(255,255,255,0.06);
+  transform: none;
+}
+
 /* ── Sizes ── */
 .btn-sm  { font-size: 12px; padding: 8px 20px; }
 .btn-md  { font-size: 13px; padding: 11px 28px; }

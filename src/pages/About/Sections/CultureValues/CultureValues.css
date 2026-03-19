@@ -1,0 +1,121 @@
+/* ── CultureValues ── */
+.culture-outer { background: var(--bg-main); }
+
+.culture-sec {
+  padding: 100px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.culture-header { max-width: 580px; margin-bottom: 48px; }
+
+.culture-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.culture-h em { font-style: italic; color: var(--brand-blue); }
+
+/* ── Values grid ── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-main);
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+}
+
+.val-card {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border-main);
+  transition: background 0.2s;
+}
+.val-card:last-child { border-right: none; }
+.val-card:hover { background: var(--brand-blue-l); }
+
+.val-card__num {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+  font-family: 'Sora', sans-serif;
+}
+.val-card__icon { font-size: 32px; margin-bottom: 16px; }
+.val-card__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.val-card__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── Culture pull ── */
+.culture-pull {
+  background: var(--bg-card);
+  border: 1px solid var(--border-main);
+  border-radius: 28px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.cp-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+.cp-quote em { color: var(--brand-blue); font-style: italic; }
+
+.cp-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cp-stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.cp-stat-l {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .culture-sec { padding: 64px 24px; }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 16px;
+  }
+  .val-card:nth-child(even) { border-right: none; }
+  .val-card:nth-child(1),
+  .val-card:nth-child(2) { border-bottom: 1px solid var(--border-main); }
+  .culture-pull {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+}

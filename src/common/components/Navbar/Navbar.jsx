@@ -1,12 +1,25 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button/Button";
 
-const NAV_LINKS = ["Home", "About", "Portfolio", "Sectors", "Dubai", "Contact"];
+const NAV_LINKS = [
+  { label: "Home",      path: "/" },
+  { label: "About",     path: "/about" },
+  { label: "Portfolio", path: null },
+  { label: "Sectors",   path: null },
+  { label: "Dubai",     path: null },
+  { label: "Contact",   path: null },
+];
 
 export default function Navbar() {
-  const [activeLink, setActiveLink] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const isActive = ({ path }) => {
+    if (!path) return false;
+    return path === "/" ? pathname === "/" : pathname.startsWith(path);
+  };
 
   return (
     <nav
@@ -35,34 +48,39 @@ export default function Navbar() {
           background: "#f1f5f9", borderRadius: 999, padding: "4px",
         }}
       >
-        {NAV_LINKS.map((link) => (
-          <button
-            key={link}
-            onClick={() => setActiveLink(link)}
-            style={{
-              position: "relative", padding: "7px 20px",
-              fontSize: 13, fontWeight: activeLink === link ? 600 : 500,
-              color: activeLink === link ? "#3284fa" : "black",
-              background: "none", border: "none", borderRadius: 999,
-              cursor: "pointer", fontFamily: "'Sora', sans-serif",
-              zIndex: 1, transition: "color 0.2s",
-            }}
-          >
-            {activeLink === link && (
-              <motion.div
-                layoutId="nav-active-pill"
-                transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                style={{
-                  position: "absolute", inset: 0,
-                  background: "white", borderRadius: 999,
-                  boxShadow: "0 1px 6px rgba(0,0,0,0.10)",
-                  zIndex: -1,
-                }}
-              />
-            )}
-            {link}
-          </button>
-        ))}
+        {NAV_LINKS.map((item) => {
+          const active = isActive(item);
+          const pillStyle = {
+            position: "relative", padding: "7px 20px",
+            fontSize: 13, fontWeight: active ? 600 : 500,
+            color: active ? "#3284fa" : "black",
+            background: "none", border: "none", borderRadius: 999,
+            cursor: item.path ? "pointer" : "default",
+            fontFamily: "'Sora', sans-serif",
+            zIndex: 1, transition: "color 0.2s",
+            textDecoration: "none", display: "inline-flex", alignItems: "center",
+          };
+          const pill = (
+            <>
+              {active && (
+                <motion.div
+                  layoutId="nav-active-pill"
+                  transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  style={{
+                    position: "absolute", inset: 0,
+                    background: "white", borderRadius: 999,
+                    boxShadow: "0 1px 6px rgba(0,0,0,0.10)",
+                    zIndex: -1,
+                  }}
+                />
+              )}
+              {item.label}
+            </>
+          );
+          return item.path
+            ? <Link key={item.label} to={item.path} style={pillStyle}>{pill}</Link>
+            : <span key={item.label} style={pillStyle}>{pill}</span>;
+        })}
       </div>
 
       {/* ── Right Actions (desktop) ── */}
@@ -117,19 +135,21 @@ export default function Navbar() {
               display: "flex", flexDirection: "column", gap: 4,
             }}
           >
-            {NAV_LINKS.map((link) => (
-              <button key={link}
-                onClick={() => { setActiveLink(link); setIsMobileMenuOpen(false); }}
-                style={{
-                  fontSize: 15, fontWeight: activeLink === link ? 700 : 500,
-                  color: activeLink === link ? "#0f172a" : "#64748b",
-                  textAlign: "left", background: activeLink === link ? "#f1f5f9" : "none",
-                  border: "none", cursor: "pointer", fontFamily: "'Sora',sans-serif",
-                  borderRadius: 10, padding: "10px 14px",
-                }}>
-                {link}
-              </button>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const active = isActive(item);
+              const mobileStyle = {
+                fontSize: 15, fontWeight: active ? 700 : 500,
+                color: active ? "#0f172a" : "#64748b",
+                textAlign: "left", background: active ? "#f1f5f9" : "none",
+                border: "none", cursor: item.path ? "pointer" : "default",
+                fontFamily: "'Sora',sans-serif",
+                borderRadius: 10, padding: "10px 14px",
+                textDecoration: "none", display: "block",
+              };
+              return item.path
+                ? <Link key={item.label} to={item.path} style={mobileStyle} onClick={() => setIsMobileMenuOpen(false)}>{item.label}</Link>
+                : <span key={item.label} style={mobileStyle}>{item.label}</span>;
+            })}
             <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "8px 0" }} />
             <button style={{
               width: "100%", padding: "11px 0", fontSize: 14, fontWeight: 600,
