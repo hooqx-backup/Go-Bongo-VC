@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import AboutHero from './Sections/AboutHero/AboutHero';
 import OurStory from './Sections/OurStory/OurStory';
 import MissionVision from './Sections/MissionVision/MissionVision';
@@ -24,16 +23,3 @@ export default function AboutPage() {
     </>
   );
 }
-=======
-import React from 'react'
-
-const AboutPage = () => {
-  return (
-    <div>
-      About
-    </div>
-  )
-}
-
-export default AboutPage
->>>>>>> 3ed8ab08b6ae41cf80d616e85c2fd17e47d36c43
