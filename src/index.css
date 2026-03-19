@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "./common/styles/components.css";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Design tokens ── */
+:root {
+  --blue:   #2563eb;
+  --blue2:  #0ea5e9;
+  --blue3:  #1d4ed8;
+  --slate:  #0f172a;
+  --muted:  #64748b;
+  --border: rgba(37, 99, 235, 0.12);
+  --glass:  rgba(255, 255, 255, 0.72);
+}
+
+/* ── Responsive visibility helpers (used across components) ── */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: flex !important; }
+}
+@media (min-width: 769px) {
+  .show-mobile { display: none !important; }
+}
