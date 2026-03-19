@@ -11,6 +11,7 @@
   --muted:  #64748b;
   --border: rgba(37, 99, 235, 0.12);
   --glass:  rgba(255, 255, 255, 0.72);
+<<<<<<< HEAD
 
   /* ── Brand / About page tokens ── */
   --brand-blue:  #1A56E8;
@@ -49,6 +50,8 @@
   --bg-card:      #ffffff;
   --border-main:  rgba(13,13,11,0.08);
   --border-mid:   rgba(13,13,11,0.13);
+=======
+>>>>>>> 3ed8ab08b6ae41cf80d616e85c2fd17e47d36c43
 }
 
 /* ── Responsive visibility helpers (used across components) ── */
