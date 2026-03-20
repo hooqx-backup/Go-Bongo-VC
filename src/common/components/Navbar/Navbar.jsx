@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "Portfolio", path: null },
   { label: "Sectors",   path: "/sectors" },
   { label: "Dubai",     path: null },
-  { label: "Contact",   path: null },
+  { label: "Contact",   path: "/contact" },
 ];
 
 export default function Navbar() {

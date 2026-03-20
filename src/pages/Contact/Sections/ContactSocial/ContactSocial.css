@@ -1,0 +1,84 @@
+/* ── ContactSocial ── */
+
+.csoc-outer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-main);
+}
+
+.csoc-sec {
+  padding: 64px;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.csoc-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  font-family: 'Sora', sans-serif;
+}
+
+.csoc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.csoc-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.csoc-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  border-radius: 16px;
+  padding: 14px 24px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-family: 'Sora', sans-serif;
+}
+
+.csoc-btn:hover {
+  background: var(--cream);
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.csoc-btn__icon {
+  font-size: 15px;
+  font-weight: 700;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .csoc-sec {
+    padding: 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .csoc-icons {
+    flex-wrap: wrap;
+  }
+}
