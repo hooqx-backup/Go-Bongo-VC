@@ -79,3 +79,170 @@
   .ach-sec { padding: 64px 24px; }
   .ach-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+.ach-outer { 
+  background: #fdfdfb; /* Cleaner premium off-white */
+  overflow: hidden;
+}
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  perspective: 1000px;
+}
+
+.ach-card {
+  position: relative;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: white;
+  overflow: hidden; /* Clips the glow */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ── The Innovative Glow ── */
+.ach-glow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%), 
+    rgba(26, 86, 232, 0.12) 0%, 
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.ach-card:hover .ach-glow { opacity: 1; }
+.ach-card:hover { transform: scale(1.02) translateY(-5px); }
+
+/* ── Dark Card Variation ── */
+.ach-card--dark {
+  background: #0d0d0b;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.ach-card--dark .ach-glow {
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%), 
+    rgba(184, 137, 42, 0.2) 0%, 
+    transparent 50%
+  );
+}
+
+.ach-card__icon {
+  color: var(--brand-blue);
+  background: rgba(26, 86, 232, 0.05);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.ach-card--dark .ach-card__icon {
+  color: var(--gold);
+  background: rgba(184, 137, 42, 0.1);
+}
+
+.ach-card__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #0d0d0b;
+}
+
+.ach-card--dark .ach-card__num { color: white; }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .ach-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .ach-grid { grid-template-columns: 1fr; }
+}
+.ach-outer { 
+  background: #f8f8f5; 
+  perspective: 2000px;
+  overflow: hidden;
+}
+
+.ach-grid {
+  display: grid;
+  /* Custom asymmetric structure */
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+/* Base Card Styling */
+.ach-card {
+  position: relative;
+  padding: 48px;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 320px;
+  transition: border-color 0.4s ease;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Differentiation by Type */
+.ach-card--blue { background: #ffffff; color: #0d0d0b; }
+.ach-card--gold { background: #0d0d0b; color: #ffffff; border-color: rgba(255,255,255,0.05); }
+
+/* Typography */
+.ach-card__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; /* Large cinematic numbers */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.ach-card__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.ach-card__desc {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ach-card--blue .ach-card__desc { color: rgba(0,0,0,0.5); }
+.ach-card--gold .ach-card__desc { color: rgba(255,255,255,0.4); }
+
+.ach-card__icon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  opacity: 0.2;
+  transform: scale(1.5);
+}
+
+/* Structure Shift for "Innovation" */
+.ach-card:nth-child(2) { grid-row: span 2; } /* Makes the second card tall */
+
+@media (max-width: 1024px) {
+  .ach-grid { grid-template-columns: 1fr 1fr; }
+  .ach-card:nth-child(2) { grid-row: span 1; }
+}
+
+@media (max-width: 768px) {
+  .ach-grid { grid-template-columns: 1fr; }
+}

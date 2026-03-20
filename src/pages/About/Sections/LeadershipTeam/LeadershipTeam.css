@@ -142,3 +142,126 @@
   }
   .tm-badge-wrap { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
 }
+
+.team-outer { background: #fdfdfb; } /* Subtle paper white */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  perspective: 1000px; /* Enables 3D depth */
+}
+
+/* ── Stellar Orbit Effect ── */
+.tm-stellar-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-stellar-orbit {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px dashed rgba(26, 86, 232, 0.2);
+  border-radius: 50%;
+  animation: rotateOrbit 10s linear infinite;
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Card Refinement ── */
+.tm-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.tm-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.tm-card--featured {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  gap: 40px;
+  background: linear-gradient(to right, #ffffff, #f9faff);
+  border: 1px solid rgba(26, 86, 232, 0.1);
+}
+
+/* ── Badge Stack ── */
+.tm-badge-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tm-badge {
+  background: white;
+  color: var(--ink);
+  font-weight: 600;
+  border: 1px solid #eee;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 11px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* ── Icons ── */
+.tm-photo-mini {
+  width: 48px;
+  height: 48px;
+  background: var(--brand-blue-l);
+  color: var(--brand-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tm-photo--large {
+  width: 90px;
+  height: 90px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(26, 86, 232, 0.1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-li {
+  color: #0077B5; /* LinkedIn Blue */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 15px;
+  transition: transform 0.2s;
+}
+
+.tm-li:hover { transform: translateX(3px); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .tm-card--featured {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .tm-stellar-wrap { margin: 0 auto; }
+  .tm-badge-stack { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+}
