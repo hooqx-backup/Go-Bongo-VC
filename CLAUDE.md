@@ -236,6 +236,42 @@ Sizes: `sm`, `md` (default), `lg`
 ---
 
 ## About Page — Section Reference
+**Key data**:
+- `BARS`: [38, 62, 44, 80, 52, 94, 68] — bar chart heights (used in mobile notification card)
+- `SPARKDATA`: [22, 35, 28, 45, 38, 55, 48, 62, 58, 72] — sparkline points (used in mobile countries card)
+- `CATEGORIES`: 3 items with color dots (blue, green, amber)
+- `TAGS`: ["E-Commerce", "Logistics", "IT & Digital", "B2B Trade", "Comms", "Trading"]
+- `AVATARS`: 4 items with initials + gradient backgrounds
+- `STATS`: 40K+ users, 2300+ signups, $4.6B volume
+
+**Layout**:
+- Desktop: 2-column flex — `.hero-left` (text/CTAs, 520px) + `.hero-right` (relative 530px container with 4 absolute-positioned cards)
+- Globe (`/videos/globe.mp4`) lives inside the Countries card (not centered standalone)
+- Mobile (≤768px): `.hero-right` hidden, `.hero-mobile-grid` shown — 2×2 grid of 4 compact cards
+
+**CTA buttons** (in `.hero-ctas`):
+- "Explore Portfolio →" → `/portfolio` (dark pill)
+- "Our Story" → `/about` (ghost pill)
+
+**4 desktop floating cards** (all absolutely positioned within `.hero-right`):
+1. **Countries of Operation** — Globe video, Counter(7), label "Countries of operation"
+2. **Portfolio Growth** — Counter(8), "Ventures across 7 countries", 10-bar chart `[30,45,35,55,42,65,50,80,60,100]`, 3 CATEGORIES rows
+3. **New Venture Notification** — rocket emoji, "Tezz Logistics · India"
+4. **Sectors (dark)** — 6 TAGS pills, no live dot on desktop
+
+**Mobile grid cards** (use Tailwind utility classes directly in JSX — exception to convention):
+1. Countries — Counter(4), Sparkline, UAE/India/KSA/UK tags
+2. Portfolio — Counter(8), 10-bar chart
+3. Notification — rocket icon, Tezz Logistics, BARS chart, "↑ 12.4% this month"
+4. Sectors (dark) — TAGS pills + live-dot
+
+**Animations (CSS keyframes in Hero.css)**:
+- `floatA` — 5.5s vertical bounce (−10px at 50%)
+- `floatB` — 7s vertical bounce (−7px at 50%)
+- `growBar` — scaleY 0→1 for bar charts
+- `pulseDot` — opacity pulse for live indicators (1.8s)
+- `shimmer` — gradient text animation on h1 spans
+- `shimmer-blue` / `shimmer-amber` — CSS classes for heading `<em>` elements
 
 All About sections use the light/warm color scheme matching the home page.
 
@@ -250,6 +286,10 @@ All About sections use the light/warm color scheme matching the home page.
 | Achievements | `Achievements/` | `--cream2` | 3-col grid, `ach-card--dark` variant |
 | CultureValues | `CultureValues/` | `--bg-main` | 4-col values grid + pull card |
 | AboutCTA | `AboutCTA/` | `--cream2` | Centered CTA |
+
+**Known issues in Hero.jsx**:
+- Unused import: `BiBorderRadius` from `react-icons/bi` (line 6)
+- Mobile grid cards use Tailwind utility classes inline (inconsistent with project convention)
 
 ---
 
@@ -365,6 +405,16 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 | Pitch | `/pitch` | ❌ Not built |
 | Contact | `/contact` | ❌ Not built |
 
+### Session 3 — 2026-03-19
+
+- Hero.jsx reworked to 2-column layout (`.hero-left` text + `.hero-right` absolute cards)
+- Globe moved into Countries card instead of standalone center element
+- Mobile responsive grid added (2×2, 4 compact cards, hidden on desktop)
+- CTA buttons now link to `/portfolio` and `/about` (was `/pitch` and `/contact`)
+- Counters swapped: Countries = 7, Portfolio = 8
+- Portfolio bars updated to 10-item array
+- Updated `CLAUDE.md` to reflect all current state
+
 ---
 
 ## Pending / Next Steps
@@ -373,6 +423,12 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 - [ ] Build `/contact` page — referenced in AboutCTA "Get in Touch" button
 - [ ] Wire Portfolio, Sectors, Dubai, Contact nav links once pages are built (change `path: null` → real path in Navbar `NAV_LINKS` + add route to `Router.jsx`)
 - [ ] Add responsive / mobile styles across Hero and Portfolio sections
+- [ ] Build out `/about` page (currently stub)
+- [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →", not created yet)
+- [ ] Build `/contact` page (referenced in Navbar)
+- [ ] Clean up Hero.jsx: remove unused `BiBorderRadius` import
+- [ ] Migrate Hero mobile grid inline Tailwind → CSS classes (for consistency)
+- [ ] Portfolio card hover state & animation review
 - [ ] Fix: `index.html` references `/logo-dark.png` for dark mode favicon — file does not exist in `public/`
 - [ ] Fix: `App.jsx` is unused but imports a missing `App.css` — clean up or remove
 - [ ] Connect live data / CMS when ready

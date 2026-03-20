@@ -19,7 +19,7 @@
 }
 .about-tag-pill:hover {
   border-color: rgba(37, 99, 235, 0.3);
-  color: #2563eb;
+ 
   background: rgba(37, 99, 235, 0.03);
 }
 .about-tag-pill.active {
@@ -106,14 +106,32 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .orbit-wrapper {
     transform: scale(0.62);
     transform-origin: center center;
-    /* keep the scaled-down orbit from taking up full 500px height */
     height: 310px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 40px 16px !important;
+    gap: 32px !important;
+  }
+
+  .orbit-wrapper {
+    transform: scale(0.48);
+    height: 240px;
+  }
+}
+
+@media (max-width: 380px) {
+  .orbit-wrapper {
+    transform: scale(0.40);
+    height: 200px;
   }
 }

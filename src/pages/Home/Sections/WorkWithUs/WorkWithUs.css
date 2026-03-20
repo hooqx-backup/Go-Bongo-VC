@@ -1,0 +1,433 @@
+/* ══════════════════════════════════════════════
+   WORK WITH US  —  CTA + Process Section
+   Dark background, blue glows, premium feel
+   ══════════════════════════════════════════════ */
+
+/* ── Section ── */
+.wwu-section {
+  background: #F8F7F4;
+  padding: 120px 0 132px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+/* Noise grain */
+.wwu-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Background glows */
+.wwu-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wwu-glow--top {
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 700px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.07) 0%,
+    rgba(26, 86, 232, 0.03) 42%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: wwuGlowPulse 9s ease-in-out infinite;
+}
+
+.wwu-glow--left {
+  bottom: 80px;
+  left: -120px;
+  width: 500px;
+  height: 420px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.06) 0%,
+    transparent 65%
+  );
+  filter: blur(55px);
+}
+
+.wwu-glow--right {
+  top: 15%;
+  right: -140px;
+  width: 460px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.05) 0%,
+    transparent 65%
+  );
+  filter: blur(55px);
+}
+
+.wwu-glow--bottom {
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.04) 0%,
+    transparent 65%
+  );
+  filter: blur(50px);
+}
+
+@keyframes wwuGlowPulse {
+  0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(0.95); }
+  50%       { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+}
+
+/* ── Container ── */
+.wwu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* ── Eyebrow ── */
+.wwu-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.wwu-eyebrow-line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--brand-blue, #1A56E8);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.wwu-eyebrow-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-blue, #1A56E8);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Heading ── */
+.wwu-heading {
+  font-size: clamp(40px, 6.5vw, 76px);
+  font-weight: 700;
+  color: var(--ink, #0D0D0B);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin: 0 0 24px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.wwu-heading-em {
+  font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif;
+  /* color + animation via global .shimmer-blue */
+}
+
+.wwu-heading-sub {
+  display: inline;
+  color: var(--ink, #0D0D0B);
+}
+
+/* ── Subtext ── */
+.wwu-subtext {
+  font-size: 16px;
+  color: var(--muted-about, #7A7A72);
+  line-height: 1.72;
+  margin: 0 auto 48px;
+  max-width: 560px;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── CTA Buttons ── */
+.wwu-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+
+.wwu-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.01em;
+  transition: background 0.28s ease, box-shadow 0.28s ease,
+              border-color 0.28s ease, color 0.28s ease;
+  cursor: pointer;
+}
+
+.wwu-btn--primary {
+  background: #1A56E8;
+  color: #ffffff;
+  border: 1.5px solid transparent;
+}
+
+.wwu-btn--primary:hover {
+  background: #2563eb;
+  box-shadow: 0 8px 36px rgba(26, 86, 232, 0.55);
+}
+
+.wwu-btn--outline {
+  background: transparent;
+  color: var(--ink, #0D0D0B);
+  border: 1.5px solid rgba(13, 13, 11, 0.18);
+}
+
+.wwu-btn--outline:hover {
+  border-color: rgba(13, 13, 11, 0.5);
+  background: rgba(13, 13, 11, 0.04);
+}
+
+.wwu-btn--ghost {
+  background: transparent;
+  color: var(--muted-about, #7A7A72);
+  border: 1.5px solid transparent;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.wwu-btn--ghost:hover {
+  color: var(--ink, #0D0D0B);
+}
+
+/* ── Process divider ── */
+.wwu-process-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.wwu-process-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 13, 11, 0.08);
+  border-radius: 1px;
+}
+
+.wwu-process-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light, #AEADA6);
+  font-family: 'Outfit', sans-serif;
+  white-space: nowrap;
+}
+
+/* ── Step Cards ── */
+.wwu-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.wwu-step-card {
+  background: #ffffff;
+  border: 1px solid rgba(13, 13, 11, 0.07);
+  border-radius: 22px;
+  padding: 34px 30px 30px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    border-color 0.38s ease,
+    box-shadow 0.38s ease;
+}
+
+.wwu-step-card:hover {
+  border-color: rgba(26, 86, 232, 0.2);
+  box-shadow:
+    0 20px 56px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(26, 86, 232, 0.06);
+}
+
+/* Top accent stripe */
+.wwu-step-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #1A56E8 0%,
+    rgba(26, 86, 232, 0.2) 100%
+  );
+  transform-origin: left;
+  border-radius: 0 0 2px 2px;
+}
+
+/* Step number */
+.wwu-step-num {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1A56E8;
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 18px;
+}
+
+/* Step title */
+.wwu-step-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink, #0D0D0B);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Step description */
+.wwu-step-desc {
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: var(--muted-about, #7A7A72);
+  margin: 0;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Corner arrow */
+.wwu-step-arrow {
+  position: absolute;
+  bottom: 22px;
+  right: 24px;
+  font-size: 16px;
+  color: rgba(26, 86, 232, 0.5);
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.wwu-step-card:hover .wwu-step-arrow {
+  opacity: 1;
+  color: #1A56E8;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .wwu-section {
+    padding: 88px 0 96px;
+  }
+
+  .wwu-container {
+    padding: 0 20px;
+  }
+
+  .wwu-heading {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .wwu-subtext {
+    font-size: 14.5px;
+    margin-bottom: 40px;
+  }
+
+  .wwu-ctas {
+    margin-bottom: 52px;
+    gap: 10px;
+  }
+
+  .wwu-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .wwu-glow--top {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wwu-section {
+    padding: 64px 0 72px;
+  }
+
+  .wwu-container {
+    padding: 0 16px;
+  }
+
+  .wwu-heading {
+    font-size: clamp(26px, 8.5vw, 36px);
+  }
+
+  .wwu-subtext {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .wwu-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .wwu-btn {
+    justify-content: center;
+  }
+
+  .wwu-btn--ghost {
+    padding: 14px;
+  }
+
+  .wwu-step-card {
+    padding: 26px 22px 24px;
+  }
+
+  .wwu-step-title {
+    font-size: 15px;
+  }
+
+  .wwu-step-desc {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wwu-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wwu-glow--top {
+    animation: none;
+  }
+}
