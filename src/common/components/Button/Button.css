@@ -56,7 +56,6 @@
   transform: translateY(-1px);
 }
 
-<<<<<<< HEAD
 /* ── Blue (brand gradient, for dark backgrounds) ── */
 .btn-blue {
   color: white;
@@ -83,8 +82,6 @@
   transform: none;
 }
 
-=======
->>>>>>> 3ed8ab08b6ae41cf80d616e85c2fd17e47d36c43
 /* ── Sizes ── */
 .btn-sm  { font-size: 12px; padding: 8px 20px; }
 .btn-md  { font-size: 13px; padding: 11px 28px; }

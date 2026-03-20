@@ -1,7 +1,7 @@
 /* ── AboutHero ── */
 .about-hero {
   padding-top: 70px;
-  min-height: 90vh;
+  min-height: 90vh; 
   background: var(--bg-main);
   position: relative;
   overflow: hidden;
@@ -208,4 +208,58 @@
     padding: 60px 24px 80px;
   }
   .about-hero-right { display: none; }
+}
+
+/* Add to your existing CSS */
+
+/* High-end Glassmorphism for the Quote Card */
+.about-hero-quote {
+  background: rgba(255, 255, 255, 0.7); /* Adjust based on var(--bg-card) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+}
+
+/* Premium Button Hover */
+.premium-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(26, 86, 232, 0.2);
+}
+
+/* Subtle Text Reveal Animation wrapper */
+.text-reveal-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+
+
+/* Enhancing the mesh for depth */
+.about-hero-mesh::before {
+  filter: blur(80px); /* Softens the light for a 'pro' look */
+}
+
+/* Hover state for stats */
+.ahs {
+  transition: background 0.3s ease;
+}
+.ahs:hover {
+  background: rgba(var(--gold-rgb), 0.03); /* Subtle hint of color on hover */
+}
+
+/* Responsive adjustment: Ensure parallax doesn't break layout */
+@media (max-width: 768px) {
+  .about-hero-right {
+    display: block; /* Show it on mobile but stack it */
+    margin-top: 40px;
+    transform: none !important; /* Disable parallax on mobile for performance */
+  }
 }

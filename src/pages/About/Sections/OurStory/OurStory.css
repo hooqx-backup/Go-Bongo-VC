@@ -107,3 +107,84 @@
   }
   .story-year { font-size: 64px; }
 }
+
+/* Add Perspective to the existing .story-right */
+.story-right {
+  perspective: 1200px; 
+}
+
+/* Update .story-card to allow the shine effect */
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; /* Slightly smoother corners */
+}
+
+/* The Shine Effect Layer */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  pointer-events: none;
+}
+
+/* Trigger shine on hover */
+.story-card:hover .card-shine {
+  left: 150%;
+}
+
+/* Subtle Gradient for the Blue/Gold cards */
+.story-card--blue {
+  background: linear-gradient(145deg, var(--brand-blue-l), #ffffff) !important;
+}
+.story-card--gold {
+  background: linear-gradient(145deg, var(--gold-bg), #ffffff) !important;
+}
+
+/* Update the Icon Styling */
+.story-card__icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: rgba(13, 13, 11, 0.03); /* Subtle background circle */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--ink);
+  transition: all 0.3s ease;
+}
+
+/* For the Colored Cards, make the icon wrapper match */
+.story-card--blue .story-card__icon-wrapper {
+  background: rgba(26, 86, 232, 0.1);
+  color: var(--brand-blue);
+}
+
+.story-card--gold .story-card__icon-wrapper {
+  background: rgba(184, 137, 42, 0.1);
+  color: #B8892A;
+}
+
+/* Add a very faint glow to the card on hover */
+.story-card:hover {
+  border-color: rgba(26, 86, 232, 0.3);
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+/* Ensure the cards have a clean modern border */
+.story-card {
+  border: 1px solid rgba(13, 13, 11, 0.06);
+  backdrop-filter: blur(10px);
+}

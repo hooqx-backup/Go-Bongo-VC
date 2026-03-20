@@ -119,3 +119,349 @@
     padding: 32px 24px;
   }
 }
+
+.culture-outer-white {
+  background: #ffffff;
+  color: #1a1a1a;
+  overflow: hidden;
+}
+
+.culture-sec {
+  padding: 100px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── White Card Grid ── */
+.values-grid-white {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px; /* Creates the hairline separator effect */
+  background: #f0f0f0; /* Color of the separators */
+  border: 1px solid #f0f0f0;
+  border-radius: 32px;
+  overflow: hidden;
+  margin-top: 48px;
+}
+
+.val-card-white {
+  position: relative;
+  background: #ffffff;
+  padding: 48px 32px;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+/* ── Soft Aura Glow ── */
+.val-card-glow-white {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(26, 86, 232, 0.04), /* Subtle Blue Aura */
+    transparent 80%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.val-card-white:hover .val-card-glow-white {
+  opacity: 1;
+}
+
+.val-card-white:hover {
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  transform: scale(1.02);
+}
+
+.val-card-inner { position: relative; z-index: 2; }
+
+.val-card-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #b8892a; /* Gold Accent */
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.val-card-icon {
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.val-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0d0d0b;
+}
+
+.val-card-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* ── Pull Section White ── */
+.culture-pull-white {
+  margin-top: 32px;
+  background: #fafaf9; /* Subtle cream-white */
+  border: 1px solid #f0f0f0;
+  border-radius: 32px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.cp-quote-white {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.cp-quote-white span {
+  color: #1a56e8;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.premium-stats-light {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  border-left: 1px solid #e5e5e5;
+  padding-left: 60px;
+}
+
+.light-stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #0d0d0b;
+  margin-bottom: 4px;
+}
+
+.light-stat-l {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .values-grid-white { grid-template-columns: 1fr 1fr; }
+  .culture-pull-white { grid-template-columns: 1fr; padding: 40px; }
+  .premium-stats-light { border-left: none; padding-left: 0; }
+}
+
+.culture-outer-white {
+  background: #fbfbf9; /* Premium gallery white */
+  color: #0d0d0b;
+  overflow: hidden;
+}
+
+.culture-sec {
+  padding: 120px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Innovative Flex Layout ── */
+.values-flex-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.val-card-white {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 28px;
+  padding: 50px 35px;
+  display: flex;
+  flex-direction: column;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The innovative structural shift: hovered card grows wider */
+.val-card-white:hover {
+  flex: 1.4;
+}
+
+.val-card-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,0.3);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.val-card-icon {
+  margin-bottom: 24px;
+  color: #0d0d0b;
+}
+
+.val-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.val-card-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ── Pull Quote Section ── */
+.culture-pull-light {
+  margin-top: 40px;
+  display: flex;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 40px;
+  padding: 80px;
+  gap: 80px;
+  align-items: center;
+}
+
+.cp-quote-light {
+  flex: 1.2;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  line-height: 1.45;
+}
+
+.cp-quote-light span {
+  color: #1a56e8;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.light-stats-grid {
+  flex: 0.8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ls-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #0d0d0b;
+}
+
+.ls-l {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(0,0,0,0.4);
+  margin-top: 4px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+  .values-flex-container { flex-direction: column; }
+  .culture-pull-light { flex-direction: column; padding: 40px; }
+}
+
+/* ── Bottom Section Layout ── */
+.culture-bottom-premium {
+  margin-top: 80px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* ── Typographic Quote ── */
+.quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.premium-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  color: #0d0d0b;
+  font-weight: 500;
+}
+
+.premium-quote span {
+  color: #1a56e8;
+  font-style: italic;
+  position: relative;
+}
+
+/* Subtle underline animation for the span */
+.premium-quote span::after {
+  content: '';
+  position: absolute;
+  bottom: 5px; left: 0; width: 100%; height: 2px;
+  background: rgba(26, 86, 232, 0.2);
+}
+
+/* ── Modern Stats Bar ── */
+.premium-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.p-stat-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  transition: background 0.4s ease;
+}
+
+.p-stat-card:hover {
+  background: #f8f8f6;
+}
+
+.p-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #0d0d0b;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.p-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #888;
+  font-weight: 600;
+  max-width: 140px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .premium-stats-bar { grid-template-columns: 1fr 1fr; }
+  .culture-bottom-premium { gap: 60px; }
+}

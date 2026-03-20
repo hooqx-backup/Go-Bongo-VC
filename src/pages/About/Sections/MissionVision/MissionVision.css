@@ -84,3 +84,74 @@
   .mv-sec { padding: 64px 24px; }
   .mv-grid { grid-template-columns: 1fr; }
 }
+
+/* Update your existing mv-card styles */
+.mv-card {
+  background: rgba(255, 255, 255, 0.6) !important; /* Semi-transparent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+.mv-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  border-color: rgba(26, 86, 232, 0.2) !important;
+}
+
+/* Moving Shine Effect */
+.mv-card-glass-shine {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.8s;
+  pointer-events: none;
+}
+
+.mv-card:hover .mv-card-glass-shine {
+  left: 150%;
+}
+
+/* Animated Decorative Blob */
+.mv-card-blob {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.mv-card--mission .mv-card-blob {
+  background: var(--brand-blue);
+}
+
+.mv-card--vision .mv-card-blob {
+  background: var(--gold);
+}
+
+/* Adjusting font smoothness for premium feel */
+.mv-card__quote {
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 768px) {
+    .mv-card {
+        transform: none !important; /* Disable parallax on mobile */
+    }
+}

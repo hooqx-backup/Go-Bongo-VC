@@ -175,3 +175,63 @@
   .eco-child:nth-child(n+6) { border-bottom: 1px solid var(--bd-light); }
   .eco-child:nth-child(n+8) { border-bottom: none; }
 }
+
+/* Add to your existing file or replace section */
+
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--bd-light);
+  border-radius: 28px;
+  overflow: hidden;
+  background: white;
+  /* Add perspective for the puzzle entry */
+  perspective: 1000px; 
+}
+
+.eco-child {
+  padding: 24px;
+  border-right: 1px solid var(--bd-light);
+  border-bottom: 1px solid var(--bd-light);
+  background: white;
+  position: relative;
+  /* Crucial for the puzzle 'snap' feeling */
+  will-change: transform, opacity; 
+}
+
+/* Premium Hover - Lift the puzzle piece */
+.eco-child:hover {
+  border-color: var(--brand-blue);
+  cursor: pointer;
+}
+
+/* Refined Logo animation */
+.eco-child__logo-wrap {
+  perspective: 500px;
+}
+
+.eco-child__logo {
+  transition: filter 0.3s ease;
+}
+
+.eco-child:hover .eco-child__logo {
+  filter: drop-shadow(0 5px 10px rgba(26,86,232,0.2));
+}
+
+/* Ensure the parent header stays above the child puzzle pieces */
+.eco-parent {
+  z-index: 5;
+  position: relative;
+}
+
+/* Responsive Puzzle Adjustment */
+@media (max-width: 768px) {
+  .eco-grid {
+    grid-template-columns: repeat(2, 1fr);
+    perspective: none; /* Disable 3D on mobile for performance */
+  }
+  /* On mobile, let them just slide up instead of the complex puzzle */
+  .eco-child {
+    transform: none !important; 
+  }
+}
