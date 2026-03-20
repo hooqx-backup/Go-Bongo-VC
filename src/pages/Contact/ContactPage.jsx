@@ -18,7 +18,6 @@ export default function ContactPage() {
       <ContactProcess />
       <ContactFAQ />
       <ContactSocial />
-      <Footer />
     </>
   );
 }
