@@ -1,0 +1,134 @@
+/* ─────────────────────────────────────────
+   MARQUEE — global reusable ticker
+───────────────────────────────────────── */
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 18px 0;
+  background: #F2F1EE;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Optional label */
+.marquee-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #AEADA6;
+  margin-bottom: 14px;
+}
+
+/* Fade masks on left/right edges */
+.marquee-fade-left,
+.marquee-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #F2F1EE 0%, transparent 100%);
+}
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #F2F1EE 0%, transparent 100%);
+}
+
+/* Track wrapper — clips overflow */
+.marquee-track-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* The moving strip — width auto keeps it as one line */
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: marqueeScroll linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover for accessibility */
+.marquee-root:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Single item = star + logo */
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+  flex-shrink: 0;
+}
+
+/* Gold star */
+.marquee-star {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.82;
+}
+
+/* Logo + name wrapper */
+.marquee-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* Real logo image */
+.marquee-logo-img {
+  height: 22px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  opacity: 0.75;
+  filter: grayscale(0.2);
+  transition: opacity 0.2s;
+}
+.marquee-logo-img:hover {
+  opacity: 1;
+}
+
+/* Placeholder box when no logo src */
+.marquee-logo-placeholder {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.marquee-logo-initials {
+  font-size: 9px;
+  font-weight: 800;
+  color: #A07820;
+  letter-spacing: 0.02em;
+}
+
+/* Company name text */
+.marquee-logo-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4A4A42;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
