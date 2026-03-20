@@ -1,0 +1,165 @@
+/* ══════════════════════════════════════════════
+   SECTORS DEEP DIVE — cream, card grid
+   ══════════════════════════════════════════════ */
+
+.dd-outer {
+  background: #FAFAF7;
+  width: 100vw; position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+}
+
+.dd-section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Intro */
+.dd-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: flex-end;
+  margin-bottom: 64px;
+}
+
+.dd-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #1A56E8;
+  margin-bottom: 16px; font-family: 'Outfit', sans-serif;
+}
+.dd-eyebrow::before {
+  content: ''; width: 24px; height: 2px;
+  background: #1A56E8; border-radius: 2px; flex-shrink: 0;
+}
+
+.dd-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 700; line-height: 1.1;
+  color: #0D0D0B; letter-spacing: -0.025em;
+}
+.dd-heading em { font-style: italic; color: #1A56E8; }
+
+.dd-sub {
+  font-size: 15px; color: #7A7A72; line-height: 1.82;
+  font-family: 'Sora', sans-serif; padding-top: 16px;
+}
+
+/* Grid */
+.dd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Cards */
+.dd-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(13,13,11,0.07);
+  border-radius: 24px;
+  padding: 32px 28px 28px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.35s, box-shadow 0.35s;
+  display: flex; flex-direction: column; gap: 0;
+}
+.dd-card:hover {
+  border-color: var(--accent, #1A56E8);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+/* Top accent bar */
+.dd-card-accent-bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; border-radius: 0 0 3px 3px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.dd-card:hover .dd-card-accent-bar { transform: scaleX(1); }
+
+/* Head row */
+.dd-card-head {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.dd-card-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.dd-card-num {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  color: #AEADA6; font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Name */
+.dd-card-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px; font-weight: 700; color: #0D0D0B;
+  line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.015em;
+}
+
+/* Tag pill */
+.dd-card-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; border-radius: 100px;
+  padding: 4px 12px; margin-bottom: 16px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Desc */
+.dd-card-desc {
+  font-size: 14px; color: #7A7A72; line-height: 1.8;
+  margin-bottom: 18px; font-family: 'Sora', sans-serif;
+  flex: 1;
+}
+
+/* Thesis quote */
+.dd-card-thesis {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px; font-style: italic;
+  color: #2A2A26; line-height: 1.65;
+  margin-bottom: 20px;
+  border-left: 3px solid;
+  padding-left: 14px;
+}
+
+/* Footer */
+.dd-card-footer {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid rgba(13,13,11,0.06);
+}
+.dd-card-count {
+  font-size: 11px; font-weight: 700;
+  border-radius: 100px; padding: 4px 12px;
+  font-family: 'Outfit', sans-serif;
+}
+.dd-card-ventures { display: flex; gap: 6px; flex-wrap: wrap; }
+.dd-card-venture {
+  font-size: 11px; font-weight: 500; color: #7A7A72;
+  background: #F8F7F4; border: 1px solid rgba(13,13,11,0.08);
+  border-radius: 100px; padding: 3px 10px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .dd-section { padding: 80px 36px; }
+  .dd-intro { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 768px) {
+  .dd-section { padding: 72px 20px; }
+  .dd-grid { grid-template-columns: 1fr; }
+  .dd-card-name { font-size: 20px; }
+}
+@media (max-width: 480px) {
+  .dd-section { padding: 56px 16px; }
+  .dd-card { padding: 24px 20px 22px; }
+  .dd-card-name { font-size: 18px; }
+  .dd-card-desc { font-size: 13.5px; }
+}
