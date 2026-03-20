@@ -23,9 +23,9 @@ export default function Navbar() {
 
   return (
     <nav
+      className="navbar-root"
       style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "12px 50px",
         background: "rgba(255, 255, 255, 0.55)",
         backdropFilter: "blur(24px) saturate(180%)",
         WebkitBackdropFilter: "blur(24px) saturate(180%)",

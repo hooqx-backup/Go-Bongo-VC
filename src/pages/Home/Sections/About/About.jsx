@@ -195,10 +195,12 @@ export default function AboutSection() {
           Built for{" "}
           <span style={{
             fontStyle: "italic",
-            background: "linear-gradient(110deg,#1d4ed8,#2563eb,#0ea5e9)",
+            background: "linear-gradient(110deg, #1d4ed8 20%, #2563eb 38%, #0ea5e9 50%, #2563eb 62%, #1d4ed8 80%)",
+            backgroundSize: "300% auto",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
+            animation: "shimmer 5s linear infinite",
           }}>
             Scale
           </span>

@@ -1,0 +1,247 @@
+/* ── The Canvas ── */
+.elite-section {
+  background-color: #ffffff; /* True deep black */
+  color: #535252; /* Off-white for high contrast without eye strain */
+  padding: 120px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.elite-container {
+  max-width: 1400px; /* Wide layout for a premium feel */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ── */
+.elite-header {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.elite-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: 'Space Grotesk', monospace, sans-serif;
+}
+
+.elite-heading {
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #000000;
+}
+
+/* ── The Accordion Grid ── */
+.elite-accordion {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.elite-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: opacity 0.4s ease;
+}
+
+/* Dim rows that aren't hovered or active to create a spotlight effect */
+.elite-row.is-dimmed {
+  opacity: 0.3;
+}
+
+/* ── Trigger Area ── */
+.elite-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Left Side */
+.elite-trigger-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.elite-number {
+  font-size: 12px;
+  color: #555;
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  padding-top: 10px;
+}
+
+.elite-title {
+  font-size: clamp(24px, 4vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+/* Right Side */
+.elite-trigger-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.elite-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #888;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* The Animated Plus/Minus Icon */
+.elite-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  transition: all 0.4s ease;
+}
+
+.elite-trigger:hover .elite-icon-wrap {
+  background: #FFF;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.plus-vertical {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform-origin: center;
+}
+
+.plus-vertical.hidden {
+  transform: rotate(90deg) scaleY(0);
+  opacity: 0;
+}
+
+/* ── Interactions ── */
+.elite-trigger:hover .elite-title {
+  transform: translateX(16px);
+  color: #000000;
+}
+
+.elite-trigger:hover .elite-subtitle {
+  color: #FFF;
+}
+
+/* ── Expanded Content ── */
+.elite-content-wrap {
+  overflow: hidden;
+}
+
+.elite-content-inner {
+  padding: 0 0 48px 66px;
+  max-width: 800px;
+}
+
+.elite-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #A1A1AA;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ── Mobile Optimization ── */
+@media (max-width: 900px) {
+  .elite-trigger {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px 0;
+  }
+
+  .elite-trigger-left {
+    gap: 24px;
+  }
+
+  .elite-trigger-right {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 45px;
+  }
+
+  .elite-content-inner {
+    padding: 0 0 40px 45px;
+  }
+
+  .elite-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .elite-section {
+    padding: 72px 0;
+  }
+
+  .elite-container {
+    padding: 0 16px;
+  }
+
+  .elite-header {
+    margin-bottom: 48px;
+    gap: 10px;
+  }
+
+  .elite-heading {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .elite-trigger {
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .elite-trigger-left {
+    gap: 14px;
+  }
+
+  .elite-number {
+    font-size: 11px;
+    padding-top: 6px;
+  }
+
+  .elite-title {
+    font-size: clamp(18px, 6.5vw, 26px);
+  }
+
+  .elite-trigger-right {
+    padding-left: 28px;
+    gap: 16px;
+  }
+
+  .elite-content-inner {
+    padding: 0 0 28px 28px;
+  }
+
+  .elite-text {
+    font-size: 13.5px;
+  }
+}

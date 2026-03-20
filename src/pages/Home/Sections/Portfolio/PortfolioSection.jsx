@@ -66,7 +66,7 @@ function VentureLogo({ v, size = 56 }) {
 }
 
 // ─── CARD ─────────────────────────────────────────────────────────────────────
-function VentureCard({ v, index, isVisible, isFiltered }) {
+function VentureCard({ v, index, isVisible }) {
   const [hov, setHov] = useState(false);
   const [mp, setMp] = useState({ x: 50, y: 50 });
   const ref = useRef(null);
@@ -84,27 +84,16 @@ function VentureCard({ v, index, isVisible, isFiltered }) {
       href={v.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="venture-card"
+      className={`venture-card${isF ? " venture-card--featured" : ""}`}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       onMouseMove={onMove}
       style={{
-        gridColumn: isF ? "span 2" : "span 1",
-        display: isF ? "grid" : "flex",
-        gridTemplateColumns: isF ? "1.15fr 1fr" : undefined,
-        flexDirection: isF ? undefined : "column",
-        gap: isF ? "28px" : undefined,
-        alignItems: isF ? "start" : undefined,
         border: `1px solid ${hov ? v.accent + "38" : "rgba(13,13,11,0.07)"}`,
-        padding: isF ? "32px" : "28px",
-        opacity: isFiltered ? (isVisible ? 1 : 0) : 0,
-        transform: isFiltered
-          ? isVisible ? "translateY(0) scale(1)" : "translateY(28px) scale(0.96)"
-          : "translateY(14px) scale(0.95)",
-        transition: isFiltered
-          ? `opacity .6s cubic-bezier(.16,1,.3,1) ${index * .08}s, transform .6s cubic-bezier(.16,1,.3,1) ${index * .08}s, border-color .25s, box-shadow .3s`
-          : "opacity .3s, transform .3s",
-        pointerEvents: isFiltered ? "auto" : "none",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0) scale(1)" : "translateY(28px) scale(0.96)",
+        transition: `opacity .6s cubic-bezier(.16,1,.3,1) ${index * .08}s, transform .6s cubic-bezier(.16,1,.3,1) ${index * .08}s, border-color .25s, box-shadow .3s`,
+        pointerEvents: isVisible ? "auto" : "none",
         boxShadow: hov
           ? `0 22px 54px rgba(0,0,0,0.11), 0 4px 14px rgba(0,0,0,0.06)`
           : `0 1px 4px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.04)`,
@@ -260,20 +249,43 @@ export default function PortfolioSection() {
   const [visible, setVisible] = useState([]);
   const [secIn, setSecIn] = useState(false);
   const secRef = useRef(null);
+  const revealTimersRef = useRef([]);
 
   const filtered = ventures.filter(v => active === "all" || v.sectorKey === active);
 
-  const triggerReveal = cards => {
-    setVisible([]);
-    setAnimating(true);
-    setTimeout(() => setAnimating(false), 200);
-    cards.forEach((_, i) => setTimeout(() => setVisible(p => [...p, i]), i * 90 + 150));
+  const clearRevealTimers = () => {
+    revealTimersRef.current.forEach(clearTimeout);
+    revealTimersRef.current = [];
   };
 
-  useEffect(() => { triggerReveal(filtered); }, [active]);
+  const triggerReveal = cards => {
+    clearRevealTimers();
+    setVisible([]);
+    setAnimating(true);
+    revealTimersRef.current.push(setTimeout(() => setAnimating(false), 200));
+    cards.forEach((_, i) => {
+      revealTimersRef.current.push(setTimeout(() => setVisible(p => [...p, i]), i * 90 + 150));
+    });
+  };
 
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setSecIn(true); }, { threshold: 0.07 });
+    if (!secIn) {
+      clearRevealTimers();
+      setVisible([]);
+      return;
+    }
+
+    triggerReveal(filtered);
+    return clearRevealTimers;
+  }, [active, secIn]);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        setSecIn(e.isIntersecting);
+      },
+      { threshold: 0.07 }
+    );
     if (secRef.current) obs.observe(secRef.current);
     return () => obs.disconnect();
   }, []);
@@ -334,19 +346,14 @@ export default function PortfolioSection() {
 
         {/* GRID */}
         <div className="portfolio-grid">
-          {ventures.map(v => {
-            const inFilt = active === "all" || v.sectorKey === active;
-            const fi = filtered.findIndex(f => f.id === v.id);
-            return (
-              <VentureCard
-                key={v.id}
-                v={v}
-                index={fi}
-                isVisible={inFilt && visible.includes(fi)}
-                isFiltered={inFilt}
-              />
-            );
-          })}
+          {filtered.map((v, fi) => (
+            <VentureCard
+              key={v.id}
+              v={v}
+              index={fi}
+              isVisible={visible.includes(fi)}
+            />
+          ))}
         </div>
 
         {/* Footer line */}

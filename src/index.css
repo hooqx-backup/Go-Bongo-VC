@@ -45,10 +45,33 @@
   --text-primary: #0D0D0B;
   --text-muted:   #7A7A72;
   --text-light:   #AEADA6;
-  --bg-main:      #F8F7F4;
+  --bg-main:      #ffffff;
   --bg-card:      #ffffff;
   --border-main:  rgba(13,13,11,0.08);
   --border-mid:   rgba(13,13,11,0.13);
+}
+
+/* ── Base ── */
+html, body {
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll from 100vw sections */
+}
+
+/* ── Navbar responsive padding ── */
+.navbar-root {
+  padding: 12px 50px;
+}
+@media (max-width: 768px) {
+  .navbar-root {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar-root {
+    padding: 10px 16px;
+  }
 }
 
 /* ── Responsive visibility helpers (used across components) ── */
@@ -58,4 +81,25 @@
 }
 @media (min-width: 769px) {
   .show-mobile { display: none !important; }
+}
+
+/* ─── Shimmer text ─── */
+.shimmer-blue {
+  background: linear-gradient(110deg, #1d4ed8 20%, #2563eb 38%, #0ea5e9 50%, #2563eb 62%, #1d4ed8 80%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+.shimmer-amber {
+  background: linear-gradient(110deg, #ca5d1a 20%, #b45309 38%, #d97706 50%, #b45309 62%, #92400e 80%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position:  300% center; }
 }
