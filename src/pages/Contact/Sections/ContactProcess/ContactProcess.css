@@ -1,0 +1,127 @@
+/* ── ContactProcess ── */
+
+.cpr-outer {
+  background: var(--bg-main);
+}
+
+.cpr-sec {
+  padding: 100px 64px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.cpr-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 16px;
+}
+
+.cpr-heading em {
+  font-style: italic;
+  color: var(--brand-blue);
+}
+
+.cpr-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.cpr-step {
+  background: var(--bg-card);
+  padding: 48px 40px;
+  border: 1px solid var(--border-main);
+  border-radius: 32px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cpr-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cpr-step::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--text-light);
+  z-index: 2;
+}
+
+.cpr-step:last-child::after {
+  display: none;
+}
+
+.cpr-step__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--cream2);
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+}
+
+.cpr-step__icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.cpr-step__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-family: 'Sora', sans-serif;
+}
+
+.cpr-step__desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-family: 'Sora', sans-serif;
+}
+
+.cpr-step__time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  background: var(--brand-blue-l);
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+  margin-top: 20px;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .cpr-sec { padding: 72px 36px; }
+  .cpr-steps { grid-template-columns: 1fr; }
+
+  .cpr-step::after {
+    content: '↓';
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -24px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .cpr-sec { padding: 64px 24px; }
+  .cpr-step { padding: 36px 28px; }
+}
