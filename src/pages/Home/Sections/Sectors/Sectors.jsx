@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, LayoutGroup } from "framer-motion";
 import "./Sectors.css";
 
 const SECTORS = [
@@ -41,6 +41,7 @@ const SECTORS = [
     ventures: 1,
     accent: "#D97706",
     accentLight: "rgba(217, 119, 6, 0.08)",
+    image: "/images/b2b.jpg",
   },
   {
     icon: "C",
@@ -50,6 +51,7 @@ const SECTORS = [
     ventures: 1,
     accent: "#0891B2",
     accentLight: "rgba(8, 145, 178, 0.08)",
+    image: "/images/communication.jpg",
   },
   {
     icon: "T",
@@ -59,6 +61,7 @@ const SECTORS = [
     ventures: 1,
     accent: "#DC2626",
     accentLight: "rgba(220, 38, 38, 0.08)",
+    image: "/images/trading.jpg",
   },
 ];
 
@@ -139,6 +142,7 @@ export default function SectorsSection() {
         </div>
 
         {/* ── Interactive Flex Layout ── */}
+        <LayoutGroup>
         <div className="accordion-container">
           {SECTORS.map((s, i) => {
             const isActive = activeIndex === i;
@@ -180,6 +184,7 @@ export default function SectorsSection() {
                 key={s.name}
                 className={`accordion-panel ${isActive ? "is-active" : ""}`}
                 onMouseEnter={() => setActiveIndex(i)}
+                onClick={() => setActiveIndex(i)}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -285,6 +290,7 @@ export default function SectorsSection() {
             );
           })}
         </div>
+        </LayoutGroup>
 
       </div>
     </section>

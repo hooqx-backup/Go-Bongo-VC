@@ -1,0 +1,379 @@
+/* ══════════════════════════════════════════════
+   FOUNDER VOICES  —  Leadership.css
+   Infinite auto-scroll slider, white-themed
+   ══════════════════════════════════════════════ */
+
+/* ── Section ── */
+.fv-section {
+  background: #F8F7F4;
+  padding: 112px 0 128px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
+/* Background glows */
+.fv-bg-glow {
+  position: absolute;
+  width: 720px;
+  height: 560px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fv-bg-glow--left {
+  top: -80px;
+  left: 10%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.055) 0%,
+    transparent 65%
+  );
+}
+
+.fv-bg-glow--right {
+  bottom: -100px;
+  right: 5%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26, 86, 232, 0.04) 0%,
+    transparent 65%
+  );
+}
+
+/* ── Container (header only) ── */
+.fv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Eyebrow ── */
+.fv-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.fv-eyebrow-line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--brand-blue, #1A56E8);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.fv-eyebrow-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-blue, #1A56E8);
+  font-family: 'Outfit', 'Sora', sans-serif;
+}
+
+/* ── Heading ── */
+.fv-heading {
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  color: var(--ink, #0D0D0B);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.fv-heading-em {
+  font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+}
+
+/* ── Subtext ── */
+.fv-subtext {
+  font-size: 15px;
+  color: var(--muted-about, #7A7A72);
+  line-height: 1.65;
+  margin: 0 0 60px;
+  font-family: 'Sora', sans-serif;
+  max-width: 460px;
+}
+
+/* ══════════════════════
+   INFINITE SLIDER
+   ══════════════════════ */
+
+/* Outer wrapper — full width, clips overflow, shows edge fades */
+.fv-slider-outer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Pause the track when hovering any card */
+  cursor: default;
+}
+
+/* Edge fade masks */
+.fv-slider-outer::before,
+.fv-slider-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fv-slider-outer::before {
+  left: 0;
+  background: linear-gradient(to right, #F8F7F4 0%, transparent 100%);
+}
+
+.fv-slider-outer::after {
+  right: 0;
+  background: linear-gradient(to left, #F8F7F4 0%, transparent 100%);
+}
+
+/* Scrolling track — duplicated cards, animates -50% = one full set */
+.fv-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  padding: 16px 0 24px; /* breathing room for hover lift + shadow */
+  animation: fv-scroll 26s linear infinite;
+}
+
+/* Pause on hover over any card inside the track */
+.fv-slider-outer:hover .fv-track {
+  animation-play-state: paused;
+}
+
+@keyframes fv-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Card ── */
+.fv-card {
+  width: 380px;
+  flex-shrink: 0;
+  border: 1px solid rgba(13, 13, 11, 0.07);
+  border-radius: 24px;
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  transition:
+    box-shadow 0.42s ease,
+    border-color 0.42s ease;
+}
+
+.fv-card:hover {
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.09),
+    0 4px 18px rgba(26, 86, 232, 0.07);
+  border-color: rgba(26, 86, 232, 0.2);
+}
+
+/* Top accent stripe */
+.fv-card-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(
+    90deg,
+    #1A56E8 0%,
+    rgba(26, 86, 232, 0.22) 100%
+  );
+  border-radius: 0 0 3px 3px;
+}
+
+/* Decorative oversized quote glyph */
+.fv-deco-quote {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 96px;
+  line-height: 1;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  color: rgba(26, 86, 232, 0.065);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.42s ease;
+  letter-spacing: -0.04em;
+}
+
+.fv-card:hover .fv-deco-quote {
+  color: rgba(26, 86, 232, 0.13);
+}
+
+/* ── Stars ── */
+.fv-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+
+.fv-star {
+  font-size: 15px;
+  color: #F59E0B;
+  display: inline-block;
+  line-height: 1;
+  filter: drop-shadow(0 1px 3px rgba(245, 158, 11, 0.35));
+}
+
+/* ── Quote ── */
+.fv-quote {
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--ink, #0D0D0B);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  margin: 0 0 28px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Divider ── */
+.fv-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(13, 13, 11, 0.07);
+  margin-bottom: 24px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ── Attribution ── */
+.fv-attribution {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fv-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  font-family: 'Outfit', sans-serif;
+  flex-shrink: 0;
+}
+
+.fv-attribution-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fv-role {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink, #0D0D0B);
+  font-family: 'Outfit', 'Sora', sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.fv-company {
+  font-size: 12px;
+  color: var(--muted-about, #7A7A72);
+  font-family: 'Outfit', 'Sora', sans-serif;
+  line-height: 1.3;
+}
+
+.fv-dot {
+  color: var(--muted-light, #AEADA6);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .fv-section {
+    padding: 80px 0 90px;
+  }
+
+  .fv-container {
+    padding: 0 20px;
+  }
+
+  .fv-subtext {
+    margin-bottom: 44px;
+  }
+
+  .fv-heading {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .fv-card {
+    width: 300px;
+    padding: 28px 24px 26px;
+  }
+
+  .fv-slider-outer::before,
+  .fv-slider-outer::after {
+    width: 60px;
+  }
+
+  .fv-track {
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 480px) {
+  .fv-section {
+    padding: 64px 0 72px;
+  }
+
+  .fv-container {
+    padding: 0 16px;
+  }
+
+  .fv-heading {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+
+  .fv-subtext {
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+
+  .fv-card {
+    width: 268px;
+    padding: 24px 20px 22px;
+  }
+
+  .fv-quote {
+    font-size: 13.5px;
+  }
+
+  .fv-slider-outer::before,
+  .fv-slider-outer::after {
+    width: 40px;
+  }
+
+  .fv-track {
+    gap: 16px;
+    animation-duration: 18s;
+  }
+}

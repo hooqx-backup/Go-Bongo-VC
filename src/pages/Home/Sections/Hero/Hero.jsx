@@ -111,6 +111,11 @@ export default function Hero() {
       {/* Background layers */}
       <div className="fin-bg"    aria-hidden="true" />
       <div className="fin-grain" aria-hidden="true" />
+      <div className="hero-blobs" aria-hidden="true">
+        <span className="hero-blob hero-blob--one" />
+        <span className="hero-blob hero-blob--two" />
+        <span className="hero-blob hero-blob--three" />
+      </div>
 
       {/* ══════════════ DESKTOP TWO-COLUMN LAYOUT ══════════════ */}
       <div className="hero-inner">

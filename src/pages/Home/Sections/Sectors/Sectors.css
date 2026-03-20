@@ -2,7 +2,7 @@
    PREMIUM ACCORDION SECTION
    ═══════════════════════════════════════════ */
    .accordion-section {
-    background: #FAFAFA;
+    background: #ffffff;
     padding: 120px 0;
     font-family: 'Sora', -apple-system, sans-serif;
     color: #0D0D0B;
@@ -88,9 +88,19 @@
   }
   
   .premium-heading-word--accent {
-    color: #1A56E8;
     font-style: italic;
     position: relative;
+    background: linear-gradient(110deg, #1d4ed8 20%, #2563eb 38%, #0ea5e9 50%, #2563eb 62%, #1d4ed8 80%);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 5s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -300% center; }
+    100% { background-position:  300% center; }
   }
   
   .premium-heading-underline {
@@ -322,5 +332,51 @@
     .accordion-panel__expanded {
       padding: 24px;
       min-width: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .accordion-section {
+      padding: 64px 0;
+    }
+    .accordion-wrap {
+      padding: 0 14px;
+    }
+    .premium-header {
+      margin-bottom: 40px;
+    }
+    .premium-eyebrow {
+      margin-bottom: 20px;
+    }
+    .premium-heading-pre,
+    .premium-heading-word {
+      font-size: clamp(24px, 7vw, 30px);
+    }
+    .premium-sub {
+      font-size: 14px;
+    }
+    .accordion-container {
+      min-height: auto;
+      gap: 10px;
+    }
+    .accordion-panel.is-active {
+      min-height: 280px;
+    }
+    .accordion-panel__expanded {
+      padding: 20px 18px;
+    }
+    .accordion-panel__name {
+      font-size: 24px;
+    }
+    .accordion-panel__desc {
+      font-size: 13.5px;
+      margin-bottom: 20px;
+    }
+    .accordion-panel__collapsed {
+      padding: 0 16px;
+      gap: 14px;
+    }
+    .accordion-panel__vertical-text {
+      font-size: 15px;
     }
   }

@@ -12,7 +12,7 @@
   width: 100%;
   overflow: hidden;
   padding: 18px 0;
-  background: #F2F1EE;
+  background: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.07);
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
@@ -24,7 +24,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #AEADA6;
+  color: #ffffff;
   margin-bottom: 14px;
 }
 
@@ -40,11 +40,11 @@
 }
 .marquee-fade-left {
   left: 0;
-  background: linear-gradient(to right, #F2F1EE 0%, transparent 100%);
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
 }
 .marquee-fade-right {
   right: 0;
-  background: linear-gradient(to left, #F2F1EE 0%, transparent 100%);
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%);
 }
 
 /* Track wrapper — clips overflow */
@@ -110,7 +110,7 @@
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: rgba(201, 168, 76, 0.12);
+  background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(201, 168, 76, 0.28);
   display: flex;
   align-items: center;
