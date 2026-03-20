@@ -134,7 +134,7 @@ export default function SectorsSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             Six essential industries undergoing structural transformation — where
-            operational excellence compounds into unassailable competitive advantage.
+            operational excellence compounds into 
           </motion.p>
         </div>
 
