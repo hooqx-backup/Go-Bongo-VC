@@ -1,0 +1,144 @@
+/* ── LeadershipTeam ── */
+.team-outer { background: var(--cream); }
+
+.team-sec {
+  padding: 100px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.team-header { max-width: 580px; margin-bottom: 48px; }
+
+.team-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.team-h em { font-style: italic; color: var(--brand-blue); }
+
+/* ── Grid ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── Base card ── */
+.tm-card {
+  background: white;
+  border: 1px solid var(--bd-light);
+  border-radius: 16px;
+  padding: 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.tm-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* ── Featured card ── */
+.tm-card--featured {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+
+/* ── Photo ── */
+.tm-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue-l), var(--cream2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  border: 2px solid var(--bd-light);
+}
+.tm-photo--large {
+  width: 90px;
+  height: 90px;
+  font-size: 32px;
+}
+
+.tm-feat-body { flex: 1; }
+
+.tm-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-family: 'Sora', sans-serif;
+}
+.tm-role {
+  font-size: 11px;
+  color: var(--brand-blue);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: 'Sora', sans-serif;
+}
+.tm-bio {
+  font-size: 13px;
+  color: var(--muted-about);
+  line-height: 1.7;
+  font-family: 'Sora', sans-serif;
+}
+.tm-feat-bio {
+  font-size: 14px;
+  color: var(--muted-about);
+  line-height: 1.8;
+  max-width: 460px;
+  font-family: 'Sora', sans-serif;
+}
+
+.tm-li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-blue);
+  text-decoration: none;
+  margin-top: 12px;
+  transition: opacity 0.2s;
+  font-family: 'Sora', sans-serif;
+}
+.tm-li:hover { opacity: 0.7; }
+
+.tm-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.tm-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-about);
+  background: var(--cream2);
+  border: 1px solid var(--bd-light);
+  border-radius: 100px;
+  padding: 4px 14px;
+  white-space: nowrap;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .team-sec { padding: 64px 24px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .tm-card--featured {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+  .tm-badge-wrap { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+}
