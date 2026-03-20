@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "Home",      path: "/" },
   { label: "About",     path: "/about" },
   { label: "Portfolio", path: null },
-  { label: "Sectors",   path: null },
+  { label: "Sectors",   path: "/sectors" },
   { label: "Dubai",     path: null },
   { label: "Contact",   path: "/contact" },
 ];

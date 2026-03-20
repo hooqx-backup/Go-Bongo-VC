@@ -1,0 +1,150 @@
+/* ══════════════════════════════════════════════
+   WHY NOW — white bg, colored accent cards
+   ══════════════════════════════════════════════ */
+
+.wn-outer {
+  background: #F8F7F4;
+  width: 100vw; position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  overflow: hidden;
+}
+
+.wn-section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.wn-header { max-width: 620px; margin-bottom: 56px; }
+
+.wn-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #1A56E8;
+  margin-bottom: 16px; font-family: 'Outfit', sans-serif;
+}
+.wn-eyebrow::before {
+  content: ''; width: 24px; height: 2px;
+  background: #1A56E8; border-radius: 2px; flex-shrink: 0;
+}
+
+.wn-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 3.8vw, 54px);
+  font-weight: 700; line-height: 1.1;
+  color: #0D0D0B; letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+.wn-heading em { font-style: italic; color: #1A56E8; }
+
+.wn-sub {
+  font-size: 15px; color: #7A7A72; line-height: 1.72;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Grid */
+.wn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Cards */
+.wn-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(13,13,11,0.07);
+  border-radius: 22px;
+  padding: 28px 24px 24px;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  display: flex; flex-direction: column;
+}
+.wn-card:hover {
+  box-shadow: 0 20px 56px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+  transform: translateY(-4px);
+  border-color: var(--card-accent, #1A56E8);
+}
+
+/* Top stripe */
+.wn-card-stripe {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-accent, #1A56E8);
+  border-radius: 0 0 3px 3px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.wn-card:hover .wn-card-stripe { transform: scaleX(1); }
+
+/* Year + icon row */
+.wn-card-year-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px;
+}
+.wn-card-icon-wrap {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wn-card-year-text {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+}
+
+.wn-card-title {
+  font-size: 16px; font-weight: 700; color: #0D0D0B;
+  margin-bottom: 10px; line-height: 1.35;
+  font-family: 'Outfit', sans-serif; letter-spacing: -0.01em;
+}
+
+.wn-card-desc {
+  font-size: 13.5px; color: #7A7A72; line-height: 1.78;
+  font-family: 'Sora', sans-serif;
+  flex: 1; margin-bottom: 18px;
+}
+
+.wn-card-stat-row {
+  display: flex; align-items: baseline; gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(13,13,11,0.06);
+}
+
+.wn-card-stat {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1;
+}
+.wn-card-stat-label {
+  font-size: 12px; color: #AEADA6;
+  font-family: 'Outfit', sans-serif; line-height: 1.4;
+}
+
+.wn-card-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none; margin-top: 10px;
+  font-family: 'Outfit', sans-serif;
+  transition: gap 0.2s;
+}
+.wn-card-link:hover { gap: 8px; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .wn-section { padding: 80px 36px; }
+  .wn-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .wn-section { padding: 72px 20px; }
+  .wn-grid { grid-template-columns: 1fr; }
+  .wn-card:hover { transform: none; }
+}
+@media (max-width: 480px) {
+  .wn-section { padding: 56px 16px; }
+  .wn-grid { gap: 14px; }
+  .wn-card { padding: 22px 18px 20px; }
+  .wn-card-title { font-size: 15px; }
+  .wn-card-stat { font-size: 24px; }
+}
