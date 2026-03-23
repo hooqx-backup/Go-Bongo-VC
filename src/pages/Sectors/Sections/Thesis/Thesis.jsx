@@ -53,7 +53,7 @@ export default function Thesis() {
         >
           <div className="th-eyebrow">Investment Thesis</div>
           <h2 className="th-heading">
-            Why These Six.<br /><em>Why Now.</em>
+            Why These Six.<br /><em className="shimmer-blue">Why Now.</em>
           </h2>
           <div className="th-divider" />
           <p className="th-quote">
@@ -71,14 +71,18 @@ export default function Thesis() {
 
         {/* ── Right ── */}
         <div className="th-right">
+          <div className="th-float-element th-float-element--a" />
+          <div className="th-float-element th-float-element--b" />
+
           {POINTS.map((p, i) => (
             <motion.div
               key={p.title}
               className="th-point"
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 56, rotateX: -14, rotateY: i % 2 === 0 ? 10 : -10, z: -80 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0, z: 0 }}
+              whileHover={{ y: -7, rotateX: -3, rotateY: i % 2 === 0 ? 3 : -3 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 1.08, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="th-point-icon" style={{ background: p.bg }}>
                 <p.Icon size={20} color={p.color} strokeWidth={1.8} />

@@ -35,13 +35,19 @@ export default function EliteWhyUs() {
   const [activeIndex, setActiveIndex] = useState(0); // Auto-open the first one
 
   return (
-    <section className="elite-section">
-      <div className="elite-container">
+    <section className="elite-section ">
+      <div className="elite-container ">
         
         {/* Section Header */}
         <div className="elite-header">
-       
-          <h2 className="elite-heading font-serif shimmer-blue font-extrabold">Why Choose Us</h2>
+          <div className="elite-eyebrow">
+           
+          
+          </div>
+          <h2 className="elite-heading">
+            Why Choose{" "}
+            <em className="shimmer-blue">Us</em>
+          </h2>
         </div>
 
         {/* The Accordion */}

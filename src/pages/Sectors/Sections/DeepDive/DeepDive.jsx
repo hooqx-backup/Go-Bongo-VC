@@ -10,6 +10,33 @@ import {
 } from "lucide-react";
 import "./DeepDive.css";
 
+const EASE = [0.22, 1, 0.36, 1];
+
+// Grid container — staggers card children
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.22, delayChildren: 0.1 } },
+};
+
+// Card — 3D Y-axis flip (like flipping a playing card face-up)
+const cardVariants = {
+  hidden: { opacity: 0, rotateY: 72, y: 32, scale: 0.92 },
+  visible: {
+    opacity: 1, rotateY: 0, y: 0, scale: 1,
+    transition: { duration: 4.72, ease: [0.22, 1, 0.36, 1] },
+    once: false,
+  },
+};
+
+// Heading lines — fade + slide up
+const lineVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.65, delay: 0.08 + i * 0.14, ease: EASE },
+  }),
+};
+
 const SECTORS = [
   {
     id: "ecommerce",
@@ -108,11 +135,15 @@ function SectorCard({ s, i }) {
     <motion.div
       id={s.id}
       className="dd-card"
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: (i % 2) * 0.1 }}
-      style={{ "--accent": s.accent }}
+      variants={cardVariants}
+      whileHover={{
+        y: -10,
+        scale: 1.025,
+        rotateX: 4,
+        rotateY: i % 2 === 0 ? -3 : 3,
+        transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
+      }}
+      style={{ "--accent": s.accent, transformStyle: "preserve-3d", transformPerspective: 900 }}
     >
       <div className="dd-card-accent-bar" style={{ background: s.accent }} />
 
@@ -153,33 +184,65 @@ export default function DeepDive() {
   return (
     <div className="dd-outer">
       <div className="dd-section">
-        <motion.div
-          className="dd-intro"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.65 }}
-        >
+        <div className="dd-intro">
           <div>
-            <div className="dd-eyebrow">Our Investment Focus</div>
+            <motion.div
+              className="dd-eyebrow"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, ease: EASE }}
+            >
+              Our Investment Focus
+            </motion.div>
             <h2 className="dd-heading">
-              Six Sectors.<br />One <em>Deliberate</em> Thesis.
+              <motion.span
+                className="dd-line"
+                custom={0}
+                variants={lineVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+              >
+                Six Sectors.
+              </motion.span>
+              <br />
+              <motion.span
+                className="dd-line"
+                custom={1}
+                variants={lineVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+              >
+                One <em className="shimmer-blue">Deliberate</em> Thesis.
+              </motion.span>
             </h2>
           </div>
-          <div>
-            <p className="dd-sub">
-              Every sector we operate in was chosen because it sits at the intersection of necessity
-              and digital transformation — where the old way of doing things is visibly broken and
-              where the right operator can build something structurally defensible.
-            </p>
-          </div>
-        </motion.div>
+          <motion.p
+            className="dd-sub"
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
+          >
+            Every sector we operate in was chosen because it sits at the intersection of necessity
+            and digital transformation — where the old way of doing things is visibly broken and
+            where the right operator can build something structurally defensible.
+          </motion.p>
+        </div>
 
-        <div className="dd-grid">
+        <motion.div
+          className="dd-grid"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {SECTORS.map((s, i) => (
             <SectorCard key={s.id} s={s} i={i} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

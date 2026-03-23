@@ -119,6 +119,8 @@
   overflow: hidden;
   /* Pause the track when hovering any card */
   cursor: default;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 /* Edge fade masks */
