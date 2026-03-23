@@ -75,11 +75,25 @@ const CARDS = [
   },
 ];
 
+const MotionDiv = motion.div;
+
+const getPuzzleStart = (i) => {
+  const positions = [
+    { x: -180, y: -120, rotateZ: -14, rotateX: 35, rotateY: -30, scale: 0.65 },
+    { x: 0,    y: -180, rotateZ: 10,  rotateX: -40, rotateY: 0,   scale: 0.65 },
+    { x: 180,  y: -120, rotateZ: -18, rotateX: 35,  rotateY: 30,  scale: 0.65 },
+    { x: -180, y: 120,  rotateZ: 18,  rotateX: -35, rotateY: 40,  scale: 0.65 },
+    { x: 0,    y: 180,  rotateZ: -12, rotateX: 40,  rotateY: -30, scale: 0.65 },
+    { x: 180,  y: 120,  rotateZ: 22,  rotateX: -35, rotateY: -20, scale: 0.65 },
+  ];
+  return positions[i] || { x: 0, y: 50, rotateZ: 0, rotateX: 0, rotateY: 0, scale: 0.8 };
+};
+
 export default function WhyNow() {
   return (
     <div className="wn-outer">
       <div className="wn-section">
-        <motion.div
+        <MotionDiv
           className="wn-header"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,46 +102,54 @@ export default function WhyNow() {
         >
           <div className="wn-eyebrow">Market Timing</div>
           <h2 className="wn-heading">
-            The Conditions That Make<br /><em>Right Now</em> Exceptional
+            The Conditions That Make <em className="shimmer-blue">Right Now</em> Exceptional
           </h2>
           <p className="wn-sub">
             Six converging forces make this the defining window to build across our sectors.
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="wn-grid">
-          {CARDS.map((c, i) => (
-            <motion.div
-              key={c.title}
-              className="wn-card"
-              style={{ "--card-accent": c.accent, "--card-accent-bg": c.accentBg }}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-            >
-              <div className="wn-card-stripe" />
-              <div className="wn-card-year-row">
-                <div className="wn-card-icon-wrap" style={{ background: c.accentBg }}>
-                  <c.Icon size={18} color={c.accent} strokeWidth={1.8} />
+          {CARDS.map((c, i) => {
+            const startPos = getPuzzleStart(i);
+            return (
+              <MotionDiv
+                key={c.title}
+                className="wn-card"
+                style={{ "--card-accent": c.accent, "--card-accent-bg": c.accentBg }}
+                initial={{ opacity: 0, z: -100, ...startPos }}
+                whileInView={{ opacity: 1, x: 0, y: 0, z: 0, rotateZ: 0, rotateX: 0, rotateY: 0, scale: 1 }}
+                whileHover={{ y: -10, scale: 1.03, z: 40, rotateX: 5, rotateY: i % 2 === 0 ? -4 : 4 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ 
+                  duration: 1.6, 
+                  delay: 0.1 + i * 0.12, 
+                  ease: [0.16, 1, 0.3, 1] 
+                }}
+              >
+                <div className="wn-card-stripe" />
+                <div className="wn-card-year-row">
+                  <div className="wn-card-icon-wrap" style={{ background: c.accentBg }}>
+                    <c.Icon size={18} color={c.accent} strokeWidth={1.8} />
+                  </div>
+                  <span className="wn-card-year-text" style={{ color: c.accent, background: c.accentBg }}>
+                    {c.year}
+                  </span>
                 </div>
-                <span className="wn-card-year-text" style={{ color: c.accent, background: c.accentBg }}>
-                  {c.year}
-                </span>
-              </div>
-              <h3 className="wn-card-title">{c.title}</h3>
-              <p className="wn-card-desc">{c.desc}</p>
-              <div className="wn-card-stat-row">
-                <span className="wn-card-stat" style={{ color: c.accent }}>{c.stat}</span>
-                <span className="wn-card-stat-label">{c.statLabel}</span>
-              </div>
-              {c.link && (
-                <Link to={c.link.to} className="wn-card-link" style={{ color: c.accent }}>
-                  {c.link.label}
-                </Link>
-              )}
-            </motion.div>
-          ))}
+                <h3 className="wn-card-title">{c.title}</h3>
+                <p className="wn-card-desc">{c.desc}</p>
+                <div className="wn-card-stat-row">
+                  <span className="wn-card-stat" style={{ color: c.accent }}>{c.stat}</span>
+                  <span className="wn-card-stat-label">{c.statLabel}</span>
+                </div>
+                {c.link && (
+                  <Link to={c.link.to} className="wn-card-link" style={{ color: c.accent }}>
+                    {c.link.label}
+                  </Link>
+                )}
+              </MotionDiv>
+            );
+          })}
         </div>
       </div>
     </div>

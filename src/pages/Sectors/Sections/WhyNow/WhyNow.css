@@ -49,6 +49,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  perspective: 1400px;
+  transform-style: preserve-3d;
 }
 
 /* Cards */
@@ -58,12 +60,32 @@
   border-radius: 22px;
   padding: 28px 24px 24px;
   position: relative; overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  transition: box-shadow 0.4s, border-color 0.4s;
   display: flex; flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
+
+/* Premium Shine Sweep Effect */
+.wn-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent);
+  transform: skewX(-25deg);
+  z-index: 10;
+  pointer-events: none;
+}
+.wn-card:hover::after {
+  animation: cardShine 0.8s ease-in-out forwards;
+}
+@keyframes cardShine {
+  0% { left: -150%; }
+  100% { left: 200%; }
+}
+
 .wn-card:hover {
-  box-shadow: 0 20px 56px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
-  transform: translateY(-4px);
+  box-shadow: 0 32px 70px rgba(0,0,0,0.09), 0 12px 28px rgba(0,0,0,0.04);
   border-color: var(--card-accent, #1A56E8);
 }
 
@@ -86,6 +108,10 @@
   width: 32px; height: 32px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.wn-card:hover .wn-card-icon-wrap {
+  transform: scale(1.15) rotate(-8deg);
 }
 .wn-card-year-text {
   display: inline-block;
@@ -139,7 +165,6 @@
 @media (max-width: 768px) {
   .wn-section { padding: 72px 20px; }
   .wn-grid { grid-template-columns: 1fr; }
-  .wn-card:hover { transform: none; }
 }
 @media (max-width: 480px) {
   .wn-section { padding: 56px 16px; }

@@ -83,6 +83,8 @@ const GROUPS = [
   },
 ];
 
+const MotionDiv = motion.div;
+
 export default function BySector() {
   return (
     <div className="bs-outer">
@@ -90,34 +92,62 @@ export default function BySector() {
       <div className="bs-glow bs-glow--br" />
 
       <div className="bs-section">
-        <motion.div
+        <MotionDiv
           className="bs-header"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 24, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.65 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="bs-eyebrow">Our Portfolio</div>
           <h2 className="bs-heading">
-            Every Venture Mapped<br />to <em>Its Sector</em>
+            Every Venture Mapped<br />to <em className="shimmer-blue">Its Sector</em>
           </h2>
           <p className="bs-sub">
             Eight companies across six industries — each chosen because it sits inside
             a structural transformation we have deep conviction in.
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="bs-grid">
           {GROUPS.map((g, gi) => (
-            <motion.div
+            <MotionDiv
               key={g.name}
               className="bs-group"
               style={{ "--g-accent": g.accent, "--g-accent-bg": g.accentBg }}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: (gi % 2) * 0.1 }}
+              initial={{ 
+                opacity: 0, 
+                x: gi % 2 === 0 ? -140 : 140, 
+                y: 100, 
+                z: -200, 
+                rotateX: 35, 
+                rotateY: gi % 2 === 0 ? -25 : 25, 
+                scale: 0.7 
+              }}
+              whileInView={{ 
+                opacity: 1, 
+                x: 0, 
+                y: 0, 
+                z: 0, 
+                rotateX: 0, 
+                rotateY: 0, 
+                scale: 1 
+              }}
+              whileHover={{ 
+                y: -16, 
+                z: 80, 
+                scale: 1.04, 
+                rotateX: 6, 
+                rotateY: gi % 2 === 0 ? -5 : 5 
+              }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ 
+                duration: 1.5, 
+                delay: 0.1 + gi * 0.12, 
+                ease: [0.16, 1, 0.3, 1] 
+              }}
             >
+              <div className="bs-group-glass-fx" />
               <div className="bs-group-head">
                 <div className="bs-group-icon-wrap" style={{ background: g.accentBg }}>
                   <g.Icon size={18} color={g.accent} strokeWidth={1.8} />
@@ -145,7 +175,7 @@ export default function BySector() {
                   </Link>
                 ))}
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

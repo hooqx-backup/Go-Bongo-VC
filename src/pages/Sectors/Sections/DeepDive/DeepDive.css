@@ -42,6 +42,8 @@
 }
 .dd-heading em { font-style: italic; color: #1A56E8; }
 
+.dd-line { display: inline; }
+
 .dd-sub {
   font-size: 15px; color: #7A7A72; line-height: 1.82;
   font-family: 'Sora', sans-serif; padding-top: 16px;
@@ -52,6 +54,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  perspective: 1400px;
+  perspective-origin: center center;
 }
 
 /* Cards */

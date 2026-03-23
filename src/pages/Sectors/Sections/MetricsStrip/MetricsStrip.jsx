@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, animate, useInView } from "framer-motion";
 import {
   LayoutGrid,
   Building2,
@@ -9,6 +9,31 @@ import {
   Trophy,
 } from "lucide-react";
 import "./MetricsStrip.css";
+
+function Counter({ value, suffix }) {
+  const num = parseInt(value, 10);
+  const isNumeric = !isNaN(num) && String(num) === String(value);
+  const [display, setDisplay] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+
+  useEffect(() => {
+    if (!isNumeric || !inView) return;
+    const ctrl = animate(0, num, {
+      duration: 2,
+      ease: "easeOut",
+      onUpdate: (v) => setDisplay(Math.floor(v)),
+    });
+    return ctrl.stop;
+  }, [inView, isNumeric, num]);
+
+  return (
+    <span ref={ref}>
+      {isNumeric ? display.toLocaleString() : value}
+      {suffix && <span className="mst-suffix">{suffix}</span>}
+    </span>
+  );
+}
 
 const METRICS = [
   { Icon: LayoutGrid,   value: "6",    suffix: "",  label: "Active Sectors",      color: "#1A56E8" },
@@ -39,8 +64,7 @@ export default function MetricsStrip() {
               <m.Icon size={16} color={m.color} strokeWidth={2} />
             </div>
             <div className="mst-number" style={{ color: m.color }}>
-              {m.value}
-              {m.suffix && <span className="mst-suffix">{m.suffix}</span>}
+              <Counter value={m.value} suffix={m.suffix} />
             </div>
             <div className="mst-label">{m.label}</div>
           </motion.div>

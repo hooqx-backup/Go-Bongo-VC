@@ -27,25 +27,54 @@
 }
 
 .elite-eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: #666;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.elite-eyebrow-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #1A56E8;
+  flex-shrink: 0;
+  max-width: 1140px;
+  
+}
+
+.elite-eyebrow-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: 0;
-  font-family: 'Space Grotesk', monospace, sans-serif;
+  
+  
+  color: var(--text-muted, #7A7A72);
+  font-family: 'Outfit', sans-serif;
 }
 
 .elite-heading {
-  font-size: clamp(24px, 3.2vw, 42px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   margin: 0;
-  color: #000000;
+  color: var(--text-primary, #0D0D0B);
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.elite-heading em {
+  font-style: italic;
 }
 
 /* ── The Accordion Grid ── */
 .elite-accordion {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .elite-row {
