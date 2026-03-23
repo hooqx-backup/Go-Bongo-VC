@@ -1,0 +1,328 @@
+/* ── BlogFeatured ── */
+
+.bf-outer {
+  background: var(--cream);
+  padding: 80px 64px;
+}
+
+.bf-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.bf-tag-wrap { margin-bottom: 28px; }
+
+/* ── Main card — full bleed editorial ── */
+.bf-card {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  min-height: 500px;
+  background: linear-gradient(130deg, #060608 0%, #0a0f1e 35%, #0d1a3a 65%, #0f2060 100%);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+}
+.bf-card:hover {
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.30);
+}
+
+/* ── Grain texture ── */
+.bf-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Animated glow orbs ── */
+.bf-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.bf-orb--1 {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(26, 86, 232, 0.18) 0%, transparent 65%);
+  animation: bf-orb-drift 10s ease-in-out infinite alternate;
+}
+.bf-orb--2 {
+  width: 360px;
+  height: 360px;
+  bottom: -80px;
+  right: 35%;
+  background: radial-gradient(circle, rgba(184, 137, 42, 0.12) 0%, transparent 65%);
+  animation: bf-orb-drift 14s ease-in-out infinite alternate-reverse;
+}
+.bf-orb--3 {
+  width: 280px;
+  height: 280px;
+  top: 30%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(59, 111, 240, 0.10) 0%, transparent 65%);
+  animation: bf-orb-drift 8s ease-in-out infinite alternate;
+}
+@keyframes bf-orb-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+/* ── Huge watermark ── */
+.bf-watermark {
+  position: absolute;
+  bottom: -40px;
+  left: -10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 220px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Left content area ── */
+.bf-left {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 52px 56px 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top row badges */
+.bf-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bf-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: 'Sora', sans-serif;
+}
+.bf-cat__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-blue-m);
+  box-shadow: 0 0 6px rgba(59, 111, 240, 0.8);
+}
+
+.bf-star-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-l);
+  background: rgba(184, 137, 42, 0.12);
+  border: 1px solid rgba(184, 137, 42, 0.25);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-family: 'Sora', sans-serif;
+}
+
+/* Main title */
+.bf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  max-width: 560px;
+}
+.bf-title em {
+  font-style: italic;
+  color: var(--gold-l);
+}
+
+/* Author strip at bottom-left */
+.bf-author-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.bf-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-m));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  font-family: 'Sora', sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.bf-author__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: 'Sora', sans-serif;
+}
+.bf-author__meta {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Sora', sans-serif;
+  margin-top: 2px;
+}
+
+/* ── Right glass panel ── */
+.bf-glass {
+  width: 340px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  margin: 24px 24px 24px 0;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.bf-card:hover .bf-glass {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Gold top accent line on glass panel */
+.bf-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32px;
+  right: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+}
+
+.bf-glass__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  font-family: 'Sora', sans-serif;
+}
+
+.bf-glass__excerpt {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.75;
+  font-family: 'Sora', sans-serif;
+  flex: 1;
+}
+
+/* Stats row inside glass */
+.bf-glass__stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.bf-glass__stat {
+  text-align: center;
+  flex: 1;
+}
+.bf-glass__stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.bf-glass__stat-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'Sora', sans-serif;
+  margin-top: 4px;
+}
+.bf-glass__stat-sep {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* CTA button inside glass */
+.bf-glass__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-m));
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(26, 86, 232, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.bf-glass__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(26, 86, 232, 0.45);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .bf-outer    { padding: 64px 36px; }
+  .bf-glass    { width: 280px; }
+}
+@media (max-width: 900px) {
+  .bf-card     { flex-direction: column; min-height: unset; }
+  .bf-glass    { width: auto; margin: 0 24px 24px; }
+  .bf-left     { padding: 40px 32px 32px; }
+}
+@media (max-width: 768px) {
+  .bf-outer    { padding: 48px 24px; }
+  .bf-left     { padding: 32px 24px 24px; }
+  .bf-glass    { margin: 0 16px 16px; padding: 28px 24px; }
+  .bf-watermark { font-size: 140px; }
+}

@@ -98,6 +98,13 @@ html, body {
   background-clip: text;
   animation: shimmer 5s linear infinite;
 }
+.shimmer-gold {
+  background: linear-gradient(110deg, #7A5A1A 15%, #B8892A 35%, #D4A84B 50%, #B8892A 65%, #7A5A1A 85%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
 
 @keyframes shimmer {
   0%   { background-position: -300% center; }

@@ -41,7 +41,7 @@ src/
   App.jsx                     ← Unused (routing handled in main.jsx)
   index.css                   ← Global styles, design tokens, Tailwind import, Sora font
   router/
-    Router.jsx                ← Route definitions (/, /about)
+    Router.jsx                ← Route definitions (/, /about, /contact)
   layouts/
     RootLayout.jsx            ← Navbar + <Outlet /> + Footer wrapper
   pages/
@@ -69,6 +69,15 @@ src/
         Achievements/         ← 3-col grid with dark card variant
         CultureValues/        ← 4-col values grid + culture pull card
         AboutCTA/             ← Centered CTA with buttons
+    Contact/
+      ContactPage.jsx         ← Full contact page — 6 sections, manages activeSubject state
+      Sections/
+        ContactHero/          ← Hero with 3 path cards (Pitch/Partnership/Press), page-load anim
+        ContactForm/          ← Left: contact info list. Right: form card with subject pills
+        ContactOffice/        ← 4-col office/market presence cards
+        ContactProcess/       ← 3-step process (Read → Respond → Conversation)
+        ContactFAQ/           ← 2-col accordion FAQ (5 items)
+        ContactSocial/        ← Social follow bar (LinkedIn, Twitter/X)
   common/
     components/
       Navbar/
@@ -184,8 +193,8 @@ public/
 |-------|-----------|--------|
 | `/` | HomePage | Complete |
 | `/about` | AboutPage | Complete |
+| `/contact` | ContactPage | Complete |
 | `/pitch` | — | Referenced in CTAs, not created |
-| `/contact` | — | Referenced in CTAs, not created |
 
 All routes use `RootLayout` (Navbar + Footer) as parent via `<Outlet />`.
 
@@ -226,8 +235,8 @@ Sizes: `sm`, `md` (default), `lg`
 - Sticky, top 0, z-index 100, frosted glass background
 - Nav links defined as `{ label, path }` objects — `path: null` for unbuilt pages
 - Active pill detected via `useLocation()` — no manual state tracking
-- Built links: Home (`/`), About (`/about`)
-- Unbuilt (rendered as `<span>`): Portfolio, Sectors, Dubai, Contact
+- Built links: Home (`/`), About (`/about`), Contact (`/contact`)
+- Unbuilt (rendered as `<span>`): Portfolio, Sectors, Dubai
 - Desktop: Logo left | animated pill nav center | Log In + Pitch Us right
 - Mobile: Hamburger → AnimatePresence dropdown
 
@@ -290,6 +299,30 @@ All About sections use the light/warm color scheme matching the home page.
 **Known issues in Hero.jsx**:
 - Unused import: `BiBorderRadius` from `react-icons/bi` (line 6)
 - Mobile grid cards use Tailwind utility classes inline (inconsistent with project convention)
+
+---
+
+## Contact Page — Section Reference
+
+All Contact sections use the same light/warm color scheme as Home and About pages.
+
+| Section | File | Background | Notes |
+|---------|------|------------|-------|
+| ContactHero | `ContactHero/` | `--bg-main` + gradient mesh + dot grid | Page-load animation (`initial`/`animate`). 3 path cards (Pitch/Partnership/Press) scroll to form and pre-select subject. |
+| ContactForm | `ContactForm/` | `--cream` | Left: SectionTag + contact info list. Right: form card. Subject pills controlled by `activeSubject` prop from ContactPage. |
+| ContactOffice | `ContactOffice/` | `--cream2` | 4-col grid. RevealWrapper per card with staggered delay. |
+| ContactProcess | `ContactProcess/` | `--bg-main` | 3-step grid. Arrow connector `→` via `::after`, flips to `↓` on mobile. |
+| ContactFAQ | `ContactFAQ/` | `--cream` | 2-col: left (SectionTag + sub + Button to /pitch) + right (accordion, 5 items). |
+| ContactSocial | `ContactSocial/` | `--bg-card` | Horizontal bar: label + title + LinkedIn/Twitter buttons. |
+
+### Cross-section subject pre-selection (ContactPage)
+- `ContactPage` holds `activeSubject` state
+- Path cards in `ContactHero` call `onSelectSubject(subject)` + smooth-scroll to `#contact-form`
+- `ContactForm` receives `activeSubject` as prop, syncs via `useEffect` → sets the active subject pill
+
+### Local CSS vars used in Contact sections (not in index.css)
+- `--teal: #0D9488` / `--teal-bg: #F0FDFB` — used in ContactHero teal path card and ContactForm teal icon
+- `--coral: #E85D26` — used for required field asterisks in ContactForm
 
 ---
 
@@ -402,10 +435,12 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 |------|-------|--------|
 | Home | `/` | ✅ Complete |
 | About | `/about` | ✅ Complete |
+| Contact | `/contact` | ✅ Complete |
+| Blog | `/blog` | ✅ Complete |
+| Blog Post | `/blog/:id` | ✅ Complete |
 | Pitch | `/pitch` | ❌ Not built |
-| Contact | `/contact` | ❌ Not built |
 
-### Session 3 — 2026-03-19
+### Session 3 — 2026-03-19 (continued)
 
 - Hero.jsx reworked to 2-column layout (`.hero-left` text + `.hero-right` absolute cards)
 - Globe moved into Countries card instead of standalone center element
@@ -415,21 +450,131 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 - Portfolio bars updated to 10-item array
 - Updated `CLAUDE.md` to reflect all current state
 
+### Session 4 — 2026-03-20
+
+#### Contact page built from scratch (6 sections)
+- `ContactHero` — warm off-white hero with blue/gold gradient mesh + dot grid overlay, kicker badge ("We respond within 5 business days"), large Playfair heading, 3 path cards (Pitch/Partnership/Press). Page-load `initial`/`animate` animation.
+- `ContactForm` — 2-col: left has `SectionTag` + sub-copy + 3 contact info items (email addresses). Right is a white form card (border-radius 32px, large shadow) with subject pill selection, 6 input fields, and submit button.
+- `ContactOffice` — 4-col grid of office/market presence cards with flag emoji, city name, country, detail lines. Gold badge on Dubai HQ card.
+- `ContactProcess` — 3-step grid. Each step has a large watermark number (`01`/`02`/`03`), icon, title, desc, and a blue time-badge pill. Connector arrow `→` via `::after` pseudo-element (flips to `↓` on mobile stacked layout).
+- `ContactFAQ` — 2-col: left has SectionTag + heading + sub + "Go to Pitch Page →" button. Right is a CSS accordion (max-height transition) with 5 FAQ items. Open state toggled via `useState`. Icon rotates 45° when open.
+- `ContactSocial` — horizontal strip: left text block + right social buttons (LinkedIn, Twitter/X). Matches HTML original layout exactly.
+
+#### Cross-section interactivity
+- `ContactPage` lifts `activeSubject` state — path card clicks in `ContactHero` pre-select the matching subject pill in `ContactForm` via prop + `useEffect`.
+- Smooth scroll to `#contact-form` on path card click.
+
+#### Routing & Navbar wired
+- Added `{ path: "contact", element: <ContactPage /> }` to `Router.jsx`
+- `Contact` nav link in `Navbar.jsx` updated from `path: null` → `path: "/contact"` (now renders as `<Link>`, shows active pill, closes mobile menu on click)
+
+### Session 5 — 2026-03-23
+
+#### Blog page built from scratch (5 sections + single post page)
+
+**Architecture decisions:**
+- Blog is fully static — all content hardcoded, no backend
+- Single post pages route via `/blog/:id`, content matched by ID from `posts.js`
+- Search bar removed (not functional on static site)
+- Client-side category filtering via `POSTS.filter(p => p.category === activeFilter)` in BlogGrid
+- Filter pills moved from BlogHero → BlogGrid header (more logical placement)
+
+**Files created:**
+- `src/pages/Blog/BlogPage.jsx` — holds `activeFilter` state, renders all 5 sections
+- `src/pages/Blog/Sections/BlogHero/BlogHero.jsx` + `BlogHero.css`
+- `src/pages/Blog/Sections/BlogFeatured/BlogFeatured.jsx` + `BlogFeatured.css`
+- `src/pages/Blog/Sections/BlogGrid/BlogGrid.jsx` + `BlogGrid.css`
+- `src/pages/Blog/BlogPost/BlogPost.jsx` — single post page using `useParams`
+- `src/pages/Blog/BlogPost/posts.js` — static content for all 6 posts keyed by ID
+
+**BlogHero:**
+- 2-col layout: left (SectionTag + heading with `.shimmer-blue` on "Publicly Shared." + sub-copy) | right (floating card cluster + stat badges)
+- Left side: each element staggered individually (delays 0, 0.12, 0.26)
+- 3 preview cards slide in from right one by one (delays 0.3, 0.55, 0.82s) then continuously float via CSS keyframes
+- CSS float animations use `animation-delay` (0.4s/0.6s/0.9s) so they start only after Framer Motion entry
+- 3 stat badges animate in last (delay 1.2s+) with `scale: 0.8 → 1`
+- Grain texture: SVG `feTurbulence` fractalNoise as inline `data:image/svg+xml` background-image
+- Animated gradient mesh (`bh-mesh::before/after`) with `bh-mesh-drift` keyframe
+
+**BlogFeatured (full redesign — innovative/creative):**
+- Full-bleed dark navy gradient card (no more white/dark split)
+- 3 animated glow orbs (`.bf-orb--1/2/3`) with `bf-orb-drift` keyframe
+- Huge faint "01" watermark bottom-left
+- Left: category badge + ★ Featured badge sliding from opposite directions + large Playfair title with italic gold `<em>` + author strip
+- Right: frosted glass panel (blur + translucent border, 340px wide) with gold top accent line, "Editor's Pick" label, excerpt, 3 stats row, full-width blue CTA button
+
+**BlogGrid (major redesign — innovative editorial cards):**
+- Full-bleed gradient cards (gradient IS the card background, content overlaid via absolute positioning)
+- Mixed grid: 3 columns, first card `grid-column: span 2` / 460px tall (hero), others 380px
+- 6 gradient color variants: blue, gold, dark, teal, indigo, slate
+- **Permanent bottom panel** (`.bg-card__base`) with title + author — fades out on hover
+- **Hover drawer** (`.bg-card__drawer`) slides up from bottom via CSS `translateY(100% → 0)` with gold accent line at top
+- Gold `::before` accent line at top of drawer
+- Category badge + read time badge always visible (z-index 4, above spotlight)
+- Large watermark number (`.bg-card__num`) fades out on hover
+
+**BlogGrid animations (3 layers):**
+1. **Staggered cascade entry** — `ENTRY_VARIANTS` array with different `{x, y}` per index (bottom/right-bottom/left-bottom alternating)
+2. **3D magnetic tilt** — `useMotionValue` + `useSpring` + `useTransform` on `rotateX/rotateY` tracking normalized mouse position (-0.5 to 0.5) → ±6 degrees, stiffness 260 damping 28, `transformPerspective: 900`
+3. **Cursor spotlight glow** — separate `.bg-card__spotlight` div with inline `radial-gradient(circle 180px at ${spot.x}% ${spot.y}%, rgba(255,255,255,0.13), transparent 70%)` tracking mouse %
+
+**BlogPost (single post page):**
+- `useParams` gets `:id`, looks up `POST_CONTENT[id]` from `posts.js`
+- 404 fallback if ID not found
+- `renderBlock()` handles content types: `p`, `h2`, `h3`, `ul` (with `items[]`), `pullquote`
+- "More posts" grid reuses full-bleed `bg-card` design (imports `BlogGrid.css`)
+- Static content for all 6 posts with: category, title, imgVariant, author, date, readTime, tags, stats[], body[]
+
+**posts.js content keys:**
+- `tezz-logistics-investment`, `building-in-dubai`, `year-in-review-2024`
+- `b2b-trade-finance-mena`, `how-we-evaluate-startups`, `hooqx-global-digital-layer`
+
+**Routing & Navbar:**
+- Added `{ path: "blog", element: <BlogPage /> }` and `{ path: "blog/:id", element: <BlogPost /> }` to `Router.jsx`
+- Added `{ label: "Blog", path: "/blog" }` to `NAV_LINKS` in `Navbar.jsx` (between About and Portfolio)
+
+#### Bugs fixed this session
+- **JSX closing tag mismatch in BlogPost "More posts" grid** — `</article>` inside `</Link>`, `</motion.div>` instead of `</motion.article>`. Fixed closing tag order and element names.
+- **Missing `LuArrowRight` import in BlogPost.jsx** — added alongside existing `LuArrowLeft` import.
+- **Unused `IMG_CLASS` constant in BlogPost.jsx** — removed dead constant left from earlier draft.
+- **Badge positioning (2 rounds)** — badges were visually separated from card cluster. Adjusted `top` values from 4%/12% → 20%/24% → 30%/33%.
+- **BlogHero right section alignment** — added `align-self: center; margin: auto 0` to `.bh-right` and `min-height: 460px` to `.bh-inner`.
+
+---
+
+## Blog Page — Section Reference
+
+All Blog sections use the same light/warm color scheme as the rest of the site.
+
+| Section | File | Background | Notes |
+|---------|------|------------|-------|
+| BlogHero | `BlogHero/` | `--bg-main` + gradient mesh + grain | Page-load `initial`/`animate`. 2-col: left text, right floating card cluster + badges. |
+| BlogFeatured | `BlogFeatured/` | Dark navy gradient (card-level) | Full-bleed dark editorial card. Left content + right glass panel. |
+| BlogGrid | `BlogGrid/` | `--bg-main` | Filter pills in header. Full-bleed gradient cards with 3D tilt + spotlight + staggered entry. `AnimatePresence` on filter change. |
+| BlogTopics | `BlogTopics/` | `--cream` | Topic tag cloud (if built) |
+| BlogNewsletter | `BlogNewsletter/` | `--cream2` | Newsletter CTA (if built) |
+
+### Blog routing
+- `/blog` → `BlogPage` (all sections)
+- `/blog/:id` → `BlogPost` (single post, content from `posts.js`)
+- `BlogPost` imports `BlogGrid.css` for shared card styles in "more posts" section
+
+### Static content location
+- `src/pages/Blog/BlogPost/posts.js` — all 6 post bodies keyed by slug ID
+- `src/pages/Blog/Sections/BlogGrid/BlogGrid.jsx` — `POSTS` array with card metadata (exported for reuse)
+
 ---
 
 ## Pending / Next Steps
 
-- [ ] Build `/pitch` page — referenced in Hero, AboutHero, AboutCTA, Navbar "Pitch Us" button
-- [ ] Build `/contact` page — referenced in AboutCTA "Get in Touch" button
-- [ ] Wire Portfolio, Sectors, Dubai, Contact nav links once pages are built (change `path: null` → real path in Navbar `NAV_LINKS` + add route to `Router.jsx`)
+- [ ] Build `/pitch` page — referenced in Hero, AboutHero, AboutCTA, ContactFAQ, Navbar "Pitch Us" button
+- [ ] Wire Portfolio, Sectors, Dubai nav links once pages are built (change `path: null` → real path in `NAV_LINKS` + add route to `Router.jsx`)
+- [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →")
 - [ ] Add responsive / mobile styles across Hero and Portfolio sections
-- [ ] Build out `/about` page (currently stub)
-- [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →", not created yet)
-- [ ] Build `/contact` page (referenced in Navbar)
+- [ ] Add BlogTopics and BlogNewsletter sections to BlogPage (stubs exist in BlogPage.jsx but sections not built)
 - [ ] Clean up Hero.jsx: remove unused `BiBorderRadius` import
 - [ ] Migrate Hero mobile grid inline Tailwind → CSS classes (for consistency)
-- [ ] Portfolio card hover state & animation review
 - [ ] Fix: `index.html` references `/logo-dark.png` for dark mode favicon — file does not exist in `public/`
 - [ ] Fix: `App.jsx` is unused but imports a missing `App.css` — clean up or remove
-- [ ] Connect live data / CMS when ready
+- [ ] Connect live data / CMS when ready (contact form has no backend submission yet)
 - [ ] SEO meta tags and page titles via React Router

@@ -2,10 +2,11 @@
 
 .co-outer {
   background: var(--cream2);
+  overflow: hidden;
 }
 
 .co-sec {
-  padding: 100px 64px;
+  padding: 100px 64px 80px;
   max-width: 1320px;
   margin: 0 auto;
 }
@@ -25,36 +26,108 @@
   color: var(--brand-blue);
 }
 
-.co-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 56px;
+/* ── 3D Stage ── */
+.co-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  height: 440px;
+  margin-top: 64px;
+  position: relative;
 }
 
-.co-card {
-  background: var(--bg-card);
-  padding: 40px 32px;
-  border: 1px solid var(--border-main);
-  border-radius: 32px;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+.co-carousel {
+  position: relative;
+  width: 100%;
   height: 100%;
+  transform-style: preserve-3d;
 }
 
-.co-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  border-color: var(--border-mid);
+/* ── Card ── */
+.co-card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  left: calc(50% - 140px);
+  top:  calc(50% - 190px);
+  background: var(--bg-card);
+  padding: 36px 28px 32px;
+  border: 1px solid var(--border-main);
+  border-radius: 28px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.35s ease;
+  will-change: transform;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
+.co-card--active {
+  cursor: default;
+  border-color: rgba(var(--card-accent-rgb), 0.25);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.13),
+    0 8px 20px rgba(var(--card-accent-rgb), 0.1);
+}
+
+/* Non-active cards darken slightly so front card pops */
+.co-card:not(.co-card--active) {
+  filter: brightness(0.94);
+}
+
+/* Top accent bar — always visible on active, slides in on others on hover */
+.co-card__accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 28px 28px 0 0;
+  background: var(--card-accent, var(--brand-blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.co-card--active .co-card__accent-bar {
+  transform: scaleX(1);
+}
+
+.co-card:not(.co-card--active):hover .co-card__accent-bar {
+  transform: scaleX(0.6);
+}
+
+/* Soft radial glow inside active card */
+.co-card__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(var(--card-accent-rgb), 0.07) 0%,
+    transparent 65%
+  );
+  border-radius: 28px;
+  animation: co-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes co-glow-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1;   }
+}
+
+/* ── Card content ── */
 .co-card__flag {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 18px;
   display: inline-block;
-  padding: 12px;
+  padding: 10px;
   background: var(--cream);
-  border-radius: 16px;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.co-card--active .co-card__flag {
+  transform: scale(1.08) rotate(-4deg);
 }
 
 .co-card__type {
@@ -65,6 +138,8 @@
   color: var(--text-light);
   margin-bottom: 10px;
   font-family: 'Sora', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .co-card__city {
@@ -73,21 +148,32 @@
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 6px;
+  transition: color 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.co-card--active .co-card__city {
+  color: var(--card-accent, var(--ink));
 }
 
 .co-card__country {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-family: 'Sora', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .co-card__detail {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   font-family: 'Sora', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .co-card__badge {
@@ -99,17 +185,101 @@
   border: 1px solid rgba(184, 137, 42, 0.2);
   border-radius: var(--r-pill);
   padding: 4px 12px;
-  margin-top: 16px;
+  margin-top: 14px;
   font-family: 'Sora', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Navigation ── */
+.co-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.co-nav__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-mid);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.co-nav__arrow:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  box-shadow: 0 4px 14px rgba(26, 86, 232, 0.15);
+  transform: scale(1.08);
+}
+
+.co-nav__dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.co-nav__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-mid);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 0;
+}
+
+.co-nav__dot--on {
+  width: 28px;
+  border-radius: 4px;
+  background: var(--brand-blue);
+  box-shadow: 0 2px 8px rgba(26, 86, 232, 0.3);
 }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .co-sec { padding: 72px 36px; }
-  .co-grid { grid-template-columns: 1fr 1fr; }
+  .co-sec { padding: 72px 36px 64px; }
+
+  .co-stage {
+    height: 420px;
+  }
 }
 
 @media (max-width: 768px) {
-  .co-sec { padding: 64px 24px; }
-  .co-grid { grid-template-columns: 1fr; }
+  .co-sec { padding: 64px 24px 56px; }
+
+  /* Collapse to vertical stack on mobile */
+  .co-stage { display: none; }
+
+  .co-nav { display: none; }
+
+  .co-mobile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .co-card {
+    position: static;
+    width: 100%;
+    height: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .co-mobile-grid { display: none; }
 }

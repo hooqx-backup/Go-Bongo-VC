@@ -2,6 +2,46 @@
 
 .cf-outer {
   background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background orbs ── */
+.cf-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cf-orb--1 {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(26, 86, 232, 0.055) 0%, transparent 70%);
+  animation: cf-orb-a 14s ease-in-out infinite;
+}
+
+.cf-orb--2 {
+  width: 320px;
+  height: 320px;
+  bottom: -80px;
+  left: -40px;
+  background: radial-gradient(circle, rgba(184, 137, 42, 0.06) 0%, transparent 70%);
+  animation: cf-orb-b 18s ease-in-out infinite;
+}
+
+@keyframes cf-orb-a {
+  0%, 100% { transform: translate(0, 0); }
+  40%       { transform: translate(-30px, 24px); }
+  75%       { transform: translate(18px, -16px); }
+}
+
+@keyframes cf-orb-b {
+  0%, 100% { transform: translate(0, 0); }
+  35%       { transform: translate(22px, -18px); }
+  70%       { transform: translate(-14px, 12px); }
 }
 
 .cf-sec {
@@ -12,9 +52,11 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 100px;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
-/* Left column */
+/* ── Left column ── */
 .cf-heading {
   font-family: 'Playfair Display', serif;
   font-size: clamp(36px, 4vw, 52px);
@@ -27,7 +69,7 @@
 
 .cf-heading em {
   font-style: italic;
-  color: var(--brand-blue);
+  display: inline-block;
 }
 
 .cf-sub {
@@ -39,7 +81,7 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* Info list */
+/* ── Info list ── */
 .cf-info-list {
   display: flex;
   flex-direction: column;
@@ -49,13 +91,49 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  padding: 24px 0;
+  padding: 20px 16px;
+  margin: 0 -16px;
   border-bottom: 1px solid var(--border-main);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.28s ease, box-shadow 0.28s ease;
 }
 
 .cf-info-item:last-child {
   border-bottom: none;
 }
+
+.cf-info-item:hover {
+  background: var(--bg-card);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Left accent bar slides in on hover */
+.cf-info-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cf-info-item--blue::before { background: var(--brand-blue); }
+.cf-info-item--gold::before { background: var(--gold); }
+.cf-info-item--teal::before { background: #0D9488; }
+
+.cf-info-item:hover::before { transform: scaleY(1); }
+
+/* Email value shifts to variant color on hover */
+.cf-info-item--blue:hover .cf-info-value { color: var(--brand-blue); }
+.cf-info-item--gold:hover  .cf-info-value { color: var(--gold); }
+.cf-info-item--teal:hover  .cf-info-value { color: #0D9488; }
 
 .cf-info-icon {
   width: 48px;
@@ -64,15 +142,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   flex-shrink: 0;
   margin-top: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: default;
+  transition: box-shadow 0.28s ease;
 }
 
 .cf-info-icon--blue { background: var(--brand-blue-l); }
 .cf-info-icon--gold { background: var(--gold-bg); }
 .cf-info-icon--teal { background: #F0FDFB; }
+
+/* Icon glow ring on parent hover */
+.cf-info-item--blue:hover .cf-info-icon {
+  box-shadow: 0 0 0 5px rgba(26, 86, 232, 0.1), 0 4px 12px rgba(26, 86, 232, 0.15);
+}
+.cf-info-item--gold:hover .cf-info-icon {
+  box-shadow: 0 0 0 5px rgba(184, 137, 42, 0.12), 0 4px 12px rgba(184, 137, 42, 0.15);
+}
+.cf-info-item--teal:hover .cf-info-icon {
+  box-shadow: 0 0 0 5px rgba(13, 148, 136, 0.12), 0 4px 12px rgba(13, 148, 136, 0.15);
+}
 
 .cf-info-label {
   font-size: 11px;
@@ -90,6 +180,7 @@
   color: var(--ink);
   margin-bottom: 4px;
   font-family: 'Sora', sans-serif;
+  transition: color 0.25s ease;
 }
 
 .cf-info-sub {
@@ -98,13 +189,23 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* Form card */
+/* ── Form card ── */
+.cf-form-wrap {
+  width: 100%;
+}
+
 .cf-form {
   background: var(--bg-card);
   border: 1px solid var(--border-main);
   border-radius: 32px;
   padding: 48px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(26, 86, 232, 0.04);
+  transition: box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.cf-form:hover {
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.09), 0 8px 24px rgba(26, 86, 232, 0.07);
 }
 
 .cf-form-header {
@@ -129,7 +230,7 @@
   color: #E85D26;
 }
 
-/* Fields */
+/* ── Fields ── */
 .cf-field {
   display: flex;
   flex-direction: column;
@@ -149,12 +250,20 @@
 }
 
 .cf-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
   font-family: 'Sora', sans-serif;
+}
+
+.cf-label-icon {
+  color: var(--text-light);
+  flex-shrink: 0;
 }
 
 .cf-input,
@@ -169,7 +278,7 @@
   border-radius: 16px;
   padding: 14px 18px;
   outline: none;
-  transition: all 0.3s;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   width: 100%;
 }
 
@@ -201,7 +310,7 @@
   line-height: 1.6;
 }
 
-/* Subject buttons */
+/* ── Subject pills — liquid morph ── */
 .cf-subjects {
   display: flex;
   flex-wrap: wrap;
@@ -210,6 +319,8 @@
 }
 
 .cf-subject-btn {
+  position: relative;
+  overflow: hidden;
   font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
@@ -218,8 +329,8 @@
   border-radius: var(--r-pill);
   padding: 8px 20px;
   cursor: pointer;
-  transition: all 0.2s;
   font-family: 'Sora', sans-serif;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .cf-subject-btn:hover {
@@ -228,14 +339,27 @@
 }
 
 .cf-subject-btn--on {
-  background: var(--brand-blue-l);
   border-color: rgba(26, 86, 232, 0.3);
   color: var(--brand-blue);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(26, 86, 232, 0.1);
 }
 
-/* Submit row */
+/* Liquid background that morphs between active pills */
+.cf-subject-active-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--brand-blue-l);
+  box-shadow: 0 2px 8px rgba(26, 86, 232, 0.1);
+  z-index: 0;
+}
+
+.cf-subject-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Submit row ── */
 .cf-submit-row {
   display: flex;
   align-items: center;
@@ -266,13 +390,33 @@
   border: none;
   cursor: pointer;
   font-family: 'Sora', sans-serif;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 6px 20px rgba(26, 86, 232, 0.25);
+  box-shadow: 0 6px 20px rgba(26, 86, 232, 0.28);
+  position: relative;
+  overflow: hidden;
 }
 
-.cf-submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(26, 86, 232, 0.35);
+/* Shimmer sweep on submit button */
+.cf-submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 70%
+  );
+  transform: translateX(-130%);
+}
+
+.cf-submit-btn:hover::after {
+  transform: translateX(130%);
+  transition: transform 0.6s ease;
+}
+
+.cf-submit-icon {
+  display: flex;
+  align-items: center;
 }
 
 /* ── Responsive ── */

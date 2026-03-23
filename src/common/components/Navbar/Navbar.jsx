@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 const NAV_LINKS = [
   { label: "Home",      path: "/" },
   { label: "About",     path: "/about" },
+  { label: "Blog",      path: "/blog" },
   { label: "Portfolio", path: null },
   { label: "Sectors",   path: "/sectors" },
   { label: "Dubai",     path: null },
