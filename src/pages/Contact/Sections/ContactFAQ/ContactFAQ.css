@@ -14,6 +14,7 @@
   align-items: flex-start;
 }
 
+/* ── Left ── */
 .cfaq-heading {
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 3.5vw, 48px);
@@ -26,7 +27,7 @@
 
 .cfaq-heading em {
   font-style: italic;
-  color: var(--gold);
+  /* color handled by shimmer-gold */
 }
 
 .cfaq-sub {
@@ -37,33 +38,63 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* FAQ items */
+/* ── Right ── */
 .cfaq-right {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  padding: 8px 6px;  /* room for scale(1.02) overflow */
 }
 
+/* ── FAQ item ── */
 .cfaq-item {
   background: var(--bg-card);
   border: 1px solid var(--border-main);
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   overflow: hidden;
+  position: relative;
 }
 
 .cfaq-item:hover {
   border-color: var(--border-mid);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* Gold left accent bar — slides in when open */
+.cfaq-item__bar {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-l));
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cfaq-item--open .cfaq-item__bar {
+  transform: scaleY(1);
+}
+
+/* Open state — subtle gold tint bg */
+.cfaq-item--open {
+  border-color: rgba(184, 137, 42, 0.22);
+  background: linear-gradient(135deg, #fffdf7 0%, var(--bg-card) 60%);
+  box-shadow: 0 8px 28px rgba(184, 137, 42, 0.08);
+}
+
+/* ── Question row ── */
 .cfaq-q {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 32px;
+  padding: 22px 28px;
   cursor: pointer;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
   background: none;
   border: none;
@@ -71,14 +102,39 @@
   font-family: 'Sora', sans-serif;
 }
 
+/* Step number */
+.cfaq-q__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  font-family: 'Sora', sans-serif;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.cfaq-item--open .cfaq-q__num {
+  color: var(--gold);
+}
+
 .cfaq-q__text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.5;
   flex: 1;
+  transition: color 0.25s ease;
 }
 
+.cfaq-item--open .cfaq-q__text {
+  color: var(--ink);
+}
+
+.cfaq-q:hover .cfaq-q__text {
+  color: var(--brand-blue);
+}
+
+/* ── Icon ── */
 .cfaq-q__icon {
   width: 32px;
   height: 32px;
@@ -88,34 +144,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   color: var(--text-muted);
   flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .cfaq-item--open .cfaq-q__icon {
-  background: var(--brand-blue-l);
-  border-color: rgba(26, 86, 232, 0.2);
-  color: var(--brand-blue);
-  transform: rotate(45deg);
+  background: var(--gold-bg);
+  border-color: rgba(184, 137, 42, 0.25);
+  color: var(--gold);
 }
 
+/* ── Answer ── */
 .cfaq-a {
+  overflow: hidden;
+}
+
+.cfaq-a__text {
   font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.7;
-  max-height: 0;
-  padding: 0 32px;
-  opacity: 0;
-  transition: all 0.4s ease;
+  line-height: 1.75;
   font-family: 'Sora', sans-serif;
-}
-
-.cfaq-item--open .cfaq-a {
-  max-height: 400px;
-  padding-bottom: 32px;
-  opacity: 1;
+  padding: 0 28px 26px 28px;
+  margin: 0;
+  border-top: 1px solid var(--border-main);
+  padding-top: 18px;
 }
 
 /* ── Responsive ── */
@@ -128,8 +181,7 @@
 }
 
 @media (max-width: 768px) {
-  .cfaq-sec { padding: 64px 24px; }
-  .cfaq-q { padding: 20px 24px; }
-  .cfaq-a { padding: 0 24px; }
-  .cfaq-item--open .cfaq-a { padding-bottom: 24px; }
+  .cfaq-sec      { padding: 64px 24px; }
+  .cfaq-q        { padding: 18px 20px; }
+  .cfaq-a__text  { padding: 14px 20px 22px; }
 }

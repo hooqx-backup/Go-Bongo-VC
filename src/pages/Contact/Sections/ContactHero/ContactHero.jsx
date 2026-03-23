@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FiZap, FiUsers, FiFileText, FiArrowRight } from 'react-icons/fi';
 import './ContactHero.css';
 
 const PATHS = [
@@ -7,7 +8,7 @@ const PATHS = [
     subject: 'Pitching a startup',
     iconBg: 'var(--brand-blue-l)',
     iconColor: 'var(--brand-blue)',
-    icon: '🚀',
+    Icon: FiZap,
     label: 'Founders',
     labelColor: 'var(--brand-blue)',
     title: 'Pitch Your Startup',
@@ -19,7 +20,7 @@ const PATHS = [
     subject: 'Partnership',
     iconBg: 'var(--gold-bg)',
     iconColor: 'var(--gold)',
-    icon: '🤝',
+    Icon: FiUsers,
     label: 'Partners',
     labelColor: 'var(--gold)',
     title: 'Explore Partnership',
@@ -31,7 +32,7 @@ const PATHS = [
     subject: 'Press / Media',
     iconBg: '#F0FDFB',
     iconColor: '#0D9488',
-    icon: '📰',
+    Icon: FiFileText,
     label: 'Media',
     labelColor: '#0D9488',
     title: 'Press & Media Enquiries',
@@ -51,6 +52,10 @@ export default function ContactHero({ onSelectSubject }) {
     <section className="ch-outer">
       <div className="ch-mesh" />
       <div className="ch-dots" />
+      <div className="ch-orb ch-orb--1" />
+      <div className="ch-orb ch-orb--2" />
+      <div className="ch-orb ch-orb--3" />
+
       <div className="ch-inner">
         <div className="ch-left">
           <motion.div
@@ -69,14 +74,15 @@ export default function ContactHero({ onSelectSubject }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            Let&apos;s Start a<br /><em>Conversation.</em>
+            Let&apos;s Start a<br />
+            <em className="shimmer-gold">Conversation.</em>
           </motion.h1>
 
           <motion.p
             className="ch-sub"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
           >
             Whether you&apos;re a founder with a bold idea, a strategic partner, or a journalist
             covering the Dubai startup ecosystem &mdash; we want to hear from you. Choose the right
@@ -84,33 +90,39 @@ export default function ContactHero({ onSelectSubject }) {
           </motion.p>
         </div>
 
-        <motion.div
-          className="ch-paths"
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
-        >
-          {PATHS.map((p) => (
-            <button
+        <div className="ch-paths">
+          {PATHS.map((p, i) => (
+            <motion.button
               key={p.id}
               className={`ch-path ch-path--${p.variant}`}
               onClick={() => handlePathClick(p.subject)}
+              initial={{ opacity: 0, rotateX: -80, y: -16 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.75,
+                delay: i * 0.18,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              style={{ transformOrigin: 'top center', transformPerspective: 1000 }}
             >
               <div
                 className="ch-path__icon"
                 style={{ background: p.iconBg, color: p.iconColor }}
               >
-                {p.icon}
+                <p.Icon size={22} />
               </div>
               <div className="ch-path__body">
                 <div className="ch-path__label" style={{ color: p.labelColor }}>{p.label}</div>
                 <div className="ch-path__title">{p.title}</div>
                 <div className="ch-path__desc">{p.desc}</div>
               </div>
-              <div className="ch-path__arrow">→</div>
-            </button>
+              <div className="ch-path__arrow">
+                <FiArrowRight size={18} />
+              </div>
+            </motion.button>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
