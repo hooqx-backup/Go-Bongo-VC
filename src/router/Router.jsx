@@ -6,6 +6,8 @@ import SectorsPage from "../pages/Sectors/SectorsPage";
 import ContactPage from "../pages/Contact/ContactPage";
 import BlogPage from "../pages/Blog/BlogPage";
 import BlogPost from "../pages/Blog/BlogPost/BlogPost";
+import PortfolioPage from "../pages/Portfolio/PortfolioPage";
+import PortfolioCompanyPage from "../pages/Portfolio/PortfolioCompanyPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "sectors", element: <SectorsPage /> },
       { path: "contact", element: <ContactPage /> },
+      { path: "portfolio", element: <PortfolioPage /> },
+      { path: "portfolio/:id", element: <PortfolioCompanyPage /> },
       { path: "blog", element: <BlogPage /> },
       { path: "blog/:id", element: <BlogPost /> },
     ],

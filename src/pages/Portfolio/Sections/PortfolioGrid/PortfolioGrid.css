@@ -1,0 +1,520 @@
+.pgrid-root {
+  background: var(--bg-main, #FAFAFA); /* Crisp White Theme preserved */
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Very faint background star field for Light Theme */
+.pgrid-bg-stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  opacity: 0.6;
+}
+
+.pgrid-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.pgrid-head {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 26px;
+}
+
+.pgrid-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -0.024em;
+  color: var(--text-primary, #0D0D0B);
+  margin-top: 20px;
+}
+
+.pgrid-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted, #5e5e58);
+  max-width: 430px;
+  justify-self: end;
+  text-align: right;
+}
+
+/* Light Mode Filters */
+.pgrid-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+  padding: 4px;
+  border-radius: 100px;
+  border: 1px solid var(--border-main, rgba(0,0,0,0.08));
+  background: var(--bg-card, #ffffff);
+  width: fit-content;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.pgrid-filter {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted, #5e5e58);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pgrid-filter em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--text-light, #a4a49c);
+  border-left: 1px solid var(--border-main);
+  padding-left: 8px;
+}
+
+.pgrid-filter:hover {
+  background: rgba(0,0,0,0.03);
+  color: var(--text-primary);
+}
+
+.pgrid-filter.is-active {
+  background: #0d0d0b;
+  border-color: #0d0d0b;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pgrid-filter.is-active em {
+  color: rgba(255, 255, 255, 0.8);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- THE GRID & CARDS --- */
+.pgrid-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px; /* aggressive mouse tilt perspective removed */
+}
+
+.pgrid-card-wrapper {
+  grid-column: span 4;
+  overflow: visible;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.pgrid-card-wrapper:hover {
+  z-index: 10;
+}
+
+.pgrid-card--featured {
+  grid-column: span 8;
+}
+
+.pgrid-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.05),
+    inset 0 0 0 1px rgba(0,0,0,0.02);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.pgrid-card-wrapper:hover .pgrid-card {
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.12),
+    inset 0 0 0 2px rgba(26, 86, 232, 0.15); /* Soft neon border glow on hover */
+  border-color: rgba(26, 86, 232, 0.2);
+}
+
+/* --- VISUAL HALF: QUANTUM/DAYLIGHT SPACE --- */
+.pgrid-visual {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  /* Cool icy-grey background so white asteroids/logos pop */
+  background: linear-gradient(180deg, #F0F3F8 0%, #FFFFFF 100%);
+}
+
+/* Faint blueprint mesh grid fixed to circular structure */
+.pgrid-visual__mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 100%);
+  z-index: 0;
+}
+
+/* Pastel Nebulas matching sector colors */
+.pgrid-visual__nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.1; /* Very subtle glow */
+  z-index: 1;
+}
+
+.pgrid-visual__nebula--1 {
+  width: 140px; height: 140px;
+  top: -30px; left: -20px;
+  background: var(--brand-blue, #1A56E8);
+}
+
+.pgrid-visual__nebula--2 {
+  width: 180px; height: 180px;
+  bottom: -50px; right: -40px;
+  background: var(--sector-accent, #7C3AED);
+  opacity: 0.08;
+}
+
+/* --- TINY BLINKING PLANETS FIELD (Tere specific recommendation) --- */
+.pgrid-visual__cosmic-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pgrid-tiny-planet {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.3); /* Grey dots on light theme */
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(26, 86, 232, 0.2);
+  pointer-events: none;
+  animation: pgridBlinkTwinkle 5s ease-in-out infinite;
+}
+
+@keyframes pgridBlinkTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.pgrid-tiny-planet--1 { top: 30%; left: 20%; animation-delay: 0s; }
+.pgrid-tiny-planet--2 { top: 70%; left: 60%; animation-delay: 1.2s; background: rgba(26, 86, 232, 0.5); }
+.pgrid-tiny-planet--3 { top: 20%; left: 80%; animation-delay: 2.6s; }
+.pgrid-tiny-planet--4 { top: 50%; left: 90%; animation-delay: 4.1s; background: rgba(124, 58, 237, 0.4); }
+
+/* Colored comets/asteroids falling on light theme */
+.pgrid-asteroids {
+  position: absolute;
+  inset: -10% -20%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pgrid-asteroid {
+  position: absolute;
+  width: 3px;
+  height: 15px; /* Falling comets/streaks */
+  background: linear-gradient(to bottom, var(--brand-blue, #1A56E8), transparent); /* Blue comets */
+  border-radius: 4px;
+  animation: pgridCometSpeed 4s linear infinite;
+  opacity: 0;
+}
+
+.pgrid-asteroid--1 { left: 30%; animation-delay: 0s; }
+.pgrid-asteroid--2 { left: 60%; animation-delay: 1.2s; height: 10px; width: 2px; }
+.pgrid-asteroid--3 { left: 85%; animation-delay: 2.5s; height: 20px; width: 4px; }
+.pgrid-asteroid--4 { left: 15%; animation-delay: 3s; }
+
+/* Fixed Comet Speed Keyframe */
+@keyframes pgridCometSpeed {
+  0% { transform: translateY(-30px) translateX(0px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(220px) translateX(40px); opacity: 0; }
+}
+
+/* --- THE LOGO PLANET (Centered Saturn look) --- */
+.pgrid-logo-container {
+  position: relative;
+  z-index: 3;
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.pgrid-card-wrapper:hover .pgrid-logo-container {
+  transform: scale(1.05) translateY(-3px);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+}
+
+/* SLANTED SATURN RINGS (Behind the logo core) */
+.pgrid-saturn-rings {
+  position: absolute;
+  inset: -18px; /* slanted width */
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dotted ring fixed circular but skewed slanted */
+.pgrid-saturn-ring-slanted {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* STRICTLY CIRCULAR Path but stretched */
+  border: 1.5px dashed color-mix(in srgb, var(--sector-accent, tan) 40%, transparent);
+  opacity: 0.6;
+  transform: rotateZ(30deg) skewX(20deg); /* The slanted Saturn effect No more square shape! */
+  transition: border-color 0.4s ease, opacity 0.4s ease;
+}
+
+.pgrid-card-wrapper:hover .pgrid-saturn-ring-slanted {
+  opacity: 1;
+  border-color: var(--sector-accent, tan);
+}
+
+/* --- Standard circular orbit with satellitegum--- */
+.pgrid-orbit {
+  position: absolute;
+  inset: -10px; /* Tighter orbit for gummoon */
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Perfect Circular Orbit for gummoon satellite */
+.pgrid-orbit-moon {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%; /* CIRCLE ORBIT! FIXED THE SQUARE ISSUE */
+  border: 1px dotted rgba(26, 86, 232, 0.2);
+}
+
+.pgrid-orbit-moon::after {
+  content: '';
+  position: absolute;
+  top: -12px; /* Satellite gummo moon position */
+  width: 8px;
+  height: 8px;
+  background: var(--brand-blue, #1A56E8);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--brand-blue) 60%, transparent);
+}
+
+/* The Core Planet (Logo holds planet body) */
+.pgrid-logo-inner {
+  width: 68px;
+  height: 68px;
+  background: #ffffff;
+  border-radius: 50%; /* Clean planet body */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.03);
+  z-index: 3;
+}
+
+.pgrid-logo-inner img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Badges crisp for light theme */
+.pgrid-featured, .pgrid-country, .pgrid-open {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,0,0,0.05);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.pgrid-featured {
+  top: 14px; left: 14px;
+  background: #FFFBEB;
+  color: #B45309;
+  border-color: #FDE68A;
+}
+
+.pgrid-country {
+  bottom: 14px; left: 14px;
+}
+
+.pgrid-open {
+  right: 14px; bottom: 14px;
+}
+
+.pgrid-card-wrapper:hover .pgrid-badge--open {
+  background: #0D0D0B;
+  color: #ffffff;
+  border-color: #0D0D0B;
+}
+
+/* Shine Sweep effect on hover */
+.pgrid-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.6), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 4;
+}
+
+.pgrid-card-wrapper:hover .pgrid-shine {
+  animation: pgridShineSweep 0.8s ease-out forwards;
+}
+
+@keyframes pgridShineSweep {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+}
+
+/* --- DATA HALF (CLEAN WHITE) --- */
+.pgrid-card__body {
+  padding: 24px;
+}
+
+.pgrid-card__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.pgrid-sector {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.pgrid-founded {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.pgrid-name {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0d0d0b;
+}
+
+.pgrid-tagline {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted, #5e5e58);
+  line-height: 1.7;
+}
+
+.pgrid-mini-stats {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  background: #FAFAFA;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.pgrid-mini-stats__cell {
+  padding: 12px;
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.04);
+}
+.pgrid-mini-stats__cell:last-child { border-right: none; }
+
+.pgrid-mini-stats__cell strong {
+  display: block;
+  font-size: 16px;
+  color: #0d0d0b;
+  margin-bottom: 2px;
+}
+
+.pgrid-mini-stats__cell span {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  color: var(--text-muted, #5e5e58);
+}
+
+.pgrid-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 1024px) {
+  .pgrid-inner { padding: 0 32px; }
+  .pgrid-head { grid-template-columns: 1fr; gap: 16px; }
+  .pgrid-sub { justify-self: start; text-align: left; }
+  .pgrid-card-wrapper { grid-column: span 6; }
+  .pgrid-card--featured { grid-column: span 12; }
+}
+
+@media (max-width: 768px) {
+  .pgrid-inner { padding: 0 20px; }
+  .pgrid-grid { grid-template-columns: 1fr; }
+  .pgrid-card, .pgrid-card--featured { grid-column: auto; }
+  .pgrid-filters { width: 100%; border-radius: 16px; padding: 8px; }
+  .pgrid-visual { height: 180px; }
+  .pgrid-orbit-ring { inset: -8px; }
+  .pgrid-root { padding: 80px 0; }
+  .pgrid-head { margin-bottom: 30px; }
+}

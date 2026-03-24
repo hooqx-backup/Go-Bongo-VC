@@ -1,0 +1,306 @@
+.pgeo-root {
+  background:
+    radial-gradient(circle at 82% 14%, rgba(26, 86, 232, 0.08), transparent 30%),
+    var(--cream, #F9F9F8); /* Fallback agar --cream na ho */
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Grids & Glows (Kept similar but enhanced) */
+.pgeo-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.pgeo-bg-glow--1 {
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  right: -5%;
+  background: radial-gradient(circle at center, rgba(26, 86, 232, 0.1), transparent 70%);
+  animation: pgeoGlowFloat1 15s ease-in-out infinite alternate;
+}
+
+.pgeo-bg-glow--2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  left: -5%;
+  background: radial-gradient(circle at center, rgba(184, 137, 42, 0.08), transparent 70%);
+  animation: pgeoGlowFloat2 12s ease-in-out infinite alternate;
+}
+
+.pgeo-grid-lines {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, rgba(26, 86, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(26, 86, 232, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px; /* Chota kiya taaki tech feel aaye */
+  pointer-events: none;
+  z-index: 0;
+  animation: pgeoGridShift 30s linear infinite;
+}
+
+@keyframes pgeoGridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+
+.pgeo-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.pgeo-head {
+  margin-bottom: 50px;
+  text-align: center; /* Centered for a hero look */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pgeo-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 46px);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  max-width: 760px;
+  margin-top: 16px;
+}
+
+.pgeo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* --- THE 3D CARD STYLING --- */
+.pgeo-card-wrapper {
+  /* wrapper gives perspective */
+  width: 100%;
+}
+
+.pgeo-card {
+  position: relative;
+  background: linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(251,252,254,0.9) 100%);
+  border: 1px solid rgba(26, 86, 232, 0.1);
+  border-radius: 20px;
+  padding: 28px;
+  min-height: 240px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    inset 0 0 0 1px rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: crosshair; /* Techy cursor */
+}
+
+/* Spotlight that follows mouse */
+.pgeo-card__spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pgeo-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header: Coords & Radar */
+.pgeo-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pgeo-card__coords {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  color: rgba(26, 86, 232, 0.6);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.pgeo-card__dot-radar {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pgeo-radar-core {
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-blue, #1A56E8);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.pgeo-radar-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--brand-blue, #1A56E8);
+  opacity: 0.4;
+  animation: pgeoRadar 2s ease-out infinite;
+}
+
+@keyframes pgeoRadar {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* Typography */
+.pgeo-card h3 {
+  margin: 0 0 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.pgeo-card__focus {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  flex-grow: 1; /* Pushes footer down */
+}
+
+/* Tags */
+.pgeo-card__tags {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+}
+
+.pgeo-tag {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(26, 86, 232, 0.05);
+  color: var(--brand-blue, #1A56E8);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid rgba(26, 86, 232, 0.1);
+}
+
+/* Footer: Progress Bar */
+.pgeo-card__footer {
+  width: 100%;
+}
+
+.pgeo-ventures-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.pgeo-ventures-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pgeo-ventures-label {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.pgeo-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pgeo-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1A56E8, #4D80FA);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(26, 86, 232, 0.4);
+}
+
+/* Hover States for Card elements */
+.pgeo-card-wrapper:hover .pgeo-card {
+  border-color: rgba(26, 86, 232, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(26, 86, 232, 0.08),
+    inset 0 0 0 1px rgba(255,255,255,1);
+}
+
+.pgeo-card-wrapper:hover .pgeo-progress-fill {
+  filter: brightness(1.2);
+}
+
+/* Corner Accents - Minimalist Tech */
+.pgeo-card__corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--brand-blue, #1A56E8);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.pgeo-card__corner--tl {
+  top: 12px; left: 12px;
+  border-right: none; border-bottom: none;
+}
+
+.pgeo-card__corner--br {
+  bottom: 12px; right: 12px;
+  border-left: none; border-top: none;
+}
+
+.pgeo-card-wrapper:hover .pgeo-card__corner {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pgeo-inner { padding: 0 32px; }
+  .pgeo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .pgeo-inner { padding: 0 20px; }
+  .pgeo-grid { grid-template-columns: 1fr; }
+  .pgeo-card-wrapper { perspective: none; } /* Disable 3D on mobile for performance */
+  .pgeo-card { transform: none !important; } /* Reset transform */
+}

@@ -1,0 +1,250 @@
+.ptes-root {
+  background: var(--bg-main, #FAFAFA);
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background texture */
+.ptes-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.ptes-inner {
+  max-width: 1140px; /* STRICTLY CONSTRAINED TO 1140px */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.ptes-head {
+  margin-bottom: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ptes-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 46px);
+  color: var(--text-primary);
+  letter-spacing: -0.024em;
+  line-height: 1.15;
+  max-width: 760px;
+  margin-top: 20px;
+}
+
+/* --- THE 1140px CAROUSEL CONTAINER --- */
+.ptes-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1140px; /* Locked constraint */
+  height: 460px; /* Thodi height badhayi hai scale effect ke liye */
+  margin: 0 auto 48px;
+  perspective: 1200px;
+  /* THE MAGIC MASK: Fades out the edges so cards don't just cut off harshly */
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.ptes-carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+/* --- PREMIUM CARD STYLING --- */
+.ptes-carousel-card {
+  position: absolute;
+  width: 380px;
+  min-height: 320px;
+  /* Premium Glassmorphism base */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  
+  /* Centering Fix for Framer Motion (Do not use Transform here!) */
+  left: 50%;
+  top: 50%;
+  margin-left: -190px; 
+  margin-top: -160px;  
+
+  transition: border-color 0.4s ease;
+}
+
+/* Glowing Dynamic Orbs inside the card */
+.ptes-card-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--card-accent);
+}
+
+.ptes-card-bg-orb--1 {
+  width: 180px;
+  height: 180px;
+  top: -40px;
+  right: -40px;
+}
+
+.ptes-card-bg-orb--2 {
+  width: 140px;
+  height: 140px;
+  bottom: -20px;
+  left: -20px;
+  opacity: 0.1; /* Lighter at the bottom */
+}
+
+/* Center Card Dynamic Border Glow */
+.ptes-card-center-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--card-accent);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--card-accent) 20%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content wrapper keeps text above glowing backgrounds */
+.ptes-card-content-inner {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* The Vibrant Quote Mark */
+.ptes-carousel-card .ptes-card__quote-mark {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  font-size: 140px;
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+  pointer-events: none;
+  /* Gradient text using the card's specific color */
+  background: linear-gradient(135deg, var(--card-accent), rgba(255,255,255,0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.15;
+}
+
+/* Pulse ring matches card color */
+.ptes-carousel-card .ptes-card__pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--card-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.ptes-carousel-card:hover .ptes-card__pulse {
+  animation: ptesPulse 1.2s ease-out forwards;
+}
+
+@keyframes ptesPulse {
+  0% { width: 40px; height: 40px; opacity: 0.5; }
+  100% { width: 140px; height: 140px; opacity: 0; }
+}
+
+.ptes-quote {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.ptes-card-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.ptes-author {
+  margin: 0 0 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* Elevated Company Tag */
+.ptes-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border-radius: 999px;
+  padding: 6px 16px 6px 6px;
+  transition: transform 0.3s ease;
+}
+
+.ptes-carousel-card:hover .ptes-company {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--card-accent) 15%, transparent);
+}
+
+.ptes-company img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff; /* Ensures transparent logos look good */
+}
+
+/* Responsive constraints */
+@media (max-width: 1024px) {
+  .ptes-carousel-container { height: 420px; }
+  .ptes-carousel-card { width: 340px; margin-left: -170px; }
+}
+
+@media (max-width: 768px) {
+  .ptes-root { padding: 80px 0; }
+  .ptes-carousel-container { 
+    height: 400px;
+    mask-image: none; /* Disable edge fade on small screens for max visibility */
+    -webkit-mask-image: none;
+  }
+  .ptes-carousel-card { 
+    width: 300px; 
+    margin-left: -150px;
+    padding: 24px;
+  }
+}

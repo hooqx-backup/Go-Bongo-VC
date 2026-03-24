@@ -1,0 +1,189 @@
+.pmet-root {
+  background:
+    radial-gradient(circle at 15% 8%, rgba(26, 86, 232, 0.08) 0%, transparent 28%),
+    radial-gradient(circle at 85% 14%, rgba(184, 137, 42, 0.08) 0%, transparent 32%),
+    var(--cream);
+  padding: 110px 0;
+}
+
+.pmet-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.pmet-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 46px;
+  gap: 24px;
+}
+
+.pmet-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin-top: 20px;
+}
+.pmet-title em {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.pmet-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 320px;
+  line-height: 1.75;
+  text-align: right;
+}
+
+.pmet-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid var(--border-main);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(13, 13, 11, 0.06);
+}
+
+.pmet-grid > * {
+  height: 100%;
+}
+
+.pmet-cell {
+  padding: 34px 26px;
+  border-right: 1px solid var(--border-main);
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-card) 0%, #fbfbf9 100%);
+  overflow: hidden;
+  height: 100%;
+  transition: background 0.25s, transform 0.25s;
+}
+.pmet-cell:last-child {
+  border-right: none;
+}
+.pmet-cell:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+  transform: translateY(-3px);
+}
+
+.pmet-cell:hover .pmet-cell__glow {
+  animation: pmetGlow 1.2s ease-out forwards;
+}
+
+/* Glow pulse effect */
+.pmet-cell__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--accent, var(--brand-blue)), transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes pmetGlow {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.pmet-cell__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent, var(--brand-blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* RevealWrapper adds opacity:1 via Framer Motion — use a sibling approach via CSS animation */
+.pmet-cell:hover .pmet-cell__line,
+.pmet-grid .pmet-cell .pmet-cell__line {
+  animation: pmetLine 0.6s 0.3s both;
+}
+@keyframes pmetLine {
+  from { transform: scaleX(0) }
+  to { transform: scaleX(1) }
+}
+
+.pmet-cell__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  border: 1px solid var(--border-main);
+  background: color-mix(in srgb, var(--accent) 9%, white);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.pmet-cell__icon svg {
+  display: block;
+}
+
+.pmet-cell__n {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 3.2vw, 42px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pmet-cell__n em {
+  font-style: normal;
+  font-size: 26px;
+  color: var(--accent, var(--brand-blue));
+}
+
+.pmet-cell__l {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pmet-inner { padding: 0 32px; }
+  .pmet-grid { grid-template-columns: repeat(3, 1fr) }
+  .pmet-cell:nth-child(3) { border-right: none }
+  .pmet-cell:nth-child(4) { border-right: 1px solid var(--border-main) }
+  .pmet-top { flex-direction: column; align-items: flex-start }
+  .pmet-desc { text-align: left; max-width: 100% }
+}
+@media (max-width: 640px) {
+  .pmet-inner { padding: 0 20px; }
+  .pmet-root { padding: 82px 0; }
+  .pmet-grid { grid-template-columns: repeat(2, 1fr) }
+  .pmet-cell:nth-child(2) { border-right: none }
+  .pmet-cell:nth-child(3) { border-right: 1px solid var(--border-main) }
+  .pmet-cell:nth-child(4) { border-right: none }
+}

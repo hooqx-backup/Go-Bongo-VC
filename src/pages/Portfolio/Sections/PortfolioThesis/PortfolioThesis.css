@@ -1,0 +1,239 @@
+.pth-root {
+  background: var(--bg-main, #0D0D0B); /* Darker vibe suits holograms better, adjust if needed */
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pth-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.pth-head {
+  margin-bottom: 60px;
+}
+
+.pth-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+.pth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* --- THE 3D PARALLAX CONTAINER --- */
+.pth-card-container {
+  width: 100%;
+  height: 320px;
+  cursor: crosshair; /* Techy cursor */
+}
+
+.pth-card-3d-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.8) 100%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transform-style: preserve-3d; /* CRITICAL for floating elements */
+  /* Remove overflow: hidden here so 3D elements can pop out */
+}
+
+/* Glass Border that acts as the frame */
+.pth-glass-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  border: 1.5px solid rgba(26, 86, 232, 0.1);
+  pointer-events: none;
+  z-index: 10;
+  transition: border-color 0.4s ease;
+}
+
+.pth-card-container:hover .pth-glass-border {
+  border-color: rgba(26, 86, 232, 0.4);
+  box-shadow: inset 0 0 20px rgba(26, 86, 232, 0.1);
+}
+
+/* --- THE HOLOGRAM / AURORA MASK --- */
+.pth-card-aurora-mask {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 1; /* Stays behind content */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pth-card-container:hover .pth-card-aurora-mask {
+  opacity: 1;
+}
+
+/* The actual moving, colorful Nebula/Aurora */
+.pth-aurora-bg {
+  position: absolute;
+  inset: -50%; /* Make it larger to rotate smoothly */
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(26, 86, 232, 0) 0%,
+    rgba(26, 86, 232, 0.3) 20%,
+    rgba(124, 58, 237, 0.2) 40%,
+    rgba(26, 86, 232, 0.4) 60%,
+    rgba(184, 137, 42, 0.2) 80%,
+    rgba(26, 86, 232, 0) 100%
+  );
+  animation: auroraSpin 8s linear infinite;
+  filter: blur(30px);
+}
+
+@keyframes auroraSpin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Tech Blueprint Grid on top of Aurora */
+.pth-card-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(26, 86, 232, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 86, 232, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+
+
+/* --- FLOATING CONTENT (The TranslateZ Magic) --- */
+.pth-card-content {
+  position: absolute;
+  inset: 0;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  pointer-events: none; /* Let the container handle mouse events */
+  /* transform: translateZ(60px) is applied inline via React */
+  text-shadow: 0 4px 12px rgba(255, 255, 255, 0.8); /* Helps text stand out against glow */
+}
+
+.pth-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.pth-card-num {
+  display: inline-flex;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(26, 86, 232, 0.15);
+  padding: 8px 14px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pth-card-container:hover .pth-card-num {
+  background: var(--brand-blue, #1A56E8);
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  box-shadow: 0 10px 20px rgba(26, 86, 232, 0.3);
+  transform: translateZ(20px) scale(1.1); /* Pops out EVEN MORE */
+}
+
+.pth-card-icon {
+  width: 44px;
+  height: 44px;
+  color: rgba(26, 86, 232, 0.5);
+  transition: all 0.4s ease;
+}
+
+.pth-card-container:hover .pth-card-icon {
+  color: var(--brand-blue, #1A56E8);
+  transform: translateZ(30px) rotate(-10deg) scale(1.15);
+  filter: drop-shadow(0 10px 10px rgba(26, 86, 232, 0.3));
+}
+
+.pth-card-content h3 {
+  margin: 0 0 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.pth-card-content p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* Floating Animated CTA */
+.pth-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-blue, #1A56E8);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 16px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.pth-card-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.pth-card-container:hover .pth-card-cta {
+  opacity: 1;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(26, 86, 232, 0.15);
+  transform: translateZ(20px); /* Brings the button closer to screen */
+}
+
+.pth-card-container:hover .pth-card-cta svg {
+  transform: translateX(6px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pth-inner { padding: 0 32px; }
+  .pth-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .pth-root { padding: 82px 0; }
+  .pth-inner { padding: 0 20px; }
+  .pth-grid { grid-template-columns: 1fr; gap: 20px; }
+  .pth-card-container { perspective: none; } /* Disable heavy 3D on mobile */
+  .pth-card-3d-body { transform: none !important; }
+}
