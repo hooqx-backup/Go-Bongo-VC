@@ -1,0 +1,335 @@
+.psec-root {
+  background: var(--bg-main, #FAFAFA);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Tech Grid */
+.psec-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.psec-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.psec-head {
+  margin-bottom: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.psec-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  max-width: 800px;
+  margin-top: 16px;
+}
+
+.psec-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+/* Grid Layout */
+.psec-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  perspective: 1000px; /* Crucial for 3D effect on children */
+}
+
+/* --- 3D FLIP CONTAINER --- */
+.psec-card-container {
+  width: 100%;
+  height: 260px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.psec-card-flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Shared styles for both front and back faces */
+.psec-card-front,
+.psec-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- FRONT FACE --- */
+.psec-card-front {
+  background: #ffffff;
+  z-index: 2;
+  transform: rotateY(0deg); /* Explicitly set */
+}
+
+/* Ambient glow matching sector color */
+.psec-glow-blob {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: -40px;
+  right: -40px;
+  background: var(--sector-color);
+  opacity: 0.15;
+  filter: blur(20px);
+  transition: opacity 0.3s ease;
+}
+
+.psec-card-container:hover .psec-glow-blob {
+  opacity: 0.25;
+}
+
+.psec-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: auto; /* Pushes content down */
+}
+
+.psec-count-badge {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--sector-color) 12%, transparent);
+  color: var(--sector-color);
+  font-weight: 800;
+  font-size: 18px;
+  border: 1px solid color-mix(in srgb, var(--sector-color) 30%, transparent);
+}
+
+.psec-pulse-ring {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sector-color);
+  position: relative;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sector-color) 20%, transparent);
+}
+
+.psec-pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--sector-color);
+  animation: psecPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes psecPing {
+  75%, 100% { transform: scale(2.5); opacity: 0; }
+}
+
+.psec-title-front {
+  margin: 0 0 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.psec-desc-front {
+  margin: 0 0 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.psec-progress-container {
+  width: 100%;
+}
+
+.psec-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.psec-progress-fill {
+  height: 100%;
+  background: var(--sector-color);
+  border-radius: 3px;
+}
+
+.psec-progress-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--sector-color) 80%, black);
+}
+
+
+/* --- BACK FACE (THE "MAAL PANI") --- */
+.psec-card-back {
+  background: var(--text-primary, #111);
+  color: white;
+  transform: rotateY(180deg);
+  border: 1px solid var(--sector-color);
+  justify-content: space-between;
+}
+
+.psec-back-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.psec-back-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sector-color);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.psec-stats-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.psec-stat-box {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.psec-stat-value {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.psec-stat-label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+
+.psec-back-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+}
+
+.psec-back-list li {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.psec-back-list .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--sector-color);
+  border-radius: 50%;
+}
+
+.psec-explore-btn {
+  position: relative;
+  z-index: 1;
+  background: var(--sector-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: filter 0.2s ease;
+}
+
+.psec-explore-btn:hover {
+  filter: brightness(1.2);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .psec-inner { padding: 0 32px; }
+  .psec-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  .psec-root { padding: 80px 0; }
+  .psec-inner { padding: 0 20px; }
+  .psec-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .psec-card-container { height: 280px; } /* Give more room on mobile */
+}
+
+@media (max-width: 480px) {
+  .psec-grid { grid-template-columns: 1fr; }
+  .psec-card-container { height: 240px; }
+}

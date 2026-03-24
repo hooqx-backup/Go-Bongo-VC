@@ -22,6 +22,25 @@ const STEPS = [
 
 const ease = [0.22, 1, 0.36, 1];
 
+/* ── Process step pill (top strip) ── */
+function ProcessStep({ num, label, i }) {
+  return (
+    <motion.div
+      className="wwu-process-step"
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, ease, delay: 0.3 + i * 0.1 }}
+    >
+      <div className="wwu-ps-circle">
+        <span className="wwu-ps-num">{num}</span>
+      </div>
+      <span className="wwu-ps-label">{label}</span>
+    </motion.div>
+  );
+}
+
+/* ── Card with mouse-spotlight ── */
 function StepCard({ step, i }) {
   const [hovered, setHovered] = useState(false);
   const cardRef = useRef(null);
@@ -36,7 +55,7 @@ function StepCard({ step, i }) {
   };
 
   const spotlightBg = hovered
-    ? `radial-gradient(circle at ${mp.x}% ${mp.y}%, rgba(26,86,232,0.065) 0%, rgba(26,86,232,0.018) 48%, #ffffff 72%)`
+    ? `radial-gradient(circle at ${mp.x}% ${mp.y}%, rgba(26,86,232,0.07) 0%, rgba(26,86,232,0.025) 46%, #ffffff 70%)`
     : "#ffffff";
 
   return (
@@ -53,24 +72,29 @@ function StepCard({ step, i }) {
       onMouseLeave={() => setHovered(false)}
       style={{ background: spotlightBg }}
     >
-      {/* Top stripe */}
+      {/* Top accent stripe animates in on view */}
       <motion.div
         className="wwu-step-stripe"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease, delay: 0.35 + i * 0.13 }}
+        transition={{ duration: 0.9, ease, delay: 0.35 + i * 0.13 }}
       />
 
-      <span className="wwu-step-num">STEP {step.num}</span>
+      {/* Step badge */}
+      <div className="wwu-step-badge">
+        <span className="wwu-step-badge-dot" />
+        STEP {step.num}
+      </div>
+
       <h3 className="wwu-step-title">{step.title}</h3>
       <p className="wwu-step-desc">{step.desc}</p>
 
-      {/* Corner arrow */}
+      {/* Arrow appears on hover */}
       <motion.span
         className="wwu-step-arrow"
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1, x: 3, y: -3 }}
+        initial={{ opacity: 0, x: 0, y: 0 }}
+        whileHover={{ opacity: 1, x: 4, y: -4 }}
         transition={{ duration: 0.2 }}
       >
         ↗
@@ -79,19 +103,29 @@ function StepCard({ step, i }) {
   );
 }
 
+/* ══ Main Section ══ */
 export default function WorkWithUsSection() {
   return (
     <section className="wwu-section">
-      {/* Background layers */}
-      <div className="wwu-noise" />
-      <div className="wwu-glow wwu-glow--top" />
+      {/* Atmospheric layers */}
+      <div className="wwu-grain" />
+      <div className="wwu-glow wwu-glow--center" />
       <div className="wwu-glow wwu-glow--left" />
       <div className="wwu-glow wwu-glow--right" />
       <div className="wwu-glow wwu-glow--bottom" />
 
+      {/* Decorative horizontal rule top */}
+      <motion.div
+        className="wwu-top-rule"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.1, ease }}
+      />
+
       <div className="wwu-container">
 
-        {/* Eyebrow */}
+        {/* ── Eyebrow ── */}
         <motion.div
           className="wwu-eyebrow"
           initial={{ opacity: 0 }}
@@ -107,51 +141,60 @@ export default function WorkWithUsSection() {
             style={{ transformOrigin: "left" }}
             transition={{ duration: 0.65, ease }}
           />
+          <span className="wwu-eyebrow-text">Ready to Build?</span>
           <motion.span
-            className="wwu-eyebrow-text"
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="wwu-eyebrow-line"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease, delay: 0.2 }}
-          >
-            Work With Us
-          </motion.span>
+            style={{ transformOrigin: "right" }}
+            transition={{ duration: 0.65, ease, delay: 0.1 }}
+          />
         </motion.div>
 
-        {/* Heading */}
-        <motion.h2
-          className="wwu-heading"
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.85, ease, delay: 0.1 }}
-        >
-          Building 
-          <em className="wwu-heading-em shimmer-blue"> Something Bold?</em>
-          <br />
-          <span className="wwu-heading-sub">We Want to Hear From You.</span>
-        </motion.h2>
+        {/* ── Heading ── */}
+        <div className="wwu-heading-wrap">
+          <motion.h2
+            className="wwu-heading"
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.85, ease, delay: 0.08 }}
+          >
+            Building Something
+            <em className="shimmer-blue"> Bold?</em>
+          </motion.h2>
+          <motion.h2
+            className="wwu-heading wwu-heading--sub"
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.85, ease, delay: 0.18 }}
+          >
+            We Want to <em className="shimmer-blue"> Hear  </em>From You.
+          </motion.h2>
+        </div>
 
-        {/* Subtext */}
+        {/* ── Subtext ── */}
         <motion.p
           className="wwu-subtext"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease, delay: 0.22 }}
+          transition={{ duration: 0.7, ease, delay: 0.26 }}
         >
           We back founders at the idea stage through Series A. If you're
           building in our core sectors and you think differently about what
           your industry could be — let's talk.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* ── CTA Buttons ── */}
         <motion.div
           className="wwu-ctas"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease, delay: 0.32 }}
+          transition={{ duration: 0.7, ease, delay: 0.34 }}
         >
           <motion.a
             href="#"
@@ -159,35 +202,68 @@ export default function WorkWithUsSection() {
             whileHover={{ scale: 1.04, transition: { duration: 0.22 } }}
             whileTap={{ scale: 0.97 }}
           >
-            Pitch GoBongo VC &rarr;
+            <span className="wwu-btn-shimmer" />
+            Pitch GoBongo VC →
           </motion.a>
           <motion.a
             href="#"
             className="wwu-btn wwu-btn--outline"
-            whileHover={{ scale: 1.04, transition: { duration: 0.22 } }}
+            whileHover={{ scale: 1.03, transition: { duration: 0.22 } }}
             whileTap={{ scale: 0.97 }}
           >
             Partner With Us
           </motion.a>
-          <a href="#" className="wwu-btn wwu-btn--ghost">
+          <motion.a
+            href="#"
+            className="wwu-btn wwu-btn--ghost"
+            whileHover={{ scale: 1.02, transition: { duration: 0.22 } }}
+            whileTap={{ scale: 0.97 }}
+          >
             Investor Relations
-          </a>
+          </motion.a>
         </motion.div>
 
-        {/* Divider with label */}
+        {/* ── Process strip ── */}
         <motion.div
-          className="wwu-process-divider"
+          className="wwu-process-strip"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="wwu-process-line" />
-          <span className="wwu-process-label">How it works</span>
-          <span className="wwu-process-line" />
+          {/* Divider label */}
+          <div className="wwu-divider">
+            <span className="wwu-divider-line" />
+            <span className="wwu-divider-label">How it works</span>
+            <span className="wwu-divider-line" />
+          </div>
+
+          {/* 4 process steps */}
+          <div className="wwu-process-steps">
+            {[
+              { num: "01", label: "Submit Pitch" },
+              { num: "02", label: "Review Call" },
+              { num: "03", label: "Partner Meeting" },
+              { num: "04", label: "Term Sheet" },
+            ].map((s, i) => (
+              <React.Fragment key={s.num}>
+                <ProcessStep num={s.num} label={s.label} i={i} />
+                {i < 3 && (
+                  <motion.div
+                    className="wwu-connector"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    style={{ transformOrigin: "left" }}
+                    transition={{ duration: 0.5, ease, delay: 0.45 + i * 0.1 }}
+                  />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Step Cards */}
+        {/* ── Step Cards ── */}
         <div className="wwu-steps">
           {STEPS.map((step, i) => (
             <StepCard key={step.num} step={step} i={i} />
@@ -195,6 +271,15 @@ export default function WorkWithUsSection() {
         </div>
 
       </div>
+
+      {/* Bottom rule */}
+      <motion.div
+        className="wwu-bottom-rule"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.1, ease, delay: 0.2 }}
+      />
     </section>
   );
 }

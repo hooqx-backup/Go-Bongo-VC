@@ -1,0 +1,85 @@
+.pmarq-root {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(26, 86, 232, 0.08), transparent 38%),
+    linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%);
+  border-top: 1px solid var(--border-main);
+  border-bottom: 1px solid var(--border-main);
+  overflow: hidden;
+  padding: 24px 0;
+}
+
+.pmarq-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: pmarqScroll 22s linear infinite;
+}
+.pmarq-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pmarqScroll {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+
+.pmarq-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-right: 10px;
+  border: 1px solid var(--border-main);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  flex-shrink: 0;
+  transition: color 0.24s ease, transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+.pmarq-item:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  border-color: rgba(26, 86, 232, 0.22);
+  box-shadow: 0 8px 18px rgba(13, 13, 11, 0.08);
+}
+
+.pmarq-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(26, 86, 232, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.24s ease;
+  pointer-events: none;
+}
+
+.pmarq-item:hover::before {
+  opacity: 1;
+}
+
+.pmarq-item__logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.72;
+  transition: opacity 0.2s;
+}
+.pmarq-item:hover .pmarq-item__logo {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .pmarq-root {
+    padding: 18px 0;
+  }
+
+  .pmarq-item {
+    padding: 0 22px;
+    font-size: 11px;
+  }
+}

@@ -5,9 +5,9 @@ import { Send, PhoneCall, FileSearch, ArrowRight } from "lucide-react";
 import "./SectorCTA.css";
 
 const STEPS = [
-  { num: "01", title: "Reach Out", desc: "Submit your pitch deck through our portal. We read every submission within 48 hours.", icon: Send, color: "#1A56E8", bg: "#EEF3FF" },
-  { num: "02", title: "First Call", desc: "If there's a fit, we'll schedule a 30-minute intro call with a partner within one week.", icon: PhoneCall, color: "#0D9488", bg: "#F0FDFB" },
-  { num: "03", title: "Deep Dive", desc: "We move fast. Due diligence and term sheet within 3 weeks for the right opportunity.", icon: FileSearch, color: "#7C3AED", bg: "#F3F0FF" },
+  { num: "01", title: "Submit Pitch", desc: "Submit your pitch deck through our portal. We read every submission within 48 hours.", icon: Send, color: "#1A56E8", bg: "#EEF3FF" },
+  { num: "02", title: "Review Call", desc: "If there's a fit, we'll schedule a 30-minute intro call with a partner within one week.", icon: PhoneCall, color: "#0D9488", bg: "#F0FDFB" },
+  { num: "03", title: "Partner Meeting", desc: "Deep dive with the whole team.", icon: FileSearch, color: "#7C3AED", bg: "#F3F0FF" },
 ];
 
 export default function SectorCTA() {

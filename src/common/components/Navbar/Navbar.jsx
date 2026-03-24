@@ -3,11 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button/Button";
 
+const _MOTION = motion;
+
 const NAV_LINKS = [
   { label: "Home",      path: "/" },
   { label: "About",     path: "/about" },
   { label: "Blog",      path: "/blog" },
-  { label: "Portfolio", path: null },
+  { label: "Portfolio", path: "/portfolio" },
   { label: "Sectors",   path: "/sectors" },
   { label: "Dubai",     path: null },
   { label: "Contact",   path: "/contact" },
