@@ -1,0 +1,131 @@
+/* ── PitchCTA ── */
+
+.pctx-cta {
+  background: var(--bg-main);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 64px;
+}
+
+/* Blue radial glow */
+.pctx-cta__mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.pctx-cta__mesh::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(26, 86, 232, 0.07) 0%, transparent 65%);
+  filter: blur(60px);
+}
+
+.pctx-cta__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.pctx-cta__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-family: 'Sora', sans-serif;
+  margin-bottom: 32px;
+}
+
+/* Pull quote */
+.pctx-cta__quote {
+  position: relative;
+  padding: 0;
+  border: none;
+  margin: 0 0 48px;
+}
+
+.pctx-cta__quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  line-height: 0.6;
+  color: var(--border-mid);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.pctx-cta__quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+}
+
+.pctx-cta__cite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-style: normal;
+}
+.pctx-cta__logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.55;
+}
+.pctx-cta__cite span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: 'Sora', sans-serif;
+}
+
+/* CTAs */
+.pctx-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pctx-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-m) 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Sora', sans-serif;
+  padding: 13px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(26, 86, 232, 0.28);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.pctx-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 86, 232, 0.36);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pctx-cta { padding: 64px 24px; }
+  .pctx-cta__quote p { font-size: 18px; }
+  .pctx-cta__quote-mark { font-size: 80px; }
+}

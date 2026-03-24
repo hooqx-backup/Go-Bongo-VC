@@ -1,0 +1,178 @@
+/* ── PitchProcess ── */
+
+.ppr-process {
+  background: var(--cream2);
+  padding: 100px 64px;
+}
+
+.ppr-process__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.ppr-process__header {
+  max-width: 680px;
+  margin-bottom: 64px;
+}
+
+.ppr-process__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin: 18px 0 18px;
+}
+.ppr-process__heading em {
+  font-style: italic;
+  color: var(--brand-blue);
+}
+
+.ppr-process__sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ── Steps grid — 4 columns on desktop ── */
+.ppr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-bottom: 56px;
+}
+
+/* ── Single step card ── */
+.ppr-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border-main);
+  border-right: none;
+  padding: 36px 28px;
+  position: relative;
+  transition: background 0.25s;
+}
+.ppr-step:first-child { border-radius: 20px 0 0 20px; }
+.ppr-step:last-child  { border-radius: 0 20px 20px 0; border-right: 1px solid var(--border-main); }
+.ppr-step:hover { background: #fcfcfa; }
+
+/* Accent top bar */
+.ppr-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+.ppr-step:first-child::before  { border-radius: 20px 0 0 0; }
+.ppr-step:last-child::before   { border-radius: 0 20px 0 0; }
+.ppr-step--blue::before { background: linear-gradient(90deg, var(--brand-blue), var(--brand-blue-m)); }
+.ppr-step--gold::before { background: linear-gradient(90deg, var(--gold), var(--gold-l)); }
+
+/* Arrow connector — positioned right edge, vertically centered */
+.ppr-connector {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 18px;
+  color: var(--text-light);
+  font-weight: 700;
+  pointer-events: none;
+  background: var(--cream2);
+  padding: 2px 0;
+}
+
+/* Top row — step num + time badge */
+.ppr-step__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ppr-step__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  display: block;
+}
+.ppr-step--blue .ppr-step__num { color: rgba(26, 86, 232, 0.15); }
+.ppr-step--gold .ppr-step__num { color: rgba(184, 137, 42, 0.18); }
+
+.ppr-step__time {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-family: 'Sora', sans-serif;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.ppr-step--blue .ppr-step__time {
+  background: var(--brand-blue-l);
+  color: var(--brand-blue);
+}
+.ppr-step--gold .ppr-step__time {
+  background: var(--gold-bg);
+  color: var(--gold);
+}
+
+.ppr-step__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.ppr-step__body {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-family: 'Sora', sans-serif;
+  margin: 0;
+}
+
+/* ── Bottom note ── */
+.ppr-note {
+  border-left: 3px solid var(--border-mid);
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border-radius: 0 12px 12px 0;
+}
+.ppr-note p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-family: 'Sora', sans-serif;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .ppr-process { padding: 80px 40px; }
+  .ppr-grid { grid-template-columns: 1fr 1fr; }
+  .ppr-step { border-right: 1px solid var(--border-main); }
+  .ppr-step:nth-child(odd) { border-right: none; }
+  .ppr-step:first-child { border-radius: 20px 0 0 0; }
+  .ppr-step:nth-child(2) { border-radius: 0 20px 0 0; }
+  .ppr-step:nth-child(3) { border-radius: 0 0 0 20px; }
+  .ppr-step:last-child   { border-radius: 0 0 20px 0; border-right: 1px solid var(--border-main); }
+  .ppr-connector { display: none; }
+}
+@media (max-width: 768px) {
+  .ppr-process { padding: 60px 24px; }
+  .ppr-grid { grid-template-columns: 1fr; }
+  .ppr-step { border: 1px solid var(--border-main); border-top: none; border-radius: 0; }
+  .ppr-step:first-child { border-top: 1px solid var(--border-main); border-radius: 20px 20px 0 0; }
+  .ppr-step:last-child  { border-radius: 0 0 20px 20px; }
+}
