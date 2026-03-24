@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
 import { POST_CONTENT } from './posts';
 import { POSTS } from '../Sections/BlogGrid/BlogGrid';
@@ -9,26 +9,103 @@ import RevealWrapper from '../../../common/components/RevealWrapper/RevealWrappe
 import Button from '../../../common/components/Button/Button';
 import './BlogPost.css';
 
+/* ── Animated block renderers ── */
 function renderBlock(block, i) {
   switch (block.type) {
+
     case 'p':
-      return <p key={i}>{block.text}</p>;
+      return (
+        <motion.p
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+        >
+          {block.text}
+        </motion.p>
+      );
+
     case 'h2':
-      return <h2 key={i}>{block.text}</h2>;
+      /* Horizontal clip-path sweep — text wipes in from left to right */
+      return (
+        <motion.h2
+          key={i}
+          initial={{ clipPath: 'inset(0 100% 0 0)' }}
+          whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 0.72, ease: [0.25, 1, 0.5, 1] }}
+        >
+          {block.text}
+        </motion.h2>
+      );
+
     case 'h3':
-      return <h3 key={i}>{block.text}</h3>;
+      return (
+        <motion.h3
+          key={i}
+          initial={{ opacity: 0, x: -22 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+        >
+          {block.text}
+        </motion.h3>
+      );
+
     case 'ul':
+      /* Staggered list — items cascade in from the left one by one */
       return (
-        <ul key={i}>
-          {block.items.map((item, j) => <li key={j}>{item}</li>)}
-        </ul>
+        <motion.ul
+          key={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+        >
+          {block.items.map((item, j) => (
+            <motion.li
+              key={j}
+              variants={{
+                hidden: { opacity: 0, x: -26 },
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: 0.48, ease: [0.25, 1, 0.5, 1] },
+                },
+              }}
+            >
+              {item}
+            </motion.li>
+          ))}
+        </motion.ul>
       );
+
     case 'pullquote':
+      /* Blur + scale entrance — the giant mark rotates into place */
       return (
-        <blockquote key={i} className="bp-pullquote">
+        <motion.blockquote
+          key={i}
+          className="bp-pullquote"
+          initial={{ scale: 0.92, opacity: 0, filter: 'blur(8px)' }}
+          whileInView={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.95, ease: [0.25, 1, 0.5, 1] }}
+        >
+          <motion.div
+            className="bp-pullquote__mark"
+            aria-hidden="true"
+            initial={{ scale: 2.4, opacity: 0, rotate: -20 }}
+            whileInView={{ scale: 1, opacity: 0.18, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            &ldquo;
+          </motion.div>
           <p>{block.text}</p>
-        </blockquote>
+        </motion.blockquote>
       );
+
     default:
       return null;
   }
@@ -38,44 +115,86 @@ export default function BlogPost() {
   const { id } = useParams();
   const post = POST_CONTENT[id];
 
+  /* Progress bar + watermark parallax */
+  const { scrollYProgress, scrollY } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const wmY = useTransform(scrollY, [0, 700], [0, 110]);
+
   if (!post) {
     return (
       <div className="bp-404">
         <div className="bp-404__num">404</div>
         <div className="bp-404__title">Article not found</div>
-        <p className="bp-404__sub">This article doesn't exist or may have been moved.</p>
+        <p className="bp-404__sub">This article doesn&apos;t exist or may have been moved.</p>
         <Button variant="blue" to="/blog">← Back to Blog</Button>
       </div>
     );
   }
 
   const relatedPosts = POSTS.filter((p) => p.id !== id).slice(0, 3);
+  const titleWords = post.title.split(' ');
 
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="bp-hero">
-        <div className="bp-hero__mesh" />
-        <div className="bp-hero__inner">
+      {/* Reading progress bar */}
+      <motion.div className="bp-progress" style={{ scaleX }} />
 
+      {/* ── Hero — full-bleed gradient cover ── */}
+      <section className="bp-hero">
+        <div className={`bp-hero__cover bg-card__img--${post.imgVariant}`}>
+          <div className="bp-abstract-orb bp-abstract-orb--1" />
+          <div className="bp-abstract-orb bp-abstract-orb--2" />
+          <div className="bp-hero__noise" />
+          {/* Watermark drifts downward as user scrolls — parallax */}
+          <motion.span className="bp-hero__wm" aria-hidden="true" style={{ y: wmY }}>
+            {post.imgWatermark}
+          </motion.span>
+          <div className="bp-hero__overlay" />
+        </div>
+
+        <div className="bp-hero__content">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            className="bp-hero__nav"
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+            transition={{ duration: 0.55, ease: [0.25, 1, 0.5, 1] }}
           >
             <Link to="/blog" className="bp-back">
-              <LuArrowLeft size={16} />
-              Back to Blog
+              <LuArrowLeft size={14} /> Back to Blog
             </Link>
-
             <div className="bp-cat">
               <div className="bp-cat__dot" />
               {post.category}
             </div>
+          </motion.div>
 
-            <h1 className="bp-title">{post.title}</h1>
+          <div className="bp-hero__bottom">
+            {/* Word-cascade title — each word slides up from clip */}
+            <h1 className="bp-title">
+              {titleWords.map((word, i) => (
+                <span key={i} className="bp-word-wrap">
+                  <motion.span
+                    className="bp-word"
+                    initial={{ y: '115%', opacity: 0 }}
+                    animate={{ y: '0%', opacity: 1 }}
+                    transition={{
+                      duration: 0.85,
+                      delay: 0.12 + i * 0.075,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
 
-            <div className="bp-meta">
+            <motion.div
+              className="bp-meta"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.28 + titleWords.length * 0.04, ease: [0.25, 1, 0.5, 1] }}
+            >
               <div className="bp-author">
                 <div className={`bp-avatar bp-avatar--${post.author.color}`}>
                   {post.author.initials}
@@ -85,66 +204,100 @@ export default function BlogPost() {
                   <div className="bp-author__role">{post.author.role}</div>
                 </div>
               </div>
-              <div className="bp-divider" />
-              <span className="bp-date">{post.date}</span>
-              <span className="bp-read">· {post.readTime}</span>
-            </div>
-          </motion.div>
-
+              <div className="bp-meta__right">
+                <span className="bp-date">{post.date}</span>
+                <span className="bp-meta__sep">·</span>
+                <span className="bp-read">{post.readTime}</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── Body ── */}
-      <div className="bp-body-outer">
-        <div className="bp-body-inner">
+      {/* ── Stats strip — blur-to-sharp number entrance ── */}
+      {post.stats && (
+        <div className="bp-stats-strip">
+          {post.stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              className="bp-stat-item"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.55, delay: i * 0.13, ease: [0.25, 1, 0.5, 1] }}
+            >
+              <motion.div
+                className="bp-stat__num"
+                initial={{ filter: 'blur(12px)', scale: 0.82 }}
+                whileInView={{ filter: 'blur(0px)', scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.75, delay: i * 0.13 + 0.18, ease: [0.25, 1, 0.5, 1] }}
+              >
+                {s.num}
+              </motion.div>
+              <div className="bp-stat__label">{s.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      )}
 
-          {/* Cover image — overlaps hero */}
-          <motion.div
-            className="bp-cover-wrap"
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 1, 0.5, 1] }}
-          >
-            <div className={`bp-cover bg-card__img--${post.imgVariant}`}>
-              <div className="bp-cover__inner">
-                <span className="bp-cover__watermark">{post.imgWatermark}</span>
-              </div>
-              <div className="bp-cover__glow" />
-            </div>
-          </motion.div>
-
-          {/* Stat strip */}
-          {post.stats && (
-            <RevealWrapper>
-              <div className="bp-stat-row">
-                {post.stats.map((s) => (
-                  <div key={s.label} className="bp-stat">
-                    <div className="bp-stat__num">{s.num}</div>
-                    <div className="bp-stat__label">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </RevealWrapper>
-          )}
-
-          {/* Article content */}
-          <RevealWrapper className="bp-content">
+      {/* ── Article — 2-column layout ── */}
+      <div className="bp-layout">
+        <main className="bp-main">
+          {/* Each block handles its own whileInView — no wrapping RevealWrapper */}
+          <div className="bp-content">
             {post.body.map((block, i) => renderBlock(block, i))}
-          </RevealWrapper>
-
-        </div>
-      </div>
-
-      {/* ── Tags + CTA ── */}
-      <div className="bp-footer-section">
-        <div className="bp-footer-inner">
-          <div className="bp-tags">
-            {post.tags.map((tag) => (
-              <span key={tag} className="bp-tag">{tag}</span>
-            ))}
           </div>
-          <Button variant="blue" to="/contact">Get in Touch →</Button>
-        </div>
+
+          {/* Mobile-only — tags + CTA (desktop version lives in sidebar) */}
+          <div className="bp-article-footer">
+            <div className="bp-tags">
+              {post.tags.map((tag) => <span key={tag} className="bp-tag">{tag}</span>)}
+            </div>
+            <Button variant="blue" to="/contact">Get in Touch &rarr;</Button>
+          </div>
+        </main>
+
+        {/* ── Sticky sidebar — slides in from right ── */}
+        <aside className="bp-sidebar">
+          <motion.div
+            className="bp-sidebar__card"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 1, 0.5, 1] }}
+          >
+            <div className={`bp-avatar bp-avatar--${post.author.color} bp-avatar--lg`}>
+              {post.author.initials}
+            </div>
+            <div className="bp-sidebar__author-name">{post.author.name}</div>
+            <div className="bp-sidebar__author-role">{post.author.role}</div>
+
+            <div className="bp-sidebar__rule" />
+
+            <div className="bp-sidebar__meta-row">
+              <div>
+                <div className="bp-sidebar__label">Published</div>
+                <div className="bp-sidebar__val">{post.date}</div>
+              </div>
+              <div>
+                <div className="bp-sidebar__label">Read time</div>
+                <div className="bp-sidebar__val">{post.readTime}</div>
+              </div>
+            </div>
+
+            <div className="bp-sidebar__rule" />
+
+            <div className="bp-sidebar__label bp-sidebar__label--topics">Topics</div>
+            <div className="bp-tags">
+              {post.tags.map((tag) => <span key={tag} className="bp-tag">{tag}</span>)}
+            </div>
+
+            <div className="bp-sidebar__rule" />
+
+            <Button variant="blue" size="sm" to="/contact">Get in Touch &rarr;</Button>
+          </motion.div>
+        </aside>
       </div>
 
       {/* ── More posts ── */}

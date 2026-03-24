@@ -438,7 +438,7 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 | Contact | `/contact` | ✅ Complete |
 | Blog | `/blog` | ✅ Complete |
 | Blog Post | `/blog/:id` | ✅ Complete |
-| Pitch | `/pitch` | ❌ Not built |
+| Pitch | `/pitch` | ✅ Complete |
 
 ### Session 3 — 2026-03-19 (continued)
 
@@ -565,9 +565,36 @@ All Blog sections use the same light/warm color scheme as the rest of the site.
 
 ---
 
+## Pitch Page — Section Reference
+
+All Pitch sections use the light/warm color scheme (`--bg-main`, `--cream`).
+
+| Section | File | Background | Notes |
+|---------|------|------------|-------|
+| PitchHero | `PitchHero/` | `--bg-main` + radial mesh | Page-load `initial`/`animate`. 2-col: left text/stats, right floating app card + 3 badges. `premiumFloat` keyframe. |
+| PitchThesis | `PitchThesis/` | `--cream` | **Carousel** — 6 cards (3×2 duplicate) scrolling via `@keyframes ptScroll`. RAF loop applies 3D `scale/rotateY/translateZ/opacity` per card based on distance from center. Hover freezes scroll. |
+| PitchCriteria | `PitchCriteria/` | `--bg-main` | 2×2 grid. Per-card magnetic tilt (`useMotionValue` + `useSpring`). Moving top bar (55% wide, drifts ±28px with slower spring). 3D icon badge (stacked box-shadow layers). Cursor sheen via `useMotionTemplate`. |
+| PitchProcess | `PitchProcess/` | `--cream` | 4 horizontal steps with `→` connectors. Blue/gold alternating accents. Time badge pills. |
+| PitchForm | `PitchForm/` | `--bg-main` | 2-col: sticky left info panel + right form card. `AnimatePresence` success state. 3 field groups (Company / Pitch / Contact). |
+| PitchCTA | `PitchCTA/` | `--cream` | Centered pull-quote from GoBongo Ventures team + 2 CTAs. |
+
+### PitchThesis carousel architecture
+- `.pt-carousel-outer` — `overflow: hidden`, `mask-image` edge fade, `ref` for RAF
+- `.pt-carousel-track` — `display: flex; width: max-content; animation: ptScroll 20s linear infinite`
+- `.pt-col-wrap` — JS writes `transform + opacity + z-index` every frame (no CSS transition)
+- `.pt-col` — CSS only manages `box-shadow` transition; fixed `width: 390px`
+- RAF formula: `progress = max(0, 1 − |cardCenter − containerCenter| / halfWidth)`
+
+### PitchCriteria tilt architecture
+- `rawX/rawY` → `useSpring(SPRING)` → `rotateX/rotateY` via `useTransform`
+- Bar: separate `barSX = useSpring(rawX, SPRING_SLOW)` → `barX = useTransform(barSX, [-0.5,0.5], [-28,28])`
+- Icon parallax: `iconX/iconY` inverse of tilt direction
+- On `mouseLeave`: all values reset to `0` (flat, no resting tilt)
+
+---
+
 ## Pending / Next Steps
 
-- [ ] Build `/pitch` page — referenced in Hero, AboutHero, AboutCTA, ContactFAQ, Navbar "Pitch Us" button
 - [ ] Wire Portfolio, Sectors, Dubai nav links once pages are built (change `path: null` → real path in `NAV_LINKS` + add route to `Router.jsx`)
 - [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →")
 - [ ] Add responsive / mobile styles across Hero and Portfolio sections
@@ -578,3 +605,92 @@ All Blog sections use the same light/warm color scheme as the rest of the site.
 - [ ] Fix: `App.jsx` is unused but imports a missing `App.css` — clean up or remove
 - [ ] Connect live data / CMS when ready (contact form has no backend submission yet)
 - [ ] SEO meta tags and page titles via React Router
+- [ ] PitchProcess and PitchForm sections — verify styles, test form submit flow
+- [ ] Pitch page full mobile responsive pass (all 6 sections)
+- [ ] BlogPost animations — verify word-cascade + parallax watermark on all post IDs
+
+---
+
+### Session 6 — 2026-03-24
+
+#### Pitch page built from scratch (6 sections)
+
+**Files created:**
+- `src/pages/Pitch/PitchPage.jsx` — orchestrator, imports all 6 sections
+- `src/pages/Pitch/Sections/PitchHero/PitchHero.jsx` + `PitchHero.css`
+- `src/pages/Pitch/Sections/PitchThesis/PitchThesis.jsx` + `PitchThesis.css`
+- `src/pages/Pitch/Sections/PitchCriteria/PitchCriteria.jsx` + `PitchCriteria.css`
+- `src/pages/Pitch/Sections/PitchProcess/PitchProcess.jsx` + `PitchProcess.css`
+- `src/pages/Pitch/Sections/PitchForm/PitchForm.jsx` + `PitchForm.css`
+- `src/pages/Pitch/Sections/PitchCTA/PitchCTA.jsx` + `PitchCTA.css`
+
+**Routing:** `/pitch` route was already wired in `Router.jsx` (imported as `Pitchpage` from `../pages/Pitch/PitchPage`).
+
+#### PitchHero
+- 2-col layout: left (SectionTag "For Founders", h1 heading, sub-copy, CTAs, stats strip) | right (floating card cluster + 3 badges)
+- `leftItemVariants` with `custom` delay per element, h1 wrapped in `overflow: hidden` with `y: '100%' → 0` reveal
+- App card: GoBongo logo, 3 stats, "Applications open" status dot, 4 criteria checklist, blue CTA button
+- 3 floating badges: Investment Stage (top-left), Latest Portfolio — Tezz Logistics (bottom-left), MENA + South Asia (right)
+- `@keyframes premiumFloat` — 3D floating animation with subtle `rotateX/rotateY`
+- `.pch-app-card:hover` pauses float animation + applies `rotateX(10deg) rotateY(-8deg)` tilt
+- `em` in heading uses `.shimmer-gold` class from `index.css`
+
+#### PitchThesis — Redesigned twice, final version: animated carousel
+
+**v1 (grid):** 3-col bordered grid with Framer Motion `whileInView` stagger per column.
+
+**v2 (innovative dark):** Dark bg (`--bg-dark`), glowing card borders, teal/gold/blue ambient mesh. User rejected dark background — reverted to light/cream.
+
+**v3 (final — carousel):** Continuous CSS marquee carousel replacing the 3-col grid.
+- Cards duplicated (6 total = 3 × 2) for seamless `@keyframes ptScroll` loop (`translateX(0 → -50%)`)
+- Speed: `20s linear infinite`
+- Edge fade via `mask-image: linear-gradient(to right, transparent 7%, black, black, transparent 93%)`
+- Hover freezes: `.pt-carousel-outer:hover .pt-carousel-track { animation-play-state: paused }`
+- **3D RAF depth effect** — `requestAnimationFrame` loop reads each `.pt-col-wrap` position, computes distance from carousel center, applies `perspective(1000px) translateZ() scale() rotateY()` per card:
+  - Center card: `scale 1.04`, `translateZ 40px`, `rotateY 0°`, `opacity 1.0`
+  - Edge cards: `scale 0.82`, `translateZ 0`, `rotateY ±14°`, `opacity 0.50`
+- Cards wrapped in `.pt-col-wrap` (JS owns transform) + `.pt-col` inner (CSS owns box-shadow only)
+- Each column has distinct color identity: `pt-col--blue` / `pt-col--gold` / `pt-col--teal`
+  - Tinted gradient background per variant (`#f0f5ff`, `#fdf7ea`, `#edfaf8`)
+  - 4px top accent bar with glowing `box-shadow` beneath
+  - Faint watermark number `01/02/03` (140px Playfair, 6–12% opacity)
+- `shimmer-gold` applied to heading `em` (`What We Back`)
+
+#### PitchCriteria — Redesigned 3× for 3D tilt effect
+
+**v1:** Basic 2×2 grid with `whileInView` stagger.
+
+**v2:** Framer Motion magnetic tilt per card (`useMotionValue` + `useSpring` + `useTransform`) with sheen overlay (`useMotionTemplate` radial-gradient cursor spotlight) and ambient orb parallax.
+
+**v3 (resting tilt):** Each of 4 cards had a unique rest angle so the grid looked like physical cards on a table. User reported cards overlapping — reverted resting tilt.
+
+**v4 (final):** Cards start flat (rawX/rawY = 0). Tilt only on hover. Key additions:
+- **Moving top accent bar** — `<div className="pc-card__bar" />` JSX element (replaces `::before`). Framer Motion `x` style maps `barSX` (slower spring: stiffness 180) to `±28px` horizontal drift. Bar is 55% wide, centered by default via `left: 50%; transform: translateX(-50%)`. Mouse right → bar drifts right; mouse left → bar drifts left.
+- **3D floating icon badge** — white `58×58px` rounded square, absolutely positioned top-right. Stacked `box-shadow` at 1/3/5/8px offsets with colored rgba layers simulate physical depth/thickness. On hover, shadow layers deepen to appear more lifted.
+- **Icon parallax** — badge moves opposite to tilt direction (inverse `useTransform`) for depth illusion.
+- **Soft card backgrounds** — `rgba(26,86,232,0.05)` blue wash, `rgba(184,137,42,0.06)` gold wash into white. No overlap.
+- `shimmer-gold` on heading `em` (`Four Non-Negotiables`).
+
+#### PitchCTA
+- Centered quote section: giant `"` decorative mark, Playfair italic quote from GoBongo Ventures team, cite with logo
+- Blue radial glow mesh, two CTAs: "Submit Your Pitch →" (primary) + "Reach Out Directly" (ghost → `/contact`)
+
+#### BlogPost — Animations added (previous session, documented here)
+- Reading progress bar: `useScroll` + `useSpring` + `scaleX` on fixed top bar
+- Word-cascade title: `post.title.split(' ')` → each word in `.bp-word-wrap` overflow:hidden + `motion.span` animating `y: '115%' → '0%'`
+- Watermark parallax: `useTransform(scrollY, [0, 700], [0, 110])` applied via `style={{ y: wmY }}`
+- Per-block animations: `motion.h2` clip-path wipe, `motion.ul` staggered list items, `motion.blockquote` scale+blur+rotating quote mark, `motion.p` fade+slide
+
+#### Key decisions
+- **`shimmer-gold` class** (from `index.css`) used on all Pitch page `em` italic headings — consistent gold shimmer pattern across PitchHero, PitchThesis, PitchCriteria
+- **Carousel over grid for PitchThesis** — the 3-col grid felt static; continuous carousel with 3D depth gives motion and premium feel
+- **RAF loop for carousel 3D** — Framer Motion `whileInView` doesn't suit a moving carousel; raw `requestAnimationFrame` is the right tool for per-frame positional calculations
+- **Two-layer wrapper for carousel cards** — `.pt-col-wrap` (JS transform) + `.pt-col` (CSS shadow) prevents transform ownership conflicts
+- **Separate spring speeds** for card tilt vs bar movement in PitchCriteria — bar uses slower spring (stiffness 180) so it trails the tilt, creating a layered fluid feel
+- **No inset shadows** maintained throughout — all depth effects use outer `box-shadow` stacked layers
+
+#### Bugs fixed
+- **Unused `React` import in PitchHero.jsx** — removed `import React from "react"` (unused in modern JSX transform)
+- **Dark background on PitchThesis** — user rejected dark bg; fully reverted to `--cream` with light card styles
+- **PitchCriteria card overlap** — caused by `overflow: visible` + resting tilt angles; fixed by returning cards to flat (rawX/rawY = 0 at rest) and `overflow: hidden`
+- **`::before` conflict for moving bar** — `::before` was used for both the top accent bar AND the card ambient bg; resolved by moving accent bar to explicit JSX `<div className="pc-card__bar" />`

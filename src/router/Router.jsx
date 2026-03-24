@@ -6,6 +6,7 @@ import SectorsPage from "../pages/Sectors/SectorsPage";
 import ContactPage from "../pages/Contact/ContactPage";
 import BlogPage from "../pages/Blog/BlogPage";
 import BlogPost from "../pages/Blog/BlogPost/BlogPost";
+import Pitchpage from "../pages/Pitch/PitchPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "contact", element: <ContactPage /> },
       { path: "blog", element: <BlogPage /> },
       { path: "blog/:id", element: <BlogPost /> },
+      { path: "pitch", element: <Pitchpage /> },
     ],
   },
 ]);
