@@ -27,7 +27,7 @@ export const COMPANIES = [
     quoteAttr: '— Founding Team, GoBongo Shop',
     tags: ['E-Commerce', 'MENA', 'Mobile-First', 'B2C', 'Last-Mile', 'Multi-Category'],
     stats: [{ n: '50K+', l: 'Active Users' }, { n: '10K+', l: 'Products' }, { n: '4', l: 'Countries' }, { n: '2022', l: 'Founded' }],
-    details: { stage: 'Series A', hq: 'Dubai, UAE', employees: '60–80', website: 'gobongoshop.com' },
+    details: { stage: 'Series A', hq: 'Dubai, UAE', employees: '60–80', website: '/gobongo.shop/' },
     miniStats: [{ n: '50K+', l: 'Users' }, { n: '10K+', l: 'SKUs' }],
   },
   {
@@ -58,7 +58,7 @@ export const COMPANIES = [
     quoteAttr: '— CEO, Tezz Logistics',
     tags: ['Logistics', 'SaaS', 'Last-Mile', 'GCC', 'B2B', 'ML-Powered'],
     stats: [{ n: '22%', l: 'Cost Reduction' }, { n: '3', l: 'Emirates' }, { n: '500+', l: 'Clients' }, { n: '2022', l: 'Founded' }],
-    details: { stage: 'Seed+', hq: 'Dubai, UAE', employees: '40–60', website: 'tezzlogistics.com' },
+    details: { stage: 'Seed+', hq: 'Dubai, UAE', employees: '40–60', website: '/tezzlogistics.in/' },
     miniStats: [{ n: '22%', l: 'Cost Saved' }, { n: '500+', l: 'Clients' }],
   },
   {
@@ -213,7 +213,7 @@ export const COMPANIES = [
     quoteAttr: '— Director, GMI Trading',
     tags: ['Commodities', 'Trading', 'Market Intelligence', 'B2B', 'Energy', 'MENA'],
     stats: [{ n: '200+', l: 'Instruments' }, { n: '150+', l: 'Traders' }, { n: '$4.6B', l: 'Volume' }, { n: '2022', l: 'Founded' }],
-    details: { stage: 'Growth', hq: 'Dubai, UAE', employees: '25–40', website: 'gmitrading.ae' },
+    details: { stage: 'Growth', hq: 'Dubai, UAE', employees: '25–40', website: '/www.gmitrading.me/' },
     miniStats: [{ n: '$4.6B', l: 'Volume' }, { n: '150+', l: 'Traders' }],
   },
   {

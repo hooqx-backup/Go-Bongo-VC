@@ -12,6 +12,7 @@ import Pitchpage from "../pages/Pitch/PitchPage";
 import PrivacyPage from "../pages/Legal/PrivacyPage";
 import TermsPage from "../pages/Legal/TermsPage";
 import CookiesPage from "../pages/Legal/CookiesPage";
+import NotFoundPage from "../pages/NotFound/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "privacy", element: <PrivacyPage /> },
       { path: "terms", element: <TermsPage /> },
       { path: "cookies", element: <CookiesPage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
 ]);
