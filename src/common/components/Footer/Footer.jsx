@@ -1,10 +1,15 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HyperPremiumFooter.css";
 
 const COMPANY   = ["About", "Portfolio", "Sectors", "Dubai", "Insights", "Contact"];
 const PORTFOLIO = ["GoBongo Shop", "Hooqx LLC", "CallTawk", "GMI Trading", "Tezz Logistics", "Tradeflink", "Scooda", "Stratigi 360"];
-const LEGAL     = ["Privacy Policy", "Terms of Use", "Cookies", "Investor Relations"];
+const LEGAL = [
+  { label: "Privacy Policy",    path: "/privacy" },
+  { label: "Terms of Use",      path: "/terms" },
+  { label: "Cookies",           path: "/cookies" },
+  { label: "Investor Relations", path: null },
+];
 
 export default function Footer() {
   const wrapRef  = useRef(null);
@@ -79,7 +84,10 @@ export default function Footer() {
             </div>
             <div className="rf-col">
               <span className="rf-col-head">Legal</span>
-              {LEGAL.map(l => <a key={l} href="#" className="rf-col-link">{l}</a>)}
+              {LEGAL.map(l => l.path
+                ? <Link key={l.label} to={l.path} className="rf-col-link">{l.label}</Link>
+                : <span key={l.label} className="rf-col-link rf-col-link--muted">{l.label}</span>
+              )}
             </div>
           </div>
         </div>

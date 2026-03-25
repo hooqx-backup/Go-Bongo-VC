@@ -9,6 +9,9 @@ import BlogPost from "../pages/Blog/BlogPost/BlogPost";
 import PortfolioPage from "../pages/Portfolio/PortfolioPage";
 import PortfolioCompanyPage from "../pages/Portfolio/PortfolioCompanyPage";
 import Pitchpage from "../pages/Pitch/PitchPage";
+import PrivacyPage from "../pages/Legal/PrivacyPage";
+import TermsPage from "../pages/Legal/TermsPage";
+import CookiesPage from "../pages/Legal/CookiesPage";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 
 const router = createBrowserRouter([
@@ -25,6 +28,9 @@ const router = createBrowserRouter([
       { path: "blog", element: <BlogPage /> },
       { path: "blog/:id", element: <BlogPost /> },
       { path: "pitch", element: <Pitchpage /> },
+      { path: "privacy", element: <PrivacyPage /> },
+      { path: "terms", element: <TermsPage /> },
+      { path: "cookies", element: <CookiesPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
