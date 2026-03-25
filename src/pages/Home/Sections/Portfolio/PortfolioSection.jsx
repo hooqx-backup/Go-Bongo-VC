@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./PortfolioSection.css";
 import { ventures, filters } from "./portfolioData";
 
@@ -79,11 +80,9 @@ function VentureCard({ v, index, isVisible }) {
   };
 
   return (
-    <a
+    <Link
       ref={ref}
-      href={v.url}
-      target="_blank"
-      rel="noopener noreferrer"
+      to={`/portfolio/${v.id}`}
       className={`venture-card${isF ? " venture-card--featured" : ""}`}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -238,7 +237,7 @@ function VentureCard({ v, index, isVisible }) {
           </div>
         </div>
       )}
-    </a>
+    </Link>
   );
 }
 
