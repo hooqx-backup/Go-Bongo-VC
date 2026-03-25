@@ -9,6 +9,7 @@ import BlogPost from "../pages/Blog/BlogPost/BlogPost";
 import PortfolioPage from "../pages/Portfolio/PortfolioPage";
 import PortfolioCompanyPage from "../pages/Portfolio/PortfolioCompanyPage";
 import Pitchpage from "../pages/Pitch/PitchPage";
+import NotFoundPage from "../pages/NotFound/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "blog", element: <BlogPage /> },
       { path: "blog/:id", element: <BlogPost /> },
       { path: "pitch", element: <Pitchpage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
 ]);
