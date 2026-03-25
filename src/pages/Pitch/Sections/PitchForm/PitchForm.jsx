@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LuArrowRight, LuCheck, LuMail, LuLink, LuBuilding2, LuUsers } from 'react-icons/lu';
+import { LuArrowRight, LuCheck, LuMail, LuLink, LuBuilding2, LuUsers, LuClock, LuTrendingUp, LuShieldCheck } from 'react-icons/lu';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './PitchForm.css';
@@ -8,6 +8,32 @@ import './PitchForm.css';
 const SECTORS = ['E-Commerce', 'Logistics', 'IT & Digital', 'B2B Trade', 'Communications', 'Commodities', 'Other'];
 const STAGES  = ['Pre-seed', 'Seed', 'Series A', 'Other'];
 const SOURCES = ['LinkedIn', 'Twitter / X', 'Google Search', 'GoBongo Portfolio Company', 'Event or Conference', 'Referral', 'Other'];
+
+/* Negative delays = already mid-rise on page load → fills full div immediately */
+const BUBBLES = [
+  { size: 8,  left: 5,  delay: -2.0, dur: 5, drift:  10 },
+  { size: 5,  left: 18, delay: -4.5, dur: 7, drift:  -8 },
+  { size: 12, left: 32, delay: -1.5, dur: 6, drift:  14 },
+  { size: 7,  left: 48, delay: -3.8, dur: 5, drift: -12 },
+  { size: 4,  left: 62, delay: -0.8, dur: 6, drift:   8 },
+  { size: 10, left: 75, delay: -5.2, dur: 7, drift: -10 },
+  { size: 6,  left: 88, delay: -2.5, dur: 5, drift:  12 },
+  { size: 9,  left: 25, delay: -4.0, dur: 6, drift:  -6 },
+  { size: 5,  left: 55, delay: -1.2, dur: 7, drift:  16 },
+  { size: 13, left: 70, delay: -3.2, dur: 5, drift: -14 },
+  { size: 7,  left: 10, delay: 0,    dur: 6, drift:   8 },
+  { size: 5,  left: 38, delay: 1.2,  dur: 5, drift: -10 },
+  { size: 11, left: 52, delay: 0.6,  dur: 7, drift:  12 },
+  { size: 6,  left: 65, delay: 2.0,  dur: 6, drift:  -8 },
+  { size: 4,  left: 80, delay: 0.4,  dur: 5, drift:  14 },
+  { size: 9,  left: 93, delay: 1.8,  dur: 7, drift: -12 },
+  { size: 7,  left: 28, delay: 3.0,  dur: 6, drift:   6 },
+  { size: 5,  left: 42, delay: 1.5,  dur: 5, drift: -16 },
+  { size: 8,  left: 58, delay: 2.5,  dur: 7, drift:  10 },
+  { size: 6,  left: 72, delay: 0.8,  dur: 6, drift:  -8 },
+  { size: 10, left: 15, delay: 3.5,  dur: 5, drift:  12 },
+  { size: 4,  left: 85, delay: 2.2,  dur: 6, drift: -14 },
+];
 
 const INFO_ITEMS = [
   { icon: <LuMail size={18} />, label: 'Email', value: 'pitch@gobongo.vc' },
@@ -29,7 +55,17 @@ export default function PitchForm() {
     raise: '', founders: '', email: '', source: '',
   });
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [spot, setSpot]           = useState({ x: 50, y: 50 });
+  const [spotOn, setSpotOn]       = useState(false);
+
+  function handleCardMove(e) {
+    const r = e.currentTarget.getBoundingClientRect();
+    setSpot({
+      x: ((e.clientX - r.left) / r.width)  * 100,
+      y: ((e.clientY - r.top)  / r.height) * 100,
+    });
+  }
 
   const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
@@ -46,42 +82,126 @@ export default function PitchForm() {
 
         {/* ── Left info panel ── */}
         <RevealWrapper className="pf-left">
-          <SectionTag color="gold">The Application</SectionTag>
-          <h2 className="pf-left__heading">
-            Start Your <em>Pitch</em>
-          </h2>
-          <p className="pf-left__sub">
-            Fill in as much or as little as you have. We prefer a direct, honest message over a polished deck — tell us what you are building, what the traction looks like, and why you are the right team to build it.
-          </p>
 
-          <div className="pf-left__info">
-            {INFO_ITEMS.map((item) => (
-              <div key={item.label} className="pf-info-item">
-                <div className="pf-info-item__icon">{item.icon}</div>
-                <div>
-                  <div className="pf-info-item__label">{item.label}</div>
-                  <div className="pf-info-item__val">{item.value}</div>
-                </div>
-              </div>
+          {/* Ocean: waves + bubbles */}
+          <div className="pf-ocean" aria-hidden="true">
+            <div className="pf-waves">
+              <div className="pf-wave pf-wave--1" />
+              <div className="pf-wave pf-wave--2" />
+              <div className="pf-wave pf-wave--3" />
+            </div>
+            {BUBBLES.map((b, i) => (
+              <div
+                key={i}
+                className="pf-bubble"
+                style={{
+                  width:  b.size,
+                  height: b.size,
+                  left:   `${b.left}%`,
+                  animationDelay:    `${b.delay}s`,
+                  animationDuration: `${b.dur}s`,
+                  '--drift': `${b.drift}px`,
+                }}
+              />
             ))}
           </div>
 
-          <div className="pf-left__promise">
-            <div className="pf-promise__heading">What happens after you submit</div>
-            <ul className="pf-promise__list">
-              {PROMISE_ITEMS.map((p, i) => (
-                <li key={i}>
-                  <LuCheck size={13} className="pf-promise__icon" />
-                  {p}
-                </li>
+          {/* Content sits above ocean layer */}
+          <div className="pf-left__content">
+            <SectionTag color="gold">The Application</SectionTag>
+            <h2 className="pf-left__heading">
+              Start Your <em className="shimmer-gold">Pitch</em>
+            </h2>
+            <p className="pf-left__sub">
+              Fill in as much or as little as you have. We prefer a direct, honest message over a polished deck — tell us what you are building, what the traction looks like, and why you are the right team to build it.
+            </p>
+
+            <div className="pf-left__info">
+              {INFO_ITEMS.map((item) => (
+                <div key={item.label} className="pf-info-item">
+                  <div className="pf-info-item__icon">{item.icon}</div>
+                  <div>
+                    <div className="pf-info-item__label">{item.label}</div>
+                    <div className="pf-info-item__val">{item.value}</div>
+                  </div>
+                </div>
               ))}
-            </ul>
-          </div>
+            </div>
+
+            <div className="pf-left__promise">
+              <div className="pf-promise__heading">What happens after you submit</div>
+              <ul className="pf-promise__list">
+                {PROMISE_ITEMS.map((p, i) => (
+                  <li key={i}>
+                    <LuCheck size={13} className="pf-promise__icon" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Floating stat badges */}
+            <div className="pf-left__badges">
+              <motion.div
+                className="pf-badge pf-badge--green"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.3 }}
+              >
+                <span className="pf-badge__pulse" />
+                Applications Open
+              </motion.div>
+              <motion.div
+                className="pf-badge pf-badge--blue"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.45 }}
+              >
+                <LuClock size={12} />
+                5-day response
+              </motion.div>
+              <motion.div
+                className="pf-badge pf-badge--gold"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.6 }}
+              >
+                <LuTrendingUp size={12} />
+                8 ventures funded
+              </motion.div>
+              <motion.div
+                className="pf-badge pf-badge--dark"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.75 }}
+              >
+                <LuShieldCheck size={12} />
+                No data shared
+              </motion.div>
+            </div>
+          </div>{/* end pf-left__content */}
         </RevealWrapper>
 
         {/* ── Right form card ── */}
         <RevealWrapper delay={0.15} className="pf-right">
-          <div className="pf-card">
+          <div
+            className="pf-card"
+            onMouseMove={handleCardMove}
+            onMouseEnter={() => setSpotOn(true)}
+            onMouseLeave={() => setSpotOn(false)}
+          >
+            {/* cursor spotlight */}
+            <div
+              className="pf-card__spotlight"
+              style={{
+                opacity: spotOn ? 1 : 0,
+                background: `radial-gradient(circle 320px at ${spot.x}% ${spot.y}%, rgba(26,86,232,0.09), transparent 70%)`,
+              }}
+            />
 
             <AnimatePresence mode="wait">
 
@@ -142,7 +262,7 @@ export default function PitchForm() {
                         value={form.description}
                         onChange={set('description')}
                         placeholder="Problem + solution in one paragraph. Be specific."
-                        rows={4}
+                        rows={2}
                         required
                       />
                     </div>
@@ -153,7 +273,7 @@ export default function PitchForm() {
                         value={form.traction}
                         onChange={set('traction')}
                         placeholder="Revenue, users, GMV, signed contracts — give us numbers."
-                        rows={3}
+                        rows={2}
                         required
                       />
                     </div>
@@ -164,7 +284,7 @@ export default function PitchForm() {
                         value={form.whyYou}
                         onChange={set('whyYou')}
                         placeholder="Relevant operator experience, domain knowledge, lived problem."
-                        rows={3}
+                        rows={2}
                       />
                     </div>
                     <div className="pf-field">

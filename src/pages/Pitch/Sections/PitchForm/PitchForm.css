@@ -1,5 +1,12 @@
 /* ── PitchForm ── */
 
+/* Spinning border: CSS custom property for angle */
+@property --pf-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .pf-form {
   background: var(--cream);
   padding: 100px 64px;
@@ -18,6 +25,112 @@
 .pf-left {
   position: sticky;
   top: 100px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+/* Content layer sits above ocean */
+.pf-left__content {
+  position: relative;
+  z-index: 1;
+  padding: 36px 32px 32px;
+}
+
+/* ─────────────────────────────────────────
+   Ocean layer — waves + bubbles
+───────────────────────────────────────── */
+.pf-ocean {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(238, 243, 255, 0.0) 0%,
+    rgba(238, 243, 255, 0.35) 55%,
+    rgba(209, 224, 255, 0.55) 100%
+  );
+}
+
+/* Wave strip container — anchored to bottom */
+.pf-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+}
+
+/* Each wave: repeating SVG background scrolled via background-position */
+.pf-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-repeat: repeat-x;
+}
+
+.pf-wave--1 {
+  bottom: 0;
+  height: 80px;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 80'%3E%3Cpath d='M0,40 C30,65 90,15 120,40 C150,65 210,15 240,40 L240,80 L0,80 Z' fill='%231A56E8'/%3E%3C/svg%3E");
+  background-size: 240px 80px;
+  animation: pfWave1 9s linear infinite;
+}
+.pf-wave--2 {
+  bottom: 10px;
+  height: 60px;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M0,30 C25,55 75,5 100,30 C125,55 175,5 200,30 L200,60 L0,60 Z' fill='%231A56E8'/%3E%3C/svg%3E");
+  background-size: 200px 60px;
+  animation: pfWave2 12s linear infinite;
+}
+.pf-wave--3 {
+  bottom: 22px;
+  height: 40px;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 40'%3E%3Cpath d='M0,20 C20,35 60,5 80,20 C100,35 140,5 160,20 L160,40 L0,40 Z' fill='%230D9488'/%3E%3C/svg%3E");
+  background-size: 160px 40px;
+  animation: pfWave1 7s linear infinite reverse;
+}
+
+@keyframes pfWave1 {
+  from { background-position-x: 0; }
+  to   { background-position-x: 240px; }
+}
+@keyframes pfWave2 {
+  from { background-position-x: 0; }
+  to   { background-position-x: -200px; }
+}
+
+/* ── Bubbles ── */
+.pf-bubble {
+  --drift: 0px;
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.7), rgba(26, 86, 232, 0.18));
+  border: 1px solid rgba(26, 86, 232, 0.22);
+  animation: pfBubbleRise ease-in-out infinite;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.6);
+}
+
+@keyframes pfBubbleRise {
+  /* spawn at bottom */
+  0%   { transform: translateY(0)       translateX(0)           scale(1);    opacity: 0;   }
+  6%   { opacity: 0.9; }
+
+  /* rise through full div — fully visible */
+  72%  { transform: translateY(-720px)  translateX(var(--drift)) scale(1.04); opacity: 0.88; }
+
+  /* decelerate near top */
+  84%  { transform: translateY(-820px)  translateX(var(--drift)) scale(1.06); opacity: 0.85; }
+
+  /* linger at top for a visible beat */
+  93%  { transform: translateY(-850px)  translateX(var(--drift)) scale(1.07); opacity: 0.78; }
+
+  /* fade out while stationary */
+  100% { transform: translateY(-850px)  translateX(var(--drift)) scale(1.07); opacity: 0;   }
 }
 
 .pf-left__heading {
@@ -31,7 +144,6 @@
 }
 .pf-left__heading em {
   font-style: italic;
-  color: var(--gold);
 }
 
 .pf-left__sub {
@@ -120,12 +232,62 @@
 
 /* ── Right form card ── */
 .pf-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-main);
+  /* 50/50 diagonal blend — blue top-left fades into gold bottom-right, full coverage */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(26, 86, 232, 0.07)  0%,
+      rgba(26, 86, 232, 0.02)  42%,
+      rgba(184, 137, 42, 0.02) 58%,
+      rgba(184, 137, 42, 0.06) 100%
+    ),
+    var(--bg-card);
   border-radius: 28px;
-  padding: 44px 40px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+  padding: 32px 32px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.09);
+  position: relative;
+  isolation: isolate;
 }
+
+/* Subtle spinning border — thin glow only, not a visible arc */
+.pf-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 30px;
+  background: conic-gradient(
+    from var(--pf-angle),
+    transparent 0%,
+    rgba(26, 86, 232, 0.28) 8%,
+    rgba(26, 86, 232, 0.38) 13%,
+    rgba(26, 86, 232, 0.28) 18%,
+    transparent 26%,
+    transparent 60%,
+    rgba(184, 137, 42, 0.25) 68%,
+    rgba(184, 137, 42, 0.35) 73%,
+    rgba(184, 137, 42, 0.25) 78%,
+    transparent 86%
+  );
+  animation: pfBorderSpin 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes pfBorderSpin {
+  to { --pf-angle: 360deg; }
+}
+
+/* Cursor spotlight inside card */
+.pf-card__spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 27px;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s;
+}
+
+/* Form body sits above spotlight */
+.pf-form-body { position: relative; z-index: 1; }
 
 /* ── Form structure ── */
 .pf-form-body {
@@ -136,12 +298,12 @@
 
 /* Groups */
 .pf-group {
-  padding-bottom: 32px;
-  margin-bottom: 32px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
   border-bottom: 1px solid var(--border-main);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 .pf-group--last {
   border-bottom: none;
@@ -158,13 +320,13 @@
 }
 
 /* Row variants */
-.pf-row { display: flex; gap: 16px; }
+.pf-row { display: flex; gap: 12px; }
 .pf-row--2 > * { flex: 1; min-width: 0; }
 
 .pf-field {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
 }
 
 .pf-label {
@@ -183,9 +345,9 @@
   box-sizing: border-box;
   background: var(--cream);
   border: 1.5px solid var(--border-mid);
-  border-radius: 12px;
-  padding: 11px 14px;
-  font-size: 14px;
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 13.5px;
   font-family: 'Sora', sans-serif;
   color: var(--text-primary);
   transition: border-color 0.2s, background 0.2s;
@@ -200,7 +362,7 @@
   border-color: var(--brand-blue);
   background: #fff;
 }
-.pf-textarea { resize: vertical; min-height: 90px; }
+.pf-textarea { resize: vertical; min-height: 72px; }
 .pf-select { cursor: pointer; }
 
 /* Input with left icon */
@@ -234,7 +396,7 @@
   border-radius: 100px;
   cursor: pointer;
   letter-spacing: 0.01em;
-  margin-top: 28px;
+  margin-top: 18px;
   box-shadow: 0 4px 18px rgba(26, 86, 232, 0.28);
   transition: transform 0.22s, box-shadow 0.22s, opacity 0.2s;
 }
@@ -265,6 +427,8 @@
 
 /* ── Success state ── */
 .pf-success {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,6 +474,77 @@
   padding: 6px 16px;
   border-radius: 100px;
   margin: 0;
+}
+
+/* ── Left floating badges ── */
+.pf-left__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.pf-badge--green {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: rgba(21, 128, 61, 0.15);
+  animation: pfFloat1 4.2s ease-in-out infinite;
+}
+.pf-badge--blue {
+  background: var(--brand-blue-l);
+  color: var(--brand-blue);
+  border-color: rgba(26, 86, 232, 0.15);
+  animation: pfFloat2 5s ease-in-out infinite;
+}
+.pf-badge--gold {
+  background: var(--gold-bg);
+  color: var(--gold);
+  border-color: rgba(184, 137, 42, 0.18);
+  animation: pfFloat1 4.6s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+.pf-badge--dark {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-color: var(--border-mid);
+  animation: pfFloat2 5.4s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+/* Pulsing live dot */
+.pf-badge__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+  animation: pfPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pfFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+@keyframes pfFloat2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+@keyframes pfPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0); }
 }
 
 /* ── Responsive ── */

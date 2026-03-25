@@ -227,6 +227,11 @@
 .rf-col-link:hover {
   color: rgba(255, 255, 255, 0.9);
 }
+.rf-col-link--muted {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
 
 /* ── Bottom bar ── */
 .rf-bar {
