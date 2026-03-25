@@ -33,6 +33,13 @@
   height: 440px;
   margin-top: 64px;
   position: relative;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.co-stage:active {
+  cursor: grabbing;
 }
 
 .co-carousel {
