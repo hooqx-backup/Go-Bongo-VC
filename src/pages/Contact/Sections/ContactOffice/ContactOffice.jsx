@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
@@ -61,9 +61,145 @@ const SPRING = { type: 'spring', stiffness: 190, damping: 26 };
 export default function ContactOffice() {
   const [active, setActive] = useState(0);
   const total = OFFICES.length;
+  const stageRef = useRef(null);
+  const velocityRef = useRef(0);
+  const isHoldingRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const holdDirRef = useRef(0);
+  const dragXRef = useRef(0);
+  const dragTsRef = useRef(0);
+  const lastTsRef = useRef(0);
+  const carryRef = useRef(0);
+  const rafRef = useRef(null);
+  const tickRef = useRef(null);
 
   const prev = () => setActive(i => (i - 1 + total) % total);
   const next = () => setActive(i => (i + 1) % total);
+
+  const spinBy = (steps) => {
+    if (!steps) return;
+    setActive((i) => {
+      const mod = ((steps % total) + total) % total;
+      return (i + mod) % total;
+    });
+  };
+
+  const ensureLoop = () => {
+    if (!rafRef.current && tickRef.current) {
+      lastTsRef.current = 0;
+      rafRef.current = requestAnimationFrame(tickRef.current);
+    }
+  };
+
+  const addImpulse = (delta) => {
+    const MAX_SPEED = 7.5;
+    velocityRef.current = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocityRef.current + delta));
+    ensureLoop();
+  };
+
+  const startHold = (dir) => {
+    isHoldingRef.current = true;
+    holdDirRef.current = dir;
+    ensureLoop();
+  };
+
+  const stopHold = () => {
+    isHoldingRef.current = false;
+    holdDirRef.current = 0;
+  };
+
+  const handleStageWheel = (e) => {
+    e.preventDefault();
+    const raw = e.deltaY !== 0 ? e.deltaY : e.deltaX;
+    const impulse = Math.max(-1.2, Math.min(1.2, raw / 220));
+    addImpulse(impulse);
+  };
+
+  const handleStagePointerDown = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    isDraggingRef.current = true;
+    stopHold();
+    dragXRef.current = e.clientX;
+    dragTsRef.current = performance.now();
+
+    if (stageRef.current?.setPointerCapture) {
+      stageRef.current.setPointerCapture(e.pointerId);
+    }
+  };
+
+  const handleStagePointerMove = (e) => {
+    if (!isDraggingRef.current) return;
+
+    const now = performance.now();
+    const dx = e.clientX - dragXRef.current;
+    const dt = Math.max((now - dragTsRef.current) / 1000, 0.016);
+
+    dragXRef.current = e.clientX;
+    dragTsRef.current = now;
+
+    const speed = dx / dt;
+    const impulse = Math.max(-1.4, Math.min(1.4, -speed / 900));
+    addImpulse(impulse);
+  };
+
+  const handleStagePointerUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  useEffect(() => {
+    const MAX_SPEED = 7.5; // cards per second
+    const ACCEL = 0.28;
+    const DECAY = 0.88;
+
+    tickRef.current = (ts) => {
+      const last = lastTsRef.current || ts;
+      const dt = Math.min((ts - last) / 1000, 0.05);
+      const frame = dt * 60;
+      lastTsRef.current = ts;
+
+      if (isHoldingRef.current) {
+        const nextVelocity = velocityRef.current + holdDirRef.current * ACCEL * frame;
+        velocityRef.current = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, nextVelocity));
+      } else {
+        velocityRef.current *= Math.pow(DECAY, frame / 2);
+      }
+
+      carryRef.current += velocityRef.current * dt;
+
+      if (carryRef.current >= 1) {
+        const steps = Math.floor(carryRef.current);
+        carryRef.current -= steps;
+        spinBy(steps);
+      } else if (carryRef.current <= -1) {
+        const steps = Math.floor(Math.abs(carryRef.current));
+        carryRef.current += steps;
+        spinBy(-steps);
+      }
+
+      if (!isHoldingRef.current && Math.abs(velocityRef.current) < 0.03) {
+        velocityRef.current = 0;
+        carryRef.current = 0;
+        lastTsRef.current = 0;
+        rafRef.current = null;
+        return;
+      }
+
+      rafRef.current = requestAnimationFrame(tickRef.current);
+    };
+
+    window.addEventListener('mouseup', stopHold);
+    window.addEventListener('touchend', stopHold);
+    window.addEventListener('pointerup', stopHold);
+    window.addEventListener('blur', stopHold);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('mouseup', stopHold);
+      window.removeEventListener('touchend', stopHold);
+      window.removeEventListener('pointerup', stopHold);
+      window.removeEventListener('blur', stopHold);
+    };
+  }, [total]);
 
   return (
     <div className="co-outer">
@@ -76,7 +212,16 @@ export default function ContactOffice() {
         </RevealWrapper>
 
         {/* ── 3D Carousel ── */}
-        <div className="co-stage">
+        <div
+          className="co-stage"
+          ref={stageRef}
+          onWheel={handleStageWheel}
+          onPointerDown={handleStagePointerDown}
+          onPointerMove={handleStagePointerMove}
+          onPointerUp={handleStagePointerUp}
+          onPointerCancel={handleStagePointerUp}
+          onPointerLeave={handleStagePointerUp}
+        >
           <div className="co-carousel">
             {OFFICES.map((o, i) => {
               const offset = (i - active + total) % total;
@@ -146,7 +291,16 @@ export default function ContactOffice() {
 
         {/* ── Navigation ── */}
         <div className="co-nav">
-          <button className="co-nav__arrow" onClick={prev} aria-label="Previous">
+          <button
+            className="co-nav__arrow co-nav__arrow--prev"
+            onClick={prev}
+            onMouseDown={() => startHold(-1)}
+            onMouseUp={stopHold}
+            onMouseLeave={stopHold}
+            onTouchStart={() => startHold(-1)}
+            onTouchEnd={stopHold}
+            aria-label="Previous"
+          >
             <FiChevronLeft size={18} />
           </button>
 
@@ -161,7 +315,16 @@ export default function ContactOffice() {
             ))}
           </div>
 
-          <button className="co-nav__arrow" onClick={next} aria-label="Next">
+          <button
+            className="co-nav__arrow co-nav__arrow--next"
+            onClick={next}
+            onMouseDown={() => startHold(1)}
+            onMouseUp={stopHold}
+            onMouseLeave={stopHold}
+            onTouchStart={() => startHold(1)}
+            onTouchEnd={stopHold}
+            aria-label="Next"
+          >
             <FiChevronRight size={18} />
           </button>
         </div>
