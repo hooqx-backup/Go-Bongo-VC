@@ -54,7 +54,7 @@ export default function AboutHero() {
           </motion.h1>
 
           <motion.p className="about-hero-sub" variants={itemVariants}>
-            GoBongo VC is a Dubai-based venture capital firm built by operators, for
+            GoBongo VC is a Delaware-headquartered venture capital firm built by operators, for
             founders — backing bold ideas across 6 industries in 7 countries with
             conviction, capital, and hands-on operational support.
           </motion.p>

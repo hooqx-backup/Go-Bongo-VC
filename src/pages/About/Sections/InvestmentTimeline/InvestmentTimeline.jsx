@@ -7,12 +7,12 @@ const TIMELINE = [
   {
     color: 'blue',
     year: '2022 — The Foundation',
-    title: 'GoBongo VC is established in Dubai',
+    title: 'GoBongo VC is incorporated in Delaware, USA',
     milestones: [
       'Founding partners bring together 30+ combined years of operator experience',
       'Investment thesis defined: essential industries undergoing digital transformation',
       'First three portfolio companies onboarded: Thescooda, Tezz Logistics, GoBongo Shop',
-      'Dubai Free Zone entity established — DIFC presence secured',
+      'Dubai office established — DIFC presence secured as regional operating hub',
     ],
   },
   {

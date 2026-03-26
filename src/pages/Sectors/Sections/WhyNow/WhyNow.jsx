@@ -68,7 +68,7 @@ const CARDS = [
     accentBg: "#F0FDF4",
     year: "UAE",
     title: "Dubai as the Fulcrum",
-    desc: "Dubai's position at the crossroads of East-West trade, combined with 0% corporate tax and world-class financial infrastructure, makes it the ideal HQ for all six of our sectors simultaneously.",
+    desc: "Dubai's position at the crossroads of East-West trade, combined with 0% corporate tax and world-class financial infrastructure, makes it the ideal operating base for all six of our sectors simultaneously.",
     stat: "#1",
     statLabel: "global re-export hub",
     link: { to: "/about", label: "The Dubai Advantage →" },

@@ -37,7 +37,7 @@ const BUBBLES = [
 
 const INFO_ITEMS = [
   { icon: <LuMail size={18} />, label: 'Email', value: 'pitch@gobongo.vc' },
-  { icon: <LuBuilding2 size={18} />, label: 'Office', value: 'Dubai, UAE' },
+  { icon: <LuBuilding2 size={18} />, label: 'HQ', value: 'Delaware, USA' },
   { icon: <LuUsers size={18} />, label: 'Response', value: 'Founding team reads every pitch' },
 ];
 

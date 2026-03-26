@@ -88,13 +88,7 @@ export default function Navbar() {
 
       {/* ── Right Actions (desktop) ── */}
       <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 20 }}>
-        <button style={{
-          background: "none", border: "none",
-          fontSize: 14, fontWeight: 500, color: "#374151",
-          cursor: "pointer", fontFamily: "'Sora', sans-serif",
-        }}>
-          Log In
-        </button>
+        
         <Button to="/pitch">Pitch Us →</Button>
       </div>
 
@@ -154,13 +148,7 @@ export default function Navbar() {
                 : <span key={item.label} style={mobileStyle}>{item.label}</span>;
             })}
             <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "8px 0" }} />
-            <button style={{
-              width: "100%", padding: "11px 0", fontSize: 14, fontWeight: 600,
-              color: "#374151", background: "#f8fafc", border: "1px solid #e5e7eb",
-              borderRadius: 12, cursor: "pointer", fontFamily: "'Sora',sans-serif",
-            }}>
-              Log In
-            </button>
+            
             <Button to="/pitch" style={{ marginTop: 8, width: "100%", borderRadius: 12 }}>
               Pitch Us →
             </Button>

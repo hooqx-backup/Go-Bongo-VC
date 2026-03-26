@@ -6,7 +6,7 @@ import './PortfolioGeo.css';
 
 // 1. Data ko thoda aur "bhara-bhara" banaya (Added coords, percentage, tags)
 const GEO_NODES = [
-  { region: 'UAE', focus: 'HQ and core operating base', ventures: 8, maxVentures: 10, coords: '25.2048° N, 55.2708° E', tags: ['Fintech', 'SaaS'] },
+  { region: 'UAE', focus: 'Key operating hub and portfolio base', ventures: 8, maxVentures: 10, coords: '25.2048° N, 55.2708° E', tags: ['Fintech', 'SaaS'] },
   { region: 'Saudi Arabia', focus: 'Commerce and logistics expansion', ventures: 4, maxVentures: 10, coords: '23.8859° N, 45.0792° E', tags: ['Logistics', 'Retail'] },
   { region: 'India', focus: 'Technology and fulfilment operations', ventures: 3, maxVentures: 10, coords: '20.5937° N, 78.9629° E', tags: ['DeepTech', 'AI'] },
   { region: 'Pakistan', focus: 'Talent and product execution layer', ventures: 2, maxVentures: 10, coords: '30.3753° N, 69.3451° E', tags: ['Talent', 'Dev'] },
@@ -162,7 +162,7 @@ export default function PortfolioGeo() {
         <RevealWrapper>
           <div className="pgeo-head">
             <SectionTag color="gold">Geographic Footprint</SectionTag>
-            <h2 className="pgeo-title">Built in Dubai, Operating Across Seven Markets</h2>
+            <h2 className="pgeo-title">Incorporated in Delaware, Operating Across Seven Markets</h2>
           </div>
         </RevealWrapper>
 

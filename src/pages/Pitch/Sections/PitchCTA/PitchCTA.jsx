@@ -49,7 +49,7 @@ export default function PitchCTA() {
             <div className="pctx-identity">
               <img src="/gobongoventureslogo.png" className="pctx-logo" alt="GoBongo Ventures" />
               <span className="pctx-identity__name">GoBongo Ventures</span>
-              <span className="pctx-identity__loc">Dubai, UAE</span>
+              <span className="pctx-identity__loc">Delaware, USA</span>
             </div>
           </motion.div>
 

@@ -234,7 +234,7 @@ export default function AboutSection() {
           transition={{ delay: 0.3, duration: 0.6 }}
           style={{ fontSize: 14, color: "#64748b", lineHeight: 1.8, marginBottom: 16 }}
         >
-          GoBongo Ventures is a Dubai-headquartered multi-sector holding group with a portfolio spanning
+          GoBongo Ventures is a Delaware-headquartered multi-sector holding group with a portfolio spanning
           e-commerce platforms, logistics networks, IT services, B2B trade infrastructure,
           communications technology, and commodity trading.
         </motion.p>

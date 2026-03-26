@@ -79,7 +79,7 @@ export default function EcosystemMap() {
               <img src="/logos/gobongoventureslogo.png" alt="GoBongo VC" className="eco-parent__logo" />
               <div>
                 <div className="eco-parent__name">GoBongo VC</div>
-                <div className="eco-parent__sub">Parent Holding Company · Dubai, UAE · Est. 2022</div>
+                <div className="eco-parent__sub">Parent Holding Company · Delaware, USA · Est. 2022</div>
               </div>
             </div>
             <div className="eco-parent__badge">8 Active Ventures · 7 Countries</div>

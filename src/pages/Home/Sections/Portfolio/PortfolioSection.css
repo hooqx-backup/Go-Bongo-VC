@@ -560,6 +560,10 @@
     gap: 18px;
   }
 
+  .venture-card__panel {
+    display: none;
+  }
+
   .venture-card__sparkline-value {
     font-size: 22px;
   }

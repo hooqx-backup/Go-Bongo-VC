@@ -26,8 +26,8 @@ const STORY_CARDS = [
   {
     variant: "",
     icon: <Building2 size={24} strokeWidth={1.5} />,
-    title: "Dubai as a Platform",
-    desc: "Our HQ isn't just an address. Dubai's 0% tax and position between East and West is a structural advantage we use for every portfolio company.",
+    title: "Dubai as a Key Hub",
+    desc: "Our Dubai office isn't just an address. Dubai's 0% tax and position between East and West is a structural advantage we leverage for every portfolio company.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function OurStory() {
           <SectionTag>Our Story</SectionTag>
           <div className="story-year">2022</div>
           <h2 className="story-h">
-            Born in Dubai.
+            Founded in Delaware.
             <br />
             Built for the <em>World.</em>
           </h2>
@@ -68,7 +68,7 @@ export default function OurStory() {
             operate leaner, and hunger harder."
           </blockquote>
           <p className="story-p">
-            GoBongo VC was founded in Dubai in 2022 by a team of operators who
+            GoBongo VC was incorporated in Delaware in 2022 by a team of operators who
             had already built, scaled, and navigated companies across South
             Asia, the Middle East, and Europe. We knew firsthand what founders
             actually need — not just capital, but embedded operational support

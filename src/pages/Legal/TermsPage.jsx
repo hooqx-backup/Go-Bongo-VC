@@ -69,8 +69,8 @@ const SECTIONS = [
     id: 'governing-law',
     title: 'Governing Law and Jurisdiction',
     content: [
-      { type: 'p', text: 'These Terms shall be governed by and construed in accordance with the laws of the Dubai International Financial Centre (DIFC), United Arab Emirates, without regard to its conflict of law provisions.' },
-      { type: 'p', text: 'Any dispute arising out of or relating to these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the DIFC Courts. If you are accessing the Site from outside the UAE, you are responsible for compliance with your local laws.' },
+      { type: 'p', text: 'These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States of America, without regard to its conflict of law provisions.' },
+      { type: 'p', text: 'Any dispute arising out of or relating to these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the courts of the State of Delaware. If you are accessing the Site from outside the USA, you are responsible for compliance with your local laws.' },
     ],
   },
   {
@@ -78,7 +78,7 @@ const SECTIONS = [
     title: 'Changes to These Terms',
     content: [
       { type: 'p', text: 'We reserve the right to revise and update these Terms at our sole discretion. All changes are effective immediately when we publish them. Your continued use of the Site following the posting of revised Terms means that you accept and agree to the changes.' },
-      { type: 'p', text: 'If you have any questions about these Terms, please contact us at legal@gobongo.vc or write to us at DIFC, Gate Village, Dubai, United Arab Emirates.' },
+      { type: 'p', text: 'If you have any questions about these Terms, please contact us at legal@gobongo.vc or write to us at GoBongo Ventures, Delaware, United States of America.' },
     ],
   },
 ];

@@ -55,7 +55,7 @@ export default function Footer() {
           {/* Left — address + status + socials */}
           <div className="rf-left">
             <p className="rf-address">
-              DIFC, Gate Village<br />Dubai, United Arab Emirates
+              Delaware, USA (HQ)<br />Dubai, UAE (Office)
             </p>
             <div className="rf-status">
               <span className="rf-status-dot" />
@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="rf-bar">
           <span className="rf-copy">&copy; {new Date().getFullYear()} GoBongo Ventures. All rights reserved.</span>
-          <span className="rf-tagline">Built in Dubai &mdash; scaling globally.</span>
+          <span className="rf-tagline">Incorporated in Delaware &mdash; scaling globally.</span>
         </div>
       </div>
     </footer>
