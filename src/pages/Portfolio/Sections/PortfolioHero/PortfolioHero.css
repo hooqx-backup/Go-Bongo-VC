@@ -277,10 +277,18 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .ph-inner { grid-template-columns: 1fr; gap: 0; padding: 100px 32px 60px; align-items: flex-start; }
+  .ph-root { min-height: auto; align-items: flex-start; }
+  .ph-inner { grid-template-columns: 1fr; gap: 0; padding: 80px 24px 40px; align-items: flex-start; }
   .ph-left { max-width: 100%; }
   .ph-right { display: none; }
+  .ph-scroll-hint { display: none; }
 }
 @media (max-width: 640px) {
-  .ph-inner { padding: 80px 20px 48px; }
+  .ph-root { min-height: auto; }
+  .ph-inner { padding: 72px 20px 32px; }
+  .ph-h1 { font-size: clamp(32px, 9vw, 44px); }
+  .ph-kicker { font-size: 9px; padding: 5px 12px; margin-bottom: 18px; }
+  .ph-sub { font-size: 14px; margin: 16px 0 28px; }
+  .ph-ctas { gap: 10px; }
+  .ph-btn { padding: 11px 22px; font-size: 13px; }
 }
