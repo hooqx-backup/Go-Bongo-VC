@@ -132,24 +132,12 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .team-sec { padding: 64px 24px; }
-  .team-grid { grid-template-columns: 1fr; }
-  .tm-card--featured {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
-  }
-  .tm-badge-wrap { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
-}
 
 .team-outer { background: #fdfdfb; } /* Subtle paper white */
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  perspective: 1000px; /* Enables 3D depth */
+  perspective: 1000px;
 }
 
 /* ── Stellar Orbit Effect ── */
@@ -258,9 +246,13 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .team-sec { padding: 48px 16px; }
+  .team-grid { grid-template-columns: 1fr; }
   .tm-card--featured {
+    grid-column: span 1;
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 24px;
   }
   .tm-stellar-wrap { margin: 0 auto; }
   .tm-badge-stack { flex-direction: row; flex-wrap: wrap; justify-content: center; }

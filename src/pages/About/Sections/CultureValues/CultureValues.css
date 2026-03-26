@@ -465,3 +465,27 @@
   .premium-stats-bar { grid-template-columns: 1fr 1fr; }
   .culture-bottom-premium { gap: 60px; }
 }
+
+@media (max-width: 768px) {
+  .culture-sec { padding: 48px 16px; }
+  .values-flex-container {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .val-card-white {
+    padding: 28px 20px;
+  }
+  .culture-bottom-premium {
+    margin-top: 40px;
+    padding-top: 40px;
+    gap: 40px;
+  }
+  .premium-stats-bar { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .p-stat-value { font-size: 36px; }
+  .culture-pull-light {
+    flex-direction: column;
+    padding: 28px 20px;
+    gap: 32px;
+  }
+}
