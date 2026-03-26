@@ -141,7 +141,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <motion.p {...fadeUp(0.34)} className="hero-subtext">
-            GoBongo Ventures is a Dubai-based holding group backing
+            GoBongo Ventures is a Delaware-headquartered holding group backing
             bold companies across e-commerce, logistics, technology,
             trade, and communications.
           </motion.p>
@@ -305,7 +305,7 @@ export default function Hero() {
         {/* Countries */}
         <motion.div
           className="glass-card"
-          style={{ borderRadius: 20, padding: 16 }}
+          style={{ borderRadius: 20, padding: 20 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -334,7 +334,7 @@ export default function Hero() {
         {/* Portfolio */}
         <motion.div
           className="glass-card"
-          style={{ borderRadius: 20, padding: 16 }}
+          style={{ borderRadius: 20, padding: 20 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
@@ -373,7 +373,7 @@ export default function Hero() {
           {/* Notification */}
         <motion.div
           className="glass-card"
-          style={{ borderRadius: 20, padding: 16 }}
+          style={{ borderRadius: 20, padding: 20 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
@@ -411,7 +411,7 @@ export default function Hero() {
         <motion.div
           style={{
             borderRadius: 20,
-            padding: 16,
+            padding: 20,
             background: "linear-gradient(135deg,#0B1D3A 0%,#1e293b 100%)",
             border: "1px solid rgba(255,255,255,0.08)",
             boxShadow: "0 8px 32px rgba(0,0,0,0.22)",
@@ -477,7 +477,7 @@ export default function Hero() {
         <div className="hero-vc-divider" />
         <div className="hero-vc-stat">
           <p className="hero-vc-num"><Counter to={1} delay={1.5} /></p>
-          <p className="hero-vc-label">Global HQ · Dubai UAE</p>
+          <p className="hero-vc-label">Global HQ · Delaware, USA</p>
         </div>
       </motion.div>
 

@@ -577,7 +577,7 @@
     padding: 0 18px;
   }
   .wwu-heading {
-    font-size: clamp(26px, 8.5vw, 36px);
+    font-size: 30px;
   }
   .wwu-subtext {
     font-size: 14.5px;

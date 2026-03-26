@@ -21,7 +21,7 @@ export default function PortfolioHero() {
             transition={{ duration: 0.6 }}
           >
             <span className="ph-kicker__dot" />
-            Dubai-Based Venture Capital · Est. 2022
+            Delaware-Incorporated Venture Capital · Est. 2022
           </motion.div>
 
           <div className="ph-heading-wrap">

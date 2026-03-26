@@ -387,7 +387,7 @@
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.07);
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.452);
   backdrop-filter: blur(8px);
   position: relative;
   z-index: 10;
@@ -491,9 +491,10 @@
   .hero-mobile-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
     width: 100%; max-width: 480px;
     margin: 24px auto 0;
+    margin-bottom: 20px;
     padding: 0 20px;
     z-index: 10; position: relative;
   }
@@ -516,7 +517,7 @@
 ───────────────────────────────────────── */
 @media (max-width: 480px) {
   .hero-inner { padding: 84px 16px 20px; }
-  .hero-mobile-grid { padding: 0; }
+  .hero-mobile-grid { padding: 0 12px; }
   .hero-stats { padding: 0 16px 36px; }
   .hero-heading { font-size: clamp(28px, 8.5vw, 38px); letter-spacing: -1.5px; }
   .hero-btn-dark, .hero-btn-ghost { font-size: 13px; padding: 12px 22px; }

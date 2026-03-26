@@ -18,7 +18,7 @@ const METRICS = [
   { Icon: Globe2, value: 7, suffix: '', label: 'Countries of Operation', accent: '#B8892A' },
   { Icon: Layers3, value: 6, suffix: '', label: 'Industry Sectors', accent: '#0D9488' },
   { Icon: Users, value: 200, suffix: '+', label: 'Team Members Across Group', accent: '#E85D26' },
-  { Icon: MapPin, value: 2022, suffix: '', label: 'Year Founded, Dubai UAE', accent: '#16A34A' },
+  { Icon: MapPin, value: 2022, suffix: '', label: 'Year Founded, Delaware USA', accent: '#16A34A' },
   { Icon: TrendingUp, value: 10, prefix: '$', suffix: 'M+', label: 'Estimated Group Revenue Run-Rate', accent: '#7C3AED' },
 ];
 

@@ -97,7 +97,7 @@ const SECTIONS = [
       { type: 'ul', items: [
         'Email: privacy@gobongo.vc',
         'General enquiries: hello@gobongo.vc',
-        'Office: DIFC, Gate Village, Dubai, United Arab Emirates',
+        'Office: GoBongo Ventures, Delaware, United States of America',
       ]},
       { type: 'p', text: 'We will make every effort to respond to your enquiry within 5 business days.' },
     ],
