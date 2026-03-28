@@ -439,6 +439,8 @@ All About sections previously used pure black/dark backgrounds. Converted to mat
 | Blog | `/blog` | ✅ Complete |
 | Blog Post | `/blog/:id` | ✅ Complete |
 | Pitch | `/pitch` | ✅ Complete |
+| Portfolio | `/portfolio` | ✅ Complete (built prior to Session 7, undocumented) |
+| Portfolio Company | `/portfolio/:slug` | ✅ Complete |
 
 ### Session 3 — 2026-03-19 (continued)
 
@@ -597,7 +599,6 @@ All Pitch sections use the light/warm color scheme (`--bg-main`, `--cream`).
 
 - [ ] Wire Portfolio, Sectors, Dubai nav links once pages are built (change `path: null` → real path in `NAV_LINKS` + add route to `Router.jsx`)
 - [ ] Add `/portfolio` route (referenced in Hero CTA "Explore Portfolio →")
-- [ ] Add responsive / mobile styles across Hero and Portfolio sections
 - [ ] Add BlogTopics and BlogNewsletter sections to BlogPage (stubs exist in BlogPage.jsx but sections not built)
 - [ ] Clean up Hero.jsx: remove unused `BiBorderRadius` import
 - [ ] Migrate Hero mobile grid inline Tailwind → CSS classes (for consistency)
@@ -608,6 +609,8 @@ All Pitch sections use the light/warm color scheme (`--bg-main`, `--cream`).
 - [ ] PitchProcess and PitchForm sections — verify styles, test form submit flow
 - [ ] Pitch page full mobile responsive pass (all 6 sections)
 - [ ] BlogPost animations — verify word-cascade + parallax watermark on all post IDs
+- [ ] Fill in missing founder names for GoBongo Shop, GMI Trading, Tradeflink in `portfolioData.js` (currently blank)
+- [ ] Full mobile responsive pass — review all non-hero sections on small screens after global font override
 
 ---
 
@@ -694,3 +697,64 @@ All Pitch sections use the light/warm color scheme (`--bg-main`, `--cream`).
 - **Dark background on PitchThesis** — user rejected dark bg; fully reverted to `--cream` with light card styles
 - **PitchCriteria card overlap** — caused by `overflow: visible` + resting tilt angles; fixed by returning cards to flat (rawX/rawY = 0 at rest) and `overflow: hidden`
 - **`::before` conflict for moving bar** — `::before` was used for both the top accent bar AND the card ambient bg; resolved by moving accent bar to explicit JSX `<div className="pc-card__bar" />`
+
+---
+
+### Session 7 — 2026-03-28
+
+#### Global mobile font-size overrides
+
+**Problem:** Site headings were too large on mobile viewports (≤768px). Specifically, the `.premium-quote` in CultureValues was raised first, then a site-wide pass was done.
+
+**Approach:** Single centralized `@media (max-width: 768px)` block added to `src/index.css` covering all section heading classes across every page. This avoids modifying each individual CSS file and keeps mobile typography in one place.
+
+**Files changed:**
+- `src/index.css` — new global mobile override block (last rule in file)
+- `src/pages/Home/Sections/Hero/Hero.css` — updated existing 768px + 480px breakpoints for `.hero-heading`
+
+**Font-size tiers applied on mobile:**
+
+| Tier | Classes | Desktop max | Mobile max |
+|------|---------|------------|------------|
+| Hero-scale | `.about-hero-h`, `.ch-heading`, `.bh-heading`, `.pch-hero__heading`, `.about-cta-h` | 64–72px | 44–48px |
+| Large section | `.portfolio-heading`, `.mv-h`, `.pt-thesis__heading`, `.pc-criteria__heading`, `.cf-heading` | 52–56px | 28–30px |
+| Standard section | `.story-h`, `.team-h`, `.tl-h`, `.ach-h`, `.culture-h`, `.eco-h`, `.bf-title` | 46px | 26px |
+| Pull quote | `.premium-quote` | 48px | 28px |
+| Home hero | `.hero-heading` (768px) | 46px | 44px |
+| Home hero | `.hero-heading` (480px) | 38px | 38px |
+
+**Iteration note:** Hero-scale headings were first reduced too aggressively (max ~34–38px). User reviewed on 400px-wide viewport and requested increase — bumped back up to 44–48px range for hero classes. Section headings left at smaller values.
+
+#### Portfolio — Founder field added
+
+**Files changed:**
+- `src/pages/Home/Sections/Portfolio/portfolioData.js` — `founder` field added to all 8 venture objects
+- `src/pages/Home/Sections/Portfolio/PortfolioSection.jsx` — founder row rendered in `VentureCard` between sector label and description
+- `src/pages/Home/Sections/Portfolio/PortfolioSection.css` — `.venture-card__founder` styles added
+
+**UI:** Small inline row with a person SVG icon (11px, `#AEADA6`). Only renders when `v.founder` is a non-empty string — cards without founder data show nothing (no broken UI).
+
+**Founder data (confirmed by client):**
+
+| Venture | Founder |
+|---------|---------|
+| Hooqx LLC | MD. Sharique Furqan |
+| CallTawk | Sami Ahmed |
+| Tezz Logistics | Shadab Ahmed Shah |
+| Stratigi 360 | Sarah Khan |
+| Scooda | Aftab Ahmed |
+| GoBongo Shop | *(blank — not provided)* |
+| GMI Trading | *(blank — not provided)* |
+| Tradeflink | *(blank — not provided)* |
+
+#### Key decisions
+- **Global override block in `index.css`** rather than modifying each component's CSS — single source of truth for mobile typography scale
+- **`!important` on all mobile overrides** — ensures they win over any component-level `clamp()` values without needing specificity battles
+- **Founder field is opt-in** — empty string `""` suppresses the row entirely; no placeholder text shown to users
+- **`.venture-card__founder` placed before description** — gives the card a "founding context" before the longer copy, consistent with how investor profiles typically read (who → what)
+
+#### Completed this session
+- ✅ Global mobile font-size pass (all pages, all section headings)
+- ✅ Hero heading mobile sizes tuned after user feedback
+- ✅ Founder field added to portfolio data + card UI
+- ✅ Real founder names populated from client-provided list

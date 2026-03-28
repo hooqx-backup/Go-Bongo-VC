@@ -151,6 +151,16 @@ function VentureCard({ v, index, isVisible }) {
           {v.sectorLabel}
         </div>
 
+        {/* Founder */}
+        {v.founder && (
+          <div className="venture-card__founder">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>{v.founder}</span>
+          </div>
+        )}
+
         {/* Desc */}
         <p className="venture-card__desc">{v.desc}</p>
 

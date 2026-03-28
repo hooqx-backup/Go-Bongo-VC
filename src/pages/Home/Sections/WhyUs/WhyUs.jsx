@@ -12,13 +12,6 @@ const DATA = [
       "Every partner at GoBongo has built, scaled, or exited a company. We don't just write cheques — we embed ourselves in the work. We've felt the friction. We know what it takes.",
   },
   {
-    id: "02",
-    title: "DUBAI ADVANTAGE",
-    subtitle: "THE GLOBAL BRIDGE",
-    content:
-      "Headquartered in the world's most business-friendly city. 0% corporate tax, 200+ nationalities, DIFC access, and a geographic position as the literal bridge between East and West markets.",
-  },
-  {
     id: "03",
     title: "COMPOUNDING",
     subtitle: "CROSS-PORTFOLIO SYNERGY",
