@@ -276,6 +276,22 @@
   margin-bottom: 3px;
 }
 
+.venture-card__founder {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  color: #AEADA6;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.venture-card__founder svg {
+  flex-shrink: 0;
+  color: #AEADA6;
+}
+
 .venture-card__desc {
   font-size: 13px;
   color: #7A7A72;

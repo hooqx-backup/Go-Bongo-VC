@@ -141,7 +141,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <motion.p {...fadeUp(0.34)} className="hero-subtext">
-            GoBongo Ventures is a Delaware-headquartered holding group backing
+            We are a Delaware-headquartered holding group backing
             bold companies across e-commerce, logistics, technology,
             trade, and communications.
           </motion.p>

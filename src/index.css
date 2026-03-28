@@ -110,3 +110,33 @@ html, body {
   0%   { background-position: -300% center; }
   100% { background-position:  300% center; }
 }
+
+/* ── Global mobile font-size overrides (max-width: 768px) ── */
+@media (max-width: 768px) {
+
+  /* Hero-scale headings (desktop max 60–72px → mobile ~40–46px) */
+  .about-hero-h      { font-size: clamp(30px, 8vw, 46px) !important; }
+  .ch-heading        { font-size: clamp(32px, 8.5vw, 48px) !important; }
+  .bh-heading        { font-size: clamp(30px, 8vw, 44px) !important; }
+  .pch-hero__heading { font-size: clamp(30px, 8vw, 44px) !important; }
+  .about-cta-h       { font-size: clamp(30px, 8vw, 44px) !important; }
+
+  /* Section headings — large (desktop max 52–56px → mobile ~28–30px) */
+  .portfolio-heading    { font-size: clamp(20px, 5.5vw, 30px) !important; }
+  .mv-h                 { font-size: clamp(20px, 5.5vw, 28px) !important; }
+  .pt-thesis__heading   { font-size: clamp(20px, 5.5vw, 28px) !important; }
+  .pc-criteria__heading { font-size: clamp(20px, 5.5vw, 28px) !important; }
+  .cf-heading           { font-size: clamp(20px, 5.5vw, 28px) !important; }
+
+  /* Section headings — standard (desktop max 46px → mobile ~26px) */
+  .story-h    { font-size: clamp(20px, 5vw, 26px) !important; }
+  .team-h     { font-size: clamp(20px, 5vw, 26px) !important; }
+  .tl-h       { font-size: clamp(20px, 5vw, 26px) !important; }
+  .ach-h      { font-size: clamp(20px, 5vw, 26px) !important; }
+  .culture-h  { font-size: clamp(20px, 5vw, 26px) !important; }
+  .eco-h      { font-size: clamp(20px, 5vw, 26px) !important; }
+  .bf-title   { font-size: clamp(20px, 5vw, 26px) !important; }
+
+  /* Pull quote */
+  .premium-quote { font-size: clamp(20px, 5.5vw, 28px) !important; }
+}

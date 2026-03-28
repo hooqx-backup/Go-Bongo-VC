@@ -7,7 +7,7 @@ const STATS = [
   { value: 7,    suffix: "",   label: "Countries" },
   { value: 6,    suffix: "",   label: "Industry Sectors" },
   { value: 200,  suffix: "+",  label: "Team Members" },
-  { value: 2022, suffix: "",   label: "Year Founded" },
+  { value: 2017, suffix: "",   label: "Year Founded" },
   { value: 1,    prefix: "#",  label: "UAE Startup Group", featured: true },
 ];
 

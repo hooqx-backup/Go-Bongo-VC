@@ -483,6 +483,7 @@
   }
   .premium-stats-bar { grid-template-columns: 1fr 1fr; gap: 12px; }
   .p-stat-value { font-size: 36px; }
+  .premium-quote { font-size: clamp(20px, 5.5vw, 28px); }
   .culture-pull-light {
     flex-direction: column;
     padding: 28px 20px;
