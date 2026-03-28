@@ -37,7 +37,7 @@
 .rf-wordmark {
   display: block;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(72px, 16.5vw, 240px);
+  font-size: clamp(82px, 18.5vw, 270px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.9;

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // used by View More button
 import "./PortfolioSection.css";
 import { ventures, filters } from "./portfolioData";
 
@@ -80,9 +80,8 @@ function VentureCard({ v, index, isVisible }) {
   };
 
   return (
-    <Link
+    <div
       ref={ref}
-      to={`/portfolio/${v.id}`}
       className={`venture-card${isF ? " venture-card--featured" : ""}`}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -134,11 +133,11 @@ function VentureCard({ v, index, isVisible }) {
 
         {/* Logo */}
         <div className="venture-card__logo-wrap">
-          <VentureLogo v={v} size={isF ? 64 : 56} />
+          <VentureLogo v={v} size={isF ? 52 : 44} />
         </div>
 
         {/* Name */}
-        <div className="venture-card__name" style={{ fontSize: isF ? "24px" : "21px" }}>
+        <div className="venture-card__name" style={{ fontSize: isF ? "20px" : "18px" }}>
           {v.name}
         </div>
 
@@ -166,26 +165,12 @@ function VentureCard({ v, index, isVisible }) {
             <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: v.accent, boxShadow: `0 0 0 3px ${v.accentLight}` }} />
             <span className="venture-card__geo-text">{v.geo}</span>
           </div>
-          <div className="venture-card__actions">
-            {/* Hover stat */}
-            <div
-              className="venture-card__stat"
-              style={{ opacity: hov ? 1 : 0, transform: hov ? "translateX(0)" : "translateX(10px)" }}
-            >
-              <span className="venture-card__stat-val" style={{ color: v.accent }}>{v.stat1.val}</span>
-              <span className="venture-card__stat-label">{v.stat1.label}</span>
-            </div>
-            {/* Arrow */}
-            <div style={{
-              width: "36px", height: "36px", borderRadius: "50%",
-              background: hov ? "#0D0D0B" : "#F4F3EE",
-              border: `1px solid ${hov ? "#0D0D0B" : "rgba(13,13,11,0.1)"}`,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "15px", color: hov ? "#ffffff" : "#AEADA6",
-              transform: hov ? "rotate(45deg)" : "rotate(0deg)",
-              transition: "all .35s cubic-bezier(.34,1.56,.64,1)",
-              boxShadow: hov ? "0 4px 14px rgba(0,0,0,0.22)" : "0 1px 4px rgba(0,0,0,0.08)",
-            }}>↗</div>
+          <div
+            className="venture-card__stat"
+            style={{ opacity: hov ? 1 : 0, transform: hov ? "translateX(0)" : "translateX(10px)" }}
+          >
+            <span className="venture-card__stat-val" style={{ color: v.accent }}>{v.stat1.val}</span>
+            <span className="venture-card__stat-label">{v.stat1.label}</span>
           </div>
         </div>
       </div>
@@ -237,7 +222,7 @@ function VentureCard({ v, index, isVisible }) {
           </div>
         </div>
       )}
-    </Link>
+    </div>
   );
 }
 
@@ -250,7 +235,7 @@ export default function PortfolioSection() {
   const secRef = useRef(null);
   const revealTimersRef = useRef([]);
 
-  const filtered = ventures.filter(v => active === "all" || v.sectorKey === active);
+  const filtered = ventures.filter(v => active === "all" || v.sectorKey === active).slice(0, 5);
 
   const clearRevealTimers = () => {
     revealTimersRef.current.forEach(clearTimeout);
@@ -355,7 +340,7 @@ export default function PortfolioSection() {
           ))}
         </div>
 
-        {/* Footer line */}
+        {/* Footer */}
         <div
           className="portfolio-footer"
           style={{
@@ -363,9 +348,14 @@ export default function PortfolioSection() {
             transform: secIn ? "translateY(0)" : "translateY(16px)",
           }}
         >
-          <div className="portfolio-footer-line" />
-          <span className="portfolio-footer-text">All ventures live & operating</span>
-          <div className="portfolio-footer-line" />
+          <span className="portfolio-footer-text">All ventures live &amp; operating</span>
+          <Link to="/portfolio" className="portfolio-view-more">
+            View All Ventures
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../common/components/Navbar/Navbar";
 import Footer from "../common/components/Footer/Footer";
+import ScrollToggleButton from "../common/components/ScrollToggle/ScrollToggleButton";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ export default function RootLayout() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToggleButton />
     </div>
   );
 }

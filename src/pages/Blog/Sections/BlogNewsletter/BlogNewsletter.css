@@ -5,6 +5,7 @@
   padding: 100px 64px;
   position: relative;
   overflow: hidden;
+  background-color: rgb(255, 255, 255);
 }
 
 .bn-glow {
@@ -52,7 +53,7 @@
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(0, 0, 0, 0.92);
   line-height: 1.15;
   letter-spacing: -0.025em;
   margin-bottom: 16px;
@@ -64,7 +65,7 @@
 
 .bn-sub {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   line-height: 1.7;
   margin-bottom: 40px;
   font-family: 'Sora', sans-serif;
@@ -79,21 +80,21 @@
 .bn-input {
   flex: 1;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--r-pill, 100px);
   padding: 14px 22px;
   font-size: 14px;
   font-family: 'Sora', sans-serif;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(0, 0, 0, 0.88);
   outline: none;
   transition: border-color 0.25s;
 }
-.bn-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+.bn-input::placeholder { color: rgba(2, 2, 2, 0.3); }
 .bn-input:focus { border-color: rgba(26, 86, 232, 0.5); }
 
 .bn-btn {
   background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-m));
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: var(--r-pill, 100px);
   padding: 14px 28px;

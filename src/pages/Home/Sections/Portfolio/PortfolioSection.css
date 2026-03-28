@@ -167,46 +167,75 @@
 
 /* ── Footer ── */
 .portfolio-footer {
-  margin-top: 52px;
+  margin-top: 48px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
+  gap: 20px;
   transition: opacity .8s ease .7s, transform .8s ease .7s;
 }
 
-.portfolio-footer-line {
-  height: 1px;
-  width: 60px;
-  background: rgba(13,13,11,0.1);
-}
-
 .portfolio-footer-text {
-  font-size: 13px;
+  font-size: 12px;
   color: #AEADA6;
   font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── View More button ── */
+.portfolio-view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0D0D0B;
+  background: #ffffff;
+  border: 1px solid rgba(13,13,11,0.12);
+  border-radius: 100px;
+  padding: 12px 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.portfolio-view-more svg {
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.portfolio-view-more:hover {
+  background: #0D0D0B;
+  color: #ffffff;
+  border-color: #0D0D0B;
+  box-shadow: 0 6px 20px rgba(13,13,11,0.18), 0 2px 8px rgba(13,13,11,0.1);
+  transform: translateY(-2px);
+}
+
+.portfolio-view-more:hover svg {
+  transform: translateX(4px);
 }
 
 /* ── Venture Card ── */
 .venture-card {
   text-decoration: none;
   background: #ffffff;
-  border-radius: 22px;
+  border-radius: 18px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  padding: 28px;
+  padding: 22px;
 }
 
 .venture-card--featured {
   grid-column: span 2;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 28px;
+  gap: 24px;
   align-items: start;
-  padding: 32px;
+  padding: 26px;
 }
 
 .venture-card__rim {
@@ -252,7 +281,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .venture-card__num {
@@ -264,7 +293,7 @@
 }
 
 .venture-card__logo-wrap {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .venture-card__name {
@@ -277,19 +306,19 @@
 }
 
 .venture-card__desc {
-  font-size: 13px;
+  font-size: 12px;
   color: #7A7A72;
-  line-height: 1.72;
-  margin-bottom: 20px;
+  line-height: 1.65;
+  margin-bottom: 14px;
   font-family: 'Outfit', sans-serif;
   flex: 1;
 }
 
 .venture-card__tags {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .venture-card__tag {
