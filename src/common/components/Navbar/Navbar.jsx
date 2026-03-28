@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button/Button";
@@ -11,13 +11,21 @@ const NAV_LINKS = [
   { label: "Blog",      path: "/blog" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "Sectors",   path: "/sectors" },
-  { label: "Dubai",     path: null },
+
   { label: "Contact",   path: "/contact" },
 ];
-
+  
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setIsMobileMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const isActive = ({ path }) => {
     if (!path) return false;

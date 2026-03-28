@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./WorkWithUs.css";
 
 const STEPS = [
@@ -196,31 +197,26 @@ export default function WorkWithUsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease, delay: 0.34 }}
         >
-          <motion.a
-            href="#"
-            className="wwu-btn wwu-btn--primary"
+          <motion.div
             whileHover={{ scale: 1.04, transition: { duration: 0.22 } }}
             whileTap={{ scale: 0.97 }}
           >
-            <span className="wwu-btn-shimmer" />
-            Pitch GoBongo VC →
-          </motion.a>
-          <motion.a
-            href="#"
-            className="wwu-btn wwu-btn--outline"
+            <Link to="/pitch" className="wwu-btn wwu-btn--primary">
+              <span className="wwu-btn-shimmer" />
+              Pitch GoBongo VC →
+            </Link>
+          </motion.div>
+          <motion.div
+            
+            
             whileHover={{ scale: 1.03, transition: { duration: 0.22 } }}
             whileTap={{ scale: 0.97 }}
           >
-            Partner With Us
-          </motion.a>
-          <motion.a
-            href="#"
-            className="wwu-btn wwu-btn--ghost"
-            whileHover={{ scale: 1.02, transition: { duration: 0.22 } }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Investor Relations
-          </motion.a>
+            <Link to="/contact" className="wwu-btn wwu-btn--outline">
+              Partner With Us
+            </Link>
+          </motion.div>
+          
         </motion.div>
 
         {/* ── Process strip ── */}

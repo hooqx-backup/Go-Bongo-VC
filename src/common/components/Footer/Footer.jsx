@@ -2,13 +2,30 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HyperPremiumFooter.css";
 
-const COMPANY   = ["About", "Portfolio", "Sectors", "Dubai", "Insights", "Contact"];
-const PORTFOLIO = ["GoBongo Shop", "Hooqx LLC", "CallTawk", "GMI Trading", "Tezz Logistics", "Tradeflink", "Scooda", "Stratigi 360"];
+const COMPANY = [
+  { label: "About",     path: "/about" },
+  { label: "Portfolio", path: "/portfolio" },
+  { label: "Sectors",   path: "/sectors" },
+  { label: "Dubai",     path: "/dubai" },
+  { label: "Insights",  path: "/blog" },
+  { label: "Contact",   path: "/contact" },
+];
+const PORTFOLIO = [
+  { label: "GoBongo Ventures", path: "/" },
+  { label: "GoBongo Shop",     path: "/portfolio/gobongo-shop" },
+  { label: "Hooqx LLC",        path: "/portfolio/hooqx" },
+  { label: "CallTawk",         path: "/portfolio/calltawk" },
+  { label: "GMI Trading",      path: "/portfolio/gmitrading" },
+  { label: "Tezz Logistics",   path: "/portfolio/tezzlogistics" },
+  { label: "Tradeflink",       path: "/portfolio/tradeflink" },
+  { label: "Scooda",           path: "/portfolio/scooda" },
+  { label: "Stratigi 360",     path: "/portfolio/stratigi360" },
+];
 const LEGAL = [
   { label: "Privacy Policy",    path: "/privacy" },
   { label: "Terms of Use",      path: "/terms" },
   { label: "Cookies",           path: "/cookies" },
-  { label: "Investor Relations", path: null },
+ 
 ];
 
 export default function Footer() {
@@ -72,15 +89,23 @@ export default function Footer() {
           <div className="rf-cols">
             <div className="rf-col">
               <span className="rf-col-head">Company</span>
-              {COMPANY.map(l => <a key={l} href="#" className="rf-col-link">{l}</a>)}
+              {COMPANY.map(l => (
+                <Link key={l.label} to={l.path} className="rf-col-link">{l.label}</Link>
+              ))}
             </div>
             <div className="rf-col">
               <span className="rf-col-head">Portfolio</span>
-              {PORTFOLIO.slice(0, 4).map(l => <a key={l} href="#" className="rf-col-link">{l}</a>)}
+              {PORTFOLIO.slice(0, 4).map(l => l.external
+                ? <a key={l.label} href={l.path} className="rf-col-link" target="_blank" rel="noopener noreferrer">{l.label}</a>
+                : <Link key={l.label} to={l.path} className="rf-col-link">{l.label}</Link>
+              )}
             </div>
             <div className="rf-col">
               <span className="rf-col-head">&nbsp;</span>
-              {PORTFOLIO.slice(4).map(l => <a key={l} href="#" className="rf-col-link">{l}</a>)}
+              {PORTFOLIO.slice(4).map(l => l.external
+                ? <a key={l.label} href={l.path} className="rf-col-link" target="_blank" rel="noopener noreferrer">{l.label}</a>
+                : <Link key={l.label} to={l.path} className="rf-col-link">{l.label}</Link>
+              )}
             </div>
             <div className="rf-col">
               <span className="rf-col-head">Legal</span>
@@ -94,7 +119,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="rf-bar">
-          <span className="rf-copy">&copy; {new Date().getFullYear()} GoBongo Ventures. All rights reserved.</span>
+          <span className="rf-copy">&copy; {new Date().getFullYear()} GoBongo INC. All rights reserved.</span>
           <span className="rf-tagline">Incorporated in Delaware &mdash; scaling globally.</span>
         </div>
       </div>
