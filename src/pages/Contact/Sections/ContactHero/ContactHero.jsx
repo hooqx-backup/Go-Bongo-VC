@@ -1,19 +1,23 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FiZap, FiUsers, FiFileText, FiArrowRight } from 'react-icons/fi';
 import './ContactHero.css';
+
+const MotionLink = motion.create(Link);
 
 const PATHS = [
   {
     id: 'pitch',
-    subject: 'Pitching a startup',
+    subject: 'Creating a Unicorn',
     iconBg: 'var(--brand-blue-l)',
     iconColor: 'var(--brand-blue)',
     Icon: FiZap,
     label: 'Founders',
     labelColor: 'var(--brand-blue)',
-    title: 'Pitch Your Startup',
+    title: 'Create a Unicorn',
     desc: 'Building in our sectors? Tell us about your vision.',
     variant: 'blue',
+    to: '/pitch',
   },
   {
     id: 'partnership',
@@ -26,6 +30,7 @@ const PATHS = [
     title: 'Explore Partnership',
     desc: "Investors, corporates, and co-investors — let's find synergies.",
     variant: 'gold',
+    to: '/sectors',
   },
   {
     id: 'press',
@@ -38,6 +43,7 @@ const PATHS = [
     title: 'Press & Media Enquiries',
     desc: 'Journalists, researchers, and content creators.',
     variant: 'teal',
+    to: '/blog',
   },
 ];
 
@@ -91,37 +97,35 @@ export default function ContactHero({ onSelectSubject }) {
         </div>
 
         <div className="ch-paths">
-          {PATHS.map((p, i) => (
-            <motion.button
-              key={p.id}
-              className={`ch-path ch-path--${p.variant}`}
-              onClick={() => handlePathClick(p.subject)}
-              initial={{ opacity: 0, rotateX: -80, y: -16 }}
-              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.75,
-                delay: i * 0.18,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{ transformOrigin: 'top center', transformPerspective: 1000 }}
-            >
-              <div
-                className="ch-path__icon"
-                style={{ background: p.iconBg, color: p.iconColor }}
-              >
-                <p.Icon size={22} />
-              </div>
-              <div className="ch-path__body">
-                <div className="ch-path__label" style={{ color: p.labelColor }}>{p.label}</div>
-                <div className="ch-path__title">{p.title}</div>
-                <div className="ch-path__desc">{p.desc}</div>
-              </div>
-              <div className="ch-path__arrow">
-                <FiArrowRight size={18} />
-              </div>
-            </motion.button>
-          ))}
+          {PATHS.map((p, i) => {
+            const motionProps = {
+              key: p.id,
+              className: `ch-path ch-path--${p.variant}`,
+              initial: { opacity: 0, rotateX: -80, y: -16 },
+              whileInView: { opacity: 1, rotateX: 0, y: 0 },
+              viewport: { once: true, amount: 0.3 },
+              transition: { duration: 0.75, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] },
+              style: { transformOrigin: 'top center', transformPerspective: 1000 },
+            };
+            const inner = (
+              <>
+                <div className="ch-path__icon" style={{ background: p.iconBg, color: p.iconColor }}>
+                  <p.Icon size={22} />
+                </div>
+                <div className="ch-path__body">
+                  <div className="ch-path__label" style={{ color: p.labelColor }}>{p.label}</div>
+                  <div className="ch-path__title">{p.title}</div>
+                  <div className="ch-path__desc">{p.desc}</div>
+                </div>
+                <div className="ch-path__arrow"><FiArrowRight size={18} /></div>
+              </>
+            );
+            return p.to ? (
+              <MotionLink to={p.to} {...motionProps}>{inner}</MotionLink>
+            ) : (
+              <motion.button onClick={() => handlePathClick(p.subject)} {...motionProps}>{inner}</motion.button>
+            );
+          })}
         </div>
       </div>
     </section>

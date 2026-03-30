@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: 'Do I need a warm introduction?',
-    a: "No. We actively review cold inbounds. If your pitch fits our thesis, a warm intro won't change our decision. Submit through the form.",
+    a: "No. We actively review cold inbounds. If your application fits our thesis, a warm intro won't change our decision. Submit through the form.",
   },
   {
     q: 'Do you only invest in UAE-based companies?',
@@ -48,7 +48,7 @@ export default function ContactFAQ() {
             Before reaching out, check if your question is already answered here. If not, the
             form above is the fastest path to a real answer.
           </p>
-          <Button variant="blue" to="/pitch">Go to Pitch Page →</Button>
+          <Button variant="blue" to="/pitch">Create a Unicorn →</Button>
         </RevealWrapper>
 
         {/* ── Right — spotlight FAQ items ── */}

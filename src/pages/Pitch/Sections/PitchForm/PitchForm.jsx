@@ -38,11 +38,11 @@ const BUBBLES = [
 const INFO_ITEMS = [
   { icon: <LuMail size={18} />, label: 'Email', value: 'pitch@gobongo.vc' },
   { icon: <LuBuilding2 size={18} />, label: 'HQ', value: 'Delaware, USA' },
-  { icon: <LuUsers size={18} />, label: 'Response', value: 'Founding team reads every pitch' },
+  { icon: <LuUsers size={18} />, label: 'Response', value: 'Founding team reviews every application' },
 ];
 
 const PROMISE_ITEMS = [
-  'Every pitch gets read — no triage team, no filter.',
+  'Every application gets read — no triage team, no filter.',
   'We respond to every submission, even if it is a pass.',
   'We do not share your information without your permission.',
   'Our decision timeline is 4–6 weeks from first message.',
@@ -110,7 +110,7 @@ export default function PitchForm() {
           <div className="pf-left__content">
             <SectionTag color="gold">The Application</SectionTag>
             <h2 className="pf-left__heading">
-              Start Your <em className="shimmer-gold">Pitch</em>
+              Start Your <em className="shimmer-gold">Journey</em>
             </h2>
             <p className="pf-left__sub">
               Fill in as much or as little as you have. We prefer a direct, honest message over a polished deck — tell us what you are building, what the traction looks like, and why you are the right team to build it.
@@ -229,7 +229,7 @@ export default function PitchForm() {
                     </div>
                     <div className="pf-row pf-row--2">
                       <div className="pf-field">
-                        <label className="pf-label">Website or Pitch Deck URL</label>
+                        <label className="pf-label">Website or Deck URL</label>
                         <div className="pf-input-wrap">
                           <LuLink size={14} className="pf-input-icon" />
                           <input className="pf-input pf-input--icon" value={form.website} onChange={set('website')} placeholder="https://" type="url" />
@@ -254,7 +254,7 @@ export default function PitchForm() {
 
                   {/* ── Group 2: The Pitch ── */}
                   <div className="pf-group">
-                    <div className="pf-group__label">The Pitch</div>
+                    <div className="pf-group__label">Your Vision</div>
                     <div className="pf-field">
                       <label className="pf-label">What are you building? <span className="pf-req">*</span></label>
                       <textarea
@@ -329,7 +329,7 @@ export default function PitchForm() {
                     {loading ? (
                       <span className="pf-submit__loading" />
                     ) : (
-                      <>Submit Your Pitch <LuArrowRight size={16} /></>
+                      <>Create a Unicorn <LuArrowRight size={16} /></>
                     )}
                   </button>
 
@@ -348,9 +348,9 @@ export default function PitchForm() {
                   <div className="pf-success__icon">
                     <LuCheck size={28} />
                   </div>
-                  <h3 className="pf-success__title">Pitch Received</h3>
+                  <h3 className="pf-success__title">Application Received</h3>
                   <p className="pf-success__sub">
-                    We have received your submission. The founding team reads every pitch personally.
+                    We have received your submission. The founding team reviews every application personally.
                     You will hear from us within 5 business days — even if the answer is a pass.
                   </p>
                   <p className="pf-success__email">{form.email}</p>

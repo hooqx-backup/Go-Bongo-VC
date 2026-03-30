@@ -5,7 +5,7 @@ import './PitchCTA.css';
 const STATS = [
   { value: '8+',   label: 'Ventures Funded' },
   { value: '7',    label: 'Countries Active' },
-  { value: '100%', label: 'Pitches Read' },
+  { value: '100%', label: 'Applications Read' },
   { value: '5d',   label: 'Avg. Response' },
 ];
 
@@ -75,7 +75,7 @@ export default function PitchCTA() {
 
             <div className="pctx-actions">
               <a href="#pitch-form" className="pctx-btn-primary">
-                Submit Your Pitch →
+                Create a Unicorn →
               </a>
               <Button variant="ghost" to="/contact">Reach Out Directly</Button>
             </div>

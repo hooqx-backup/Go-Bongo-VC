@@ -66,7 +66,7 @@ export default function Thesis() {
             transformation is inevitable — where the problem is so deeply embedded that the
             shift, when it happens, creates durable, compounding businesses.
           </p>
-          <Link to="/pitch" className="th-btn">Pitch in Our Sectors →</Link>
+          <Link to="/pitch" className="th-btn">Create a Unicorn →</Link>
         </motion.div>
 
         {/* ── Right ── */}

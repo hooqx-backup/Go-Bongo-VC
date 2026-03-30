@@ -61,7 +61,7 @@ export default function AboutHero() {
 
           <motion.div className="about-hero-ctas" variants={itemVariants}>
             <a href="#story" className="btn btn-blue btn-md premium-btn">Our Story →</a>
-            <Button variant="ghost" to="/pitch">Pitch Your Startup</Button>
+            <Button variant="ghost" to="/pitch">Create a Unicorn</Button>
           </motion.div>
 
           <motion.div className="about-hero-stats" variants={itemVariants}>

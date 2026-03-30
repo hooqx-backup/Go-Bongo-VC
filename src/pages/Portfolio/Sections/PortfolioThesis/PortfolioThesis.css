@@ -224,6 +224,35 @@
   transform: translateX(6px);
 }
 
+/* Signal Tags */
+.pth-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(26, 86, 232, 0.1);
+  pointer-events: none;
+}
+
+.pth-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(26, 86, 232, 0.12);
+  color: var(--text-muted);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.pth-card-container:hover .pth-card-tag {
+  background: rgba(26, 86, 232, 0.08);
+  color: var(--brand-blue, #1A56E8);
+  border-color: rgba(26, 86, 232, 0.25);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .pth-inner { padding: 0 32px; }

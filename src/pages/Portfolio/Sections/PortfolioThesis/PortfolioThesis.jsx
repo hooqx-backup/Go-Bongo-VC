@@ -8,6 +8,7 @@ const THESIS = [
   {
     title: 'Operator-Led Founders',
     text: 'We back founders with direct market experience, not just ideas. Execution quality and local understanding are non-negotiable.',
+    tags: ['Domain Expertise', 'Track Record'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -16,7 +17,8 @@ const THESIS = [
   },
   {
     title: 'Infrastructure Over Hype',
-    text: 'We prefer companies that become market rails: logistics, commerce, communications, and systems that other businesses depend on.',
+    text: 'We prefer companies that become market rails: logistics, commerce, communications, and systems that other businesses depends',
+    tags: ['B2B Focus', 'Network Effect'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
@@ -26,6 +28,7 @@ const THESIS = [
   {
     title: 'Cross-Portfolio Synergy',
     text: 'Our portfolio is designed to compound. Companies share insights, talent, and go-to-market leverage across the ecosystem.',
+    tags: ['Talent Flow', 'Ecosystem Play'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
@@ -105,12 +108,11 @@ const HolographicCard = ({ item, index }) => {
             
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-            
-            <div className="pth-card-cta">
-              <span>Explore Thesis</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
+
+            <div className="pth-card-tags">
+              {item.tags.map((tag) => (
+                <span key={tag} className="pth-card-tag">{tag}</span>
+              ))}
             </div>
           </div>
           

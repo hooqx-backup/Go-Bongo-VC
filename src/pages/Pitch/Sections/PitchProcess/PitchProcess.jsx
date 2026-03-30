@@ -10,7 +10,7 @@ const STEPS = [
     title: 'First Message',
     time: 'Day 0 – 3',
     color: 'blue',
-    body: 'Every pitch that comes through gets read by the founding team directly. We look for a clear problem and solution in one paragraph, a number that proves real traction, and evidence the founder knows their sector.',
+    body: 'Every application that comes through gets read by the founding team directly. We look for a clear problem and solution in one paragraph, a number that proves real traction, and evidence the founder knows their sector.',
     bullets: [
       'One paragraph: clear problem + solution',
       'A number that proves real traction',
@@ -23,7 +23,7 @@ const STEPS = [
     title: 'First Call',
     time: 'Week 1 – 2',
     color: 'gold',
-    body: 'A 45-minute conversation, not a pitch rehearsal. We ask uncomfortable questions on purpose — we want to understand how you think about your market, not how polished your narrative is.',
+    body: 'A 45-minute conversation, not a rehearsal. We ask uncomfortable questions on purpose — we want to understand how you think about your market, not how polished your narrative is.',
     bullets: [
       '45 minutes, no slides required',
       'We challenge your market assumptions',

@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../Button/Button";
 
-const _MOTION = motion;
 
 const NAV_LINKS = [
   { label: "Home",      path: "/" },
@@ -97,7 +96,7 @@ export default function Navbar() {
       {/* ── Right Actions (desktop) ── */}
       <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: 20 }}>
         
-        <Button to="/pitch">Pitch Us →</Button>
+        <Button to="/pitch">Create a Unicorn →</Button>
       </div>
 
       {/* ── Mobile hamburger ── */}
@@ -158,7 +157,7 @@ export default function Navbar() {
             <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "8px 0" }} />
             
             <Button to="/pitch" style={{ marginTop: 8, width: "100%", borderRadius: 12 }}>
-              Pitch Us →
+              Create a Unicorn →
             </Button>
           </motion.div>
         )}

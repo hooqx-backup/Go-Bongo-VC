@@ -5,14 +5,14 @@ import Button from "../../../../common/components/Button/Button";
 import "./PitchHero.css";
 
 const HERO_STATS = [
-  { num: "200+", label: "Pitches reviewed in 2024" },
+  { num: "200+", label: "Applications reviewed in 2024" },
   { num: "4–6W", label: "Average decision time" },
   { num: "$4.6B", label: "Combined portfolio exposure" },
 ];
 
 const CARD_STATS = [
   { num: "8", label: "Portfolio companies" },
-  { num: "200+", label: "Pitches reviewed" },
+  { num: "200+", label: "Applications reviewed" },
   { num: "7", label: "Countries" },
 ];
 
@@ -44,7 +44,7 @@ export default function PitchHero() {
         {/* ── Left Content ── */}
         <div className="pch-hero__left">
           <motion.div custom={1} initial="hidden" animate="visible" variants={leftItemVariants}>
-            <SectionTag color="gold">For Founders</SectionTag>
+            <SectionTag color="gold">Build a Unicorn</SectionTag>
           </motion.div>
 
           <div style={{ overflow: "hidden" }}>
@@ -54,7 +54,7 @@ export default function PitchHero() {
               animate={{ y: 0 }}
               transition={{ delay: 0.2, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              We Back Founders Who <em className="shimmer-gold">Live the Problem.</em>
+              We Back Founders Who <em className="shimmer-gold">Build Unicorns.</em>
             </motion.h1>
           </div>
 
@@ -77,10 +77,10 @@ export default function PitchHero() {
             variants={leftItemVariants}
           >
             <a href="#pitch-form" className="pch-btn-primary">
-              Submit Your Pitch <LuArrowDown size={15} />
+              Create a Unicorn <LuArrowDown size={15} />
             </a>
             <div className="pch-btn-secondary-wrapper">
-                <Button variant="ghost" to="/about">
+                <Button variant="ghost" to="/portfolio">
                 See Our Portfolio
                 </Button>
             </div>
@@ -151,7 +151,7 @@ export default function PitchHero() {
 
             <div className="pch-app-card__rule" />
             <a href="#pitch-form" className="pch-app-card__cta">
-              Start Your Application <LuArrowRight size={14} />
+              Create a Unicorn <LuArrowRight size={14} />
             </a>
           </motion.div>
 

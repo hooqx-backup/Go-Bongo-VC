@@ -5,7 +5,7 @@ import { Send, PhoneCall, FileSearch, ArrowRight } from "lucide-react";
 import "./SectorCTA.css";
 
 const STEPS = [
-  { num: "01", title: "Submit Pitch", desc: "Submit your pitch deck through our portal. We read every submission within 48 hours.", icon: Send, color: "#1A56E8", bg: "#EEF3FF" },
+  { num: "01", title: "Create a Unicorn", desc: "Submit your application through our portal. We read every submission within 48 hours.", icon: Send, color: "#1A56E8", bg: "#EEF3FF" },
   { num: "02", title: "Review Call", desc: "If there's a fit, we'll schedule a 30-minute intro call with a partner within one week.", icon: PhoneCall, color: "#0D9488", bg: "#F0FDFB" },
   { num: "03", title: "Partner Meeting", desc: "Deep dive with the whole team.", icon: FileSearch, color: "#7C3AED", bg: "#F3F0FF" },
 ];
@@ -66,7 +66,7 @@ export default function SectorCTA() {
             transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link to="/pitch" className="scta-btn-primary">
-              <span className="btn-txt">Pitch GoBongo VC</span>
+              <span className="btn-txt">Create a Unicorn</span>
               <ArrowRight className="btn-arr" size={18} strokeWidth={2.5} />
               <div className="btn-flare" />
             </Link>

@@ -8,9 +8,10 @@ import {
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
 import './ContactForm.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const SUBJECTS = [
-  'Pitching a startup',
+  'Creating a Unicorn',
   'Partnership',
   'Press / Media',
   'General enquiry',
@@ -31,7 +32,7 @@ const CONTACT_INFO = [
     variant: 'gold',
     Icon: LuRocket,
     iconColor: 'var(--gold)',
-    label: 'Founder Pitches',
+    label: 'Founder Applications',
     value: 'ventures@gobongo.com',
     sub: 'Reviewed by a partner, not a junior analyst',
   },
@@ -67,15 +68,71 @@ const formRowVariants = {
   },
 };
 
+const EMPTY_FIELDS = { fname: '', lname: '', email: '', company: '', role: '', country: '', message: '' };
+
 export default function ContactForm({ activeSubject }) {
   const [selectedSubject, setSelectedSubject] = useState('Pitching a startup');
+  const [fields, setFields] = useState(EMPTY_FIELDS);
 
   useEffect(() => {
     if (activeSubject) setSelectedSubject(activeSubject);
   }, [activeSubject]);
 
+  const set = (key) => (e) => setFields((f) => ({ ...f, [key]: e.target.value }));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!fields.fname.trim() || !fields.email.trim() || !fields.message.trim()) {
+      toast.error('Please fill in all required fields.');
+      return;
+    }
+
+    const send = new Promise((resolve) => setTimeout(resolve, 2000));
+
+    toast.promise(send, {
+      loading: 'Sending your message…',
+      success: "Message sent! We'll be in touch soon.",
+      error: 'Something went wrong. Please try again.',
+    });
+
+    send.then(() => {
+      setFields(EMPTY_FIELDS);
+      setSelectedSubject('Pitching a startup');
+    });
+  };
+
+  
   return (
     <div className="cf-outer" id="contact-form">
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: '#ffffff',
+            color: '#0D0D0B',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '14px',
+            fontWeight: 500,
+            borderRadius: '12px',
+            border: '1px solid rgba(13,13,11,0.08)',
+            boxShadow: '0 8px 32px rgba(13,13,11,0.10), 0 2px 8px rgba(13,13,11,0.06)',
+            padding: '12px 16px',
+            maxWidth: '360px',
+          },
+          success: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+            duration: 4000,
+          },
+          error: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+            duration: 4000,
+          },
+          loading: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+          },
+        }}
+      />
       {/* Background orbs */}
       <div className="cf-orb cf-orb--1" />
       <div className="cf-orb cf-orb--2" />
@@ -181,14 +238,14 @@ export default function ContactForm({ activeSubject }) {
                   <LuUser size={12} className="cf-label-icon" />
                   First Name <span className="cf-required">*</span>
                 </label>
-                <input className="cf-input" id="cf-fname" type="text" placeholder="Sarah" />
+                <input className="cf-input" id="cf-fname" type="text" placeholder="Sarah" value={fields.fname} onChange={set('fname')} />
               </div>
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-lname">
                   <LuUser size={12} className="cf-label-icon" />
                   Last Name <span className="cf-required">*</span>
                 </label>
-                <input className="cf-input" id="cf-lname" type="text" placeholder="Al-Hassan" />
+                <input className="cf-input" id="cf-lname" type="text" placeholder="Al-Hassan" value={fields.lname} onChange={set('lname')} />
               </div>
             </motion.div>
 
@@ -199,14 +256,14 @@ export default function ContactForm({ activeSubject }) {
                   <LuAtSign size={12} className="cf-label-icon" />
                   Email Address <span className="cf-required">*</span>
                 </label>
-                <input className="cf-input" id="cf-email" type="email" placeholder="sarah@company.com" />
+                <input className="cf-input" id="cf-email" type="email" placeholder="sarah@company.com" value={fields.email} onChange={set('email')} />
               </div>
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-company">
                   <LuBuilding2 size={12} className="cf-label-icon" />
                   Company / Startup
                 </label>
-                <input className="cf-input" id="cf-company" type="text" placeholder="Your company name" />
+                <input className="cf-input" id="cf-company" type="text" placeholder="Your company name" value={fields.company} onChange={set('company')} />
               </div>
             </motion.div>
 
@@ -217,8 +274,8 @@ export default function ContactForm({ activeSubject }) {
                   <LuBriefcase size={12} className="cf-label-icon" />
                   Your Role
                 </label>
-                <select className="cf-select" id="cf-role" defaultValue="">
-                  <option value="" disabled>Select your role</option>
+                <select className="cf-select" id="cf-role" value={fields.role} onChange={set('role')}>
+                  <option value="">Select your role</option>
                   <option>Founder / Co-founder</option>
                   <option>Investor / LP</option>
                   <option>Corporate Partner</option>
@@ -231,8 +288,8 @@ export default function ContactForm({ activeSubject }) {
                   <LuGlobe size={12} className="cf-label-icon" />
                   Country
                 </label>
-                <select className="cf-select" id="cf-country" defaultValue="">
-                  <option value="" disabled>Select country</option>
+                <select className="cf-select" id="cf-country" value={fields.country} onChange={set('country')}>
+                  <option value="">Select country</option>
                   <option>United Arab Emirates</option>
                   <option>India</option>
                   <option>United States</option>
@@ -251,6 +308,8 @@ export default function ContactForm({ activeSubject }) {
                 className="cf-textarea"
                 id="cf-message"
                 placeholder="Tell us about what you're building, what you're looking for, or what you'd like to discuss."
+                value={fields.message}
+                onChange={set('message')}
               />
             </motion.div>
 
@@ -264,6 +323,7 @@ export default function ContactForm({ activeSubject }) {
                 className="cf-submit-btn"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
+                 onClick={handleSubmit}
                 transition={{ type: 'spring', stiffness: 380, damping: 22 }}
               >
                 Send Message

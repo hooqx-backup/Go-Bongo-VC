@@ -313,5 +313,14 @@
 
 @media (max-width: 768px) {
   .ppr-process { padding: 60px 24px; }
-  .ppr-panel--active { height: 500px; }
+  .ppr-panel--active { height: 520px; }
+}
+
+@media (max-width: 480px) {
+  .ppr-process { padding: 48px 20px; }
+  .ppr-process__header { margin-bottom: 40px; }
+  .ppr-panel--active { height: 560px; }
+  .ppr-panel__expanded { padding: 20px 18px; }
+  .ppr-panel__title { font-size: 22px; }
+  .ppr-panel__num { font-size: 40px; }
 }
