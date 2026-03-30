@@ -290,3 +290,26 @@
   .pch-hero__right { height: 500px; display: flex; justify-content: center; }
   .pch-app-card { position: relative; top: 0; right: auto; width: 100%; max-width: 370px; }
 }
+
+@media (max-width: 768px) {
+  .pch-hero { padding: 72px 24px 56px; min-height: auto; }
+  .pch-hero__right { display: none; }
+  .pch-hero__sub { font-size: 16px; margin-bottom: 28px; }
+  .pch-hero__ctas { flex-wrap: wrap; margin-bottom: 32px; }
+  .pch-hero__stats { flex-wrap: wrap; padding-top: 24px; }
+  .pch-hero__stat {
+    flex: 0 0 50%;
+    padding: 12px 0 12px 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .pch-hero__stat:nth-child(odd) { border-right: 1px solid rgba(0,0,0,0.06); }
+  .pch-hero__stat:nth-last-child(-n+2) { border-bottom: none; }
+  .pch-hero__stat-num { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  .pch-hero { padding: 64px 20px 48px; }
+  .pch-hero__ctas { flex-direction: column; align-items: stretch; }
+  .pch-btn-primary { justify-content: center; }
+}

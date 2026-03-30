@@ -1,12 +1,58 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import toast, { Toaster } from 'react-hot-toast';
 import './BlogNewsletter.css';
 
 export default function BlogNewsletter() {
   const [email, setEmail] = useState('');
 
+  const handleSubscribe = () => {
+    if (!email) {
+      toast.error('Please enter your email address.');
+      return;
+    }
+
+    const subscribe = new Promise((resolve) => setTimeout(resolve, 1800));
+
+    toast.promise(subscribe, {
+      loading: 'Subscribing you…',
+      success: "You're subscribed! Welcome aboard.",
+      error: 'Something went wrong. Please try again.',
+    });
+
+    subscribe.then(() => setEmail(''));
+  };
+
   return (
     <section className="bn-outer">
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: '#ffffff',
+            color: '#0D0D0B',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '14px',
+            fontWeight: 500,
+            borderRadius: '12px',
+            border: '1px solid rgba(13,13,11,0.08)',
+            boxShadow: '0 8px 32px rgba(13,13,11,0.10), 0 2px 8px rgba(13,13,11,0.06)',
+            padding: '12px 16px',
+            maxWidth: '360px',
+          },
+          success: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+            duration: 4000,
+          },
+          error: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+            duration: 4000,
+          },
+          loading: {
+            iconTheme: { primary: '#B8892A', secondary: '#FBF5E8' },
+          },
+        }}
+      />
       <div className="bn-glow" />
       <div className="bn-inner">
 
@@ -46,6 +92,7 @@ export default function BlogNewsletter() {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+            onClick={handleSubscribe}
           >
             Subscribe →
           </motion.button>

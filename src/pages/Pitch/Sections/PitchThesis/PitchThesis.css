@@ -323,3 +323,10 @@
   .pt-col { width: 300px; padding: 28px 22px 36px; }
   .pt-col__wm { font-size: 100px; }
 }
+
+@media (max-width: 480px) {
+  .pt-thesis { padding: 48px 0 64px; }
+  .pt-col { width: 260px; padding: 22px 18px 30px; }
+  .pt-col__wm { font-size: 80px; }
+  .pt-col__title { font-size: 18px; }
+}

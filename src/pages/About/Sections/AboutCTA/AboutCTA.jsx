@@ -61,7 +61,7 @@ export default function AboutCTA() {
           or an investor interested in the GoBongo ecosystem — we want to hear from you.
         </p>
         <div className="about-cta-btns">
-          <Button variant="blue" to="/pitch" size="lg">Pitch Your Startup →</Button>
+          <Button variant="blue" to="/pitch" size="lg">Create a Unicorn →</Button>
           <Button variant="ghost" to="/contact" size="lg">Get in Touch</Button>
         </div>
       </div>

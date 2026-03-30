@@ -63,7 +63,7 @@ export default function PortfolioCTA() {
           <div className="pcta-actions">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/pitch" className="pcta-btn pcta-btn--primary">
-                Pitch Your Startup <ArrowRight size={16} strokeWidth={2.4} />
+                Create a Unicorn <ArrowRight size={16} strokeWidth={2.4} />
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
@@ -71,11 +71,7 @@ export default function PortfolioCTA() {
                 Partner With Us
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
-              <Link to="/contact" className="pcta-btn pcta-btn--outline">
-                Investor Relations
-              </Link>
-            </motion.div>
+            
           </div>
         </RevealWrapper>
       </motion.div>

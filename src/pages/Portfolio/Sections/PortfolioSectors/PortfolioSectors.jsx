@@ -100,7 +100,6 @@ const SectorCard = ({ sector, index }) => {
               <li><span className="dot"></span> Talent density</li>
             </ul>
 
-            <button className="psec-explore-btn">Deep Dive ↗</button>
           </div>
           
         </motion.div>

@@ -224,3 +224,11 @@
   .pc-card__icon-wrap { width: 48px; height: 48px; top: 28px; right: 28px; }
   .pc-card__icon { font-size: 22px; }
 }
+
+@media (max-width: 480px) {
+  .pc-criteria { padding: 48px 20px; }
+  .pc-criteria__header { margin-bottom: 40px; }
+  .pc-card { padding: 28px 20px; }
+  .pc-card__num { font-size: 44px; }
+  .pc-card__body { font-size: 14px; }
+}

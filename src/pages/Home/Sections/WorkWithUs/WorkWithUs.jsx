@@ -6,7 +6,7 @@ import "./WorkWithUs.css";
 const STEPS = [
   {
     num: "01",
-    title: "Submit Your Pitch",
+    title: "Create a Unicorn",
     desc: "Fill out our structured intake form. Tell us about your vision, your market, and what you're building — we read every submission personally.",
   },
   {
@@ -203,7 +203,7 @@ export default function WorkWithUsSection() {
           >
             <Link to="/pitch" className="wwu-btn wwu-btn--primary">
               <span className="wwu-btn-shimmer" />
-              Pitch GoBongo VC →
+              Create a Unicorn →
             </Link>
           </motion.div>
           <motion.div
@@ -237,7 +237,7 @@ export default function WorkWithUsSection() {
           {/* 4 process steps */}
           <div className="wwu-process-steps">
             {[
-              { num: "01", label: "Submit Pitch" },
+              { num: "01", label: "Create a Unicorn" },
               { num: "02", label: "Review Call" },
               { num: "03", label: "Partner Meeting" },
               { num: "04", label: "Term Sheet" },

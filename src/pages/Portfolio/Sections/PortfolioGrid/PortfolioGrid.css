@@ -40,6 +40,16 @@
 .pgrid-mini-stats__cell strong { display: block; font-size: 18px; color: #000; }
 .pgrid-mini-stats__cell span { font-size: 10px; text-transform: uppercase; color: #888; }
 .pgrid-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: #888; padding-top: 16px; border-top: 1px solid #eee; }
+.pgrid-inside-open-btn {
+  margin-top: 16px; width: 100%; padding: 11px 16px;
+  background: #0d0d0b; color: #fff; border: none; border-radius: 12px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.3s ease 0.7s, transform 0.3s ease 0.7s, background 0.2s;
+}
+.pgrid-card-wrapper:hover .pgrid-inside-open-btn { opacity: 1; transform: translateY(0); }
+.pgrid-inside-open-btn:hover { background: #000000; }
 
 /* ==========================================================
    THE BOOK COVER (FRONT & BACK ALL-IN-ONE)
@@ -50,6 +60,7 @@
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 1.2s cubic-bezier(0.19, 1, 0.22, 1);
   transform-style: preserve-3d;
   box-shadow: 5px 0 15px rgba(0,0,0,0.08);
+  will-change: transform;
 }
 
 /* Default flip: LEFT for most cards */
@@ -226,7 +237,9 @@
   position: absolute; inset: 0; z-index: 20; pointer-events: none;
   background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.6) 25%, transparent 30%);
   transform: translateX(-100%); animation: foilGlint 6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+  animation-play-state: paused;
 }
+.pgrid-card-wrapper:hover .pgrid-foil-glint { animation-play-state: running; }
 @keyframes foilGlint { 0%, 50% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
 
 /* --- THE INSIDE OF THE COVER (Venture Profile) --- */
@@ -270,7 +283,8 @@
 .pgrid-back-dossier { font-family: 'Playfair Display', serif; font-size: 20px; color: rgba(255, 255, 255, 0.9); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .pgrid-back-confidential { font-size: 10px; color: rgba(255, 255, 255, 0.4); letter-spacing: 2px; text-transform: uppercase; }
 
-.pgrid-back-glow { position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; filter: blur(80px); opacity: 0.15; transform: translate(-50%, -50%); animation: pulseGlow 4s infinite alternate; z-index: 1; }
+.pgrid-back-glow { position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; filter: blur(80px); opacity: 0.15; transform: translate(-50%, -50%); animation: pulseGlow 4s infinite alternate; z-index: 1; animation-play-state: paused; }
+.pgrid-card-wrapper:hover .pgrid-back-glow { animation-play-state: running; }
 @keyframes pulseGlow { 0% { opacity: 0.1; transform: translate(-50%, -50%) scale(0.8); } 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.2); } }
 
 /* ==========================================================
@@ -651,4 +665,16 @@
   .dossier-right { width: 100%; padding: 22px; }
   .dossier-title { font-size: 34px; }
 }
+
+/* Orbit moon — CSS keyframe replaces Framer Motion JS loop */
+@keyframes pgrid-orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.pgrid-orbit-moon {
+  animation: pgrid-orbit-spin 18s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+.pgrid-card-wrapper:hover .pgrid-orbit-moon { animation-play-state: running; }
 

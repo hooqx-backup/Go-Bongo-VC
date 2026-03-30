@@ -14,18 +14,18 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 }
   }
 };
 
 const slideUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200, damping: 24 } }
 };
 
 const expandLine = {
   hidden: { width: 0, opacity: 0 },
-  show: { width: "100%", opacity: 1, transition: { duration: 0.8, ease: "easeInOut" } }
+  show: { width: "100%", opacity: 1, transition: { duration: 0.35, ease: "easeOut" } }
 };
 
 export default function PortfolioGrid() {
@@ -82,19 +82,15 @@ export default function PortfolioGrid() {
           ))}
         </div>
 
-        <motion.div layout className="pgrid-grid">
+        <div className="pgrid-grid">
           <AnimatePresence mode="popLayout">
-            {!selectedId && visibleCompanies.map((company) => (
+            {visibleCompanies.map((company) => (
               <motion.div
-                layoutId={`pgrid-card-${company.id}`}
                 key={company.id}
                 className={`pgrid-card-wrapper ${company.featured ? 'pgrid-card--featured' : ''}`}
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ 
-                  opacity: 0, y: -1000, scale: 0.8, filter: "blur(10px)",
-                  transition: { duration: 0.4, ease: "easeIn" } 
-                }}
+                exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.2 } }}
               >
                 {/* 3D BOOK CONTAINER */}
                 <div onClick={() => setSelectedId(company.id)} className="pgrid-book">
@@ -119,6 +115,9 @@ export default function PortfolioGrid() {
                     <div className="pgrid-meta">
                       <span>{company.details.stage}</span><span>{company.details.hq}</span>
                     </div>
+                    <button className="pgrid-inside-open-btn" onClick={(e) => { e.stopPropagation(); setSelectedId(company.id); }}>
+                      View Full Profile <LuArrowUpRight size={13} />
+                    </button>
                   </div>
 
                   {/* --- THE BOOK COVER --- */}
@@ -130,7 +129,7 @@ export default function PortfolioGrid() {
                       
                       <div className="pgrid-logo-container">
                         <div className="pgrid-saturn-rings"><span className="pgrid-saturn-ring-slanted" /></div>
-                        <div className="pgrid-orbit"><motion.span className="pgrid-orbit-moon" animate={{ rotate: 360 }} transition={{ duration: 18, repeat: Infinity, ease: 'linear' }} /></div>
+                        <div className="pgrid-orbit"><span className="pgrid-orbit-moon" /></div>
                         <div className="pgrid-logo-inner">
                           <img src={company.logo} alt={company.name} />
                         </div>
@@ -156,21 +155,24 @@ export default function PortfolioGrid() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {/* --- REPLACED: EXPANDED DARK DOSSIER MODAL --- */}
       <AnimatePresence>
         {selectedId && selectedCompany && (
-          <motion.div 
+          <motion.div
             className="pgrid-dossier-overlay"
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(15px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <motion.div 
-              layoutId={`pgrid-card-${selectedCompany.id}`} 
+            <motion.div
               className="pgrid-dossier-modal"
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 16 }}
+              transition={{ duration: 0.25, ease: [0.25, 1, 0.5, 1] }}
             >
               {/* FLOATING BUBBLES */}
               <div className="floating-bubble bubble-1" />

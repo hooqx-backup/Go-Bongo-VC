@@ -201,7 +201,7 @@ export default function SectorsHero() {
             transition={{ duration: 0.65, delay: 0.66 }}
           >
             <Link to="/portfolio" className="sh-btn-primary">View Portfolio →</Link>
-            <Link to="/pitch" className="sh-btn-ghost">Pitch in Our Sectors</Link>
+            <Link to="/pitch" className="sh-btn-ghost">Create a Unicorn</Link>
           </motion.div>
 
           {/* Stats — count up on enter */}
@@ -235,7 +235,7 @@ export default function SectorsHero() {
             {SECTORS.map((s, i) => (
               <div key={s.label} className={`sh-card-wrap ${FLOAT_CLASSES[i]}`}>
                 <motion.a
-                  href={`#${s.label.toLowerCase().replace(/[^a-z]/g, "")}`}
+                  
                   className="sh-sector-card"
                   initial={{ opacity: 0, y: 40, rotateX: 18, scale: 0.9 }}
                   animate={inView ? { opacity: 1, y: 0, rotateX: 0, scale: 1 } : {}}
