@@ -6,7 +6,7 @@ import './InvestmentTimeline.css';
 const TIMELINE = [
   {
     color: 'blue',
-    year: '2022 — The Foundation',
+    year: '2017 — The Foundation',
     title: 'GoBongo VC is incorporated in Delaware, USA',
     milestones: [
       'Founding partners bring together 30+ combined years of operator experience',

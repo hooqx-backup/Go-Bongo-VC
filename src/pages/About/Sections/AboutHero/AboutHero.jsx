@@ -54,7 +54,7 @@ export default function AboutHero() {
           </motion.h1>
 
           <motion.p className="about-hero-sub" variants={itemVariants}>
-            GoBongo VC is a Delaware-headquartered venture capital firm built by operators, for
+            We are a Delaware-headquartered venture capital firm built by operators, for
             founders — backing bold ideas across 6 industries in 7 countries with
             conviction, capital, and hands-on operational support.
           </motion.p>
@@ -66,7 +66,7 @@ export default function AboutHero() {
 
           <motion.div className="about-hero-stats" variants={itemVariants}>
             {[
-              { n: "2022", l: "Founded" },
+              { n: "2017", l: "Founded" },
               { n: "8", l: "Ventures Built", plus: true },
               { n: "7", l: "Countries" }
             ].map((stat, i) => (
