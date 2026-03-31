@@ -101,7 +101,7 @@ export default function Footer() {
               )}
             </div>
             <div className="rf-col">
-              <span className="rf-col-head">&nbsp;</span>
+              <span className="rf-col-head">Companies</span>
               {PORTFOLIO.slice(4).map(l => l.external
                 ? <a key={l.label} href={l.path} className="rf-col-link" target="_blank" rel="noopener noreferrer">{l.label}</a>
                 : <Link key={l.label} to={l.path} className="rf-col-link">{l.label}</Link>
