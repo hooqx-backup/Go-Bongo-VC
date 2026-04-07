@@ -44,7 +44,7 @@ const SECTIONS = [
     id: 'investment-disclaimer',
     title: 'Investment Disclaimer',
     content: [
-      { type: 'p', text: 'GoBongo Ventures is a venture capital firm that makes investments in early-stage companies. Information on this Site about our portfolio companies, investment thesis, and market views is provided for informational purposes only.' },
+      { type: 'p', text: 'GoBongo Ventures is a venture firm that makes investments in early-stage companies. Information on this Site about our portfolio companies, investment thesis, and market views is provided for informational purposes only.' },
       { type: 'p', text: 'Nothing on this Site constitutes an offer to sell, a solicitation to buy, or a recommendation for any security or investment product. Past investment performance of our portfolio companies is not indicative of future results.' },
       { type: 'highlight', text: 'References to specific companies, sectors, or investment opportunities on this Site are illustrative only and do not constitute investment advice or a guarantee of future returns.' },
     ],

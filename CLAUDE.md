@@ -758,3 +758,51 @@ All Pitch sections use the light/warm color scheme (`--bg-main`, `--cream`).
 - ✅ Hero heading mobile sizes tuned after user feedback
 - ✅ Founder field added to portfolio data + card UI
 - ✅ Real founder names populated from client-provided list
+
+---
+
+### Session 8 — 2026-04-07
+
+#### Brand terminology rebrand — site-wide
+
+**Three changes applied in sequence:**
+
+1. **"Year Founded" metric in PortfolioMetrics** — `2022` → `2017`
+   - File: `src/pages/Portfolio/Sections/PortfolioMetrics/PortfolioMetrics.jsx` (line 21)
+
+2. **"VC" → "V" and "Venture Capital" → "Venture"** — first pass across all visible text
+   - `VC` suffix removed from: Footer wordmark, EcosystemMap parent name, LeadershipTeam roles, InvestmentTimeline milestones, OurStory body copy, AboutHero sub-copy + attribution, PortfolioGrid subtext, companies.js quotes + highlights, Leadership.jsx testimonial, TermsPage.jsx investment disclaimer
+   - `Venture Capital` → `Venture` in: AboutHero sub-copy, PortfolioHero kicker badge, TermsPage.jsx
+
+3. **"GoBongo V" → "GoBongo Venture"** — second pass renaming the brand shorthand
+   - Applied everywhere "GoBongo V" appeared after step 2 (same file set as above)
+
+4. **Footer wordmark exception** — user reviewed and requested footer giant wordmark stay as `GoBongoV` (the `.rf-vc` span content reverted to `"V"`). All other instances remain "GoBongo Venture".
+
+**Files changed:**
+- `index.html` — browser tab title: `GoBongoVC` → `GoBongo Venture`
+- `src/common/components/Footer/Footer.jsx` — wordmark visible text: `VC` → `V` (kept), screen reader span: `GoBongo Venture`
+- `src/pages/About/Sections/AboutHero/AboutHero.jsx`
+- `src/pages/About/Sections/OurStory/OurStory.jsx`
+- `src/pages/About/Sections/EcosystemMap/EcosystemMap.jsx`
+- `src/pages/About/Sections/LeadershipTeam/LeadershipTeam.jsx`
+- `src/pages/About/Sections/InvestmentTimeline/InvestmentTimeline.jsx`
+- `src/pages/Portfolio/Sections/PortfolioMetrics/PortfolioMetrics.jsx`
+- `src/pages/Portfolio/Sections/PortfolioHero/PortfolioHero.jsx` — kicker badge: `Venture Capital · Est. 2022` → `Venture · Est. 2017`
+- `src/pages/Portfolio/Sections/PortfolioGrid/PortfolioGrid.jsx`
+- `src/pages/Portfolio/data/companies.js`
+- `src/pages/Home/Sections/Leadership/Leadership.jsx`
+- `src/pages/Legal/TermsPage.jsx`
+
+#### Key decisions
+- **Footer wordmark stays "V"** — the oversized decorative wordmark (`GoBongoV`) is a typographic design element; spelling it out as "Venture" caused layout overflow at that font size. The `.rf-vc` span keeps `"V"` while the screen reader span says `"GoBongo Venture"` for accessibility.
+- **"VC-friendly" in posts.js left unchanged** — this is an industry term in a blog post body ("most VC-friendly legal framework in the region"), not the brand name. Changing it to "V-friendly" would be meaningless.
+- **"GoBongo Ventures" (with S) left unchanged** — `GoBongo Ventures` is the full legal entity name used in Legal pages, Footer portfolio list, BlogPost, PitchCTA, and About.jsx. Only the shorthand brand references ("GoBongo VC" / "GoBongo V") were updated.
+- **PortfolioHero `Est.` year also corrected** — the kicker badge said `Est. 2022`; corrected to `Est. 2017` to match the PortfolioMetrics stat and the OurStory founding year.
+
+#### Completed this session
+- ✅ PortfolioMetrics "Year Founded" corrected: 2022 → 2017
+- ✅ All "VC" brand references removed site-wide → replaced with "Venture" / "GoBongo Venture"
+- ✅ All "Venture Capital" text replaced with "Venture"
+- ✅ Footer wordmark kept as "GoBongoV" per user preference (design constraint)
+- ✅ PortfolioHero kicker badge year corrected: Est. 2022 → Est. 2017

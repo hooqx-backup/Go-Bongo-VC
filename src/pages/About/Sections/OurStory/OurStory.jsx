@@ -68,7 +68,7 @@ export default function OurStory() {
             operate leaner, and hunger harder."
           </blockquote>
           <p className="story-p">
-            GoBongo VC was incorporated in Delaware in 2017 by a team of operators who
+            GoBongo Venture was incorporated in Delaware in 2017 by a team of operators who
             had already built, scaled, and navigated companies across South
             Asia, the Middle East, and Europe. We knew firsthand what founders
             actually need — not just capital, but embedded operational support
