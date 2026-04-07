@@ -7,7 +7,7 @@ const TIMELINE = [
   {
     color: 'blue',
     year: '2017 — The Foundation',
-    title: 'GoBongo VC is incorporated in Delaware, USA',
+    title: 'GoBongo Venture is incorporated in Delaware, USA',
     milestones: [
       'Founding partners bring together 30+ combined years of operator experience',
       'Investment thesis defined: essential industries undergoing digital transformation',
@@ -34,7 +34,7 @@ const TIMELINE = [
       'CallTawk launched — next-generation communications technology platform',
       'GMI Trading established in Dubai — commodity and asset trading arm',
       'Group team reaches 200+ across all portfolio companies',
-      'GoBongo VC recognised as a Top 10 UAE Startup Group by regional media',
+      'GoBongo Venture recognised as a Top 10 UAE Startup Group by regional media',
     ],
   },
   {

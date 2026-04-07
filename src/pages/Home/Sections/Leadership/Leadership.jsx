@@ -5,7 +5,7 @@ import "./Leadership.css";
 const TESTIMONIALS = [
   {
     quote:
-      "GoBongo VC doesn't just invest — they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
+      "GoBongo Venture doesn't just invest — they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
     role: "Founder & CEO",
     company: "Tezz Logistics",
     location: "India",

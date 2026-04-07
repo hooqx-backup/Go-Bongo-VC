@@ -6,19 +6,19 @@ import './LeadershipTeam.css';
 const TEAM = [
   {
     name: 'Partner, Portfolio Operations',
-    role: 'GoBongo VC',
+    role: 'GoBongo Venture',
     icon: <Zap size={24} strokeWidth={1.5} />,
     bio: 'Former COO of two venture-backed logistics companies. Leads operational support for all portfolio companies — ensuring systems, processes, and talent are in place.',
   },
   {
     name: 'Partner, Investments',
-    role: 'GoBongo VC',
+    role: 'GoBongo Venture',
     icon: <Globe size={24} strokeWidth={1.5} />,
     bio: '15 years in cross-border trade finance and B2B market development across the Middle East and Asia. Leads deal origination and investment evaluation.',
   },
   {
     name: 'Head of Portfolio Growth',
-    role: 'GoBongo VC',
+    role: 'GoBongo Venture',
     icon: <BarChart3 size={24} strokeWidth={1.5} />,
     bio: 'Growth strategist with a background in consumer tech and marketplace businesses. Works on GTM strategy, digital marketing, and revenue acceleration.',
   },
@@ -72,7 +72,7 @@ export default function LeadershipTeam() {
 
             <div className="tm-feat-body">
               <div className="tm-name">Founder & Managing Partner</div>
-              <div className="tm-role">GoBongo VC</div>
+              <div className="tm-role">GoBongo Venture</div>
               <p className="tm-feat-bio">
                 Serial entrepreneur with two successful exits across logistics and e-commerce. 
                 Known for operator-first thinking and a conviction that the best companies are 

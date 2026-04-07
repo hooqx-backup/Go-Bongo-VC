@@ -45,7 +45,7 @@ export const COMPANIES = [
     logo: '/logos/tezzlogo.png',
     logoBg: '#F0FDFB',
     heroBg: 'linear-gradient(135deg,#0A0A08 0%,#061A18 100%)',
-    about: "Tezz Logistics is GoBongo VC's logistics infrastructure play — a technology-first courier and last-mile delivery platform built to solve the fragmented, unreliable delivery ecosystem across the GCC. Operating as both a standalone business and the logistics backbone for GoBongo Shop, Tezz brings route optimisation and real-time tracking to SMEs and enterprises alike.",
+    about: "Tezz Logistics is GoBongo Venture's logistics infrastructure play — a technology-first courier and last-mile delivery platform built to solve the fragmented, unreliable delivery ecosystem across the GCC. Operating as both a standalone business and the logistics backbone for GoBongo Shop, Tezz brings route optimisation and real-time tracking to SMEs and enterprises alike.",
     problem: "SMEs across the GCC pay a premium for fragmented, unreliable delivery services with no real-time visibility, zero route optimisation, and poor customer communication.",
     solution: 'A SaaS-enabled logistics platform offering same-day and next-day delivery, real-time tracking, dynamic route optimisation using ML, and white-label APIs for e-commerce businesses.',
     highlights: [
@@ -54,7 +54,7 @@ export const COMPANIES = [
       { text: 'Powers fulfilment for GoBongo Shop — deep cross-portfolio integration' },
       { text: 'ML-based route optimisation reducing delivery cost by 22% vs. incumbents' },
     ],
-    quote: "GoBongo VC doesn't just invest — they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
+    quote: "GoBongo Venture doesn't just invest — they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
     quoteAttr: '— CEO, Tezz Logistics',
     tags: ['Logistics', 'SaaS', 'Last-Mile', 'GCC', 'B2B', 'ML-Powered'],
     stats: [{ n: '22%', l: 'Cost Reduction' }, { n: '3', l: 'Emirates' }, { n: '500+', l: 'Clients' }, { n: '2022', l: 'Founded' }],
@@ -82,7 +82,7 @@ export const COMPANIES = [
     highlights: [
       { text: 'Vetted network of 2,000+ regional freelancers across 15 disciplines' },
       { text: 'Local currency payments including AED, SAR, PKR with zero FX friction' },
-      { text: 'Provides digital services to other GoBongo VC portfolio companies' },
+      { text: 'Provides digital services to other GoBongo Venture portfolio companies' },
       { text: 'Bilingual platform — full Arabic and English UX' },
     ],
     quote: "The gap in the market was obvious — but you need operational depth to serve it. Hooqx isn't a clone of Upwork. It's built for how MENA businesses actually work.",
@@ -237,7 +237,7 @@ export const COMPANIES = [
     highlights: [
       { text: 'Served 40+ international clients entering MENA markets' },
       { text: 'Proprietary regulatory database covering 12 MENA jurisdictions' },
-      { text: 'Advisory support to other GoBongo VC portfolio companies' },
+      { text: 'Advisory support to other GoBongo Venture portfolio companies' },
       { text: 'Partnerships with UAE government free zones and DIFC' },
     ],
     quote: "Entering MENA without local intelligence is like navigating without a map. Stratigi 360 is that map — and the guide who knows the terrain.",

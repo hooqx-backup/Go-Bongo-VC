@@ -51,7 +51,7 @@ export default function Footer() {
       >
         {/* Base layer — dark matte */}
         <span className="rf-wordmark rf-wordmark--base" aria-hidden="true">
-          GoBongo<span className="rf-vc">VC</span>
+          GoBongo<span className="rf-vc">V</span>
         </span>
         {/* Glow layer — reveals at cursor */}
         <span
@@ -59,10 +59,10 @@ export default function Footer() {
           style={{ "--gx": `${gPos.x}px`, "--gy": `${gPos.y}px` }}
           aria-hidden="true"
         >
-          GoBongo<span className="rf-vc">VC</span>
+          GoBongo<span className="rf-vc">V</span>
         </span>
         {/* Accessible text */}
-        <span className="rf-wordmark-sr">GoBongo VC</span>
+        <span className="rf-wordmark-sr">GoBongo Venture</span>
       </div>
 
       {/* ── Info + columns ── */}

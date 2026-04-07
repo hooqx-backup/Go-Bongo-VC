@@ -54,7 +54,7 @@ export default function AboutHero() {
           </motion.h1>
 
           <motion.p className="about-hero-sub" variants={itemVariants}>
-            We are a Delaware-headquartered venture capital firm built by operators, for
+            We are a Delaware-headquartered venture firm built by operators, for
             founders — backing bold ideas across 6 industries in 7 countries with
             conviction, capital, and hands-on operational support.
           </motion.p>
@@ -92,13 +92,13 @@ export default function AboutHero() {
             className="about-hero-quote"
             whileHover={{ y: -10, transition: { duration: 0.4 } }}
           >
-            <img src="/logos/gobongoventureslogo.png" alt="GoBongo VC" className="ahq-brand-logo" />
+            <img src="/logos/gobongoventureslogo.png" alt="GoBongo Venture" className="ahq-brand-logo" />
             <p className="ahq-text">
               "Our portfolio companies don't just share a cap table. They share
               customers, suppliers, infrastructure, and institutional knowledge.
               That's the <em>compounding advantage</em> no single investment can create."
             </p>
-            <div className="ahq-attr">GoBongo VC · Investment Philosophy</div>
+            <div className="ahq-attr">GoBongo Venture · Investment Philosophy</div>
           </motion.div>
 
           {/* Floating Tag with Infinite Animation */}

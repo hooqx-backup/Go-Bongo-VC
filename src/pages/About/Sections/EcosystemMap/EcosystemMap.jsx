@@ -56,7 +56,7 @@ export default function EcosystemMap() {
             </h2>
           </div>
           <p className="eco-sub">
-            GoBongo VC is the parent brand. Each venture below operates independently
+            GoBongo Venture is the parent brand. Each venture below operates independently
             while benefiting from shared infrastructure... It's not a portfolio — it's an ecosystem.
           </p>
         </motion.div>
@@ -76,9 +76,9 @@ export default function EcosystemMap() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="eco-parent__left">
-              <img src="/logos/gobongoventureslogo.png" alt="GoBongo VC" className="eco-parent__logo" />
+              <img src="/logos/gobongoventureslogo.png" alt="GoBongo Venture" className="eco-parent__logo" />
               <div>
-                <div className="eco-parent__name">GoBongo VC</div>
+                <div className="eco-parent__name">GoBongo Venture</div>
                 <div className="eco-parent__sub">Parent Holding Company · Delaware, USA · Est. 2017</div>
               </div>
             </div>

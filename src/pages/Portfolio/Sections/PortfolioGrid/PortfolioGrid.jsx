@@ -62,7 +62,7 @@ export default function PortfolioGrid() {
           </RevealWrapper>
           <RevealWrapper delay={0.1}>
             <p className="pgrid-sub">
-              Explore every venture in the GoBongo VC ecosystem. Filter by sector to
+              Explore every venture in the GoBongo Venture ecosystem. Filter by sector to
               see where we are concentrated and how each company complements the group.
             </p>
           </RevealWrapper>
