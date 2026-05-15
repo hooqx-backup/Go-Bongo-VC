@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
   LuMail, LuRocket, LuNewspaper, LuSend,
   LuUser, LuAtSign, LuBuilding2, LuBriefcase,
-  LuGlobe, LuMessageSquare,
+  LuGlobe, LuMessageSquare, LuPhone,
 } from 'react-icons/lu';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
@@ -68,7 +68,7 @@ const formRowVariants = {
   },
 };
 
-const EMPTY_FIELDS = { fname: '', lname: '', email: '', company: '', role: '', country: '', message: '' };
+const EMPTY_FIELDS = { fname: '', lname: '', email: '', phone: '', company: '', role: '', country: '', message: '' };
 
 export default function ContactForm({ activeSubject }) {
   const [selectedSubject, setSelectedSubject] = useState('Pitching a startup');
@@ -80,6 +80,8 @@ export default function ContactForm({ activeSubject }) {
 
   const set = (key) => (e) => setFields((f) => ({ ...f, [key]: e.target.value }));
 
+  const WHATSAPP_NUMBER = '917003634890';
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -88,18 +90,45 @@ export default function ContactForm({ activeSubject }) {
       return;
     }
 
-    const send = new Promise((resolve) => setTimeout(resolve, 2000));
-
-    toast.promise(send, {
-      loading: 'Sending your message…',
-      success: "Message sent! We'll be in touch soon.",
-      error: 'Something went wrong. Please try again one more time.',
+    const now = new Date().toLocaleString('en-GB', {
+      day: '2-digit', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: true,
     });
 
-    send.then(() => {
-      setFields(EMPTY_FIELDS);
-      setSelectedSubject('Pitching a startup');
-    });
+    const lines = [
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `*GOBONGO VENTURES*`,
+      `_New Website Enquiry_`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      ``,
+      `*Subject*`,
+      `${selectedSubject}`,
+      ``,
+      `*Sender*`,
+      `*Name:*    ${fields.fname} ${fields.lname}`.trim(),
+      `*Email:*   ${fields.email}`,
+      fields.phone   ? `*Phone:*   ${fields.phone}`   : null,
+      fields.company ? `*Company:* ${fields.company}` : null,
+      fields.role    ? `*Role:*    ${fields.role}`    : null,
+      fields.country ? `*Country:* ${fields.country}` : null,
+      ``,
+      `*Message*`,
+      `"${fields.message}"`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `${now}`,
+      
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    ].filter((l) => l !== null).join('\n');
+
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`,
+      '_blank',
+    );
+
+    toast.success("Opening WhatsApp — your message is ready to send!");
+    setFields(EMPTY_FIELDS);
+    setSelectedSubject('Pitching a startup');
   };
 
   
@@ -146,7 +175,7 @@ export default function ContactForm({ activeSubject }) {
           </h2>
           <p className="cf-sub">
             Fill in the form and our team will route your message to the right person. No
-            gatekeeping &mdash; just a genuine review by someone who cares about what
+            gatekeeping just a genuine review by someone who cares about what
             you&apos;re building.
           </p>
 
@@ -249,7 +278,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 4 — email + company */}
+            {/* Row 4 — email + phone */}
             <motion.div variants={formRowVariants} className="cf-grid-2">
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-email">
@@ -259,12 +288,21 @@ export default function ContactForm({ activeSubject }) {
                 <input className="cf-input" id="cf-email" type="email" placeholder="sarah@company.com" value={fields.email} onChange={set('email')} />
               </div>
               <div className="cf-field">
-                <label className="cf-label" htmlFor="cf-company">
-                  <LuBuilding2 size={12} className="cf-label-icon" />
-                  Company / Startup
+                <label className="cf-label" htmlFor="cf-phone">
+                  <LuPhone size={12} className="cf-label-icon" />
+                  Phone Number
                 </label>
-                <input className="cf-input" id="cf-company" type="text" placeholder="Your company name" value={fields.company} onChange={set('company')} />
+                <input className="cf-input" id="cf-phone" type="tel" placeholder="+971 50 000 0000" value={fields.phone} onChange={set('phone')} />
               </div>
+            </motion.div>
+
+            {/* Row 5 — company */}
+            <motion.div variants={formRowVariants} className="cf-field cf-field--full">
+              <label className="cf-label" htmlFor="cf-company">
+                <LuBuilding2 size={12} className="cf-label-icon" />
+                Company / Startup
+              </label>
+              <input className="cf-input" id="cf-company" type="text" placeholder="Your company name" value={fields.company} onChange={set('company')} />
             </motion.div>
 
             {/* Row 5 — role + country */}

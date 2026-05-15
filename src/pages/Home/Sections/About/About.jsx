@@ -106,36 +106,20 @@ function OrbitSystem() {
         className="orbit-center-card"
         style={{
           position: "absolute",
-          left: CENTER - 105, top: CENTER - 80,
-          width: 210, height: 160,
+          borderRadius:50,
+          left: CENTER - 80, top: CENTER - 55,
+          width: 160, height: 100,
           padding: "14px 16px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <p style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 4 }}>
-          Expenses Total — 2024
-        </p>
-        <p style={{ fontSize: 20, fontWeight: 900, color: "#0f172a", letterSpacing: "-0.8px", marginBottom: 10 }}>
-          $28,380.00
-        </p>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 44, marginBottom: 8 }}>
-          {ORBIT_BARS.map((h, i) => (
-            <div key={i} style={{
-              flex: 1, borderRadius: "3px 3px 2px 2px",
-              background: i === 4
-                ? "linear-gradient(180deg,#2563eb,#0ea5e9)"
-                : i === 5 ? "linear-gradient(180deg,#4f86f7,#60a5fa)" : "#dbeafe",
-              height: `${h}%`, transformOrigin: "bottom",
-              animation: `growBarAbout 0.6s ease-out ${0.3 + i * 0.07}s both`,
-            }} />
-          ))}
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"].map((m, i) => (
-            <span key={i} style={{ fontSize: 8, color: "#94a3b8", fontWeight: 600, flex: 1, textAlign: "center" }}>
-              {m}
-            </span>
-          ))}
-        </div>
+        <img
+          src="/gobongoventureslogo.png"
+          alt="GoBongo Ventures"
+          style={{ width: "200%", height: 250, objectFit: "contain" }}
+        />
       </div>
     </div>
   );

@@ -31,10 +31,10 @@ const SECTIONS = [
     content: [
       { type: 'p', text: 'We use the following categories of cookies on our website:' },
       { type: 'ul', items: [
-        'Strictly Necessary Cookies — Required for the website to function. They enable basic features such as page navigation and access to secure areas. The website cannot function properly without these cookies.',
-        'Performance Cookies — These collect anonymous information about how visitors use our site, such as which pages they visit most often and whether they receive error messages. All information collected is aggregated and anonymous.',
-        'Functional Cookies — These allow our website to remember choices you make (such as your preferred language or region) and provide enhanced, more personal features.',
-        'Analytics Cookies — We use analytics tools to help us understand how people use our site. These tools use cookies to collect information and report website usage statistics without identifying individual visitors.',
+        'Strictly Necessary Cookies Required for the website to function. They enable basic features such as page navigation and access to secure areas. The website cannot function properly without these cookies.',
+        'Performance Cookies  These collect anonymous information about how visitors use our site, such as which pages they visit most often and whether they receive error messages. All information collected is aggregated and anonymous.',
+        'Functional Cookies  These allow our website to remember choices you make (such as your preferred language or region) and provide enhanced, more personal features.',
+        'Analytics Cookies  We use analytics tools to help us understand how people use our site. These tools use cookies to collect information and report website usage statistics without identifying individual visitors.',
       ]},
     ],
   },

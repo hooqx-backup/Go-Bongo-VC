@@ -28,7 +28,7 @@ const PATHS = [
     label: 'Partners',
     labelColor: 'var(--gold)',
     title: 'Explore Partnership',
-    desc: "Investors, corporates, and co-investors — let's find synergies.",
+    desc: "Investors, corporates, and co-investors let's find synergies.",
     variant: 'gold',
     to: '/sectors',
   },
@@ -91,7 +91,7 @@ export default function ContactHero({ onSelectSubject }) {
             transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
           >
             Whether you&apos;re a founder with a bold idea, a strategic partner, or a journalist
-            covering the Dubai startup ecosystem &mdash; we want to hear from you. Choose the right
+            covering the Dubai startup ecosystem we want to hear from you. Choose the right
             path below.
           </motion.p>
         </div>

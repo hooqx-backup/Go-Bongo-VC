@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import './ContactSocial.css';
 
 const SOCIAL_LINKS = [
-  { label: 'LinkedIn', icon: 'in', href: '#' },
   { label: 'Twitter / X', icon: 'X', href: '#' },
 ];
 

@@ -61,7 +61,7 @@ const SECTIONS = [
     title: 'Data Retention',
     content: [
       { type: 'p', text: 'We retain personal information for as long as necessary to fulfil the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.' },
-      { type: 'p', text: 'Pitch submissions and related correspondence are retained for a period of five years following our last interaction. This allows us to reconnect with founders whose ventures may become relevant to our investment thesis at a later stage — consistent with our policy that a pass is not a no forever.' },
+      { type: 'p', text: 'Pitch submissions and related correspondence are retained for a period of five years following our last interaction. This allows us to reconnect with founders whose ventures may become relevant to our investment thesis at a later stage consistent with our policy that a pass is not a no forever.' },
       { type: 'p', text: 'You may request deletion of your personal information at any time by contacting us at privacy@gobongo.vc. We will respond within 30 days.' },
     ],
   },
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
     <LegalLayout
       title="Privacy Policy"
       updated="March 25, 2026"
-      intro="We take the privacy of founders, partners, and visitors seriously. This policy explains exactly what data we collect, why we collect it, and how you can control it. We keep it plain — no legal fog."
+      intro="We take the privacy of founders, partners, and visitors seriously. This policy explains exactly what data we collect, why we collect it, and how you can control it. We keep it plain no legal fog."
       sections={SECTIONS}
     />
   );

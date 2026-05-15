@@ -40,7 +40,7 @@ function CardSet({ suffix }) {
           <div className="pt-col__body">
             <h3 className="pt-col__title">Sectors We Back</h3>
             <p className="pt-col__sub">
-              We invest across six verticals where the MENA–South Asia corridor creates structural advantage.
+              We invest across six verticals where the MENA South Asia corridor creates structural advantage.
             </p>
             <div className="pt-sector-pills">
               {SECTORS.map((s) => (
@@ -157,8 +157,8 @@ export default function PitchThesis() {
             What We <em className="shimmer-gold">Back</em>
           </h2>
           <p className="pt-thesis__sub">
-            Our portfolio is not random. Every venture sits at the intersection of real-world operations
-            and digital leverage — where founders have earned the right to build.
+            Our portfolio is not random. Every venture sits at the intersection of real world operations
+            and digital leverage where founders have earned the right to build.
           </p>
         </RevealWrapper>
 

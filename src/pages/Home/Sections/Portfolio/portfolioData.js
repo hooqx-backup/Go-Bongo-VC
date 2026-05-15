@@ -125,7 +125,7 @@ export const ventures = [
 
 export const filters = [
   { key: "all",        label: "All Ventures", count: 7 },
-  { key: "commerce",   label: "Commerce",     count: 1 },
+  { key: "commerce",   label: "E-Commerce",     count: 1 },
   { key: "tech",       label: "Tech",         count: 2 },
   { key: "trade",      label: "Trade",        count: 3 },
   { key: "consulting", label: "Consulting",   count: 1 },

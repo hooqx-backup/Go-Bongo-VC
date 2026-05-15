@@ -16,21 +16,21 @@ const CRITERIA = [
     title: 'Founder-Market Fit',
     color: 'blue',
     icon: '🧠',
-    body: 'Every founder we back has to be the only person in the world who could build this. We look for operators, not theorists — people who have spent years inside the problem they are solving before they decided to solve it.',
+    body: 'Every founder we back has to be the only person in the world who could build this. We look for operators, not theorists people who have spent years inside the problem they are solving before they decided to solve it.',
   },
   {
     num: '02',
     title: 'A Clear, Provable Problem',
     color: 'gold',
     icon: '🎯',
-    body: 'We do not fund ideas. We fund solutions to problems with evidence. If you cannot show us the problem is real, large, and structurally unsolved, we cannot get excited about the solution — no matter how elegant.',
+    body: 'We do not fund ideas. We fund solutions to problems with evidence. If you cannot show us the problem is real, large, and structurally unsolved, we cannot get excited about the solution no matter how elegant.',
   },
   {
     num: '03',
     title: 'Early Evidence of Pull',
     color: 'blue',
     icon: '📈',
-    body: 'Revenue, users, signed contracts, letters of intent — something that proves the market is already responding. We back founders who have started before they have funding, not those who need funding to start.',
+    body: 'Revenue, users, signed contracts, letters of intent something that proves the market is already responding. We back founders who have started before they have funding, not those who need funding to start.',
   },
   {
     num: '04',
@@ -138,7 +138,7 @@ export default function PitchCriteria() {
           </h2>
           <p className="pc-criteria__sub">
             These are not preferences. Every company in our portfolio passed all four. If your
-            answer to any of these is &ldquo;we&rsquo;re still figuring it out&rdquo; — we
+            answer to any of these is &ldquo;we&rsquo;re still figuring it out&rdquo; we
             respect the honesty, but it is too early for us.
           </p>
         </RevealWrapper>
