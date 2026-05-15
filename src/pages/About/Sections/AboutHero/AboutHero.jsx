@@ -55,7 +55,7 @@ export default function AboutHero() {
 
           <motion.p className="about-hero-sub" variants={itemVariants}>
             We are a Delaware-headquartered venture firm built by operators, for
-            founders — backing bold ideas across 6 industries in 7 countries with
+            founders, backing bold ideas across 6 industries in 7 countries with
             conviction, capital, and hands-on operational support.
           </motion.p>
 

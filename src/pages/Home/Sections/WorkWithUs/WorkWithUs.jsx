@@ -7,7 +7,7 @@ const STEPS = [
   {
     num: "01",
     title: "Create a Unicorn",
-    desc: "Fill out our structured intake form. Tell us about your vision, your market, and what you're building — we read every submission personally.",
+    desc: "Fill out our structured intake form. Tell us about your vision, your market, and what you're building, we read every submission personally.",
   },
   {
     num: "02",
@@ -17,7 +17,7 @@ const STEPS = [
   {
     num: "03",
     title: "Partnership",
-    desc: "We move fast. If we're aligned, expect a term sheet within weeks — not months. We build alongside you from day one.",
+    desc: "We move fast. If we're aligned, expect a term sheet within weeks, not months. We build alongside you from day one.",
   },
 ];
 
@@ -186,7 +186,7 @@ export default function WorkWithUsSection() {
         >
           We back founders at the idea stage through Series A. If you're
           building in our core sectors and you think differently about what
-          your industry could be — let's talk.
+          your industry could be, let's talk.
         </motion.p>
 
         {/* ── CTA Buttons ── */}

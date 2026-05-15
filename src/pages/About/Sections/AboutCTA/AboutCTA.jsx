@@ -58,7 +58,7 @@ export default function AboutCTA() {
         </h2>
         <p className="about-cta-sub">
           Whether you're a founder with a bold idea, a partner looking to collaborate,
-          or an investor interested in the GoBongo ecosystem — we want to hear from you.
+          or an investor interested in the GoBongo ecosystem, we want to hear from you.
         </p>
         <div className="about-cta-btns">
           <Button variant="blue" to="/pitch" size="lg">Create a Unicorn →</Button>

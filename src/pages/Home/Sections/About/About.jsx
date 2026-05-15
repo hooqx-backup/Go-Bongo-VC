@@ -223,7 +223,7 @@ export default function AboutSection() {
             lineHeight: 1.7,
           }}
         >
-          "We don't just fund companies — we build ecosystems that compound value across industries."
+          "We don't just fund companies, we build ecosystems that compound value across industries."
         </motion.blockquote>
 
         {/* Body paragraphs */}
@@ -246,7 +246,7 @@ export default function AboutSection() {
           transition={{ delay: 0.38, duration: 0.6 }}
           style={{ fontSize: 14, color: "#64748b", lineHeight: 1.8, marginBottom: 28 }}
         >
-          We operate with a long-horizon mindset — backing exceptional founders and providing the
+          We operate with a long-horizon mindset, backing exceptional founders and providing the
           operational and strategic support to turn bold ideas into market-leading businesses.
         </motion.p>
 

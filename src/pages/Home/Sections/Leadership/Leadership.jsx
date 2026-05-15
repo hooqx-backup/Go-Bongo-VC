@@ -5,7 +5,7 @@ import "./Leadership.css";
 const TESTIMONIALS = [
   {
     quote:
-      "GoBongo Venture doesn't just invest — they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
+      "GoBongo Venture doesn't just invest, they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
     role: "Founder & CEO",
     company: "Tezz Logistics",
     location: "India",
@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "What sets GoBongo apart is their operator mindset. They don't ask you to explain logistics — they already understand it. That changes everything about the partnership.",
+      "What sets GoBongo apart is their operator mindset. They don't ask you to explain logistics they already understand it. That changes everything about the partnership.",
     role: "Co-Founder",
     company: "Tradeflink",
     location: "Middle East",
@@ -43,16 +43,16 @@ const TESTIMONIALS = [
     gradient: "linear-gradient(135deg, #059669 0%, #34D399 100%)",
     shadowColor: "rgba(5,150,105,0.28)",
   },
-  {
-    quote:
-      "Being part of the GoBongo ecosystem meant we had 7 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
-    role: "Founder",
-    company: "Hooqx LLC",
-    location: "United States",
-    initials: "HQ",
-    gradient: "linear-gradient(135deg, #059669 0%, #34D399 100%)",
-    shadowColor: "rgba(5,150,105,0.28)",
-  },
+  // {
+  //   quote:
+  //     "Being part of the GoBongo ecosystem meant we had 7 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
+  //   role: "Founder",
+  //   company: "Hooqx LLC",
+  //   location: "United States",
+  //   initials: "HQ",
+  //   gradient: "linear-gradient(135deg, #059669 0%, #34D399 100%)",
+  //   shadowColor: "rgba(5,150,105,0.28)",
+  // },
 ];
 
 // Duplicate for seamless infinite loop
@@ -182,7 +182,7 @@ export default function LeadershipSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
         >
-          Hear directly from the founders we back — on what makes GoBongo
+          Hear directly from the founders we back on what makes GoBongo
           different.
         </motion.p>
       </div>

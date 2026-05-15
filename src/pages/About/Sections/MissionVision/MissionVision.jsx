@@ -6,15 +6,15 @@ const CARDS = [
   {
     type: 'mission',
     tag: 'Our Mission',
-    quote: '"To identify, fund, and build market-leading companies across essential industries — where operational excellence creates compounding, durable competitive advantages."',
+    quote: '"To identify, fund, and build market-leading companies across essential industries, where operational excellence creates compounding, durable competitive advantages."',
     desc: 'We look for industries where the rules are being rewritten by digital transformation, where the old way of doing things is visibly broken.',
     direction: -50, // Slides in from left
   },
   {
     type: 'vision',
     tag: 'Our Vision',
-    quote: '"A portfolio of 25+ thriving companies across 15 countries — each one a market leader in its category — built together, not just funded separately."',
-    desc: 'By 2030, we intend to be the most operationally impactful venture group to emerge from the Middle East — known for the companies we build from the inside.',
+    quote: '"A portfolio of 25+ thriving companies across 15 countries, each one a market leader in its category, built together, not just funded separately."',
+    desc: 'By 2030, we intend to be the most operationally impactful venture group to emerge from the Middle East, known for the companies we build from the inside.',
     direction: 50, // Slides in from right
   },
 ];

@@ -151,7 +151,7 @@ export default function CultureValues() {
 <div className="culture-bottom-premium">
         <div className="quote-container">
           <p className="premium-quote" ref={quoteRef}>
-            "We don't interview founders — we have <span>conversations</span>. 
+            "We don't interview founders, we have <span>conversations</span>. 
             The best investments start with a shared obsession."
           </p>
         </div>
