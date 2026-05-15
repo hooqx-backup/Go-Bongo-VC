@@ -69,7 +69,7 @@ export default function BlogHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.26, ease: [0.25, 1, 0.5, 1] }}
           >
-            Market insights, portfolio updates, and founder resources — straight
+            Market insights, portfolio updates, and founder resources, straight
             from the GoBongo Ventures team.
           </motion.p>
 

@@ -45,7 +45,7 @@ export default function PortfolioHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Each company in our portfolio is solving a real problem at scale — from
+            Each company in our portfolio is solving a real problem at scale, from
             logistics networks to digital commerce platforms and beyond.
           </motion.p>
 

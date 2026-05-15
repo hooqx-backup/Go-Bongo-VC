@@ -136,7 +136,7 @@ export default function SectorsSection() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Six essential industries undergoing structural transformation — where
+            Six essential industries undergoing structural transformation, where
             operational excellence compounds into 
           </motion.p>
         </div>

@@ -8,7 +8,7 @@ const TEAM = [
     name: 'Partner, Portfolio Operations',
     role: 'GoBongo Venture',
     icon: <Zap size={24} strokeWidth={1.5} />,
-    bio: 'Former COO of two venture-backed logistics companies. Leads operational support for all portfolio companies — ensuring systems, processes, and talent are in place.',
+    bio: 'Former COO of two venture-backed logistics companies. Leads operational support for all portfolio companies, ensuring systems, processes, and talent are in place.',
   },
   {
     name: 'Partner, Investments',

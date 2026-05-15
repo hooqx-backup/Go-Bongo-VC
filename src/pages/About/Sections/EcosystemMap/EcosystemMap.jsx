@@ -57,7 +57,7 @@ export default function EcosystemMap() {
           </div>
           <p className="eco-sub">
             GoBongo Venture is the parent brand. Each venture below operates independently
-            while benefiting from shared infrastructure... It's not a portfolio — it's an ecosystem.
+            while benefiting from shared infrastructure. It's not a portfolio, it's an ecosystem.
           </p>
         </motion.div>
 

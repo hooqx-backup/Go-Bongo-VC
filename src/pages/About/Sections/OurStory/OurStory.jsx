@@ -9,19 +9,19 @@ const STORY_CARDS = [
     variant: "blue",
     icon: <Globe size={24} strokeWidth={1.5} />,
     title: "Global from Day One",
-    desc: "We never thought small. From our first venture, we designed for cross-border scale — UAE, India, Bangladesh, USA, Canada, UK, Germany.",
+    desc: "We never thought small. From our first venture, we designed for cross-border scale UAE, India, Bangladesh, USA, Canada, UK, Germany.",
   },
   {
     variant: "",
     icon: <Settings size={24} strokeWidth={1.5} />,
     title: "Operators, Not Observers",
-    desc: "Every founding partner has built a company before. We don't theorise about scale — we've lived it, failed at parts of it, and learned what actually works.",
+    desc: "Every founding partner has built a company before. We don't theorise about scale we've lived it, failed at parts of it, and learned what actually works.",
   },
   {
     variant: "gold",
     icon: <Share2 size={24} strokeWidth={1.5} />,
     title: "Ecosystem Over Portfolio",
-    desc: "We structure our investments so companies create value for each other — shared supply chains, shared customers, shared knowledge.",
+    desc: "We structure our investments so companies create value for each other shared supply chains, shared customers, shared knowledge.",
   },
   {
     variant: "",
@@ -64,20 +64,20 @@ export default function OurStory() {
           </h2>
           <blockquote className="story-pull">
             "Founded with a conviction that the next wave of global companies
-            would be built outside Silicon Valley — in markets that move faster,
+            would be built outside Silicon Valley in markets that move faster,
             operate leaner, and hunger harder."
           </blockquote>
           <p className="story-p">
             GoBongo Venture was incorporated in Delaware in 2017 by a team of operators who
             had already built, scaled, and navigated companies across South
             Asia, the Middle East, and Europe. We knew firsthand what founders
-            actually need — not just capital, but embedded operational support
+            actually need not just capital, but embedded operational support
             from people who've been in the trenches.
           </p>
           <p className="story-p">
             We started with a simple belief: that the most valuable companies of
             the next decade wouldn't come from the usual places. They'd come
-            from markets that most investors overlooked — where digital
+            from markets that most investors overlooked, where digital
             transformation was still early, where operational excellence was
             rare, and where the founders building were hungrier and more
             resilient than anywhere else.
@@ -85,7 +85,7 @@ export default function OurStory() {
           <p className="story-p">
             Three years in, we've built 8 ventures across 7 countries spanning 6
             industries. What began as a holding group has become a genuine
-            ecosystem — where each company makes the others stronger.
+            ecosystem, where each company makes the others stronger.
           </p>
         </RevealWrapper>
 

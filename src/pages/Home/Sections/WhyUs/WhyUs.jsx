@@ -9,7 +9,7 @@ const DATA = [
     title: "OPERATOR-LED",
     subtitle: "WE BUILD WITH YOU",
     content:
-      "Every partner at GoBongo has built, scaled, or exited a company. We don't just write cheques — we embed ourselves in the work. We've felt the friction. We know what it takes.",
+      "Every partner at GoBongo has built, scaled, or exited a company. We don't just write cheques, we embed ourselves in the work. We've felt the friction. We know what it takes.",
   },
   {
     id: "03",
@@ -23,7 +23,7 @@ const DATA = [
     title: "LONG-HORIZON",
     subtitle: "DECIMAL THINKING",
     content:
-      "We measure success in decades, not quarters. We partner with founders who share this conviction — because the most valuable companies are built slowly, deliberately, and with the long game always in mind.",
+      "We measure success in decades, not quarters. We partner with founders who share this conviction, because the most valuable companies are built slowly, deliberately, and with the long game always in mind.",
   },
 ];
 
