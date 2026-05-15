@@ -188,7 +188,7 @@ export default function SectorsHero() {
             animate={inView ? { opacity: 1, filter: "blur(0px)" } : {}}
             transition={{ duration: 0.95, delay: 0.54 }}
           >
-            Our thesis is deliberately narrow — essential industries undergoing digital
+            Our thesis is deliberately narrow essential industries undergoing digital
             transformation, where operational excellence creates compounding advantages
             that are nearly impossible to replicate.
           </motion.p>

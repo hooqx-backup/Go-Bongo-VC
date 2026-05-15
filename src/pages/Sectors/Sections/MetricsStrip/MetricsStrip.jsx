@@ -6,7 +6,6 @@ import {
   Globe,
   Users,
   CalendarDays,
-  Trophy,
 } from "lucide-react";
 import "./MetricsStrip.css";
 
@@ -41,7 +40,6 @@ const METRICS = [
   { Icon: Globe,        value: "7",    suffix: "",  label: "Countries",           color: "#7C3AED" },
   { Icon: Users,        value: "200",  suffix: "+", label: "Team Members",        color: "#B8892A" },
   { Icon: CalendarDays, value: "2022", suffix: "",  label: "Founded",             color: "#E85D26" },
-  { Icon: Trophy,       value: "#1",   suffix: "",  label: "UAE Startup Group",   color: "#16A34A" },
 ];
 
 export default function MetricsStrip() {

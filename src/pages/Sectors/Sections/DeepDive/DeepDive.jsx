@@ -48,7 +48,7 @@ const SECTORS = [
     tagColor: "#1A56E8",
     tagBg: "#EEF3FF",
     desc: "The shift from physical to digital commerce is still in its first innings across emerging markets. We invest in the infrastructure, marketplaces, and D2C brands that will define how billions of consumers shop in the next decade.",
-    thesis: "Commerce isn't moving online — it's being rebuilt from scratch for a mobile-first, cross-border world.",
+    thesis: "Commerce isn't moving online it's being rebuilt from scratch for a mobile-first, cross border world.",
     count: "2 Ventures",
     ventures: ["Thescooda", "GoBongo Shop"],
     accent: "#1A56E8",
@@ -62,7 +62,7 @@ const SECTORS = [
     tag: "Physical Infrastructure",
     tagColor: "#0D9488",
     tagBg: "#F0FDFB",
-    desc: "Supply chains are the invisible backbone of every economy. The companies that digitise and optimise logistics — from first-mile to last-mile — become essential infrastructure that's nearly impossible to displace.",
+    desc: "Supply chains are the invisible backbone of every economy. The companies that digitise and optimise logistics from first mile to last mile become essential infrastructure that's nearly impossible to displace.",
     thesis: "The company that owns the movement of goods owns the margin of commerce.",
     count: "2 Ventures",
     ventures: ["Tezz Logistics", "Tradeflink"],
@@ -77,8 +77,8 @@ const SECTORS = [
     tag: "Technology",
     tagColor: "#7C3AED",
     tagBg: "#F3F0FF",
-    desc: "Every business in every sector needs a digital layer. IT services, software development, and data infrastructure are the picks-and-shovels plays that win regardless of which vertical leads the next wave.",
-    thesis: "The digitisation of business is not a trend — it's a transformation that's decades from complete.",
+    desc: "Every business in every sector needs a digital layer. IT services, software development, and data infrastructure are the picks and shovels plays that win regardless of which vertical leads the next wave.",
+    thesis: "The digitisation of business is not a trend it's a transformation that's decades from complete.",
     count: "1 Venture",
     ventures: ["Hooqx LLC"],
     accent: "#7C3AED",
@@ -92,8 +92,8 @@ const SECTORS = [
     tag: "Cross-Border Commerce",
     tagColor: "#B8892A",
     tagBg: "#FBF5E8",
-    desc: "Cross-border B2B trade moves trillions of dollars annually but runs on antiquated systems — manual procurement, email-based sourcing, fragmented supplier networks. The companies modernising this infrastructure will capture enormous value.",
-    thesis: "B2B trade is the largest commerce category in the world — and the least digitised.",
+    desc: "Cross-border B2B trade moves trillions of dollars annually but runs on antiquated systems manual procurement, email-based sourcing, fragmented supplier networks. The companies modernising this infrastructure will capture enormous value.",
+    thesis: "B2B trade is the largest commerce category in the world and the least digitised.",
     count: "1 Venture",
     ventures: ["Tradeflink"],
     accent: "#B8892A",
@@ -107,8 +107,8 @@ const SECTORS = [
     tag: "Comms Infrastructure",
     tagColor: "#E85D26",
     tagBg: "#FFF1EB",
-    desc: "Business communication is migrating from legacy telephony to cloud-native, AI-augmented platforms. The businesses that replace the old stack with intelligent, scalable alternatives will become essential infrastructure.",
-    thesis: "Every company on earth pays for communication infrastructure — the legacy providers are losing ground daily.",
+    desc: "Business communication is migrating from legacy telephony to cloud native, AI-augmented platforms. The businesses that replace the old stack with intelligent, scalable alternatives will become essential infrastructure.",
+    thesis: "Every company on earth pays for communication infrastructure the legacy providers are losing ground daily.",
     count: "1 Venture",
     ventures: ["CallTawk"],
     accent: "#E85D26",
@@ -227,7 +227,7 @@ export default function DeepDive() {
             transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
           >
             Every sector we operate in was chosen because it sits at the intersection of necessity
-            and digital transformation — where the old way of doing things is visibly broken and
+            and digital transformation where the old way of doing things is visibly broken and
             where the right operator can build something structurally defensible.
           </motion.p>
         </div>

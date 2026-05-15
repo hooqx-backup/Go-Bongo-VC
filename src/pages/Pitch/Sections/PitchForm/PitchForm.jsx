@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LuArrowRight, LuCheck, LuMail, LuLink, LuBuilding2, LuUsers, LuClock, LuTrendingUp, LuShieldCheck } from 'react-icons/lu';
+import { LuArrowRight, LuCheck, LuMail, LuLink, LuBuilding2, LuUsers, LuClock, LuTrendingUp, LuShieldCheck, LuPhone } from 'react-icons/lu';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './PitchForm.css';
@@ -42,7 +42,7 @@ const INFO_ITEMS = [
 ];
 
 const PROMISE_ITEMS = [
-  'Every application gets read — no triage team, no filter.',
+  'Every application gets read no triage team, no filter.',
   'We respond to every submission, even if it is a pass.',
   'We do not share your information without your permission.',
   'Our decision timeline is 4–6 weeks from first message.',
@@ -52,7 +52,7 @@ export default function PitchForm() {
   const [form, setForm] = useState({
     company: '', website: '', location: '', stage: '',
     sector: '', description: '', traction: '', whyYou: '',
-    raise: '', founders: '', email: '', source: '',
+    raise: '', founders: '', email: '', phone: '', source: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
@@ -69,11 +69,56 @@ export default function PitchForm() {
 
   const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
+  const WHATSAPP_NUMBER = '917003634890';
+
   function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    // Simulate async submission
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+
+    const now = new Date().toLocaleString('en-GB', {
+      day: '2-digit', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', hour12: true,
+    });
+
+    const lines = [
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `*GOBONGO VENTURES*`,
+      `_New Pitch Application_`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      ``,
+      `*COMPANY*`,
+      `*Name:*     ${form.company}`,
+      `*Location:* ${form.location}`,
+      `*Stage:*    ${form.stage}`,
+      `*Sector:*   ${form.sector}`,
+      form.website ? `*Deck/URL:*  ${form.website}` : null,
+      ``,
+      `*WHAT THEY'RE BUILDING*`,
+      `"${form.description}"`,
+      ``,
+      `*TRACTION*`,
+      `"${form.traction}"`,
+      form.whyYou ? `\n*WHY THIS TEAM*\n"${form.whyYou}"` : null,
+      form.raise   ? `\n*RAISING*\n${form.raise}`          : null,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `*CONTACT*`,
+      `*Founders:* ${form.founders}`,
+      `*Email:*    ${form.email}`,
+      form.phone   ? `*Phone:*    ${form.phone}`   : null,
+      form.source  ? `*Source:*   ${form.source}`  : null,
+      ``,
+      `${now}`,
+      
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    ].filter((l) => l !== null).join('\n');
+
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`,
+      '_blank',
+    );
+
+    setTimeout(() => { setLoading(false); setSubmitted(true); }, 400);
   }
 
   return (
@@ -113,7 +158,7 @@ export default function PitchForm() {
               Start Your <em className="shimmer-gold">Journey</em>
             </h2>
             <p className="pf-left__sub">
-              Fill in as much or as little as you have. We prefer a direct, honest message over a polished deck — tell us what you are building, what the traction looks like, and why you are the right team to build it.
+              Fill in as much or as little as you have. We prefer a direct, honest message over a polished deck tell us what you are building, what the traction looks like, and why you are the right team to build it.
             </p>
 
             <div className="pf-left__info">
@@ -313,6 +358,13 @@ export default function PitchForm() {
                       </div>
                     </div>
                     <div className="pf-field">
+                      <label className="pf-label">Phone Number</label>
+                      <div className="pf-input-wrap">
+                        <LuPhone size={14} className="pf-input-icon" />
+                        <input className="pf-input pf-input--icon" value={form.phone} onChange={set('phone')} placeholder="+971 50 000 0000" type="tel" />
+                      </div>
+                    </div>
+                    <div className="pf-field">
                       <label className="pf-label">How did you hear about us?</label>
                       <select className="pf-input pf-select" value={form.source} onChange={set('source')}>
                         <option value="">Select an option</option>
@@ -351,7 +403,7 @@ export default function PitchForm() {
                   <h3 className="pf-success__title">Application Received</h3>
                   <p className="pf-success__sub">
                     We have received your submission. The founding team reviews every application personally.
-                    You will hear from us within 5 business days — even if the answer is a pass.
+                    You will hear from us within 5 business days even if the answer is a pass.
                   </p>
                   <p className="pf-success__email">{form.email}</p>
                 </motion.div>

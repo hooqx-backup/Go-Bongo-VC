@@ -8,7 +8,7 @@ const POINTS = [
   {
     Icon: FlaskConical,
     title: "Structural, Not Cyclical",
-    desc: "We don't chase trends. Each sector represents a multi-decade transformation — not a 3-year cycle. Our time horizon matches the founders we back.",
+    desc: "We don't chase trends. Each sector represents a multi decade transformation not a 3 year cycle. Our time horizon matches the founders we back.",
     color: "#1A56E8",
     bg: "#EEF3FF",
   },
@@ -22,14 +22,14 @@ const POINTS = [
   {
     Icon: Globe,
     title: "Emerging Market Timing",
-    desc: "Our sectors are earlier in their transformation curve in emerging markets than in the West — giving portfolio companies a longer runway and a less contested market.",
+    desc: "Our sectors are earlier in their transformation curve in emerging markets than in the West giving portfolio companies a longer runway and a less contested market.",
     color: "#7C3AED",
     bg: "#F3F0FF",
   },
   {
     Icon: Settings,
     title: "Operational Depth Required",
-    desc: "Our sectors reward operational excellence over pure capital. Founders who build operational moats — not just product moats — create businesses that compound in value over time.",
+    desc: "Our sectors reward operational excellence over pure capital. Founders who build operational moats not just product moats create businesses that compound in value over time.",
     color: "#B8892A",
     bg: "#FBF5E8",
   },
@@ -58,12 +58,12 @@ export default function Thesis() {
           <div className="th-divider" />
           <p className="th-quote">
             "We invest at the intersection of <strong>essential industries</strong> and digital
-            transformation — where the old way is visibly broken and the right operator
+            transformation where the old way is visibly broken and the right operator
             can build something that lasts."
           </p>
           <p className="th-para">
             Our conviction is structural, not cyclical. We identify markets where digital
-            transformation is inevitable — where the problem is so deeply embedded that the
+            transformation is inevitable where the problem is so deeply embedded that the
             shift, when it happens, creates durable, compounding businesses.
           </p>
           <Link to="/pitch" className="th-btn">Create a Unicorn →</Link>

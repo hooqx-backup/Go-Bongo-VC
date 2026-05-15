@@ -6,7 +6,6 @@ import {
   Layers3,
   Users,
   MapPin,
-  TrendingUp,
 } from 'lucide-react';
 import { useInView, useMotionValue, useMotionValueEvent, useSpring } from 'framer-motion';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
@@ -19,7 +18,6 @@ const METRICS = [
   { Icon: Layers3, value: 6, suffix: '', label: 'Industry Sectors', accent: '#0D9488' },
   { Icon: Users, value: 200, suffix: '+', label: 'Team Members Across Group', accent: '#E85D26' },
   { Icon: MapPin, value: 2017, suffix: '', label: 'Year Founded, Delaware USA', accent: '#16A34A' },
-  { Icon: TrendingUp, value: 10, prefix: '$', suffix: 'M+', label: 'Estimated Group Revenue Run-Rate', accent: '#7C3AED' },
 ];
 
 const CELL_VARIANTS = {

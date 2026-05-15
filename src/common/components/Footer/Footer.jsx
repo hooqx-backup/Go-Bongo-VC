@@ -79,7 +79,7 @@ export default function Footer() {
               <span className="rf-status-label">All systems operational</span>
             </div>
             <div className="rf-socials">
-              {[["LinkedIn","in"],["Instagram","ig"],["Medium","m"]].map(([name, abbr]) => (
+              {[["Instagram","ig"],["Medium","m"]].map(([name, abbr]) => (
                 <a key={name} href="#" className="rf-social" aria-label={name}>{abbr}</a>
               ))}
             </div>

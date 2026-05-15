@@ -9,7 +9,7 @@ const STEPS = [
     Icon: LuMailOpen,
     iconVariant: 'blue',
     title: 'We Read Your Message',
-    desc: "Every submission is reviewed by a human — not an auto-responder. We route it to the most relevant partner.",
+    desc: "Every submission is reviewed by a human not an auto-responder. We route it to the most relevant partner.",
     time: 'Within 48 hours',
     flipAxis: 'y',   // flips on Y axis
     delay: '0s',
@@ -39,7 +39,7 @@ const STEPS = [
     Icon: LuTrendingUp,
     iconVariant: 'gold',
     title: 'We Move Forward',
-    desc: "If there's a fit, you'll hear clear next steps — no ghosting. We move with conviction and respect your time.",
+    desc: "If there's a fit, you'll hear clear next steps no ghosting. We move with conviction and respect your time.",
     time: 'Week 2–3',
     flipAxis: 'x',
     delay: '-5.25s',

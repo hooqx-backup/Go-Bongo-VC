@@ -9,7 +9,7 @@ import './ContactFAQ.css';
 const FAQS = [
   {
     q: 'What stage do you invest at?',
-    a: 'We invest from the idea stage through Series A. Our sweet spot is pre-seed and seed — where operational support makes the biggest difference.',
+    a: 'We invest from the idea stage through Series A. Our sweet spot is pre-seed and seed where operational support makes the biggest difference.',
   },
   {
     q: 'Do I need a warm introduction?',
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: 'What sectors do you focus on?',
-    a: 'We invest across e-commerce, logistics, fintech, digital services, communication tech, and trading — sectors where we have deep operational experience.',
+    a: 'We invest across e-commerce, logistics, fintech, digital services, communication tech, and trading sectors where we have deep operational experience.',
   },
   {
     q: 'How long does the evaluation process take?',

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Globe, BarChart3, Linkedin } from 'lucide-react';
+import { ShieldCheck, Zap, Globe, BarChart3 } from 'lucide-react';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './LeadershipTeam.css';
 
@@ -78,7 +78,6 @@ export default function LeadershipTeam() {
                 Known for operator-first thinking and a conviction that the best companies are 
                 built, not funded, into existence.
               </p>
-              <a href="#" className="tm-li"><Linkedin size={14} /> Profile</a>
             </div>
 
             <div className="tm-badge-stack">
@@ -113,7 +112,6 @@ export default function LeadershipTeam() {
               <div className="tm-name">{member.name}</div>
               <div className="tm-role">{member.role}</div>
               <p className="tm-bio">{member.bio}</p>
-              <a href="#" className="tm-li"><Linkedin size={14} /> LinkedIn</a>
             </motion.div>
           ))}
         </motion.div>

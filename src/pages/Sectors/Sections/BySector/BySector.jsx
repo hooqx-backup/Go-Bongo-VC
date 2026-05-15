@@ -26,7 +26,7 @@ const GROUPS = [
     accentBg: "#EEF3FF",
     count: "2 Ventures",
     companies: [
-      { name: "Thescooda",    geo: "Global",            logoBg: "#EEF3FF", Icon: Package,    iconColor: "#1A56E8" },
+      { name: "Thescooda",    geo: "Global",logoBg: "#EEF3FF", Icon: Package,    iconColor: "#1A56E8" },
       { name: "GoBongo Shop", geo: "Global · Flagship", logoBg: "#FBF5E8", Icon: Store,      iconColor: "#B8892A" },
     ],
   },
@@ -37,7 +37,7 @@ const GROUPS = [
     accentBg: "#F0FDFB",
     count: "2 Ventures",
     companies: [
-      { name: "Tezz Logistics", geo: "India",              logoBg: "#F0FDFB", Icon: Truck,     iconColor: "#0D9488" },
+      { name: "Tezz Logistics", geo: "India",        logoBg: "#F0FDFB", Icon: Truck,     iconColor: "#0D9488" },
       { name: "Tradeflink",     geo: "Middle East & Asia", logoBg: "#FBF5E8", Icon: Handshake, iconColor: "#B8892A" },
     ],
   },
@@ -104,7 +104,7 @@ export default function BySector() {
             Every Venture Mapped<br />to <em className="shimmer-blue">Its Sector</em>
           </h2>
           <p className="bs-sub">
-            Eight companies across six industries — each chosen because it sits inside
+            Eight companies across six industries each chosen because it sits inside
             a structural transformation we have deep conviction in.
           </p>
         </MotionDiv>

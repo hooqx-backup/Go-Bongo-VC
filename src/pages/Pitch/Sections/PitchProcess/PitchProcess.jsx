@@ -16,14 +16,14 @@ const STEPS = [
       'A number that proves real traction',
       'Evidence you know your sector deeply',
     ],
-    next: 'You hear back within 3 business days — always.',
+    next: 'You hear back within 3 business days always.',
   },
   {
     num: '02',
     title: 'First Call',
     time: 'Week 1 – 2',
     color: 'gold',
-    body: 'A 45-minute conversation, not a rehearsal. We ask uncomfortable questions on purpose — we want to understand how you think about your market, not how polished your narrative is.',
+    body: 'A 45-minute conversation, not a rehearsal. We ask uncomfortable questions on purpose we want to understand how you think about your market, not how polished your narrative is.',
     bullets: [
       '45 minutes, no slides required',
       'We challenge your market assumptions',
@@ -81,11 +81,7 @@ export default function PitchProcess() {
           {STEPS.map((step, i) => {
             const isActive   = hovered === i;
             const isInactive = hovered !== null && !isActive;
-            /* reverse stagger + alternating up/down:
-               card 04 (reverseIdx=0) → from bottom, delay 0s
-               card 03 (reverseIdx=1) → from top,   delay 0.13s
-               card 02 (reverseIdx=2) → from bottom, delay 0.26s
-               card 01 (reverseIdx=3) → from top,   delay 0.39s */
+           
             const reverseIdx = STEPS.length - 1 - i;
             const yDir       = reverseIdx % 2 === 0 ? 80 : -80;
             const delay      = reverseIdx * 0.13;
@@ -134,7 +130,7 @@ export default function PitchProcess() {
         <RevealWrapper delay={0.3} className="ppr-note">
           <p>
             We pass on many great companies. Sometimes the sector does not fit our thesis. Sometimes timing is wrong.
-            A pass from GoBongo is almost always a constraint on our side&nbsp;—&nbsp;not a judgement on your idea.
+            A pass from GoBongo is almost always a constraint on our side not a judgement on your idea.
           </p>
         </RevealWrapper>
 

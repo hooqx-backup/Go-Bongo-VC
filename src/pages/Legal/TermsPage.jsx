@@ -29,7 +29,7 @@ const SECTIONS = [
     id: 'intellectual-property',
     title: 'Intellectual Property',
     content: [
-      { type: 'p', text: 'The Site and all its content, features, and functionality — including but not limited to text, graphics, logos, images, audio and video clips, data compilations, and software — are owned by GoBongo Ventures or its licensors and are protected by copyright, trademark, and other intellectual property laws.' },
+      { type: 'p', text: 'The Site and all its content, features, and functionality including but not limited to text, graphics, logos, images, audio and video clips, data compilations, and software are owned by GoBongo Ventures or its licensors and are protected by copyright, trademark, and other intellectual property laws.' },
       { type: 'p', text: 'You are granted a limited, non-exclusive, non-transferable licence to access and use the Site for your personal, non-commercial purposes. This licence does not include any right to:' },
       { type: 'ul', items: [
         'Modify or copy the materials without our prior written consent',
@@ -61,7 +61,7 @@ const SECTIONS = [
     id: 'limitation-of-liability',
     title: 'Limitation of Liability',
     content: [
-      { type: 'p', text: 'To the fullest extent permitted by applicable law, GoBongo Ventures, its directors, officers, employees, partners, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, goodwill, or business interruption — arising out of or in connection with your use of or inability to use the Site.' },
+      { type: 'p', text: 'To the fullest extent permitted by applicable law, GoBongo Ventures, its directors, officers, employees, partners, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages  including loss of profits, data, goodwill, or business interruption arising out of or in connection with your use of or inability to use the Site.' },
       { type: 'p', text: 'The Site is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components.' },
     ],
   },
@@ -88,7 +88,7 @@ export default function TermsPage() {
     <LegalLayout
       title="Terms of Use"
       updated="March 25, 2026"
-      intro="These terms govern your use of the GoBongo Ventures website. We have written them to be as plain as possible. If something is unclear, reach out — we would rather you understand what you are agreeing to."
+      intro="These terms govern your use of the GoBongo Ventures website. We have written them to be as plain as possible. If something is unclear, reach out we would rather you understand what you are agreeing to."
       sections={SECTIONS}
     />
   );

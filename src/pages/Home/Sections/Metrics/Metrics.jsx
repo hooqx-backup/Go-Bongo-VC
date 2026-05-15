@@ -8,7 +8,7 @@ const STATS = [
   { value: 6,    suffix: "",   label: "Industry Sectors" },
   { value: 200,  suffix: "+",  label: "Team Members" },
   { value: 2017, suffix: "",   label: "Year Founded" },
-  { value: 1,    prefix: "#",  label: "UAE Startup Group", featured: true },
+  
 ];
 
 function CountUp({ end, prefix = "", suffix = "", duration = 1800, start }) {
@@ -82,7 +82,7 @@ export default function MetricsSection() {
           className="metrics-grid"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
           {STATS.map((stat, i) => (

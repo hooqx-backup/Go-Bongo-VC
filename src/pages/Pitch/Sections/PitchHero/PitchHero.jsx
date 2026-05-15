@@ -7,7 +7,6 @@ import "./PitchHero.css";
 const HERO_STATS = [
   { num: "200+", label: "Applications reviewed in 2024" },
   { num: "4–6W", label: "Average decision time" },
-  { num: "$4.6B", label: "Combined portfolio exposure" },
 ];
 
 const CARD_STATS = [

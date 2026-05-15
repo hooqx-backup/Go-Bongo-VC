@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Building2, Globe2, Users2, Trophy, BarChart4, Landmark, TrendingUp } from 'lucide-react';
+import { Building2, Globe2, Users2, Trophy, BarChart4 } from 'lucide-react';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './Achievements.css';
 
@@ -9,12 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ACHIEVEMENTS = [
   { icon: <Building2 />, num: '8', title: 'Active Portfolio Ventures', desc: 'Spanning e-commerce, logistics, tech, trade, communications, and strategic consulting.', type: 'blue' },
-  { icon: <Globe2 />, num: '7', title: 'Countries of Operation', desc: 'UAE, India, Bangladesh, USA, Canada, UK, and Germany — growing to 15 by 2030.', type: 'gold' },
-  { icon: <Users2 />, num: '200+', title: 'Team Members Across Group', desc: 'Full-time talent employed across all portfolio companies in operations and tech.', type: 'blue' },
-  { icon: <Trophy />, num: '#1', title: 'Ranked UAE Startup Group', desc: "Recognised by regional media as one of the UAE's top emerging holding groups.", type: 'gold' },
+{
+  icon: <Globe2 />,
+  num: '15+',
+  title: 'Markets by 2030',
+  desc: 'Strategically expanding into high-growth international regions with a long-term global vision.',
+  type: 'gold'
+},  { icon: <Users2 />, num: '200+', title: 'Team Members Across Group', desc: 'Full-time talent employed across all portfolio companies in operations and tech.', type: 'blue' },
+  { icon: <Trophy />, num: '7', title: 'Countries of Operation', desc: "UAE, India, Bangladesh, USA, Canada, UK, and Germany — growing to 15 by 2030.", type: 'gold' },
   { icon: <BarChart4 />, num: '6', title: 'Industry Sectors Covered', desc: 'Deliberately diversified across essential, resilient industries with high growth.', type: 'blue' },
-  { icon: <Landmark />, num: 'DIFC', title: 'Dubai Int. Financial Centre', desc: 'Full DIFC presence established — giving the group access to world-class infrastructure.', type: 'gold' },
-  { icon: <TrendingUp />, num: '$4.6B', title: 'Trade Volume Facilitated', desc: 'Total cross-border trade volume facilitated across GoBongo group platforms and ventures — with a target of $20B by 2030.', type: 'blue' },
 ];
 
 export default function Achievements() {
