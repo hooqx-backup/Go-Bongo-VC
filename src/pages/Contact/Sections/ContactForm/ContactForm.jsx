@@ -93,7 +93,7 @@ export default function ContactForm({ activeSubject }) {
     toast.promise(send, {
       loading: 'Sending your message…',
       success: "Message sent! We'll be in touch soon.",
-      error: 'Something went wrong. Please try again.',
+      error: 'Something went wrong. Please try again one more time.',
     });
 
     send.then(() => {
