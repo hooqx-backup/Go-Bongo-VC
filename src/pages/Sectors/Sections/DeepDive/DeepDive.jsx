@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { motion } from "framer-motion";
 import {
   ShoppingBag,
@@ -12,13 +12,13 @@ import "./DeepDive.css";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Grid container — staggers card children
+// Grid container - staggers card children
 const gridVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.22, delayChildren: 0.1 } },
 };
 
-// Card — 3D Y-axis flip (like flipping a playing card face-up)
+// Card - 3D Y-axis flip (like flipping a playing card face-up)
 const cardVariants = {
   hidden: { opacity: 0, rotateY: 72, y: 32, scale: 0.92 },
   visible: {
@@ -28,7 +28,7 @@ const cardVariants = {
   },
 };
 
-// Heading lines — fade + slide up
+// Heading lines - fade + slide up
 const lineVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i) => ({

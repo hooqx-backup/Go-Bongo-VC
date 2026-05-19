@@ -1,7 +1,7 @@
-import "./Marquee.css";
+﻿import "./Marquee.css";
 
 /* ─────────────────────────────────────
-   Logo placeholder — swap src once assets arrive
+   Logo placeholder - swap src once assets arrive
 ───────────────────────────────────── */
 function LogoPlaceholder({ name, src }) {
   return (
@@ -40,7 +40,7 @@ function GoldStar() {
 }
 
 /* ─────────────────────────────────────
-   Items — add real `src` paths when logos arrive
+   Items - add real `src` paths when logos arrive
    e.g. src: "/logos/bongologo.png"
 ───────────────────────────────────── */
 const MARQUEE_ITEMS = [
@@ -57,9 +57,9 @@ const MARQUEE_ITEMS = [
 /* ─────────────────────────────────────
    Marquee Component
    Props:
-     speed      — CSS animation duration (default "32s")
-     direction  — "left" | "right" (default "left")
-     label      — optional heading above (default hidden)
+     speed      - CSS animation duration (default "32s")
+     direction  - "left" | "right" (default "left")
+     label      - optional heading above (default hidden)
 ───────────────────────────────────── */
 export default function Marquee({ speed = "32s", direction = "left", label }) {
   // Duplicate items for seamless loop

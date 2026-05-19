@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { LuArrowRight } from 'react-icons/lu';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
@@ -38,7 +38,7 @@ export default function BlogFeatured() {
             {/* Huge faint watermark */}
             <div className="bf-watermark">01</div>
 
-            {/* ── Left — main editorial content ── */}
+            {/* ── Left - main editorial content ── */}
             <div className="bf-left">
 
               {/* Top row */}
@@ -93,7 +93,7 @@ export default function BlogFeatured() {
 
             </div>
 
-            {/* ── Right — frosted glass panel ── */}
+            {/* ── Right - frosted glass panel ── */}
             <motion.div
               className="bf-glass"
               initial={{ opacity: 0, x: 40 }}

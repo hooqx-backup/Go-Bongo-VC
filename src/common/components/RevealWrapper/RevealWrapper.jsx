@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 
 /**
- * RevealWrapper — scroll-triggered fade-up reveal.
+ * RevealWrapper - scroll-triggered fade-up reveal.
  * Wraps any content with a whileInView animation.
  *
  * Props:

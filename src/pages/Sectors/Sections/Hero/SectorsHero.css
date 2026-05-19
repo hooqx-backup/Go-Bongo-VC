@@ -1,5 +1,5 @@
-/* ══════════════════════════════════════════════
-   SECTORS HERO — modernized white theme
+﻿/* ══════════════════════════════════════════════
+   SECTORS HERO - modernized white theme
    ══════════════════════════════════════════════ */
 
 .sh-section {
@@ -138,7 +138,7 @@
   text-transform: uppercase; color: #1A56E8; font-family: 'Outfit', sans-serif;
 }
 
-/* Heading — masked slide-up */
+/* Heading - masked slide-up */
 .sh-heading {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(44px, 5vw, 68px);
@@ -157,7 +157,7 @@
   display: block;
 }
 
-/* "Scale." — shimmer gradient text */
+/* "Scale." - shimmer gradient text */
 .sh-accent {
   background: linear-gradient(
     90deg,
@@ -247,7 +247,7 @@
 }
 
 /* ══════════════════════════════════════════════
-   RIGHT COLUMN — tilting floating card grid
+   RIGHT COLUMN - tilting floating card grid
    ══════════════════════════════════════════════ */
 
 .sh-right {

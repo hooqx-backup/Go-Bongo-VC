@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LuPlus, LuMinus } from 'react-icons/lu';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
@@ -51,7 +51,7 @@ export default function ContactFAQ() {
           <Button variant="blue" to="/pitch">Create a Unicorn →</Button>
         </RevealWrapper>
 
-        {/* ── Right — spotlight FAQ items ── */}
+        {/* ── Right - spotlight FAQ items ── */}
         <div className="cfaq-right">
           {FAQS.map((faq, i) => {
             const isOpen   = openIndex === i;

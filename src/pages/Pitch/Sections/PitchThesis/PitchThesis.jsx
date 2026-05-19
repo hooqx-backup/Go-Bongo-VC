@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+﻿import { useRef, useEffect } from 'react';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './PitchThesis.css';
@@ -29,11 +29,11 @@ const PARAMS = [
   { label: 'Structure',  value: 'Equity, SAFE, Convertible Note' },
 ];
 
-/* ── Card set — rendered twice for seamless loop ── */
+/* ── Card set - rendered twice for seamless loop ── */
 function CardSet({ suffix }) {
   return (
     <>
-      {/* Col 01 — Sectors */}
+      {/* Col 01 - Sectors */}
       <div className="pt-col-wrap" key={`col1-${suffix}`}>
         <div className="pt-col pt-col--blue">
           <div className="pt-col__wm" aria-hidden="true">01</div>
@@ -53,7 +53,7 @@ function CardSet({ suffix }) {
         </div>
       </div>
 
-      {/* Col 02 — Geographies */}
+      {/* Col 02 - Geographies */}
       <div className="pt-col-wrap" key={`col2-${suffix}`}>
         <div className="pt-col pt-col--gold">
           <div className="pt-col__wm" aria-hidden="true">02</div>
@@ -81,7 +81,7 @@ function CardSet({ suffix }) {
         </div>
       </div>
 
-      {/* Col 03 — Investment Parameters */}
+      {/* Col 03 - Investment Parameters */}
       <div className="pt-col-wrap" key={`col3-${suffix}`}>
         <div className="pt-col pt-col--teal">
           <div className="pt-col__wm" aria-hidden="true">03</div>

@@ -1,4 +1,4 @@
-.pmet-root {
+﻿.pmet-root {
   background:
     radial-gradient(circle at 15% 8%, rgba(26, 86, 232, 0.08) 0%, transparent 28%),
     radial-gradient(circle at 85% 14%, rgba(184, 137, 42, 0.08) 0%, transparent 32%),
@@ -121,7 +121,7 @@
   transform-origin: left;
   transition: transform 0.5s 0.1s cubic-bezier(0.22, 1, 0.36, 1);
 }
-/* RevealWrapper adds opacity:1 via Framer Motion — use a sibling approach via CSS animation */
+/* RevealWrapper adds opacity:1 via Framer Motion - use a sibling approach via CSS animation */
 .pmet-cell:hover .pmet-cell__line,
 .pmet-grid .pmet-cell .pmet-cell__line {
   animation: pmetLine 0.6s 0.3s both;

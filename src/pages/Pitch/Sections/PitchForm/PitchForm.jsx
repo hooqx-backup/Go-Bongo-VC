@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LuArrowRight, LuCheck, LuMail, LuLink, LuBuilding2, LuUsers, LuClock, LuTrendingUp, LuShieldCheck, LuPhone } from 'react-icons/lu';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
@@ -317,7 +317,7 @@ export default function PitchForm() {
                         className="pf-textarea"
                         value={form.traction}
                         onChange={set('traction')}
-                        placeholder="Revenue, users, GMV, signed contracts — give us numbers."
+                        placeholder="Revenue, users, GMV, signed contracts - give us numbers."
                         rows={2}
                         required
                       />

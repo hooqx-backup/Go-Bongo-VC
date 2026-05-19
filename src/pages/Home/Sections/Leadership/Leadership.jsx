@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import "./Leadership.css";
 
@@ -95,7 +95,7 @@ function TestimonialCard({ t }) {
       whileHover={{ y: -10, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }}
       style={{ background: spotlightBg }}
     >
-      {/* Accent stripe — always visible */}
+      {/* Accent stripe - always visible */}
       <div className="fv-card-stripe" />
 
       {/* Decorative quote glyph */}
@@ -136,7 +136,7 @@ export default function LeadershipSection() {
       <div className="fv-bg-glow fv-bg-glow--left" />
       <div className="fv-bg-glow fv-bg-glow--right" />
 
-      {/* Header — contained and centered */}
+      {/* Header - contained and centered */}
       <div className="fv-container">
         <motion.div
           className="fv-eyebrow"
@@ -187,7 +187,7 @@ export default function LeadershipSection() {
         </motion.p>
       </div>
 
-      {/* Full-width infinite slider — outside container so it bleeds edge to edge */}
+      {/* Full-width infinite slider - outside container so it bleeds edge to edge */}
       <motion.div
         className="fv-slider-outer"
         initial={{ opacity: 0, y: 32 }}

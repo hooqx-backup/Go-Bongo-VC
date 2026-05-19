@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "./common/styles/components.css";
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -121,14 +121,14 @@ html, body {
   .pch-hero__heading { font-size: clamp(30px, 8vw, 44px) !important; }
   .about-cta-h       { font-size: clamp(30px, 8vw, 44px) !important; }
 
-  /* Section headings — large (desktop max 52–56px → mobile ~28–30px) */
+  /* Section headings - large (desktop max 52–56px → mobile ~28–30px) */
   .portfolio-heading    { font-size: clamp(20px, 5.5vw, 30px) !important; }
   .mv-h                 { font-size: clamp(20px, 5.5vw, 28px) !important; }
   .pt-thesis__heading   { font-size: clamp(20px, 5.5vw, 28px) !important; }
   .pc-criteria__heading { font-size: clamp(20px, 5.5vw, 28px) !important; }
   .cf-heading           { font-size: clamp(20px, 5.5vw, 28px) !important; }
 
-  /* Section headings — standard (desktop max 46px → mobile ~26px) */
+  /* Section headings - standard (desktop max 46px → mobile ~26px) */
   .story-h    { font-size: clamp(20px, 5vw, 26px) !important; }
   .team-h     { font-size: clamp(20px, 5vw, 26px) !important; }
   .tl-h       { font-size: clamp(20px, 5vw, 26px) !important; }

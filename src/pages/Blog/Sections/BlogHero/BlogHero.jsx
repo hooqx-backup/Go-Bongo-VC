@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './BlogHero.css';
 
@@ -75,7 +75,7 @@ export default function BlogHero() {
 
         </div>
 
-        {/* ── Right — cards slide in one by one from right ── */}
+        {/* ── Right - cards slide in one by one from right ── */}
         <div className="bh-right">
 
           <motion.div

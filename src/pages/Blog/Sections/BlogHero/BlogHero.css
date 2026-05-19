@@ -1,4 +1,4 @@
-/* ── BlogHero ── */
+﻿/* ── BlogHero ── */
 
 .bh-outer {
   background: var(--bg-main);
@@ -147,7 +147,7 @@
   position: relative;
 }
 
-/* Float animations — start after entry */
+/* Float animations - start after entry */
 .bh-card-wrap--c1 .bh-card { animation: bh-float-a 5.5s ease-in-out infinite; animation-delay: 0.9s; }
 .bh-card-wrap--c2 .bh-card { animation: bh-float-b 7s   ease-in-out infinite; animation-delay: 0.6s; opacity: 0.84; }
 .bh-card-wrap--c3 .bh-card { animation: bh-float-c 6.2s ease-in-out infinite; animation-delay: 0.4s; opacity: 0.72; }

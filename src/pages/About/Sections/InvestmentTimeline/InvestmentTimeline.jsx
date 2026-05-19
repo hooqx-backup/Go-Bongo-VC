@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import RevealWrapper from '../../../../common/components/RevealWrapper/RevealWrapper';
 import './InvestmentTimeline.css';
@@ -6,7 +6,7 @@ import './InvestmentTimeline.css';
 const TIMELINE = [
   {
     color: 'blue',
-    year: '2017 — The Foundation',
+    year: '2017 - The Foundation',
     title: 'GoBongo Venture is incorporated in Delaware, USA',
     milestones: [
       'Founding partners bring together 30+ combined years of operator experience',
@@ -17,7 +17,7 @@ const TIMELINE = [
   },
   {
     color: 'teal',
-    year: '2023 — Expansion',
+    year: '2023 - Expansion',
     title: 'Geographic reach doubles. Portfolio diversifies.',
     milestones: [
       'Hooqx LLC launched from the USA, digital services arm established',
@@ -39,7 +39,7 @@ const TIMELINE = [
   },
   {
     color: 'coral',
-    year: '2025 — Deepening',
+    year: '2025 - Deepening',
     title: 'Strategic advisory capability added. European reach established.',
     milestones: [
       'Stratigi 360 launched, strategy and growth consulting covering global markets',
@@ -50,7 +50,7 @@ const TIMELINE = [
   },
   {
     color: 'green',
-    year: '2026 — Forward',
+    year: '2026 - Forward',
     title: 'Next phase: Series A investments, 2 new verticals, 3 new markets.',
     milestones: [
       'Expanding investment remit to include Series A rounds in portfolio companies',

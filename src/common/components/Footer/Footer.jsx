@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HyperPremiumFooter.css";
 
@@ -49,11 +49,11 @@ export default function Footer() {
         onMouseMove={onMove}
         onMouseLeave={onLeave}
       >
-        {/* Base layer — dark matte */}
+        {/* Base layer - dark matte */}
         <span className="rf-wordmark rf-wordmark--base" aria-hidden="true">
           GoBongo<span className="rf-vc">V</span>
         </span>
-        {/* Glow layer — reveals at cursor */}
+        {/* Glow layer - reveals at cursor */}
         <span
           className="rf-wordmark rf-wordmark--glow"
           style={{ "--gx": `${gPos.x}px`, "--gy": `${gPos.y}px` }}
@@ -69,7 +69,7 @@ export default function Footer() {
       <div className="rf-bottom">
         <div className="rf-bottom-inner">
 
-          {/* Left — address + status + socials */}
+          {/* Left - address + status + socials */}
           <div className="rf-left">
             <p className="rf-address">
               Delaware, USA (HQ)<br />Dubai, UAE (Office)

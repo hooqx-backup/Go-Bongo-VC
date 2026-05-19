@@ -1,19 +1,19 @@
-import { useRef, useState } from "react";
+﻿import { useRef, useState } from "react";
 
 /**
- * Globe Component — Local MP4 Video
+ * Globe Component - Local MP4 Video
  *
  * Props:
- *   src         {string}        — path to your .mp4 file (required)
- *   width       {number|string} — default "100%"
- *   height      {number|string} — default 500
- *   autoPlay    {bool}          — auto play on mount, default true
- *   loop        {bool}          — loop the video, default true
- *   muted       {bool}          — mute audio (required for autoplay), default true
- *   controls    {bool}          — show native controls, default false
- *   bgColor     {string}        — fallback background color, default "#000"
- *   className   {string}        — optional CSS class
- *   style       {object}        — optional inline styles
+ *   src         {string}        - path to your .mp4 file (required)
+ *   width       {number|string} - default "100%"
+ *   height      {number|string} - default 500
+ *   autoPlay    {bool}          - auto play on mount, default true
+ *   loop        {bool}          - loop the video, default true
+ *   muted       {bool}          - mute audio (required for autoplay), default true
+ *   controls    {bool}          - show native controls, default false
+ *   bgColor     {string}        - fallback background color, default "#000"
+ *   className   {string}        - optional CSS class
+ *   style       {object}        - optional inline styles
  *
  * Usage:
  *   import Globe from './Globe';

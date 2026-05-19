@@ -1,4 +1,4 @@
-/* ── BlogGrid ── */
+﻿/* ── BlogGrid ── */
 
 .bg-outer {
   background: var(--bg-main);
@@ -78,7 +78,7 @@
   color: var(--gold);
 }
 
-/* ── Grid — mixed sizes ── */
+/* ── Grid - mixed sizes ── */
 .bg-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -86,7 +86,7 @@
   gap: 20px;
 }
 
-/* First card spans 2 columns — hero card */
+/* First card spans 2 columns - hero card */
 .bg-card:first-child {
   grid-column: span 2;
 }
@@ -203,7 +203,7 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* ── Permanent bottom gradient — always visible title area ── */
+/* ── Permanent bottom gradient - always visible title area ── */
 .bg-card__base {
   position: absolute;
   bottom: 0;
@@ -263,7 +263,7 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* ── Hover drawer — slides up on hover ── */
+/* ── Hover drawer - slides up on hover ── */
 .bg-card__drawer {
   position: absolute;
   bottom: 0;

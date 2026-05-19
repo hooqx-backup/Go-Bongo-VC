@@ -1,4 +1,4 @@
-/* ── PitchForm ── */
+﻿/* ── PitchForm ── */
 
 /* Spinning border: CSS custom property for angle */
 @property --pf-angle {
@@ -37,7 +37,7 @@
 }
 
 /* ─────────────────────────────────────────
-   Ocean layer — waves + bubbles
+   Ocean layer - waves + bubbles
 ───────────────────────────────────────── */
 .pf-ocean {
   position: absolute;
@@ -52,7 +52,7 @@
   );
 }
 
-/* Wave strip container — anchored to bottom */
+/* Wave strip container - anchored to bottom */
 .pf-waves {
   position: absolute;
   bottom: 0;
@@ -120,7 +120,7 @@
   0%   { transform: translateY(0)       translateX(0)           scale(1);    opacity: 0;   }
   6%   { opacity: 0.9; }
 
-  /* rise through full div — fully visible */
+  /* rise through full div - fully visible */
   72%  { transform: translateY(-720px)  translateX(var(--drift)) scale(1.04); opacity: 0.88; }
 
   /* decelerate near top */
@@ -232,7 +232,7 @@
 
 /* ── Right form card ── */
 .pf-card {
-  /* 50/50 diagonal blend — blue top-left fades into gold bottom-right, full coverage */
+  /* 50/50 diagonal blend - blue top-left fades into gold bottom-right, full coverage */
   background:
     linear-gradient(
       135deg,
@@ -249,7 +249,7 @@
   isolation: isolate;
 }
 
-/* Spinning border — blue and gold arcs span the full border and blend into each other */
+/* Spinning border - blue and gold arcs span the full border and blend into each other */
 .pf-card::before {
   content: '';
   position: absolute;

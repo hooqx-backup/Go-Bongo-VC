@@ -1,4 +1,4 @@
-/* ── AboutHero ── */
+﻿/* ── AboutHero ── */
 .about-hero {
   padding-top: 70px;
   min-height: 90vh; 
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-/* Colorful gradient mesh — mirrors home hero palette */
+/* Colorful gradient mesh - mirrors home hero palette */
 .about-hero-mesh {
   position: absolute;
   inset: 0;

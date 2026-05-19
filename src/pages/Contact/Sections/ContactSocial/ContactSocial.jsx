@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import './ContactSocial.css';
 
 const SOCIAL_LINKS = [
@@ -10,7 +10,7 @@ export default function ContactSocial() {
     <div className="csoc-outer">
       <div className="csoc-sec">
 
-        {/* Left text — slides in from left */}
+        {/* Left text - slides in from left */}
         <motion.div
           className="csoc-text"
           initial={{ opacity: 0, x: -64 }}
@@ -22,7 +22,7 @@ export default function ContactSocial() {
           <div className="csoc-title">We share our thinking publicly.</div>
         </motion.div>
 
-        {/* Right buttons — each rotates in from right with stagger */}
+        {/* Right buttons - each rotates in from right with stagger */}
         <div className="csoc-icons">
           {SOCIAL_LINKS.map((s, i) => (
             <motion.a

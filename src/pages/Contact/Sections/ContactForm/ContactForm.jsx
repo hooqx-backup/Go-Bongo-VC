@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   LuMail, LuRocket, LuNewspaper, LuSend,
@@ -126,7 +126,7 @@ export default function ContactForm({ activeSubject }) {
       '_blank',
     );
 
-    toast.success("Opening WhatsApp — your message is ready to send!");
+    toast.success("Opening WhatsApp - your message is ready to send!");
     setFields(EMPTY_FIELDS);
     setSelectedSubject('Pitching a startup');
   };
@@ -223,7 +223,7 @@ export default function ContactForm({ activeSubject }) {
             viewport={{ once: true, amount: 0.1 }}
           >
 
-            {/* Row 1 — header */}
+            {/* Row 1 - header */}
             <motion.div variants={formRowVariants} className="cf-form-header">
               <div className="cf-form-title">Send us a message</div>
               <div className="cf-form-note-top">
@@ -231,7 +231,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 2 — subject pills */}
+            {/* Row 2 - subject pills */}
             <motion.div variants={formRowVariants} className="cf-field cf-field--full">
               <label className="cf-label">
                 I&apos;m reaching out about <span className="cf-required">*</span>
@@ -260,7 +260,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 3 — names */}
+            {/* Row 3 - names */}
             <motion.div variants={formRowVariants} className="cf-grid-2">
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-fname">
@@ -278,7 +278,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 4 — email + phone */}
+            {/* Row 4 - email + phone */}
             <motion.div variants={formRowVariants} className="cf-grid-2">
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-email">
@@ -296,7 +296,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 5 — company */}
+            {/* Row 5 - company */}
             <motion.div variants={formRowVariants} className="cf-field cf-field--full">
               <label className="cf-label" htmlFor="cf-company">
                 <LuBuilding2 size={12} className="cf-label-icon" />
@@ -305,7 +305,7 @@ export default function ContactForm({ activeSubject }) {
               <input className="cf-input" id="cf-company" type="text" placeholder="Your company name" value={fields.company} onChange={set('company')} />
             </motion.div>
 
-            {/* Row 5 — role + country */}
+            {/* Row 5 - role + country */}
             <motion.div variants={formRowVariants} className="cf-grid-2">
               <div className="cf-field">
                 <label className="cf-label" htmlFor="cf-role">
@@ -336,7 +336,7 @@ export default function ContactForm({ activeSubject }) {
               </div>
             </motion.div>
 
-            {/* Row 6 — message */}
+            {/* Row 6 - message */}
             <motion.div variants={formRowVariants} className="cf-field cf-field--full">
               <label className="cf-label" htmlFor="cf-message">
                 <LuMessageSquare size={12} className="cf-label-icon" />
@@ -351,7 +351,7 @@ export default function ContactForm({ activeSubject }) {
               />
             </motion.div>
 
-            {/* Row 7 — submit */}
+            {/* Row 7 - submit */}
             <motion.div variants={formRowVariants} className="cf-submit-row">
               <div className="cf-privacy-note">
                 By submitting, you agree to our Privacy Policy. We do not share your info.

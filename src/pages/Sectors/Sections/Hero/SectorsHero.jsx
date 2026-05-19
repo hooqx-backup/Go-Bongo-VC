@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+﻿import React, { useRef, useEffect } from "react";
 import {
   motion,
   useInView,
@@ -139,7 +139,7 @@ export default function SectorsHero() {
         {/* ══ LEFT ══ */}
         <div className="sh-left">
 
-          {/* Eyebrow — blur + slide in */}
+          {/* Eyebrow - blur + slide in */}
           <motion.div
             className="sh-eyebrow"
             initial={{ opacity: 0, y: -10, filter: "blur(8px)" }}
@@ -150,7 +150,7 @@ export default function SectorsHero() {
             <span className="sh-eyebrow-text">6 Core Sectors · Deep Conviction</span>
           </motion.div>
 
-          {/* Heading — masked slide-up per line */}
+          {/* Heading - masked slide-up per line */}
           <h1 className="sh-heading">
             {HEADING_LINES.map((line, i) => (
               <div key={i} className="sh-line-mask">
@@ -181,7 +181,7 @@ export default function SectorsHero() {
             ))}
           </h1>
 
-          {/* Sub — blur in */}
+          {/* Sub - blur in */}
           <motion.p
             className="sh-sub"
             initial={{ opacity: 0, filter: "blur(6px)" }}
@@ -204,7 +204,7 @@ export default function SectorsHero() {
             <Link to="/pitch" className="sh-btn-ghost">Create a Unicorn</Link>
           </motion.div>
 
-          {/* Stats — count up on enter */}
+          {/* Stats - count up on enter */}
           <motion.div
             className="sh-stats-row"
             initial={{ opacity: 0, y: 14 }}
@@ -222,7 +222,7 @@ export default function SectorsHero() {
           </motion.div>
         </div>
 
-        {/* ══ RIGHT — tilting card grid ══ */}
+        {/* ══ RIGHT - tilting card grid ══ */}
         <motion.div
           className="sh-right"
           style={{

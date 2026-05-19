@@ -1,4 +1,4 @@
-/* ── PitchCriteria ── */
+﻿/* ── PitchCriteria ── */
 
 .pc-criteria {
   background: var(--bg-main);
@@ -66,7 +66,7 @@
   border: 1px solid transparent;
 }
 
-/* Soft tinted backgrounds — very low opacity, fresh */
+/* Soft tinted backgrounds - very low opacity, fresh */
 .pc-card--blue {
   background: linear-gradient(160deg, rgba(26,86,232,0.05) 0%, rgba(255,255,255,0.95) 55%);
   border-color: rgba(26,86,232,0.10);
@@ -86,7 +86,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);  /* centered by default — JS x overrides translation */
+  transform: translateX(-50%);  /* centered by default - JS x overrides translation */
   width: 55%;
   height: 3px;
   border-radius: 0 0 6px 6px;

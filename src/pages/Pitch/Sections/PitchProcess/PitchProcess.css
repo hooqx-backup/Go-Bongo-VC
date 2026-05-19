@@ -1,4 +1,4 @@
-/* ── PitchProcess ── */
+﻿/* ── PitchProcess ── */
 
 .ppr-process {
   background: var(--cream2);
@@ -33,7 +33,7 @@
 }
 
 /* ─────────────────────────────────────────
-   Accordion row — bar chart style
+   Accordion row - bar chart style
 ───────────────────────────────────────── */
 .ppr-accordion {
   display: flex;
@@ -43,7 +43,7 @@
   margin-bottom: 56px;
 }
 
-/* ── Single panel — rounded bar ── */
+/* ── Single panel - rounded bar ── */
 .ppr-panel {
   flex: 1;
   min-width: 72px;
@@ -70,7 +70,7 @@
   background: rgba(13, 13, 11, 0.04);
 }
 
-/* Accent top bar — only on inactive */
+/* Accent top bar - only on inactive */
 .ppr-panel::before {
   content: '';
   position: absolute;
@@ -135,7 +135,7 @@
 }
 
 /* ─────────────────────────────────────────
-   Expanded content — white text on dark bar
+   Expanded content - white text on dark bar
 ───────────────────────────────────────── */
 .ppr-panel__expanded {
   position: absolute;

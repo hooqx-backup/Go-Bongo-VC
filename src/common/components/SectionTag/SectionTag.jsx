@@ -1,7 +1,7 @@
-import './SectionTag.css';
+﻿import './SectionTag.css';
 
 /**
- * SectionTag — reusable section label with ::before accent bar.
+ * SectionTag - reusable section label with ::before accent bar.
  * Props:
  *   color  "blue" | "gold"   default: "blue"
  */

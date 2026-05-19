@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Sora:wght@400;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Sora:wght@400;500;600;700;800;900&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -271,7 +271,7 @@
   min-width: 0;
 }
 
-/* Globe card — top-left */
+/* Globe card - top-left */
 .hero-card-countries {
   position: absolute;
   top: 20px; left: 0;
@@ -288,7 +288,7 @@
 }
 .hero-counter-label { font-size: 11px; color: #7A7A72; font-weight: 500; }
 
-/* Portfolio Growth card — top-right */
+/* Portfolio Growth card - top-right */
 .hero-card-portfolio {
   position: absolute;
   top: 20px; right: 0;
@@ -313,7 +313,7 @@
 .hero-cat-label        { font-size: 10.5px; font-weight: 600; color: #475569; }
 .hero-cat-count        { font-size: 11px; font-weight: 800; color: #0D0D0B; }
 
-/* Notification card — bottom, left of center */
+/* Notification card - bottom, left of center */
 .hero-card-notification {
   position: absolute;
   bottom: 58px; left: 8px;
@@ -328,7 +328,7 @@
 .hero-notification-title { font-size: 11.5px; font-weight: 700; color: #0D0D0B; margin-bottom: 2px; }
 .hero-notification-sub   { font-size: 10px; color: #94a3b8; }
 
-/* Sectors dark card — bottom-right */
+/* Sectors dark card - bottom-right */
 .hero-card-sectors {
   position: absolute;
   bottom: 0; right: 0;
@@ -357,7 +357,7 @@
 .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulseDot 1.8s ease-in-out infinite; flex-shrink: 0; }
 
 /* ─────────────────────────────────────────
-   STATS BAR — also max-width + margin auto
+   STATS BAR - also max-width + margin auto
 ───────────────────────────────────────── */
 .hero-stats {
   width: 100%;
@@ -379,7 +379,7 @@
 .stat-divider    { width: 1px; height: 32px; background: rgba(0,0,0,0.08); flex-shrink: 0; margin: 0 36px; }
 
 /* ─────────────────────────────────────────
-   VC STATS ROW — 4 figures above marquee
+   VC STATS ROW - 4 figures above marquee
 ───────────────────────────────────────── */
 .hero-vc-stats {
   display: flex;

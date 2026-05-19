@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import Button from '../../../../common/components/Button/Button';
 import './PitchCTA.css';
 
@@ -23,12 +23,12 @@ export default function PitchCTA() {
 
       <div className="pctx-inner">
 
-        {/* Glass panel — 2-col, book-fold reveal */}
+        {/* Glass panel - 2-col, book-fold reveal */}
         <div className="pctx-panel" style={{ perspective: '1800px' }}>
           {/* Gold top accent */}
           <div className="pctx-panel__accent" aria-hidden="true" />
 
-          {/* Left — folds open from the right edge (spine) */}
+          {/* Left - folds open from the right edge (spine) */}
           <motion.div
             className="pctx-panel__left"
             initial={{ rotateY: -90, opacity: 0, backgroundColor: 'rgba(209,224,255,0.85)' }}
@@ -53,7 +53,7 @@ export default function PitchCTA() {
             </div>
           </motion.div>
 
-          {/* Right — folds open from the left edge (spine) */}
+          {/* Right - folds open from the left edge (spine) */}
           <motion.div
             className="pctx-panel__right"
             initial={{ rotateY: 90, opacity: 0, backgroundColor: 'rgba(251,242,210,0.85)' }}
@@ -64,7 +64,7 @@ export default function PitchCTA() {
           >
             <blockquote className="pctx-quote">
               <p>
-                A pass from us is not a no forever. We pass on many great companies — sometimes
+                A pass from us is not a no forever. We pass on many great companies sometimes
                 the sector does not fit our current thesis, sometimes the timing is wrong, sometimes
                 we simply do not have the bandwidth to be the partner a company deserves.
               </p>
@@ -82,7 +82,7 @@ export default function PitchCTA() {
           </motion.div>
         </div>
 
-        {/* Stats strip — folds up from floor */}
+        {/* Stats strip - folds up from floor */}
         <motion.div
           className="pctx-stats"
           initial={{ rotateX: 52, opacity: 0 }}

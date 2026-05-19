@@ -1,4 +1,4 @@
-/* ── BlogPost — Modern Editorial Layout ── */
+﻿/* ── BlogPost - Modern Editorial Layout ── */
 
 /* ── Reading Progress Bar ── */
 .bp-progress {
@@ -29,7 +29,7 @@
   line-height: inherit;
 }
 
-/* ── Hero — full-bleed gradient cover ── */
+/* ── Hero - full-bleed gradient cover ── */
 .bp-hero {
   position: relative;
   min-height: 70vh;
@@ -38,7 +38,7 @@
   flex-direction: column;
 }
 
-/* The gradient cover — fills the whole hero absolutely */
+/* The gradient cover - fills the whole hero absolutely */
 .bp-hero__cover {
   position: absolute;
   inset: 0;
@@ -100,7 +100,7 @@
   box-sizing: border-box;
 }
 
-/* Top row — back link + category pill */
+/* Top row - back link + category pill */
 .bp-hero__nav {
   display: flex;
   align-items: center;
@@ -146,7 +146,7 @@
   flex-shrink: 0;
 }
 
-/* Bottom group — title + meta */
+/* Bottom group - title + meta */
 .bp-hero__bottom {
   display: flex;
   flex-direction: column;
@@ -164,7 +164,7 @@
   margin-bottom: 32px;
 }
 
-/* Meta strip — author left, date/time right */
+/* Meta strip - author left, date/time right */
 .bp-meta {
   display: flex;
   align-items: center;
@@ -262,7 +262,7 @@
   letter-spacing: 0.1em;
 }
 
-/* ── Article Layout — 2 columns ── */
+/* ── Article Layout - 2 columns ── */
 .bp-layout {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -282,7 +282,7 @@
   margin-bottom: 28px;
 }
 
-/* Lead paragraph — first p in article */
+/* Lead paragraph - first p in article */
 .bp-content p:first-child {
   font-size: 19px;
   color: var(--text-primary);
@@ -315,7 +315,7 @@
   letter-spacing: 0.06em;
 }
 
-/* Custom list — no default bullets */
+/* Custom list - no default bullets */
 .bp-content ul {
   padding: 0;
   margin: 0 0 32px;
@@ -355,7 +355,7 @@
   transform: scale(1.3);
 }
 
-/* ── Pull Quote — editorial break-out style ── */
+/* ── Pull Quote - editorial break-out style ── */
 .bp-pullquote {
   position: relative;
   margin: 56px -44px;
@@ -392,7 +392,7 @@
   z-index: 1;
 }
 
-/* ── Article Footer (mobile only — tags + CTA) ── */
+/* ── Article Footer (mobile only - tags + CTA) ── */
 .bp-article-footer {
   display: none;
   align-items: center;

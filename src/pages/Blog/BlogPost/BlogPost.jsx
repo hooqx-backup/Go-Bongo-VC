@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+﻿import { useParams, Link } from 'react-router-dom';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
 import { POST_CONTENT } from './posts';
@@ -27,7 +27,7 @@ function renderBlock(block, i) {
       );
 
     case 'h2':
-      /* Horizontal clip-path sweep — text wipes in from left to right */
+      /* Horizontal clip-path sweep - text wipes in from left to right */
       return (
         <motion.h2
           key={i}
@@ -54,7 +54,7 @@ function renderBlock(block, i) {
       );
 
     case 'ul':
-      /* Staggered list — items cascade in from the left one by one */
+      /* Staggered list - items cascade in from the left one by one */
       return (
         <motion.ul
           key={i}
@@ -82,7 +82,7 @@ function renderBlock(block, i) {
       );
 
     case 'pullquote':
-      /* Blur + scale entrance — the giant mark rotates into place */
+      /* Blur + scale entrance - the giant mark rotates into place */
       return (
         <motion.blockquote
           key={i}
@@ -139,13 +139,13 @@ export default function BlogPost() {
       {/* Reading progress bar */}
       <motion.div className="bp-progress" style={{ scaleX }} />
 
-      {/* ── Hero — full-bleed gradient cover ── */}
+      {/* ── Hero - full-bleed gradient cover ── */}
       <section className="bp-hero">
         <div className={`bp-hero__cover bg-card__img--${post.imgVariant}`}>
           <div className="bp-abstract-orb bp-abstract-orb--1" />
           <div className="bp-abstract-orb bp-abstract-orb--2" />
           <div className="bp-hero__noise" />
-          {/* Watermark drifts downward as user scrolls — parallax */}
+          {/* Watermark drifts downward as user scrolls - parallax */}
           <motion.span className="bp-hero__wm" aria-hidden="true" style={{ y: wmY }}>
             {post.imgWatermark}
           </motion.span>
@@ -169,7 +169,7 @@ export default function BlogPost() {
           </motion.div>
 
           <div className="bp-hero__bottom">
-            {/* Word-cascade title — each word slides up from clip */}
+            {/* Word-cascade title - each word slides up from clip */}
             <h1 className="bp-title">
               {titleWords.map((word, i) => (
                 <span key={i} className="bp-word-wrap">
@@ -214,7 +214,7 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* ── Stats strip — blur-to-sharp number entrance ── */}
+      {/* ── Stats strip - blur-to-sharp number entrance ── */}
       {post.stats && (
         <div className="bp-stats-strip">
           {post.stats.map((s, i) => (
@@ -241,15 +241,15 @@ export default function BlogPost() {
         </div>
       )}
 
-      {/* ── Article — 2-column layout ── */}
+      {/* ── Article - 2-column layout ── */}
       <div className="bp-layout">
         <main className="bp-main">
-          {/* Each block handles its own whileInView — no wrapping RevealWrapper */}
+          {/* Each block handles its own whileInView - no wrapping RevealWrapper */}
           <div className="bp-content">
             {post.body.map((block, i) => renderBlock(block, i))}
           </div>
 
-          {/* Mobile-only — tags + CTA (desktop version lives in sidebar) */}
+          {/* Mobile-only - tags + CTA (desktop version lives in sidebar) */}
           <div className="bp-article-footer">
             <div className="bp-tags">
               {post.tags.map((tag) => <span key={tag} className="bp-tag">{tag}</span>)}
@@ -258,7 +258,7 @@ export default function BlogPost() {
           </div>
         </main>
 
-        {/* ── Sticky sidebar — slides in from right ── */}
+        {/* ── Sticky sidebar - slides in from right ── */}
         <aside className="bp-sidebar">
           <motion.div
             className="bp-sidebar__card"

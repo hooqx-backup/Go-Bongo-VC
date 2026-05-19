@@ -1,5 +1,5 @@
-/* ─────────────────────────────────────────
-   MARQUEE — global reusable ticker
+﻿/* ─────────────────────────────────────────
+   MARQUEE - global reusable ticker
 ───────────────────────────────────────── */
 
 @keyframes marqueeScroll {
@@ -47,13 +47,13 @@
   background: linear-gradient(to left, #ffffff 0%, transparent 100%);
 }
 
-/* Track wrapper — clips overflow */
+/* Track wrapper - clips overflow */
 .marquee-track-wrap {
   overflow: hidden;
   white-space: nowrap;
 }
 
-/* The moving strip — width auto keeps it as one line */
+/* The moving strip - width auto keeps it as one line */
 .marquee-track {
   display: inline-flex;
   align-items: center;
