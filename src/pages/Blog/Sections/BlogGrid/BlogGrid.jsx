@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+﻿import { useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { LuArrowRight } from 'react-icons/lu';
@@ -24,7 +24,7 @@ export const POSTS = [
     imgVariant: 'gold',
     category: 'Founder Resources',
     title: 'Building in Dubai: What Founders Need to Know',
-    excerpt: 'DIFC, ADGM, free zones — navigating the UAE startup ecosystem is complex. We break down what matters and what doesn\'t.',
+    excerpt: 'DIFC, ADGM, free zones - navigating the UAE startup ecosystem is complex. We break down what matters and what doesn\'t.',
     author: { initials: 'RK', name: 'Riya Kapoor', color: 'gold' },
     date: 'Feb 2025',
     readTime: '10 min',
@@ -57,7 +57,7 @@ export const POSTS = [
     imgVariant: 'indigo',
     category: 'Founder Resources',
     title: 'How We Evaluate Early-Stage Startups',
-    excerpt: 'No black box. We walk through our exact framework — from the first email to a term sheet — so founders know exactly what we\'re looking for.',
+    excerpt: 'No black box. We walk through our exact framework - from the first email to a term sheet - so founders know exactly what we\'re looking for.',
     author: { initials: 'AH', name: 'Ahmed Hassan', color: 'blue' },
     date: 'Oct 2024',
     readTime: '9 min',
@@ -83,7 +83,7 @@ const FILTERS = [
   { label: 'Team',               count: 1 },
 ];
 
-/* Entry direction per index — each card comes from a different angle */
+/* Entry direction per index - each card comes from a different angle */
 const ENTRY_VARIANTS = [
   { x: 0,   y: 60  },  // 0 → from bottom
   { x: 60,  y: 30  },  // 1 → from right-bottom
@@ -163,7 +163,7 @@ function BlogCard({ post, index }) {
         {/* Read time */}
         <div className="bg-card__time">{post.readTime} read</div>
 
-        {/* Permanent bottom — fades out on hover */}
+        {/* Permanent bottom - fades out on hover */}
         <div className="bg-card__base">
           <div className="bg-card__base-title">{post.title}</div>
           <div className="bg-card__base-author">
@@ -174,7 +174,7 @@ function BlogCard({ post, index }) {
           </div>
         </div>
 
-        {/* Hover drawer — slides up */}
+        {/* Hover drawer - slides up */}
         <div className="bg-card__drawer">
           <div className="bg-card__drawer-title">{post.title}</div>
           <p className="bg-card__drawer-excerpt">{post.excerpt}</p>

@@ -1,4 +1,4 @@
-/* ── BlogFeatured ── */
+﻿/* ── BlogFeatured ── */
 
 .bf-outer {
   background: var(--cream);
@@ -12,7 +12,7 @@
 
 .bf-tag-wrap { margin-bottom: 28px; }
 
-/* ── Main card — full bleed editorial ── */
+/* ── Main card - full bleed editorial ── */
 .bf-card {
   position: relative;
   border-radius: 32px;

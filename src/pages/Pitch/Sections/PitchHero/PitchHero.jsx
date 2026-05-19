@@ -16,7 +16,7 @@ const CARD_STATS = [
 ];
 
 const CRITERIA = [
-  "Founder-market fit — lived experience required",
+  "Founder-market fit lived experience required",
   "Problem + solution in one paragraph",
   "A number that proves early traction",
   "MENA, South Asia, or global play",

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, TrendingUp, Target, Quote, ArrowRight } from 'lucide-react';
@@ -75,7 +75,7 @@ const MarqueeDrawerBtn = ({ href, color, companyName, sector, stats, tags }) => 
           <div className="mdsb-top">
             <div className="mdsb-title">{companyName}<br />{sector}</div>
             <div className="mdsb-stat-block">
-              <div className="mdsb-stat-val">{stats?.[0]?.n ?? '—'}</div>
+              <div className="mdsb-stat-val">{stats?.[0]?.n ?? 'N/A'}</div>
               <div className="mdsb-stat-lbl">{stats?.[0]?.l ?? ''}</div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const MarqueeDrawerBtn = ({ href, color, companyName, sector, stats, tags }) => 
 
           <div className="mdsb-bot">
             <div>
-              <div className="mdsb-bot-val">{stats?.[1]?.n ?? '—'}</div>
+              <div className="mdsb-bot-val">{stats?.[1]?.n ?? 'N/A'}</div>
               <div className="mdsb-bot-lbl">{stats?.[1]?.l ?? ''}</div>
             </div>
             <div className="mdsb-cta">
@@ -180,7 +180,7 @@ export default function PortfolioCompanyPage() {
                 <li><strong>Founded:</strong> {company.founded}</li>
                 <li><strong>Team:</strong> {company.details.employees}</li>
               </ul> */}
-{/* Bottom — Marquee Drawer Button replaces old stamp */}
+{/* Bottom - Marquee Drawer Button replaces old stamp */}
             <div className="sidebar-bottom">
               <MarqueeDrawerBtn
                 href={`https://${company.details.website}`}

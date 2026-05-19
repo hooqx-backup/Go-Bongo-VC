@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    1. ROOT & BASE LAYOUT
    ========================================================== */
 .pgrid-root { background: var(--bg-main, #FAFAFA); padding: 110px 0; position: relative; overflow: hidden; min-height: 100vh; }
@@ -666,7 +666,7 @@
   .dossier-title { font-size: 34px; }
 }
 
-/* Orbit moon — CSS keyframe replaces Framer Motion JS loop */
+/* Orbit moon - CSS keyframe replaces Framer Motion JS loop */
 @keyframes pgrid-orbit-spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }

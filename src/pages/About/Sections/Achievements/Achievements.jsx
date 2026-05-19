@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Building2, Globe2, Users2, Trophy, BarChart4 } from 'lucide-react';
@@ -16,7 +16,7 @@ const ACHIEVEMENTS = [
   desc: 'Strategically expanding into high-growth international regions with a long-term global vision.',
   type: 'gold'
 },  { icon: <Users2 />, num: '200+', title: 'Team Members Across Group', desc: 'Full-time talent employed across all portfolio companies in operations and tech.', type: 'blue' },
-  { icon: <Trophy />, num: '7', title: 'Countries of Operation', desc: "UAE, India, Bangladesh, USA, Canada, UK, and Germany — growing to 15 by 2030.", type: 'gold' },
+  { icon: <Trophy />, num: '7', title: 'Countries of Operation', desc: "UAE, India, Bangladesh, USA, Canada, UK, and Germany - growing to 15 by 2030.", type: 'gold' },
   { icon: <BarChart4 />, num: '6', title: 'Industry Sectors Covered', desc: 'Deliberately diversified across essential, resilient industries with high growth.', type: 'blue' },
 ];
 

@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import "./Button.css";
 
 /**
  * Global Button
  *
  * Usage:
- *   <Button to="/about">Internal link</Button>        — React Router navigation
- *   <Button href="https://x.com">External</Button>   — opens in new tab
- *   <Button onClick={fn}>Action</Button>              — plain button
+ *   <Button to="/about">Internal link</Button>        - React Router navigation
+ *   <Button href="https://x.com">External</Button>   - opens in new tab
+ *   <Button onClick={fn}>Action</Button>              - plain button
  *
  * Props:
  *   variant  "primary" | "ghost"   default: "primary"
  *   size     "sm" | "md" | "lg"    default: "md"
- *   to       string  — internal route (React Router Link)
- *   href     string  — external URL (anchor tag)
+ *   to       string  - internal route (React Router Link)
+ *   href     string  - external URL (anchor tag)
  *   disabled boolean
- *   className string — extra classes
+ *   className string - extra classes
  */
 export default function Button({
   children,

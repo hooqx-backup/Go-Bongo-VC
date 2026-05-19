@@ -1,4 +1,4 @@
-/* ── PitchThesis ── */
+﻿/* ── PitchThesis ── */
 
 .pt-thesis {
   background: var(--cream);
@@ -48,7 +48,7 @@
   font-family: 'Sora', sans-serif;
 }
 
-/* ── Carousel outer — clips + edge fades ── */
+/* ── Carousel outer - clips + edge fades ── */
 .pt-carousel-outer {
   overflow: hidden;
   position: relative;
@@ -87,12 +87,12 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ── 3D wrapper — JS writes transform + opacity + z-index here ── */
+/* ── 3D wrapper - JS writes transform + opacity + z-index here ── */
 .pt-col-wrap {
   flex-shrink: 0;
   will-change: transform, opacity;
   transform-origin: center center;
-  /* No CSS transition — RAF updates every frame for fluid motion */
+  /* No CSS transition - RAF updates every frame for fluid motion */
 }
 
 /* ── Card ── */
@@ -120,7 +120,7 @@
 .pt-col-wrap:hover .pt-col.pt-col--gold { box-shadow: 0 28px 64px rgba(184, 137, 42, 0.18); }
 .pt-col-wrap:hover .pt-col.pt-col--teal { box-shadow: 0 28px 64px rgba(13, 148, 136, 0.18); }
 
-/* Colored top accent bar — thicker + glowing */
+/* Colored top accent bar - thicker + glowing */
 .pt-col::before {
   content: '';
   position: absolute;

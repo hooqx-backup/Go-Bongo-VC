@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    GLOBAL & RESET (Editorial Brutalism)
    ========================================================== */
 .pcp-hatke-wrapper {
@@ -197,7 +197,7 @@
    Replaces the old .hatke-stamp-wrapper / .hatke-stamp-btn
    ========================================================== */
 
-/* Root anchor — sized to the ring circle */
+/* Root anchor - sized to the ring circle */
 .mdsb-root {
   position: relative;
   display: inline-block;
@@ -257,7 +257,7 @@
   transform: rotate(180deg);
 }
 
-/* Drawer — grows in height, slides right from behind the circle */
+/* Drawer - grows in height, slides right from behind the circle */
 .mdsb-drawer {
   position: absolute;
   top: 50%;

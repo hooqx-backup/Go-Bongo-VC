@@ -1,5 +1,5 @@
-/* ══════════════════════════════════════════════
-   FOUNDER VOICES  —  Leadership.css
+﻿/* ══════════════════════════════════════════════
+   FOUNDER VOICES  -  Leadership.css
    Infinite auto-scroll slider, white-themed
    ══════════════════════════════════════════════ */
 
@@ -112,7 +112,7 @@
    INFINITE SLIDER
    ══════════════════════ */
 
-/* Outer wrapper — full width, clips overflow, shows edge fades */
+/* Outer wrapper - full width, clips overflow, shows edge fades */
 .fv-slider-outer {
   position: relative;
   width: 100%;
@@ -145,7 +145,7 @@
   background: linear-gradient(to left, #F8F7F4 0%, transparent 100%);
 }
 
-/* Scrolling track — duplicated cards, animates -50% = one full set */
+/* Scrolling track - duplicated cards, animates -50% = one full set */
 .fv-track {
   display: flex;
   gap: 24px;

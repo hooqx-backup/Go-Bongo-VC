@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { motion, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./Hero.css";
@@ -179,15 +179,15 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT COLUMN — positioned cards ── */}
+        {/* ── RIGHT COLUMN - positioned cards ── */}
         <div className="hero-right" aria-hidden="true">
 
-          {/* Globe / Countries card — left side, floats gently */}
+          {/* Globe / Countries card - left side, floats gently */}
           <motion.div
             {...cardEnter(0.68, -16, 16)}
             className="glass-card float-a hero-card-countries"
           >
-            {/* Globe placeholder — swap with <Globe> component when available */}
+            {/* Globe placeholder - swap with <Globe> component when available */}
             <svg
               viewBox="0 0 160 130"
               width="100%"
@@ -224,7 +224,7 @@ export default function Hero() {
             <p className="hero-counter-label">Countries of operation</p>
           </motion.div>
 
-          {/* Portfolio Growth card — right side, wider */}
+          {/* Portfolio Growth card - right side, wider */}
           <motion.div
             {...cardEnter(0.78, 24, 16)}
             style={{width:"360px"}}
@@ -270,7 +270,7 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* Notification card — bottom-center */}
+          {/* Notification card - bottom-center */}
           <motion.div
             {...cardEnter(0.94, 0, 20)}
             className="glass-card hero-card-notification"
@@ -284,7 +284,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Sectors dark card — bottom-right */}
+          {/* Sectors dark card - bottom-right */}
           <motion.div
             {...cardEnter(1.02, 20, 20)}
             className="hero-card-sectors"

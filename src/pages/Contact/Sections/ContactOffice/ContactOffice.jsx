@@ -12,7 +12,7 @@ const OFFICES = [
     city: 'Delaware',
     country: 'United States of America',
     detail: ['Legal HQ & incorporation', 'Primary fund & holding entity'],
-    badge: 'HQ · Est. 2022',
+    badge: 'HQ · Est. 2017',
     accent: 'var(--gold)',
     accentRgb: '184,137,42',
   },

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import {
   motion,
   useMotionValue,
@@ -47,7 +47,7 @@ const SPRING_SLOW  = { stiffness: 180, damping: 22, mass: 0.8 };
 function TiltCard({ c, i }) {
   const ref = useRef(null);
 
-  /* Mouse position — starts flat (0,0) */
+  /* Mouse position - starts flat (0,0) */
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
@@ -68,14 +68,14 @@ function TiltCard({ c, i }) {
   const sheen  = useMotionTemplate`radial-gradient(circle at ${sheenX}% ${sheenY}%, rgba(255,255,255,0.30), transparent 58%)`;
 
   /*
-    Moving top bar — mouse left → bar drifts left,
+    Moving top bar - mouse left → bar drifts left,
     mouse right → bar drifts right, from center.
     Uses a slower spring so it trails behind the tilt.
   */
   const barSX  = useSpring(rawX, SPRING_SLOW);
   const barX   = useTransform(barSX, [-0.5, 0.5], [-28, 28]);
 
-  /* Icon float — opposite direction (parallax) */
+  /* Icon float - opposite direction (parallax) */
   const iconX  = useTransform(sX, [-0.5, 0.5], [ 6, -6]);
   const iconY  = useTransform(sY, [-0.5, 0.5], [ 6, -6]);
 

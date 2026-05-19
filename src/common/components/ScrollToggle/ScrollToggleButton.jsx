@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import "./ScrollToggleButton.css";
 
 export default function ScrollToggleButton() {
@@ -71,7 +71,7 @@ export default function ScrollToggleButton() {
           strokeLinecap="round"
           transform="rotate(-90 25 25)"
         />
-        {/* Arrow — chevron down or up */}
+        {/* Arrow - chevron down or up */}
         <polyline
           className="stb-arrow"
           points={atBottom ? "17 28 25 20 33 28" : "17 22 25 30 33 22"}

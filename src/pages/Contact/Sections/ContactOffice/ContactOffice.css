@@ -1,4 +1,4 @@
-/* ── ContactOffice ── */
+﻿/* ── ContactOffice ── */
 
 .co-outer {
   background: var(--cream2);
@@ -81,7 +81,7 @@
   filter: brightness(0.94);
 }
 
-/* Top accent bar — always visible on active, slides in on others on hover */
+/* Top accent bar - always visible on active, slides in on others on hover */
 .co-card__accent-bar {
   position: absolute;
   top: 0; left: 0; right: 0;

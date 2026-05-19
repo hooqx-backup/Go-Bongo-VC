@@ -1,4 +1,4 @@
-export const COMPANIES = [
+﻿export const COMPANIES = [
   {
     id: 'gobongo-shop',
     name: 'GoBongo Shop',
@@ -51,7 +51,7 @@ export const COMPANIES = [
     highlights: [
       { text: 'Same-day delivery available across Dubai, Abu Dhabi, and Sharjah' },
       { text: 'Real-time GPS tracking with predictive ETA notifications' },
-      { text: 'Powers fulfilment for GoBongo Shop — deep cross-portfolio integration' },
+      { text: 'Powers fulfilment for GoBongo Shop - deep cross-portfolio integration' },
       { text: 'ML-based route optimisation reducing delivery cost by 22% vs. incumbents' },
     ],
     quote: "GoBongo Venture doesn't just invest, they build alongside you. The cross-portfolio access they gave us opened doors we couldn't have knocked on alone.",
@@ -83,7 +83,7 @@ export const COMPANIES = [
       { text: 'Vetted network of 2,000+ regional freelancers across 15 disciplines' },
       { text: 'Local currency payments including AED, SAR, PKR with zero FX friction' },
       { text: 'Provides digital services to other GoBongo Venture portfolio companies' },
-      { text: 'Bilingual platform — full Arabic and English UX' },
+      { text: 'Bilingual platform - full Arabic and English UX' },
     ],
     quote: "The gap in the market was obvious but you need operational depth to serve it. Hooqx isn't a clone of Upwork. It's built for how MENA businesses actually work.",
     quoteAttr: 'Founders, Hooqx LLC',
@@ -109,7 +109,7 @@ export const COMPANIES = [
     heroBg: 'linear-gradient(135deg,#0A0A08 0%,#1A1002 100%)',
     about: 'Tradeflink is a B2B trade finance and procurement platform that connects buyers and suppliers across the Asia-UAE-Europe corridor. The platform provides intelligent matching, invoice financing, and compliance tools for importers and exporters operating in emerging market trade lanes.',
     problem: 'Cross-border B2B trade in the MENA-Asia corridor is plagued by payment delays, opaque financing options, and manual compliance processes that add weeks and cost to every transaction.',
-    solution: 'A unified platform for trade discovery, invoice financing, HS code compliance, and counterparty verification — purpose-built for the Asia-UAE-Europe corridor.',
+    solution: 'A unified platform for trade discovery, invoice financing, HS code compliance, and counterparty verification - purpose-built for the Asia-UAE-Europe corridor.',
     highlights: [
       { text: 'Live coverage of 40+ trade lanes across Asia, MENA, and Europe' },
       { text: 'AI-powered HS code classification with high accuracy' },
@@ -171,7 +171,7 @@ export const COMPANIES = [
     heroBg: 'linear-gradient(135deg,#0A0A08 0%,#0D1B3E 100%)',
     about: 'CallTawk is a cloud communications platform that gives MENA businesses enterprise-grade contact centre capabilities without the enterprise price tag. From virtual numbers to AI-powered call routing, CallTawk modernises how regional businesses talk to their customers.',
     problem: 'MENA SMEs and mid-market businesses rely on legacy telephony infrastructure that is expensive, inflexible, and completely disconnected from digital customer journeys.',
-    solution: 'A cloud-native communications platform with virtual numbers across 50+ countries, intelligent call routing, CRM integrations, and real-time analytics — deployed in days, not months.',
+    solution: 'A cloud-native communications platform with virtual numbers across 50+ countries, intelligent call routing, CRM integrations, and real-time analytics - deployed in days, not months.',
     highlights: [
       { text: 'Virtual number provisioning across 50+ countries instantly' },
       { text: 'AI-powered IVR and call routing with Arabic language support' },

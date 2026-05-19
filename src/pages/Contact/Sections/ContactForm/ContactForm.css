@@ -1,4 +1,4 @@
-/* ── ContactForm ── */
+﻿/* ── ContactForm ── */
 
 .cf-outer {
   background: var(--cream);
@@ -310,7 +310,7 @@
   line-height: 1.6;
 }
 
-/* ── Subject pills — liquid morph ── */
+/* ── Subject pills - liquid morph ── */
 .cf-subjects {
   display: flex;
   flex-wrap: wrap;
