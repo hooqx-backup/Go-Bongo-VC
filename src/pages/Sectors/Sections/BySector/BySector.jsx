@@ -24,10 +24,12 @@ const GROUPS = [
     name: "E-Commerce & Retail",
     accent: "#1A56E8",
     accentBg: "#EEF3FF",
-    count: "2 Ventures",
+    count: "4 Ventures",
     companies: [
-      { name: "Thescooda",    geo: "Global",logoBg: "#EEF3FF", Icon: Package,    iconColor: "#1A56E8" },
-      { name: "GoBongo Shop", geo: "Global · Flagship", logoBg: "#FBF5E8", Icon: Store,      iconColor: "#B8892A" },
+      { name: "Thescooda",    geo: "Global",            logoBg: "#EEF3FF", Icon: Package,    iconColor: "#1A56E8" },
+      { name: "GoBongo Shop", geo: "UAE · Flagship",    logoBg: "#FBF5E8", Icon: Store,      iconColor: "#B8892A" },
+      { name: "BigBuy",       geo: "UAE",               logoBg: "#FFF4EE", Icon: Package,    iconColor: "#EA580C" },
+      { name: "BigMeat",      geo: "UAE",               logoBg: "#FFF1EB", Icon: Store,      iconColor: "#DC2626" },
     ],
   },
   {
@@ -37,7 +39,7 @@ const GROUPS = [
     accentBg: "#F0FDFB",
     count: "2 Ventures",
     companies: [
-      { name: "Tezz Logistics", geo: "India",        logoBg: "#F0FDFB", Icon: Truck,     iconColor: "#0D9488" },
+      { name: "Tezz Logistics", geo: "India",              logoBg: "#F0FDFB", Icon: Truck,     iconColor: "#0D9488" },
       { name: "Tradeflink",     geo: "Middle East & Asia", logoBg: "#FBF5E8", Icon: Handshake, iconColor: "#B8892A" },
     ],
   },
@@ -46,9 +48,10 @@ const GROUPS = [
     name: "IT & Digital",
     accent: "#7C3AED",
     accentBg: "#F3F0FF",
-    count: "1 Venture",
+    count: "2 Ventures",
     companies: [
-      { name: "Hooqx LLC", geo: "United States", logoBg: "#F3F0FF", Icon: Monitor, iconColor: "#7C3AED" },
+      { name: "Hooqx LLC", geo: "United States", logoBg: "#F3F0FF", Icon: Monitor,  iconColor: "#7C3AED" },
+      { name: "WeDocX",    geo: "UAE",           logoBg: "#F0FDFB", Icon: Globe,    iconColor: "#0D9488" },
     ],
   },
   {
@@ -104,7 +107,7 @@ export default function BySector() {
             Every Venture Mapped<br />to <em className="shimmer-blue">Its Sector</em>
           </h2>
           <p className="bs-sub">
-            Eight companies across six industries each chosen because it sits inside
+            Eleven ventures across six industries — each one chosen because it sits inside
             a structural transformation we have deep conviction in.
           </p>
         </MotionDiv>

@@ -13,30 +13,31 @@ const ABOUT_TAGS = [
 
 const ORBIT_BARS = [30, 55, 42, 70, 50, 85, 60];
 
-/* Logos per ring: [ring1 (2), ring2 (4), ring3 (4)] */
+/* Logos per ring: 3 / 4 / 4 split across inner → outer rings */
 const RING_LOGOS = [
   [
-    { label: "Bongo", src: "/logos/bongologo.png" },
-    { label: "Bongo", src: "/logos/bongologo.png" },
-  ],
-  [
-    { label: "Tezz", src: "/logos/tezzlogo.png" },
-    { label: "Scooda", src: "/logos/scoodalogo.png" },
-    { label: "Hooqx", src: "/logos/hooqxlogo.png" },
-    { label: "TradeFlink", src: "/logos/tradeflinklogo.png" },
-  ],
-  [
-    { label: "CallTawk", src: "/logos/calltawklogo.png" },
-    { label: "GMI", src: "/logos/gmilogo.png" },
-    { label: "Stratigi 360", src: "/logos/stratigi360logo.png" },
     { label: "GoBongo Shop", src: "/logos/bongologo.png" },
+    { label: "BigBuy",       src: "/logos/bigbuylogovc.png" },
+    { label: "BigMeat",      src: "/logos/bigmeatlogovc.png", rotate: 360 },
+  ],
+  [
+    { label: "Tezz",         src: "/logos/tezzlogo.png" },
+    { label: "Scooda",       src: "/logos/scoodalogo.png" },
+    { label: "Hooqx",        src: "/logos/hooqxlogo.png" },
+    { label: "TradeFlink",   src: "/logos/tradeflinklogo.png" },
+  ],
+  [
+    { label: "CallTawk",     src: "/logos/calltawklogo.png" },
+    { label: "GMI",          src: "/logos/gmilogo.png" },
+    { label: "Stratigi 360", src: "/logos/stratigi360logo.png" },
+    { label: "WeDocX",       src: "/logos/wedocxlogo.png" },
   ],
 ];
 
 const RING_RADII   = [90, 160, 230];
 const RING_CLASSES = ["orbit-ring-1", "orbit-ring-2", "orbit-ring-3"];
 const LOGO_COUNTER = ["logo-counter-1", "logo-counter-2", "logo-counter-3"];
-const LOGO_SIZE    = [20, 65, 70];
+const LOGO_SIZE    = [55, 65, 90];
 
 function OrbitSystem() {
   const SIZE = 500;
@@ -87,7 +88,7 @@ function OrbitSystem() {
                     <img
                       src={logo.src}
                       alt={logo.label}
-                      style={{ width: "120%", height: "100%", objectFit: "contain" }}
+                      style={{ width: "120%", height: "100%", objectFit: "contain", transform: logo.rotate ? `rotate(${logo.rotate}deg)` : undefined }}
                     />
                   ) : (
                     <span style={{ fontSize: 19, fontWeight: 700, textAlign: "center", padding: "0 2px" }}>

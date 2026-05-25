@@ -10,7 +10,7 @@ const HERO_STATS = [
 ];
 
 const CARD_STATS = [
-  { num: "8", label: "Portfolio companies" },
+  { num: "11", label: "Portfolio companies" },
   { num: "200+", label: "Applications reviewed" },
   { num: "7", label: "Countries" },
 ];

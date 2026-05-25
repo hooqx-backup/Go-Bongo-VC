@@ -83,7 +83,7 @@ export default function OurStory() {
             resilient than anywhere else.
           </p>
           <p className="story-p">
-            Three years in, we've built 8 ventures across 7 countries spanning 6
+            Three years in, we've built 11 ventures across 7 countries spanning 6
             industries. What began as a holding group has become a genuine
             ecosystem, where each company makes the others stronger.
           </p>

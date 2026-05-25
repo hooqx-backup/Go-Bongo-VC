@@ -25,7 +25,7 @@ export default function PortfolioHero() {
           </motion.div>
 
           <div className="ph-heading-wrap">
-            {['Eight Ventures.', 'One Vision.'].map((line, i) => (
+            {['Eleven Ventures.', 'One Vision.'].map((line, i) => (
               <div className="ph-heading-line" key={line}>
                 <motion.span
                   className="ph-h1"
@@ -73,7 +73,7 @@ export default function PortfolioHero() {
         >
           <div className="ph-card ph-card--1">
             <div className="ph-card__label">Portfolio Growth</div>
-            <div className="ph-card__val">8<em>+</em></div>
+            <div className="ph-card__val">11<em>+</em></div>
             <div className="ph-card__sub">Active ventures across 6 sectors</div>
             <div className="ph-card__bar">
               <div className="ph-card__bar-fill" style={{ '--w': '75%', '--clr': '#1A56E8' }} />

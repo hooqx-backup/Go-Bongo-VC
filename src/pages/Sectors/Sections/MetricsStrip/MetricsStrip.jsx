@@ -36,7 +36,7 @@ function Counter({ value, suffix }) {
 
 const METRICS = [
   { Icon: LayoutGrid,   value: "6",    suffix: "",  label: "Active Sectors",      color: "#1A56E8" },
-  { Icon: Building2,    value: "8",    suffix: "+", label: "Portfolio Companies", color: "#0D9488" },
+  { Icon: Building2,    value: "11",   suffix: "+", label: "Portfolio Companies", color: "#0D9488" },
   { Icon: Globe,        value: "7",    suffix: "",  label: "Countries",           color: "#7C3AED" },
   { Icon: Users,        value: "200",  suffix: "+", label: "Team Members",        color: "#B8892A" },
   { Icon: CalendarDays, value: "2017", suffix: "",  label: "Founded",             color: "#E85D26" },

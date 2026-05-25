@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./Metrics.css";
 
 const STATS = [
-  { value: 8,    suffix: "+",  label: "Portfolio Companies" },
+  { value: 11,   suffix: "+",  label: "Portfolio Companies" },
   { value: 7,    suffix: "",   label: "Countries" },
   { value: 6,    suffix: "",   label: "Industry Sectors" },
   { value: 200,  suffix: "+",  label: "Team Members" },

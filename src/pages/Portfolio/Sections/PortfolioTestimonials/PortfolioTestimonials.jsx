@@ -7,8 +7,8 @@ import './PortfolioTestimonials.css';
 
 // --- MATH & CONFIG CONSTANTS ---
 const CARD_WIDTH = 420;     // Card width (380px) + Gap
-const TOTAL_CARDS = 8;      // Endless loop ke liye 8 cards
-const TOTAL_WIDTH = CARD_WIDTH * TOTAL_CARDS; 
+const TOTAL_CARDS = 11;     // One card per portfolio company
+const TOTAL_WIDTH = CARD_WIDTH * TOTAL_CARDS;
 const HALF_WIDTH = TOTAL_WIDTH / 2;
 const SPEED = -80;          // Speed of wave
 

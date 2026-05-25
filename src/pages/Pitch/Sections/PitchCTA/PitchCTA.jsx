@@ -3,7 +3,7 @@ import Button from '../../../../common/components/Button/Button';
 import './PitchCTA.css';
 
 const STATS = [
-  { value: '8+',   label: 'Ventures Funded' },
+  { value: '11+',  label: 'Ventures Funded' },
   { value: '7',    label: 'Countries Active' },
   { value: '100%', label: 'Applications Read' },
   { value: '5d',   label: 'Avg. Response' },

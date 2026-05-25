@@ -78,7 +78,7 @@ const SECTIONS = [
     title: 'Changes to These Terms',
     content: [
       { type: 'p', text: 'We reserve the right to revise and update these Terms at our sole discretion. All changes are effective immediately when we publish them. Your continued use of the Site following the posting of revised Terms means that you accept and agree to the changes.' },
-      { type: 'p', text: 'If you have any questions about these Terms, please contact us at legal@gobongo.vc or write to us at GoBongo Ventures, Delaware, United States of America.' },
+      { type: 'p', text: 'If you have any questions about these Terms, please contact us at info@gobongo.vc or write to us at GoBongo Ventures, Delaware, United States of America.' },
     ],
   },
 ];

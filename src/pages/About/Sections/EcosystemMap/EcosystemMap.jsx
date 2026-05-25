@@ -3,14 +3,17 @@ import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './EcosystemMap.css';
 
 const VENTURES = [
-  { num: '01', logo: '/logos/scoodalogo.png', name: 'Thescooda', sector: 'E-Commerce', geo: 'Global', dir: { x: -50, y: -50 } },
-  { num: '02', logo: '/logos/tezzlogo.png', name: 'Tezz Logistics', sector: 'Logistics', geo: 'India', dir: { x: 0, y: -60 } },
-  { num: '03', logo: '/logos/hooqxlogo.png', name: 'Hooqx LLC', sector: 'IT & Digital', geo: 'USA', dir: { x: 0, y: -60 } },
-  { num: '04', logo: '/logos/bongologo.png', name: 'GoBongo Shop', sector: 'D2C Retail', geo: 'UAE', dir: { x: 50, y: -50 } },
-  { num: '05', logo: '/logos/tradeflinklogo.png', name: 'Tradeflink', sector: 'B2B Trade', geo: 'ME & Asia', dir: { x: -50, y: 50 } },
-  { num: '06', logo: '/logos/calltawklogo.png', name: 'CallTawk', sector: 'Comms Tech', geo: 'Global', dir: { x: 0, y: 60 } },
-  { num: '07', logo: '/logos/gmilogo.png', name: 'GMI Trading', sector: 'Commodity Trading', geo: 'Dubai, UAE', dir: { x: 0, y: 60 } },
-  { num: '08', logo: '/logos/stratigi360logo.png', name: 'Stratigi 360', sector: 'Strategy', geo: 'Global', dir: { x: 50, y: 50 } },
+  { num: '01', logo: '/logos/scoodalogo.png',     name: 'Thescooda',    sector: 'E-Commerce',       geo: 'Global',     dir: { x: -50, y: -50 } },
+  { num: '02', logo: '/logos/tezzlogo.png',        name: 'Tezz Logistics', sector: 'Logistics',     geo: 'India',      dir: { x: 0,   y: -60 } },
+  { num: '03', logo: '/logos/hooqxlogo.png',       name: 'Hooqx LLC',    sector: 'IT & Digital',     geo: 'USA',        dir: { x: 0,   y: -60 } },
+  { num: '04', logo: '/logos/bongologo.png',       name: 'GoBongo Shop', sector: 'D2C Retail',       geo: 'UAE',        dir: { x: 50,  y: -50 } },
+  { num: '05', logo: '/logos/tradeflinklogo.png',  name: 'Tradeflink',   sector: 'B2B Trade',        geo: 'ME & Asia',  dir: { x: -50, y: 50  } },
+  { num: '06', logo: '/logos/calltawklogo.png',    name: 'CallTawk',     sector: 'Comms Tech',       geo: 'Global',     dir: { x: 0,   y: 60  } },
+  { num: '07', logo: '/logos/gmilogo.png',         name: 'GMI Trading',  sector: 'Commodity Trading', geo: 'Dubai, UAE', dir: { x: 0,   y: 60  } },
+  { num: '08', logo: '/logos/stratigi360logo.png', name: 'Stratigi 360', sector: 'Strategy',         geo: 'Global',     dir: { x: 50,  y: 50  } },
+  { num: '09', logo: '/logos/bigbuylogovc.png',    name: 'BigBuy',       sector: 'Retail · Supermarket',     geo: 'UAE', dir: { x: -50, y: -50 } },
+  { num: '10', logo: '/logos/bigmeatlogovc.png',   name: 'BigMeat',      sector: 'Meat Supermarket',         geo: 'UAE', dir: { x: 0,   y: -60 } },
+  { num: '11', logo: '/logos/wedocxlogo.png',      name: 'WeDocX',       sector: 'HealthTech · Clinic Rental', geo: 'UAE', dir: { x: 50,  y: -50 } },
 ];
 
 const containerVariants = {
@@ -52,7 +55,7 @@ export default function EcosystemMap() {
           <div>
             <SectionTag>Our Ecosystem</SectionTag>
             <h2 className="eco-h">
-              One Group. Eight Ventures.<br /><em>Infinite Synergies.</em>
+              One Group. Eleven Ventures.<br /><em>Infinite Synergies.</em>
             </h2>
           </div>
           <p className="eco-sub">
@@ -82,7 +85,7 @@ export default function EcosystemMap() {
                 <div className="eco-parent__sub">Parent Holding Company · Delaware, USA · Est. 2017</div>
               </div>
             </div>
-            <div className="eco-parent__badge">8 Active Ventures · 7 Countries</div>
+            <div className="eco-parent__badge">11 Active Ventures · 7 Countries</div>
           </motion.div>
 
           {/* Child cells - Puzzle Logic */}

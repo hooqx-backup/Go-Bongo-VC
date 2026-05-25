@@ -19,9 +19,9 @@ import {
 import "./SectorsHero.css";
 
 const SECTORS = [
-  { Icon: ShoppingBag, label: "E-Commerce",    color: "#1A56E8", bg: "#EEF3FF", stat: "2 Ventures", pct: 72 },
-  { Icon: Truck,       label: "Logistics",      color: "#0D9488", bg: "#F0FDFB", stat: "1 Venture",  pct: 55 },
-  { Icon: Monitor,     label: "IT & Digital",   color: "#7C3AED", bg: "#F3F0FF", stat: "2 Ventures", pct: 68 },
+  { Icon: ShoppingBag, label: "E-Commerce",    color: "#1A56E8", bg: "#EEF3FF", stat: "4 Ventures", pct: 82 },
+  { Icon: Truck,       label: "Logistics",      color: "#0D9488", bg: "#F0FDFB", stat: "1 Venture",  pct: 45 },
+  { Icon: Monitor,     label: "IT & Digital",   color: "#7C3AED", bg: "#F3F0FF", stat: "2 Ventures", pct: 56 },
   { Icon: Handshake,   label: "B2B Trade",      color: "#B8892A", bg: "#FBF5E8", stat: "1 Venture",  pct: 45 },
   { Icon: Radio,       label: "Communications", color: "#E85D26", bg: "#FFF1EB", stat: "1 Venture",  pct: 38 },
   { Icon: TrendingUp,  label: "Trading",        color: "#16A34A", bg: "#F0FDF4", stat: "1 Venture",  pct: 62 },
@@ -42,7 +42,7 @@ const HEADING_LINES = [
 
 const STATS = [
   { to: 6, suffix: "",  label: "Sectors"   },
-  { to: 8, suffix: "+", label: "Ventures"  },
+  { to: 11, suffix: "+", label: "Ventures"  },
   { to: 7, suffix: "",  label: "Countries" },
 ];
 
