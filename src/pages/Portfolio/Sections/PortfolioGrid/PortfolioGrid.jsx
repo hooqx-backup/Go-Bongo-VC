@@ -40,7 +40,7 @@ export default function PortfolioGrid() {
     return [...source].sort((a, b) => {
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
-      return a.name.localeCompare(b.name);
+      return 0;
     });
   }, [activeFilter]);
 

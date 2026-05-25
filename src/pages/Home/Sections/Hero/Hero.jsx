@@ -127,7 +127,7 @@ export default function Hero() {
           <motion.div {...fadeUp(0.15)} className="hero-badge-wrap">
             <div className="hero-badge">
               <span className="hero-badge-icon">→</span>
-              <span className="hero-badge-text">7 Ventures are live &amp; growing</span>
+              <span className="hero-badge-text">11 Ventures are live &amp; growing</span>
               <span className="hero-badge-arrow">→</span>
             </div>
           </motion.div>
@@ -174,7 +174,7 @@ export default function Hero() {
               ))}
             </div>
             <span className="hero-avatar-label">
-              <strong>8 companies</strong> under one vision
+              <strong>11 companies</strong> under one vision
             </span>
           </motion.div>
         </div>
@@ -236,7 +236,7 @@ export default function Hero() {
             </div>
 
             <p className="hero-portfolio-num">
-              <Counter to={8} delay={1.1} />
+              <Counter to={11} delay={1.1} />
             </p>
             <p className="hero-portfolio-sub">Ventures across 7 countries</p>
 
@@ -348,7 +348,7 @@ export default function Hero() {
             </span>
           </div>
           <p style={{ fontSize: 32, fontWeight: 900, color: "#0D0D0B", letterSpacing: "-1.5px", lineHeight: 1, marginBottom: 3 }}>
-            <Counter to={8} delay={0.8} />
+            <Counter to={11} delay={0.8} />
           </p>
           <p style={{ fontSize: 10, color: "#94a3b8", marginBottom: 8 }}>Ventures · 7 countries</p>
           <div style={{ display: "flex", alignItems: "flex-end", gap: 3, height: 28 }}>
@@ -459,7 +459,7 @@ export default function Hero() {
         className="hero-vc-stats"
       >
         <div className="hero-vc-stat">
-          <p className="hero-vc-num"><Counter to={8} suffix="+" delay={1.2} /></p>
+          <p className="hero-vc-num"><Counter to={11} suffix="+" delay={1.2} /></p>
           <p className="hero-vc-label hero-vc-label--amber">Portfolio Companies</p>
         </div>
         <div className="hero-vc-divider" />

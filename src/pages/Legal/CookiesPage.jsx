@@ -72,7 +72,7 @@ const SECTIONS = [
     title: 'Updates to This Policy',
     content: [
       { type: 'p', text: 'We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our business practices. Any changes will be posted on this page with an updated revision date.' },
-      { type: 'p', text: 'If you have any questions about how we use cookies or would like to request more information, please contact us at privacy@gobongo.vc or write to us at GoBongo Ventures, Delaware, United States of America.' },
+      { type: 'p', text: 'If you have any questions about how we use cookies or would like to request more information, please contact us at info@gobongo.vc or write to us at GoBongo Ventures, Delaware, United States of America.' },
     ],
   },
 ];

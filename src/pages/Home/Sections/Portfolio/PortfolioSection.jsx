@@ -120,7 +120,7 @@ function VentureCard({ v, index, isVisible }) {
 
         {/* Num + badge */}
         <div className="venture-card__meta">
-          <span className="venture-card__num">{v.num} / 07</span>
+          <span className="venture-card__num">{v.num} / 11</span>
           {isF && (
             <span style={{
               fontSize: "9px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
@@ -302,10 +302,10 @@ export default function PortfolioSection() {
               Our Portfolio
             </div>
             <h2 className="portfolio-heading">
-              Seven Ventures.{" "}
+              Eleven Ventures.{" "}
               <em>One Vision.</em>
             </h2>
-            <p className="portfolio-subtext">Spanning 6 industries · 4 countries · 1 holding group</p>
+            <p className="portfolio-subtext">Spanning 6 industries · 7 countries · 1 holding group</p>
           </div>
 
           {/* Filter bar */}

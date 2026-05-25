@@ -25,7 +25,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Being part of the GoBongo ecosystem meant we had 7 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
+      "Being part of the GoBongo ecosystem meant we had 10 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
     role: "Founder",
     company: "Hooqx LLC",
     location: "United States",
@@ -35,7 +35,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Being part of the GoBongo ecosystem meant we had 7 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
+      "Being part of the GoBongo ecosystem meant we had 10 other companies as potential partners from day one. That kind of immediate network is impossible to buy.",
     role: "Founder",
     company: "Hooqx LLC",
     location: "United States",

@@ -8,7 +8,7 @@ import './Achievements.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const ACHIEVEMENTS = [
-  { icon: <Building2 />, num: '8', title: 'Active Portfolio Ventures', desc: 'Spanning e-commerce, logistics, tech, trade, communications, and strategic consulting.', type: 'blue' },
+  { icon: <Building2 />, num: '11', title: 'Active Portfolio Ventures', desc: 'Spanning e-commerce, logistics, tech, trade, communications, and strategic consulting.', type: 'blue' },
 {
   icon: <Globe2 />,
   num: '15+',

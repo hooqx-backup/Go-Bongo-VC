@@ -67,7 +67,7 @@ export default function AboutHero() {
           <motion.div className="about-hero-stats" variants={itemVariants}>
             {[
               { n: "2017", l: "Founded" },
-              { n: "8", l: "Ventures Built", plus: true },
+              { n: "11", l: "Ventures Built", plus: true },
               { n: "7", l: "Countries" }
             ].map((stat, i) => (
               <div className="ahs" key={i}>
@@ -115,7 +115,7 @@ export default function AboutHero() {
           >
             <div className="aht-dot" />
             <div>
-              <div className="aht-text">8 Ventures Active</div>
+              <div className="aht-text">11 Ventures Active</div>
               <div className="aht-sub">Growing across 7 countries</div>
             </div>
           </motion.div>

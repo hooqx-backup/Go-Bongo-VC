@@ -20,6 +20,9 @@ const PORTFOLIO = [
   { label: "Tradeflink",       path: "/portfolio/tradeflink" },
   { label: "Scooda",           path: "/portfolio/scooda" },
   { label: "Stratigi 360",     path: "/portfolio/stratigi360" },
+  { label: "BigBuy",           path: "/portfolio/bigbuy" },
+  { label: "BigMeat",          path: "/portfolio/bigmeat" },
+  { label: "WeDocX",           path: "/portfolio/wedocx" },
 ];
 const LEGAL = [
   { label: "Privacy Policy",    path: "/privacy" },

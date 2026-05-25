@@ -52,6 +52,9 @@ const MARQUEE_ITEMS = [
   { name: "Tezz Logistics", src: "/logos/tezzlogo.png" },
   { name: "Scooda",         src: "/logos/scoodalogo.png" },
   { name: "Stratigi 360",   src: "/logos/stratigi360logo.png" },
+  { name: "BigBuy",         src: "/logos/bigbuylogovc.png" },
+  { name: "BigMeat",        src: "/logos/bigmeatlogovc.png" },
+  { name: "WeDocX",         src: "/logos/wedocxlogo.png" },
 ];
 
 /* ─────────────────────────────────────

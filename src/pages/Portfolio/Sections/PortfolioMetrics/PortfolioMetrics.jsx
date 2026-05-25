@@ -13,7 +13,7 @@ import SectionTag from '../../../../common/components/SectionTag/SectionTag';
 import './PortfolioMetrics.css';
 
 const METRICS = [
-  { Icon: Building2, value: 8, suffix: '+', label: 'Portfolio Companies', accent: '#1A56E8' },
+  { Icon: Building2, value: 11, suffix: '+', label: 'Portfolio Companies', accent: '#1A56E8' },
   { Icon: Globe2, value: 7, suffix: '', label: 'Countries of Operation', accent: '#B8892A' },
   { Icon: Layers3, value: 6, suffix: '', label: 'Industry Sectors', accent: '#0D9488' },
   { Icon: Users, value: 200, suffix: '+', label: 'Team Members Across Group', accent: '#E85D26' },

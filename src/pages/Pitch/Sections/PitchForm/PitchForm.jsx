@@ -36,7 +36,7 @@ const BUBBLES = [
 ];
 
 const INFO_ITEMS = [
-  { icon: <LuMail size={18} />, label: 'Email', value: 'pitch@gobongo.vc' },
+  { icon: <LuMail size={18} />, label: 'Email', value: 'info@gobongo.vc' },
   { icon: <LuBuilding2 size={18} />, label: 'HQ', value: 'Delaware, USA' },
   { icon: <LuUsers size={18} />, label: 'Response', value: 'Founding team reviews every application' },
 ];
@@ -215,7 +215,7 @@ export default function PitchForm() {
                 transition={{ duration: 0.55, delay: 0.6 }}
               >
                 <LuTrendingUp size={12} />
-                8 ventures funded
+                11 ventures funded
               </motion.div>
               <motion.div
                 className="pf-badge pf-badge--dark"

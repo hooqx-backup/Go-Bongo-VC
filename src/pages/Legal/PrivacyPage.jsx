@@ -62,7 +62,7 @@ const SECTIONS = [
     content: [
       { type: 'p', text: 'We retain personal information for as long as necessary to fulfil the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.' },
       { type: 'p', text: 'Pitch submissions and related correspondence are retained for a period of five years following our last interaction. This allows us to reconnect with founders whose ventures may become relevant to our investment thesis at a later stage consistent with our policy that a pass is not a no forever.' },
-      { type: 'p', text: 'You may request deletion of your personal information at any time by contacting us at privacy@gobongo.vc. We will respond within 30 days.' },
+      { type: 'p', text: 'You may request deletion of your personal information at any time by contacting us at info@gobongo.vc. We will respond within 30 days.' },
     ],
   },
   {
@@ -78,7 +78,7 @@ const SECTIONS = [
         'The right to data portability (where applicable)',
         'The right to withdraw consent at any time, where processing is based on consent',
       ]},
-      { type: 'p', text: 'To exercise any of these rights, please contact us at privacy@gobongo.vc. We will not discriminate against you for exercising any of your privacy rights.' },
+      { type: 'p', text: 'To exercise any of these rights, please contact us at info@gobongo.vc. We will not discriminate against you for exercising any of your privacy rights.' },
     ],
   },
   {
@@ -95,8 +95,8 @@ const SECTIONS = [
     content: [
       { type: 'p', text: 'If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal information, please contact our team:' },
       { type: 'ul', items: [
-        'Email: privacy@gobongo.vc',
-        'General enquiries: hello@gobongo.vc',
+        'Email: info@gobongo.vc',
+        'General enquiries: info@gobongo.vc',
         'Office: GoBongo Ventures, Delaware, United States of America',
       ]},
       { type: 'p', text: 'We will make every effort to respond to your enquiry within 5 business days.' },

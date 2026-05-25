@@ -24,7 +24,7 @@ const CONTACT_INFO = [
     Icon: LuMail,
     iconColor: 'var(--brand-blue)',
     label: 'General Enquiries',
-    value: 'hello@gobongo.vc',
+    value: 'info@gobongo.vc',
     sub: "For everything that doesn't fit a category",
   },
   {
@@ -33,7 +33,7 @@ const CONTACT_INFO = [
     Icon: LuRocket,
     iconColor: 'var(--gold)',
     label: 'Founder Applications',
-    value: 'ventures@gobongo.com',
+    value: 'info@gobongo.vc',
     sub: 'Reviewed by a partner, not a junior analyst',
   },
   {
@@ -42,7 +42,7 @@ const CONTACT_INFO = [
     Icon: LuNewspaper,
     iconColor: '#0D9488',
     label: 'Press & Media',
-    value: 'press@gobongo.vc',
+    value: 'info@gobongo.vc',
     sub: 'Response within 24 hours for breaking news',
   },
 ];

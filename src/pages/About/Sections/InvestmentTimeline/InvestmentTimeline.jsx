@@ -18,10 +18,11 @@ const TIMELINE = [
   {
     color: 'teal',
     year: '2023 - Expansion',
-    title: 'Geographic reach doubles. Portfolio diversifies.',
+    title: 'Geographic reach doubles. Portfolio diversifies across six sectors.',
     milestones: [
-      'Hooqx LLC launched from the USA, digital services arm established',
+      'Hooqx LLC launched from the USA, digital services and agency arm established',
       'Tradeflink onboarded, B2B trade infrastructure across Middle East and Asia',
+      'BigBuy, BigMeat, and WeDocX added — an omnichannel supermarket, a premium halal meat retail brand, and a medical practice space rental platform',
       'Cross-portfolio synergies begin generating value: Tezz routing GoBongo Shop deliveries',
       'Group presence expands to India, Bangladesh, and North America',
     ],

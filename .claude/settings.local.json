@@ -7,7 +7,9 @@
       "WebFetch(domain:www.tradeflink.com)",
       "WebFetch(domain:calltawk.com)",
       "WebFetch(domain:gobongo.shop)",
-      "WebFetch(domain:www.gmitrading.me)"
+      "WebFetch(domain:www.gmitrading.me)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ritin\\\\Downloads\\\\Projects\\\\GoBongoVcWeb\\\\GoBongoVc\\\\src\" -Recurse -File)",
+      "Bash(Select-Object -ExpandProperty FullName)"
     ]
   }
 }
