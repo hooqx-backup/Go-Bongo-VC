@@ -1,4 +1,4 @@
-/* Static content for each blog post keyed by ID */
+﻿/* Static content for each blog post keyed by ID */
 
 export const POST_CONTENT = {
   'tezz-logistics-investment': {
@@ -426,7 +426,7 @@ export const POST_CONTENT = {
     body: [
       {
         type: 'p',
-        text: 'The UAE grocery market presents an interesting contradiction. Consumers here are among the most digitally connected in the world — smartphone penetration, app usage, and willingness to transact online are all at the top of global charts. Yet supermarket shopping remains dominated by a handful of large chains where the in-store experience has not changed meaningfully in twenty years and the online offering is an afterthought. BigBuy was built to fix both sides of that equation at once.',
+        text: 'The UAE grocery market presents an interesting contradiction. Consumers here are among the most digitally connected in the world  smartphone penetration, app usage, and willingness to transact online are all at the top of global charts. Yet supermarket shopping remains dominated by a handful of large chains where the in-store experience has not changed meaningfully in twenty years and the online offering is an afterthought. BigBuy was built to fix both sides of that equation at once.',
       },
       {
         type: 'h2',
@@ -434,7 +434,7 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'Modern UAE families do not want to choose between convenience and quality. They want the freshness guarantee of browsing produce in a well-stocked supermarket and the flexibility of getting their groceries delivered the same day when life gets busy. Most supermarket chains offer one or the other — a polished in-store experience with a clunky app bolted on, or a delivery service with a limited catalogue that does not reflect the full range available in-store.',
+        text: 'Modern UAE families do not want to choose between convenience and quality. They want the freshness guarantee of browsing produce in a well-stocked supermarket and the flexibility of getting their groceries delivered the same day when life gets busy. Most supermarket chains offer one or the other  a polished in-store experience with a clunky app bolted on, or a delivery service with a limited catalogue that does not reflect the full range available in-store.',
       },
       {
         type: 'pullquote',
@@ -446,14 +446,14 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'BigBuy operates as a full supermarket — physical store locations stocked with groceries, fresh produce, dairy, beverages, household essentials, and daily staples — alongside a digital platform where customers can browse the complete catalogue and place same-day delivery orders. The inventory is unified: what you see on the app is exactly what is available in-store, updated in real time.',
+        text: 'BigBuy operates as a full supermarket  physical store locations stocked with groceries, fresh produce, dairy, beverages, household essentials, and daily staples  alongside a digital platform where customers can browse the complete catalogue and place same-day delivery orders. The inventory is unified: what you see on the app is exactly what is available in-store, updated in real time.',
       },
       {
         type: 'ul',
         items: [
           'Physical retail stores with full supermarket range across key UAE locations',
           'App and web ordering with same-day delivery for all online orders',
-          'Unified inventory — the same products and pricing across in-store and online',
+          'Unified inventory  the same products and pricing across in-store and online',
           'Loyalty programme that accumulates points whether customers shop in-store or online',
           'Competitive pricing across grocery, fresh produce, dairy, beverages, and household essentials',
         ],
@@ -464,7 +464,7 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'The team behind BigBuy are retail operators first. They have managed store-level procurement, supplier relationships, and inventory systems in the UAE market — which means they understand the cost structures and operational rhythms that separate a supermarket that works from one that does not. The digital layer they built on top of that operational foundation is what gives BigBuy a genuine competitive advantage over incumbents who are trying to bolt e-commerce onto an existing store model.',
+        text: 'The team behind BigBuy are retail operators first. They have managed store-level procurement, supplier relationships, and inventory systems in the UAE market  which means they understand the cost structures and operational rhythms that separate a supermarket that works from one that does not. The digital layer they built on top of that operational foundation is what gives BigBuy a genuine competitive advantage over incumbents who are trying to bolt e-commerce onto an existing store model.',
       },
       {
         type: 'h3',
@@ -503,11 +503,11 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'Premium, halal-certified meat sold with transparency about its source, cut to order by people who know what they are doing, available both in a proper retail store and through a reliable same-day delivery app — that combination simply did not exist in the UAE market before BigMeat. The specialist butcher had the quality. The supermarket had the convenience. Nobody had both.',
+        text: 'Premium, halal-certified meat sold with transparency about its source, cut to order by people who know what they are doing, available both in a proper retail store and through a reliable same-day delivery app  that combination simply did not exist in the UAE market before BigMeat. The specialist butcher had the quality. The supermarket had the convenience. Nobody had both.',
       },
       {
         type: 'pullquote',
-        text: '"We saw a gap between the quality of a specialist butcher and the convenience of a supermarket. BigMeat bridges that gap for every household in the UAE — whether they want to walk in and choose their cut in person or order on the app and get it delivered within hours."',
+        text: '"We saw a gap between the quality of a specialist butcher and the convenience of a supermarket. BigMeat bridges that gap for every household in the UAE  whether they want to walk in and choose their cut in person or order on the app and get it delivered within hours."',
       },
       {
         type: 'h2',
@@ -515,14 +515,14 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'BigMeat operates as a dedicated halal meat supermarket, with physical store locations and a full online ordering platform. Customers can walk into a BigMeat store and browse a wide range of fresh cuts — beef, lamb, chicken, and specialty meats — or open the app and place a same-day delivery order from the same catalogue. The product range, pricing, and halal certification apply equally across both channels.',
+        text: 'BigMeat operates as a dedicated halal meat supermarket, with physical store locations and a full online ordering platform. Customers can walk into a BigMeat store and browse a wide range of fresh cuts  beef, lamb, chicken, and specialty meats  or open the app and place a same-day delivery order from the same catalogue. The product range, pricing, and halal certification apply equally across both channels.',
       },
       {
         type: 'ul',
         items: [
           'Physical retail stores with a full range of fresh halal-certified meat cuts',
           'Online platform with same-day delivery for all UAE orders',
-          'Expert butchery available in-store — whole cuts broken down to customer specification',
+          'Expert butchery available in-store  whole cuts broken down to customer specification',
           'Full halal certification and transparent sourcing across every product',
           'Wide selection: beef, lamb, chicken, veal, and specialty cuts',
         ],
@@ -533,7 +533,7 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'For a meat retailer operating in the UAE, halal certification is not a differentiator — it is the baseline. What makes BigMeat stand out is the transparency and consistency of that certification across every product in the range, whether it is a whole lamb shoulder or a pack of marinated chicken pieces for weeknight cooking. Customers know what they are buying and where it came from.',
+        text: 'For a meat retailer operating in the UAE, halal certification is not a differentiator  it is the baseline. What makes BigMeat stand out is the transparency and consistency of that certification across every product in the range, whether it is a whole lamb shoulder or a pack of marinated chicken pieces for weeknight cooking. Customers know what they are buying and where it came from.',
       },
       {
         type: 'h3',
@@ -564,7 +564,7 @@ export const POST_CONTENT = {
     body: [
       {
         type: 'p',
-        text: 'A doctor finishing their specialist training in the UAE faces a familiar dilemma. They want to see private patients. They have the qualifications. They have the patient demand. What they do not have is a clinic — and getting one means committing to a lease that may run three years, a fit-out that costs hundreds of thousands of dirhams, and a support infrastructure they have to build from scratch. For most independent practitioners, that barrier is simply too high. WeDocX exists to remove it.',
+        text: 'A doctor finishing their specialist training in the UAE faces a familiar dilemma. They want to see private patients. They have the qualifications. They have the patient demand. What they do not have is a clinic  and getting one means committing to a lease that may run three years, a fit-out that costs hundreds of thousands of dirhams, and a support infrastructure they have to build from scratch. For most independent practitioners, that barrier is simply too high. WeDocX exists to remove it.',
       },
       {
         type: 'h2',
@@ -572,11 +572,11 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'The UAE has an exceptional concentration of qualified medical specialists — many of whom would like to practice privately on a part-time or sessional basis alongside their hospital or clinic employment. The regulatory framework allows it. The patient demand is there. But the infrastructure to support flexible, independent practice has not existed. Clinic space in Dubai or Abu Dhabi is typically available only on long-term lease terms, with the full burden of setup, licensing, and operational management falling on the practitioner.',
+        text: 'The UAE has an exceptional concentration of qualified medical specialists  many of whom would like to practice privately on a part-time or sessional basis alongside their hospital or clinic employment. The regulatory framework allows it. The patient demand is there. But the infrastructure to support flexible, independent practice has not existed. Clinic space in Dubai or Abu Dhabi is typically available only on long-term lease terms, with the full burden of setup, licensing, and operational management falling on the practitioner.',
       },
       {
         type: 'pullquote',
-        text: '"A doctor wanting to see patients should not have to sign a 3-year lease to do it. WeDocX makes clinic space rental as straightforward as booking a hotel room — fully equipped, DHA compliant, and available for as long as you need it."',
+        text: '"A doctor wanting to see patients should not have to sign a 3-year lease to do it. WeDocX makes clinic space rental as straightforward as booking a hotel room  fully equipped, DHA compliant, and available for as long as you need it."',
       },
       {
         type: 'h2',
@@ -584,16 +584,16 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'WeDocX is a digital marketplace connecting licensed doctors and medical professionals with verified, fully equipped clinic rooms available on flexible booking terms across the UAE. Practitioners browse available spaces by location, specialty suitability, and equipment, and book by the hour, half-day, or day — with no long-term commitment required. Every space listed on the platform meets DHA and MOH requirements for licensed medical practice.',
+        text: 'WeDocX is a digital marketplace connecting licensed doctors and medical professionals with verified, fully equipped clinic rooms available on flexible booking terms across the UAE. Practitioners browse available spaces by location, specialty suitability, and equipment, and book by the hour, half-day, or day  with no long-term commitment required. Every space listed on the platform meets DHA and MOH requirements for licensed medical practice.',
       },
       {
         type: 'ul',
         items: [
           'Browse and book clinic rooms, consultation suites, and procedure spaces by the hour or day',
           'All listed spaces are verified, fully equipped, and compliant with DHA and MOH licensing requirements',
-          'Doctor profile pages included — patients can find and book directly with their practitioner',
+          'Doctor profile pages included  patients can find and book directly with their practitioner',
           'Spaces include reception access, waiting areas, and essential medical equipment as standard',
-          'Instant confirmation and digital contract — no back-and-forth negotiations',
+          'Instant confirmation and digital contract  no back-and-forth negotiations',
         ],
       },
       {
@@ -602,7 +602,7 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'The UAE has a mature private healthcare market where patients are comfortable paying for quality specialist consultations. It also has a large pool of qualified specialists who are currently locked out of private practice by the capital and commitment required to establish their own clinic. WeDocX unlocks that supply — turning existing medical real estate into flexible, bookable inventory while giving independent practitioners a credible, fully compliant space to see patients without the overhead.',
+        text: 'The UAE has a mature private healthcare market where patients are comfortable paying for quality specialist consultations. It also has a large pool of qualified specialists who are currently locked out of private practice by the capital and commitment required to establish their own clinic. WeDocX unlocks that supply  turning existing medical real estate into flexible, bookable inventory while giving independent practitioners a credible, fully compliant space to see patients without the overhead.',
       },
       {
         type: 'h3',
@@ -610,7 +610,7 @@ export const POST_CONTENT = {
       },
       {
         type: 'p',
-        text: 'WeDocX is expanding its supply of listed spaces across Dubai and Abu Dhabi in 2025, with a focus on bringing on spaces in medical clusters like Healthcare City and areas with high practitioner density. The platform is also developing a patient-facing booking flow, allowing practitioners to share their WeDocX profile as their public practice page — turning every listed space into a miniature private clinic without any of the setup costs.',
+        text: 'WeDocX is expanding its supply of listed spaces across Dubai and Abu Dhabi in 2025, with a focus on bringing on spaces in medical clusters like Healthcare City and areas with high practitioner density. The platform is also developing a patient-facing booking flow, allowing practitioners to share their WeDocX profile as their public practice page  turning every listed space into a miniature private clinic without any of the setup costs.',
       },
     ],
   },

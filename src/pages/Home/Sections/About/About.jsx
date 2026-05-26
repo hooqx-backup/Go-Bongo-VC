@@ -22,7 +22,7 @@ const RING_LOGOS = [
   ],
   [
     { label: "Tezz",         src: "/logos/tezzlogo.png" },
-    { label: "Scooda",       src: "/logos/scoodalogo.png" },
+    { label: "Thescooda",    src: "/logos/scoodalogo.png" },
     { label: "Hooqx",        src: "/logos/hooqxlogo.png" },
     { label: "TradeFlink",   src: "/logos/tradeflinklogo.png" },
   ],

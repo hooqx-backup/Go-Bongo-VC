@@ -1,4 +1,4 @@
-export const ventures = [
+﻿export const ventures = [
   {
     id: 1, num: "01",
     name: "GoBongo Shop",
@@ -108,7 +108,7 @@ export const ventures = [
   },
   {
     id: 8, num: "08",
-    name: "Scooda",
+    name: "Thescooda",
     tagline: "B2B Cross-Border Trade Platform",
     sectorKey: "trade", sectorLabel: "B2B Trade · Fintech",
     desc: "Connecting buyers and suppliers across borders with streamlined B2B procurement infrastructure and trade facilitation built for the Middle East and Asian markets.",
@@ -126,7 +126,7 @@ export const ventures = [
     name: "BigBuy",
     tagline: "Omnichannel Supermarket",
     sectorKey: "commerce", sectorLabel: "Retail · Supermarket",
-    desc: "Online and in-store supermarket serving UAE families with groceries, fresh produce, and household essentials — shop on the app or walk in, with same-day delivery available.",
+    desc: "Online and in-store supermarket serving UAE families with groceries, fresh produce, and household essentials  shop on the app or walk in, with same-day delivery available.",
     geo: "Dubai, UAE", url: "https://bigbuy.com",
     logo: "/logos/bigbuylogovc.png",
     logoBg: "#000000", accent: "#EA580C",
@@ -141,7 +141,7 @@ export const ventures = [
     name: "BigMeat",
     tagline: "Premium Halal Meat Supermarket",
     sectorKey: "commerce", sectorLabel: "Retail · Meat Supermarket",
-    desc: "Dedicated halal meat supermarket operating online and in-store across UAE — fresh cuts, expert butchery, and same-day delivery, bringing specialist quality to everyday shoppers.",
+    desc: "Dedicated halal meat supermarket operating online and in-store across UAE  fresh cuts, expert butchery, and same-day delivery, bringing specialist quality to everyday shoppers.",
     geo: "Dubai, UAE", url: "https://bigmeat.com",
     logo: "/logos/bigmeatlogovc.png",
     logoBg: "#000000", accent: "#DC2626",
@@ -156,7 +156,7 @@ export const ventures = [
     name: "WeDocX",
     tagline: "Medical Practice Space Marketplace",
     sectorKey: "tech", sectorLabel: "HealthTech · Space Rental",
-    desc: "Digital marketplace connecting licensed doctors with fully equipped clinic rooms bookable by the hour, day, or week — practice without the overhead of a permanent lease.",
+    desc: "Digital marketplace connecting licensed doctors with fully equipped clinic rooms bookable by the hour, day, or week  practice without the overhead of a permanent lease.",
     geo: "Dubai, UAE", url: "https://wedocx.com",
     logo: "/logos/wedocxlogo.png",
     logoBg: "#000000", accent: "#0D9488",

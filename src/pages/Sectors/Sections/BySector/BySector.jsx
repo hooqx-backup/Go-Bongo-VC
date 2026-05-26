@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -107,7 +107,7 @@ export default function BySector() {
             Every Venture Mapped<br />to <em className="shimmer-blue">Its Sector</em>
           </h2>
           <p className="bs-sub">
-            Eleven ventures across six industries — each one chosen because it sits inside
+            Eleven ventures across six industries  each one chosen because it sits inside
             a structural transformation we have deep conviction in.
           </p>
         </MotionDiv>

@@ -633,14 +633,14 @@
   .pcp-flex-card { height: 250px; flex: none !important; }
   .related-grid { grid-template-columns: 1fr 1fr; }
 
-  /* On mobile, drawer opens downward instead of rightward */
+  /* On tablet+, drawer opens downward, anchored to button left edge */
   .mdsb-drawer {
-    left: 50%;
+    left: 0;
     top: 100%;
-    transform: translateX(-50%);
+    transform: none;
     height: 0;
-    width: 240px;
-    border-radius: 0 0 20px 20px;
+    width: clamp(200px, 50vw, 260px);
+    border-radius: 0 20px 20px 20px;
   }
   .mdsb-root:hover .mdsb-drawer { height: 118px; }
   .mdsb-root:hover .mdsb-core {
@@ -650,25 +650,107 @@
 }
 
 @media (max-width: 768px) {
-  .pcp-sidebar-inner { padding: 40px 24px; }
-  .hatke-title { font-size: 36px; margin: 0; }
-  .hatke-mini-stats { grid-template-columns: 1fr; }
+  /* Layout */
+  .pcp-sidebar-inner { padding: 40px 24px 32px; }
   .pcp-scroll-content { padding: 0 24px; }
-  .pcp-visit-banner { padding: 32px 0; margin-bottom: 60px; }
-  .pvb-stamp { width: 80px; height: 80px; margin-left: 24px; }
-  .pvb-stamp-core { width: 48px; height: 48px; }
-  .hatke-marquee-section { margin: 60px 0; border-radius: 16px; }
+  .pcp-scroll-inner { padding: 60px 0; }
+  .hatke-section { margin-bottom: 56px; }
+  .pcp-sticky-sidebar { border-bottom: 1px solid rgba(0,0,0,0.08); }
+
+  /* Sidebar — show all content, just scaled */
+  .hatke-logo-glow { display: none; }
+  .hatke-logo-box { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 18px; }
+  .hatke-logo-box img { width: 36px; height: 36px; }
+  .hatke-meta { flex-wrap: wrap; }
+  .hatke-title { font-size: clamp(30px, 7vw, 40px); margin: 0 0 20px; }
+  .sidebar-center { margin: 28px 0; }
+  .sidebar-bottom { overflow: visible; }
+  .hatke-sidebar-modules { gap: 12px; max-width: 100%; }
+  .hatke-mini-stats { grid-template-columns: 1fr 1fr; }
+
+  /* Content */
+  .hatke-hero-tagline { font-size: 26px; }
+  .hatke-paragraph { font-size: 16px; line-height: 1.75; }
+  .drop-cap::first-letter { font-size: 52px; padding-right: 8px; }
+
+  /* Visit banner */
+  .pcp-visit-banner { padding: 28px 0; margin-bottom: 56px; }
+  .pvb-wordmark { font-size: clamp(32px, 9vw, 48px); }
+  .pvb-stamp { width: 76px; height: 76px; margin-left: 20px; }
+  .pvb-stamp-core { width: 46px; height: 46px; }
+
+  /* Marquee stats */
+  .hatke-marquee-section { margin: 56px 0; border-radius: 16px; padding: 28px 0; }
+  .hatke-stat-item { padding: 0 28px; gap: 8px; }
   .hatke-stat-item strong { font-size: 32px; }
-  .hatke-modern-list li { font-size: 16px; padding: 20px 0; }
+  .hatke-stat-item span { font-size: 11px; }
+
+  /* Accordion */
+  .pcp-flex-card { height: auto; min-height: 160px; }
+  .flex-card-content h3 { font-size: 22px; }
+
+  /* Quote */
+  .hatke-quote-block { padding: 28px; border-radius: 18px; }
+  .hatke-quote-block blockquote { font-size: 22px; }
+
+  /* Highlights */
+  .hatke-modern-list li { font-size: 15px; padding: 18px 0; gap: 14px; }
+
+  /* Related grid */
   .related-inner { padding: 0 24px; }
   .related-grid { grid-template-columns: 1fr; }
+  .pcp-related-hatke { padding: 64px 0; }
+}
 
-  /* Sidebar: only company name on mobile */
-  .hatke-logo-box,
-  .hatke-logo-glow,
-  .hatke-meta,
-  .hatke-sidebar-modules,
-  .sidebar-bottom { display: none; }
-  .sidebar-center { margin: 0; }
-  .pcp-sticky-sidebar { border-bottom: 1px solid rgba(0,0,0,0.08); }
+@media (max-width: 480px) {
+  /* Layout */
+  .pcp-sidebar-inner { padding: 32px 20px 28px; }
+  .pcp-scroll-content { padding: 0 20px; }
+  .pcp-scroll-inner { padding: 44px 0; }
+  .hatke-section { margin-bottom: 44px; }
+  .hatke-section-title { font-size: 11px; margin-bottom: 20px; }
+
+  /* Sidebar */
+  .hatke-logo-box { width: 60px; height: 60px; margin-bottom: 14px; }
+  .hatke-logo-box img { width: 30px; height: 30px; }
+  .hatke-title { font-size: clamp(26px, 7vw, 34px); margin: 0 0 16px; }
+  .hatke-quick-facts li { font-size: 13px; }
+  .sidebar-center { margin: 20px 0; }
+  .hatke-mini-stats { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hatke-mini-stat { padding: 10px; }
+  .hatke-mini-stat strong { font-size: 20px; }
+
+  /* Content */
+  .hatke-hero-tagline { font-size: 22px; }
+  .hatke-paragraph { font-size: 15px; }
+  .drop-cap::first-letter { font-size: 42px; padding-right: 6px; }
+
+  /* Visit banner */
+  .pcp-visit-banner { padding: 24px 0; margin-bottom: 44px; }
+  .pvb-wordmark { font-size: clamp(26px, 8vw, 36px); }
+  .pvb-stamp { width: 64px; height: 64px; margin-left: 16px; }
+  .pvb-stamp-core { width: 40px; height: 40px; }
+
+  /* Marquee stats */
+  .hatke-marquee-section { margin: 44px 0; padding: 22px 0; border-radius: 14px; }
+  .hatke-stat-item { padding: 0 20px; }
+  .hatke-stat-item strong { font-size: 26px; }
+
+  /* Accordion */
+  .pcp-flex-card { padding: 24px 20px; min-height: 130px; border-radius: 18px; }
+  .flex-card-content h3 { font-size: 20px; }
+  .flex-card-content p { font-size: 14px; }
+
+  /* Quote */
+  .hatke-quote-block { padding: 22px 20px; }
+  .hatke-quote-block blockquote { font-size: 19px; }
+
+  /* Highlights */
+  .hatke-modern-list li { font-size: 14px; padding: 16px 0; gap: 12px; }
+
+  /* Related */
+  .related-inner { padding: 0 20px; }
+  .pcp-related-hatke { padding: 48px 0; }
+  .related-card { padding: 18px; gap: 14px; }
+  .related-card h3 { font-size: 16px; }
 }

@@ -156,7 +156,7 @@ export default function Navbar() {
             })}
             <hr style={{ border: "none", borderTop: "1px solid #f1f5f9", margin: "8px 0" }} />
             
-            <Button to="/pitch" style={{ marginTop: 8, width: "100%", borderRadius: 12 }}>
+            <Button to="/pitch" style={{ marginTop: 8, width: "100%", borderRadius: 12 }} onClick={() => setIsMobileMenuOpen(false)}>
               Create a Unicorn →
             </Button>
           </motion.div>
