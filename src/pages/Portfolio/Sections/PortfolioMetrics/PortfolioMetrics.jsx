@@ -83,9 +83,9 @@ export default function PortfolioMetrics() {
 
         <div className="pmet-grid">
           {METRICS.map((m, i) => (
-            <RevealWrapper key={m.label} delay={i * 0.06}>
+            <RevealWrapper key={m.label} delay={i * 0.06} className={i === METRICS.length - 1 ? 'pmet-last-wrapper' : ''}>
               <motion.div
-                className="pmet-cell"
+                className={`pmet-cell${i === METRICS.length - 1 ? ' pmet-cell--last' : ''}`}
                 custom={i}
                 initial="hidden"
                 whileInView="visible"

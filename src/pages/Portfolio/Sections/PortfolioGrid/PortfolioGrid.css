@@ -66,15 +66,19 @@
 /* Default flip: LEFT for most cards */
 .pgrid-card-wrapper:hover .pgrid-book-cover { transform: rotateY(-155deg); box-shadow: 25px 15px 40px rgba(0,0,0,0.12); }
 
-/* Desktop (>720px): 1st and 4th cards flip RIGHT */
+/* Desktop (>720px): 1st, 4th, 7th, 10th cards (left column in 3-col) flip RIGHT */
 @media (min-width: 721px) {
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-book-cover,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-book-cover {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-book-cover {
     transform-origin: right center;
   }
 
   .pgrid-grid .pgrid-card-wrapper:nth-child(1):hover .pgrid-book-cover,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4):hover .pgrid-book-cover {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10):hover .pgrid-book-cover {
     transform: rotateY(155deg);
     box-shadow: -25px 15px 40px rgba(0,0,0,0.12);
   }
@@ -98,6 +102,86 @@
   }
 }
 
+/* Mid-range tablet (2-col, 721px–1131px): correct flip directions for all left-column cards.
+   Position 3,5,7,9,11 are left-column → flip right.
+   Position 4 (desktop rule sets it right) must be reset → flip left (it's right-column in 2-col). */
+@media (min-width: 721px) and (max-width: 1131px) {
+  /* Reset nth-child(4) and nth-child(10) — desktop sets them right-flip, but in 2-col they sit in the right column */
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-book-cover {
+    transform-origin: left center;
+  }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10):hover .pgrid-book-cover {
+    transform: rotateY(-155deg);
+    box-shadow: 25px 15px 40px rgba(0,0,0,0.12);
+  }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-cover-front {
+    border-left: 6px solid #e0e0e0;
+    border-right: 1px solid rgba(0,0,0,0.03);
+  }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner { right: -1px; left: auto; }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner-top { border-left: none; border-right: 2px solid #c0c0c0; border-bottom: none; border-radius: 0 18px 0 0; }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner-bottom { border-left: none; border-right: 2px solid #c0c0c0; border-top: none; border-radius: 0 0 18px 0; }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-open { left: 16px; right: auto; }
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-cover-back { border-right: 6px solid #2a2a2a; border-left: none; }
+
+  /* Left-column cards (odd positions 3–11) → flip right */
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-book-cover { transform-origin: right center; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9):hover .pgrid-book-cover,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11):hover .pgrid-book-cover { transform: rotateY(155deg); box-shadow: -25px 15px 40px rgba(0,0,0,0.12); }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-cover-front { border-left: 1px solid rgba(0,0,0,0.03); border-right: 6px solid #e0e0e0; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-metal-corner { right: auto; left: -1px; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-metal-corner-top { border-left: 2px solid #c0c0c0; border-right: none; border-bottom: none; border-radius: 18px 0 0 0; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-metal-corner-bottom { border-left: 2px solid #c0c0c0; border-right: none; border-top: none; border-radius: 0 0 0 18px; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-open { left: auto; right: 16px; }
+
+  .pgrid-grid .pgrid-card-wrapper:nth-child(3) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(5) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(9) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(11) .pgrid-cover-back { border-right: none; border-left: 6px solid #2a2a2a; }
+}
+
 /* --- FRONT COVER WRAPPER --- */
 .pgrid-cover-front {
   position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px;
@@ -107,10 +191,12 @@
   overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-/* Desktop (>720px): Flip borders for 1st and 4th cards */
+/* Desktop (>720px): Flip borders for 1st, 4th, 7th, 10th cards */
 @media (min-width: 721px) {
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-cover-front,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-front {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-cover-front,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-cover-front {
     border-left: 1px solid rgba(0,0,0,0.03);
     border-right: 6px solid #e0e0e0;
   }
@@ -140,16 +226,20 @@
 .pgrid-metal-corner-top { top: -1px; border-left: none; border-bottom: none; border-radius: 0 18px 0 0; }
 .pgrid-metal-corner-bottom { bottom: -1px; border-left: none; border-top: none; border-radius: 0 0 18px 0; }
 
-/* Desktop (>720px): Mirrored corners for 1st and 4th cards */
+/* Desktop (>720px): Mirrored corners for 1st, 4th, 7th, 10th cards */
 @media (min-width: 721px) {
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-metal-corner,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner {
     right: auto;
     left: -1px;
   }
 
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-metal-corner-top,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-top {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner-top,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner-top {
     border-left: 2px solid #c0c0c0;
     border-right: none;
     border-bottom: none;
@@ -157,7 +247,9 @@
   }
 
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-metal-corner-bottom,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-bottom {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-metal-corner-bottom,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-metal-corner-bottom {
     border-left: 2px solid #c0c0c0;
     border-right: none;
     border-top: none;
@@ -202,10 +294,12 @@
 .pgrid-logo-inner img { width: 45px; height: 45px; object-fit: contain; }
 .pgrid-open { position: absolute; top: 16px; left: 16px; background: #ffffff; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 6px 12px; border-radius: 100px; z-index: 10; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); color: #000; }
 
-/* Desktop (>720px): Move "Open" button to right for 1st and 4th cards */
+/* Desktop (>720px): Move "Open" button to right for 1st, 4th, 7th, 10th cards */
 @media (min-width: 721px) {
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-open,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-open {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-open,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-open {
     left: auto;
     right: 16px;
   }
@@ -250,10 +344,12 @@
   overflow: hidden; border-right: 6px solid #2a2a2a;
 }
 
-/* Desktop (>720px): Flip border for 1st and 4th cards */
+/* Desktop (>720px): Flip border for 1st, 4th, 7th, 10th cards */
 @media (min-width: 721px) {
   .pgrid-grid .pgrid-card-wrapper:nth-child(1) .pgrid-cover-back,
-  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-back {
+  .pgrid-grid .pgrid-card-wrapper:nth-child(4) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(7) .pgrid-cover-back,
+  .pgrid-grid .pgrid-card-wrapper:nth-child(10) .pgrid-cover-back {
     border-right: none;
     border-left: 6px solid #2a2a2a;
   }

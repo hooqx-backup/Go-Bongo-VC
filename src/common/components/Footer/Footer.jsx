@@ -18,7 +18,7 @@ const PORTFOLIO = [
   { label: "GMI Trading",      path: "/portfolio/gmitrading" },
   { label: "Tezz Logistics",   path: "/portfolio/tezzlogistics" },
   { label: "Tradeflink",       path: "/portfolio/tradeflink" },
-  { label: "Scooda",           path: "/portfolio/scooda" },
+  { label: "Thescooda",        path: "/portfolio/thescooda" },
   { label: "Stratigi 360",     path: "/portfolio/stratigi360" },
   { label: "BigBuy",           path: "/portfolio/bigbuy" },
   { label: "BigMeat",          path: "/portfolio/bigmeat" },
